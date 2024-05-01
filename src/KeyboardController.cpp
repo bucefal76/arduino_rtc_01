@@ -15,7 +15,7 @@ KeyboardController *KeyboardController::getInstance()
 }
 
 KeyboardController::KeyboardController()
-    : m_isButtonBackPressDown(false), m_isButtonUpPressDown(false), m_isButtonDownPressDown(false), m_isButtonNextPressDown(false),m_ButtonCode(BUTTON_CODE_NONE)
+    : m_isButtonBackPressDown(false), m_isButtonUpPressDown(false), m_isButtonDownPressDown(false), m_isButtonNextPressDown(false), m_ButtonCode(BUTTON_CODE_NONE)
 {
     pinMode(BUTTON_BACK_IO_LINE, INPUT);
     pinMode(BUTTON_UP_IO_LINE, INPUT);
@@ -113,14 +113,15 @@ bool KeyboardController::isButtonPressDown() const
     {
         return true;
     }
-    else{
+    else
+    {
         return false;
     }
 }
 
-KeyboardControllerIf::ButtonCode KeyboardController::getButtonCode() 
+KeyboardControllerIf::ButtonCode KeyboardController::getButtonCode()
 {
     KeyboardControllerIf::ButtonCode code = m_ButtonCode;
-    m_ButtonCode =  KeyboardControllerIf::ButtonCode::BUTTON_CODE_NONE;
+    m_ButtonCode = KeyboardControllerIf::ButtonCode::BUTTON_CODE_NONE;
     return code;
 }

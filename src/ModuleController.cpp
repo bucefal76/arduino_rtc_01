@@ -1,11 +1,9 @@
 #include "ModuleController.hpp"
 #include "KeyboardControllerIf.hpp"
 #include "MenuViewIf.hpp"
-#include "TimeView.hpp"
-
-static const char *CAPTION_MENU = "MENU\0";
-static const char *CAPTION_SET_TIME = "SET TIME\0";
-static const char *CAPTION_SET_DATE = "SET DATE\0";
+#include "ViewIf.hpp"
+#include "States/StateBase.hpp"
+#include "States/StateDisplayingTime.hpp"
 
 ModuleController *ModuleController::m_pInstance = nullptr;
 
@@ -19,8 +17,11 @@ ModuleController *ModuleController::getInstance()
 }
 
 ModuleController::ModuleController()
-    : m_State(STATE_DISPLAYING_TIME), m_KeyboardController(nullptr), m_TimeView(nullptr), m_MenuView(nullptr), m_ExtendedMenuView(nullptr)
+    : m_KeyboardController(nullptr)
 {
+    // Initalize the state machine with first state
+    StateBase::setCurrentState(StateDisplayingTime::getInstance());
+
     setInterval(STATE_MACHINE_UPDATE_TIME_INTERVAL_MS);
     onRun(onRunCallback);
     enabled = true;
@@ -33,87 +34,17 @@ void ModuleController::setKeyboardController(KeyboardControllerIf *keyboardContr
 
 void ModuleController::setViews(ViewIf *timeView, ViewIf *menuView, MenuViewIf *extendedMenuView)
 {
-    m_TimeView = timeView;
-    m_MenuView = menuView;
-    m_ExtendedMenuView = extendedMenuView;
+    /// Initalize state machine with views to play with:
+    StateBase::setViews(timeView, menuView, extendedMenuView);
 }
 
 void ModuleController::update()
 {
-    if (nullptr != m_KeyboardController)
+    if (m_KeyboardController->isButtonPressDown())
     {
-        if (m_KeyboardController->isButtonPressDown())
-        {
-            const KeyboardControllerIf::ButtonCode button = m_KeyboardController->getButtonCode();
+        const KeyboardControllerIf::ButtonCode button = m_KeyboardController->getButtonCode();
 
-            switch (m_State)
-            {
-                case STATE_DISPLAYING_TIME:
-                {
-                    if (KeyboardControllerIf::ButtonCode::BUTTON_CODE_BACK == button)
-                    {
-                        m_TimeView->disable();
-                        m_MenuView->enable();
-                        m_ExtendedMenuView->setTitle(CAPTION_MENU);
-                        m_ExtendedMenuView->setContent(CAPTION_SET_DATE);
-
-                        m_State = STATE_DISPLAYING_MENU_SET_DATE;
-                    }
-                    else if (KeyboardControllerIf::ButtonCode::BUTTON_CODE_NEXT == button)
-                    {
-                        m_TimeView->disable();
-                        m_MenuView->enable();
-                        m_ExtendedMenuView->setTitle(CAPTION_MENU);
-                        m_ExtendedMenuView->setContent(CAPTION_SET_TIME);
-
-                        m_State = STATE_DISPLAYING_MENU_SET_TIME;
-                    }
-
-                    break;
-                }
-
-                case STATE_DISPLAYING_MENU_SET_TIME:
-                {
-                    if (KeyboardControllerIf::ButtonCode::BUTTON_CODE_BACK == button)
-                    {
-                        m_ExtendedMenuView->setTitle(CAPTION_MENU);
-                        m_ExtendedMenuView->setContent(CAPTION_SET_DATE);
-
-                        m_State = STATE_DISPLAYING_MENU_SET_DATE;
-                    }
-                    else if (KeyboardControllerIf::ButtonCode::BUTTON_CODE_NEXT == button)
-                    {
-                        m_MenuView->disable();
-                        m_TimeView->enable();
-
-                        m_State = STATE_DISPLAYING_TIME;
-                    }
-
-                    break;
-                }
-
-                case STATE_DISPLAYING_MENU_SET_DATE:
-                {
-                    if (KeyboardControllerIf::ButtonCode::BUTTON_CODE_BACK == button)
-                    {
-                        m_MenuView->disable();
-                        m_TimeView->enable();
-                        
-                        m_State = STATE_DISPLAYING_TIME;                        
-                    }
-                    else if (KeyboardControllerIf::ButtonCode::BUTTON_CODE_NEXT == button)
-                    {
-                        m_ExtendedMenuView->setTitle(CAPTION_MENU);
-                        m_ExtendedMenuView->setContent(CAPTION_SET_TIME);
-
-                        m_State = STATE_DISPLAYING_MENU_SET_TIME;
-                    }
-
-                    break;                    
-                }
-            
-            }
-        }
+        StateBase::getCurrentState()->processButton(button);
     }
 }
 

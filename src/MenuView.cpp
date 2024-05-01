@@ -29,12 +29,11 @@ static uint8_t barChars[MENU_SPECIAL_CHARACTER_COUNT][MENU_SPECIAL_CHARACTER_SIZ
      B01111,
      B01110,
      B01100,
-     B01000}
-};
+     B01000}};
 
-MenuView* MenuView::m_pInstance = nullptr;
+MenuView *MenuView::m_pInstance = nullptr;
 
-MenuView* MenuView::getInstance()
+MenuView *MenuView::getInstance()
 {
     if (nullptr == m_pInstance)
     {
@@ -44,19 +43,14 @@ MenuView* MenuView::getInstance()
 }
 
 MenuView::MenuView()
-: m_pLcd(nullptr)
-, m_isInitialized(false)
-, m_Title(nullptr)
-, m_Content(nullptr)
-, m_TitlePos(0U)
-, m_ContentPos(0U)
+    : m_pLcd(nullptr), m_isInitialized(false), m_Title(nullptr), m_Content(nullptr), m_TitlePos(0U), m_ContentPos(0U)
 {
     setInterval(STATE_MACHINE_UPDATE_TIME_INTERVAL_MS);
     onRun(onRunCallback);
     enabled = false;
 }
 
-void MenuView::setTitle(const char* title)
+void MenuView::setTitle(const char *title)
 {
     m_Title = title;
     const int length = strlen(m_Title);
@@ -64,7 +58,7 @@ void MenuView::setTitle(const char* title)
     m_TitlePos = m_TitlePos / 2;
 }
 
-void MenuView::setContent(const char* content)
+void MenuView::setContent(const char *content)
 {
     m_Content = content;
     const int length = strlen(m_Content);
@@ -72,7 +66,7 @@ void MenuView::setContent(const char* content)
     m_ContentPos = m_ContentPos / 2;
 }
 
-void MenuView::setLcd(LiquidCrystal* pLcd)
+void MenuView::setLcd(LiquidCrystal *pLcd)
 {
     m_pLcd = pLcd;
 }
@@ -81,7 +75,7 @@ void MenuView::enable()
 {
     if (nullptr != m_pLcd)
     {
-        if(!m_isInitialized)
+        if (!m_isInitialized)
         {
             m_pLcd->createChar(MENU_SPECIAL_CHARACTER_BACK, &barChars[MENU_SPECIAL_CHARACTER_BACK][0]);
             m_pLcd->createChar(MENU_SPECIAL_CHARACTER_NEXT, &barChars[MENU_SPECIAL_CHARACTER_NEXT][0]);
@@ -90,7 +84,7 @@ void MenuView::enable()
         m_pLcd->clear();
     }
 }
-    
+
 void MenuView::disable()
 {
     enabled = false;
@@ -100,10 +94,10 @@ void MenuView::update()
 {
     if (nullptr != m_pLcd)
     {
-        m_pLcd->setCursor(MENU_SPECIAL_CHARACTER_BACK_COLUMN_POSITION,1U);        
+        m_pLcd->setCursor(MENU_SPECIAL_CHARACTER_BACK_COLUMN_POSITION, 1U);
         m_pLcd->write(byte(MENU_SPECIAL_CHARACTER_BACK));
-        m_pLcd->setCursor(MENU_SPECIAL_CHARACTER_NEXT_COLUMN_POSITION,1U);
-        m_pLcd->write(byte(MENU_SPECIAL_CHARACTER_NEXT));    
+        m_pLcd->setCursor(MENU_SPECIAL_CHARACTER_NEXT_COLUMN_POSITION, 1U);
+        m_pLcd->write(byte(MENU_SPECIAL_CHARACTER_NEXT));
 
         m_pLcd->setCursor(m_TitlePos, MENU_TITLE_ROW);
         m_pLcd->write(m_Title);

@@ -8,6 +8,9 @@
 #include "ModuleController.hpp"
 #include "TimeView.hpp"
 
+
+#define USE_SERIAL
+
 /*
 #define DAT_IO D4
 #define CLK D5
@@ -41,17 +44,21 @@ void printDateTime(const RtcDateTime &dt)
 
 void setup()
 {
+  #ifdef USE_SERIAL
   Serial.begin(9600);
 
-  Serial.print("compiled: ");
-  Serial.print(__DATE__);
-  Serial.println(__TIME__);
+  Serial.print(F("compiled: "));
+  Serial.print(F(__DATE__));
+  Serial.println(F(__TIME__));
+  #endif
 
   rtc.Begin();
 
   RtcDateTime compiled = RtcDateTime(__DATE__, __TIME__);
   printDateTime(compiled);
+  #ifdef USE_SERIAL
   Serial.println();
+  #endif
 
   if (!rtc.IsDateTimeValid())
   {
@@ -59,35 +66,47 @@ void setup()
     //    1) first time you ran and the device wasn't running yet
     //    2) the battery on the device is low or even missing
 
-    Serial.println("RTC lost confidence in the DateTime!");
+    #ifdef USE_SERIAL
+    Serial.println(F("RTC lost confidence in the DateTime!"));
+    #endif
     rtc.SetDateTime(compiled);
   }
 
   if (rtc.GetIsWriteProtected())
   {
-    Serial.println("RTC was write protected, enabling writing now");
+    #ifdef USE_SERIAL
+    Serial.println(F("RTC was write protected, enabling writing now"));
+    #endif
     rtc.SetIsWriteProtected(false);
   }
 
   if (!rtc.GetIsRunning())
   {
-    Serial.println("RTC was not actively running, starting now");
+    #ifdef USE_SERIAL
+    Serial.println(F("RTC was not actively running, starting now"));
+    #endif
     rtc.SetIsRunning(true);
   }
 
   RtcDateTime now = rtc.GetDateTime();
   if (now < compiled)
   {
-    Serial.println("RTC is older than compile time!  (Updating DateTime)");
+    #ifdef USE_SERIAL
+    Serial.println(F("RTC is older than compile time!  (Updating DateTime)"));
+    #endif
     rtc.SetDateTime(compiled);
   }
   else if (now > compiled)
   {
-    Serial.println("RTC is newer than compile time. (this is expected)");
+    #ifdef USE_SERIAL
+    Serial.println(F("RTC is newer than compile time. (this is expected)"));
+    #endif
   }
   else if (now == compiled)
   {
-    Serial.println("RTC is the same as compile time! (not expected but all is fine)");
+    #ifdef USE_SERIAL
+    Serial.println(F("RTC is the same as compile time! (not expected but all is fine)"));
+    #endif
   }
 
   LiquidCrystal* lcd = new LiquidCrystal(RS, EN, D4, D5, D6, D7);

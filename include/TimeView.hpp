@@ -13,11 +13,11 @@ class TimeView : public Thread, public ViewIf
 public:
     static TimeView *getInstance();
 
-    TimeView();    
+    TimeView();
 
     void setRtc(RtcDS1302<ThreeWire> *pRtc);
 
-    virtual void setLcd(LiquidCrystal* pLcd);
+    virtual void setLcd(LiquidCrystal *pLcd);
     virtual void enable();
     virtual void disable();
 
