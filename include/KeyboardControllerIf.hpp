@@ -5,7 +5,6 @@ class KeyboardControllerIf
 {
 
 public:
-
     enum ButtonCode
     {
         BUTTON_CODE_NONE = 0,
@@ -18,7 +17,6 @@ public:
     virtual bool isButtonPressDown() const = 0;
 
     virtual ButtonCode getButtonCode() = 0;
-
 };
 
 #endif

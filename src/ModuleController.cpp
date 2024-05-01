@@ -44,7 +44,10 @@ void ModuleController::update()
     {
         const KeyboardControllerIf::ButtonCode button = m_KeyboardController->getButtonCode();
 
-        StateBase::getCurrentState()->processButton(button);
+        if (KeyboardControllerIf::ButtonCode::BUTTON_CODE_NONE != button)
+        {
+            StateBase::getCurrentState()->processButton(button);
+        }
     }
 }
 

@@ -1,6 +1,7 @@
 #include "States/StateDisplayingMenuSetExit.hpp"
 #include "States/StateDisplayingMenuSetTime.hpp"
 #include "States/StateDisplayingMenuSetDate.hpp"
+#include "States/StateDisplayingTime.hpp"
 #include "ViewIf.hpp"
 #include "MenuViewIf.hpp"
 
@@ -8,7 +9,7 @@ static const char *CAPTION_EXIT = "EXIT\0";
 
 StateDisplayingMenuSetExit StateDisplayingMenuSetExit::m_Instance;
 
-StateBase* StateDisplayingMenuSetExit::getInstance()
+StateBase *StateDisplayingMenuSetExit::getInstance()
 {
     return &m_Instance;
 }
@@ -17,11 +18,15 @@ void StateDisplayingMenuSetExit::processButton(const KeyboardControllerIf::Butto
 {
     if (KeyboardControllerIf::ButtonCode::BUTTON_CODE_NEXT == button)
     {
-        trasitToNextState(StateDisplayingMenuSetTime::getInstance()); 
+        trasitToNextState(StateDisplayingMenuSetTime::getInstance());
     }
     else if (KeyboardControllerIf::ButtonCode::BUTTON_CODE_BACK == button)
     {
-        trasitToNextState(StateDisplayingMenuSetDate::getInstance()); 
+        trasitToNextState(StateDisplayingMenuSetDate::getInstance());
+    }
+    else if (KeyboardControllerIf::ButtonCode::BUTTON_CODE_NONE != button)
+    {
+        trasitToNextState(StateDisplayingTime::getInstance());
     }
 }
 

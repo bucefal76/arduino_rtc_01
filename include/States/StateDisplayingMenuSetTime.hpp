@@ -3,16 +3,14 @@
 
 #include "StateBase.hpp"
 
-class StateDisplayingMenuSetTime: public StateBase
+class StateDisplayingMenuSetTime : public StateBase
 {
 public:
-    
     virtual void processButton(const KeyboardControllerIf::ButtonCode button);
 
-    static StateBase* getInstance();
+    static StateBase *getInstance();
 
 private:
-
     virtual void enter();
 
     virtual void exit();

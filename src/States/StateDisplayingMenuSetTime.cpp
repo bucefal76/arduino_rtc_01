@@ -8,7 +8,7 @@ static const char *CAPTION_SET_TIME = "SET TIME\0";
 
 StateDisplayingMenuSetTime StateDisplayingMenuSetTime::m_Instance;
 
-StateBase* StateDisplayingMenuSetTime::getInstance()
+StateBase *StateDisplayingMenuSetTime::getInstance()
 {
     return &m_Instance;
 }
@@ -23,7 +23,6 @@ void StateDisplayingMenuSetTime::processButton(const KeyboardControllerIf::Butto
     {
         trasitToNextState(StateDisplayingMenuSetExit::getInstance());
     }
-
 }
 
 void StateDisplayingMenuSetTime::enter()
