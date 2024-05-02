@@ -1,6 +1,6 @@
 #include <LiquidCrystal.h>
 
-#include "MenuView.hpp"
+#include "Views/MenuView.hpp"
 #include "ModuleConfig.hpp"
 
 #define MENU_SPECIAL_CHARACTER_COUNT 2U

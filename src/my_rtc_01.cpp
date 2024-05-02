@@ -3,10 +3,10 @@
 #include <ThreeWire.h>
 
 #include "KeyboardController.hpp"
-#include "MenuView.hpp"
 #include "ModuleConfig.hpp"
 #include "ModuleController.hpp"
-#include "TimeView.hpp"
+#include "Views/MenuView.hpp"
+#include "Views/TimeView.hpp"
 
 
 #define USE_SERIAL

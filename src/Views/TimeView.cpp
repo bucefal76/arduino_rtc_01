@@ -1,7 +1,7 @@
 #include <LiquidCrystal.h>
 #include <stdint.h>
 
-#include "TimeView.hpp"
+#include "Views/TimeView.hpp"
 #include "ModuleConfig.hpp"
 
 TimeView *TimeView::m_Instance = nullptr;
