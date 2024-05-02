@@ -1,6 +1,7 @@
 #include "States/StateDisplayingMenuSetTime.hpp"
 #include "States/StateDisplayingMenuSetDate.hpp"
 #include "States/StateDisplayingMenuSetExit.hpp"
+#include "States/StateNewTimeSetup.hpp"
 #include "ViewIf.hpp"
 #include "MenuViewIf.hpp"
 
@@ -22,6 +23,10 @@ void StateDisplayingMenuSetTime::processButton(const KeyboardControllerIf::Butto
     else if (KeyboardControllerIf::ButtonCode::BUTTON_CODE_BACK == button)
     {
         trasitToNextState(StateDisplayingMenuSetExit::getInstance());
+    }
+    else if ((KeyboardControllerIf::ButtonCode::BUTTON_CODE_DOWN == button) || (KeyboardControllerIf::ButtonCode::BUTTON_CODE_UP == button))
+    {
+        trasitToNextState(StateNewTimeSetup::getInstance());
     }
 }
 

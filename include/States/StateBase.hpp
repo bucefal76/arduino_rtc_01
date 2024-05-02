@@ -7,13 +7,18 @@ static const char *CAPTION_MENU = "MENU\0";
 
 class ViewIf;
 class MenuViewIf;
+class TimeSetupViewIf;
 
 class StateBase
 {
 public:
     virtual void processButton(const KeyboardControllerIf::ButtonCode button);
 
-    static void setViews(ViewIf *timeView, ViewIf *menuView, MenuViewIf *extendedMenuView);
+    static void setViews(ViewIf *timeView,
+                         ViewIf *menuView,
+                         MenuViewIf *extendedMenuView,
+                         ViewIf *timeSetupView,
+                         TimeSetupViewIf *extendedTimeSetupView);
 
     static StateBase *getCurrentState();
     static void setCurrentState(StateBase *state);
@@ -35,6 +40,8 @@ protected:
     /// Adaptive Code: Agile coding with design patterns and SOLID principles by Gary Mclean Hall.
     static ViewIf *m_MenuView;
     static MenuViewIf *m_ExtendedMenuView;
+    static ViewIf *m_pTimeSetupView;
+    static TimeSetupViewIf *m_pExtendedTimeSetupView;
 };
 
 #endif

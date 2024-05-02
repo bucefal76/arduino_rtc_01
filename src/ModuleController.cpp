@@ -32,10 +32,14 @@ void ModuleController::setKeyboardController(KeyboardControllerIf *keyboardContr
     m_KeyboardController = keyboardController;
 }
 
-void ModuleController::setViews(ViewIf *timeView, ViewIf *menuView, MenuViewIf *extendedMenuView)
+void ModuleController::setViews(ViewIf *timeView,
+                                ViewIf *menuView,
+                                MenuViewIf *extendedMenuView,
+                                ViewIf *timeSetupView,
+                                TimeSetupViewIf *extendedTimeSetupView)
 {
     /// Initalize state machine with views to play with:
-    StateBase::setViews(timeView, menuView, extendedMenuView);
+    StateBase::setViews(timeView, menuView, extendedMenuView, timeSetupView, extendedTimeSetupView);
 }
 
 void ModuleController::update()

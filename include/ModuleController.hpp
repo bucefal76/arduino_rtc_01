@@ -10,6 +10,7 @@ class StateBase;
 class KeyboardControllerIf;
 class ViewIf;
 class MenuViewIf;
+class TimeSetupViewIf;
 
 class ModuleController : public Thread
 {
@@ -20,7 +21,11 @@ public:
 
     void setKeyboardController(KeyboardControllerIf *keyboardController);
 
-    void setViews(ViewIf *timeView, ViewIf *menuView, MenuViewIf *extendedMenuView);
+    void setViews(ViewIf *timeView,
+                  ViewIf *menuView,
+                  MenuViewIf *extendedMenuView,
+                  ViewIf *timeSetupView,
+                  TimeSetupViewIf *extendedTimeSetupView);
 
 private:
     void update();

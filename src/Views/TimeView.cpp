@@ -17,16 +17,11 @@ TimeView *TimeView::getInstance()
 }
 
 TimeView::TimeView()
-    : m_Rtc(nullptr), m_pLcd(nullptr)
+    : m_Rtc(nullptr)
 {
     setInterval(LCD_TIME_VIEW_UPDATE_INTERVAL_MS);
     onRun(onRunCallback);
     enabled = true;
-}
-
-void TimeView::setLcd(LiquidCrystal *pLiquidCrystal)
-{
-    m_pLcd = pLiquidCrystal;
 }
 
 void TimeView::setRtc(RtcDS1302<ThreeWire> *pRtc)

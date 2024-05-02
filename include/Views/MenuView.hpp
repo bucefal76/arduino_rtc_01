@@ -3,9 +3,9 @@
 
 #include <Thread.h>
 #include "MenuViewIf.hpp"
-#include "ViewIf.hpp"
+#include "Views/BaseView.hpp"
 
-class MenuView : public MenuViewIf, public ViewIf, public Thread
+class MenuView : public MenuViewIf, public BaseView, public Thread
 {
 public:
     static MenuView *getInstance();
@@ -17,16 +17,12 @@ public:
     virtual void setTitle(const char *title);
     virtual void setContent(const char *content);
 
-    /// @brief  ViewIf interface implementation.
-    /// @param pLiquidCrystal
-    virtual void setLcd(LiquidCrystal *pLiquidCrystal);
     virtual void enable();
     virtual void disable();
 
 private:
     void update();
     static void onRunCallback();
-    LiquidCrystal *m_pLcd;
     bool m_isInitialized;
     const char *m_Title;
     const char *m_Content;

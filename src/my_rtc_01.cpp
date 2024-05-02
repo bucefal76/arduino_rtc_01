@@ -7,7 +7,7 @@
 #include "ModuleController.hpp"
 #include "Views/MenuView.hpp"
 #include "Views/TimeView.hpp"
-
+#include "Views/TimeSetupView.hpp"
 
 #define USE_SERIAL
 
@@ -44,21 +44,21 @@ void printDateTime(const RtcDateTime &dt)
 
 void setup()
 {
-  #ifdef USE_SERIAL
+#ifdef USE_SERIAL
   Serial.begin(9600);
 
   Serial.print(F("compiled: "));
   Serial.print(F(__DATE__));
   Serial.println(F(__TIME__));
-  #endif
+#endif
 
   rtc.Begin();
 
   RtcDateTime compiled = RtcDateTime(__DATE__, __TIME__);
   printDateTime(compiled);
-  #ifdef USE_SERIAL
+#ifdef USE_SERIAL
   Serial.println();
-  #endif
+#endif
 
   if (!rtc.IsDateTimeValid())
   {
@@ -66,50 +66,50 @@ void setup()
     //    1) first time you ran and the device wasn't running yet
     //    2) the battery on the device is low or even missing
 
-    #ifdef USE_SERIAL
+#ifdef USE_SERIAL
     Serial.println(F("RTC lost confidence in the DateTime!"));
-    #endif
+#endif
     rtc.SetDateTime(compiled);
   }
 
   if (rtc.GetIsWriteProtected())
   {
-    #ifdef USE_SERIAL
+#ifdef USE_SERIAL
     Serial.println(F("RTC was write protected, enabling writing now"));
-    #endif
+#endif
     rtc.SetIsWriteProtected(false);
   }
 
   if (!rtc.GetIsRunning())
   {
-    #ifdef USE_SERIAL
+#ifdef USE_SERIAL
     Serial.println(F("RTC was not actively running, starting now"));
-    #endif
+#endif
     rtc.SetIsRunning(true);
   }
 
   RtcDateTime now = rtc.GetDateTime();
   if (now < compiled)
   {
-    #ifdef USE_SERIAL
+#ifdef USE_SERIAL
     Serial.println(F("RTC is older than compile time!  (Updating DateTime)"));
-    #endif
+#endif
     rtc.SetDateTime(compiled);
   }
   else if (now > compiled)
   {
-    #ifdef USE_SERIAL
+#ifdef USE_SERIAL
     Serial.println(F("RTC is newer than compile time. (this is expected)"));
-    #endif
+#endif
   }
   else if (now == compiled)
   {
-    #ifdef USE_SERIAL
+#ifdef USE_SERIAL
     Serial.println(F("RTC is the same as compile time! (not expected but all is fine)"));
-    #endif
+#endif
   }
 
-  LiquidCrystal* lcd = new LiquidCrystal(RS, EN, D4, D5, D6, D7);
+  LiquidCrystal *lcd = new LiquidCrystal(RS, EN, D4, D5, D6, D7);
   if (nullptr != lcd)
   {
     lcd->begin(LCD_MAX_COLS, LCD_MAX_ROWS);
@@ -119,20 +119,17 @@ void setup()
   if (nullptr != timeView)
   {
     timeView->setLcd(lcd);
-    timeView->setRtc(&rtc);    
+    timeView->setRtc(&rtc);
   }
-
   MenuView *menuView = MenuView::getInstance();
-  if (nullptr != menuView)
-  {
-    menuView->setLcd(lcd);
-  }
+  TimeSetupView *timeSetupView = TimeSetupView::getInstance();
 
   KeyboardController *keyboardController = KeyboardController::getInstance();
+
   ModuleController *moduleController = ModuleController::getInstance();
 
   moduleController->setKeyboardController(keyboardController);
-  moduleController->setViews(timeView,menuView,menuView);
+  moduleController->setViews(timeView, menuView, menuView, timeSetupView, timeSetupView);
 }
 
 void loop()
@@ -153,6 +150,15 @@ void loop()
     if (menuView->shouldRun())
     {
       menuView->run();
+    }
+  }
+
+  TimeSetupView *timeSetupView = TimeSetupView::getInstance();
+  if (nullptr != timeSetupView)
+  {
+    if (timeSetupView->shouldRun())
+    {
+      timeSetupView->run();
     }
   }
 

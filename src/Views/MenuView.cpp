@@ -43,7 +43,7 @@ MenuView *MenuView::getInstance()
 }
 
 MenuView::MenuView()
-    : m_pLcd(nullptr), m_isInitialized(false), m_Title(nullptr), m_Content(nullptr), m_TitlePos(0U), m_ContentPos(0U)
+    : m_isInitialized(false), m_Title(nullptr), m_Content(nullptr), m_TitlePos(0U), m_ContentPos(0U)
 {
     setInterval(STATE_MACHINE_UPDATE_TIME_INTERVAL_MS);
     onRun(onRunCallback);
@@ -64,11 +64,6 @@ void MenuView::setContent(const char *content)
     const int length = strlen(m_Content);
     m_ContentPos = LCD_MAX_COLS - length;
     m_ContentPos = m_ContentPos / 2;
-}
-
-void MenuView::setLcd(LiquidCrystal *pLcd)
-{
-    m_pLcd = pLcd;
 }
 
 void MenuView::enable()
