@@ -15,16 +15,11 @@ TimeSetupView *TimeSetupView::getInstance()
 }
 
 TimeSetupView::TimeSetupView()
-    : m_Hours(0U), m_Minutes(0U)
+    : m_Hours(0U), m_Minutes(0U), m_State(TimeSetupViewIf::TimeSetupViewState::SETUP_HOURS)
 {
     setInterval(STATE_MACHINE_UPDATE_TIME_INTERVAL_MS);
     onRun(onRunCallback);
     enabled = false;
-}
-
-void TimeSetupView::setLcd(LiquidCrystal *pLcd)
-{
-    m_pLcd = pLcd;
 }
 
 void TimeSetupView::enable()
@@ -41,12 +36,24 @@ void TimeSetupView::disable()
     enabled = false;
 }
 
-void TimeSetupView::putHours(const uint8_t hour)
+void TimeSetupView::setState(TimeSetupViewIf::TimeSetupViewState state)
 {
+    m_State = state;
 }
 
-void TimeSetupView::putMinutes(const uint8_t hour)
+TimeSetupViewIf::TimeSetupViewState TimeSetupView::getState() const
 {
+    return m_State;
+}
+
+void TimeSetupView::putHours(const uint8_t hours)
+{
+    m_Hours = hours;
+}
+
+void TimeSetupView::putMinutes(const uint8_t minutes)
+{
+    m_Minutes = minutes;
 }
 
 void TimeSetupView::onRunCallback()
@@ -58,14 +65,14 @@ void TimeSetupView::update()
 {
     if (nullptr != m_pLcd)
     {
-        char timeString[5];
+        char timeString[6];
         snprintf_P(timeString,
                    countof(timeString),
-                   PSTR("%02u:/%02u"),
+                   PSTR("%02u:%02u"),
                    m_Hours,
                    m_Minutes);
 
-        m_pLcd->setCursor(10, 1);
+        m_pLcd->setCursor(5, 1);
         m_pLcd->write(timeString);
     }
 }

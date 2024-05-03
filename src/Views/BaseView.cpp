@@ -1,7 +1,8 @@
 #include "Views/BaseView.hpp"
-#include "LiquidCrystal.h"
+#include <LiquidCrystal.h>
 
 LiquidCrystal *BaseView::m_pLcd = nullptr;
+RtcDS1302<ThreeWire> *BaseView::m_Rtc = nullptr;
 
 void BaseView::setLcd(LiquidCrystal *pLiquidCrystal)
 {
@@ -9,6 +10,11 @@ void BaseView::setLcd(LiquidCrystal *pLiquidCrystal)
     {
         m_pLcd = pLiquidCrystal;
     }
+}
+
+void BaseView::setRtc(RtcDS1302<ThreeWire> *pRtc)
+{
+    m_Rtc = pRtc;
 }
 
 void BaseView::enable()

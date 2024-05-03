@@ -17,16 +17,10 @@ TimeView *TimeView::getInstance()
 }
 
 TimeView::TimeView()
-    : m_Rtc(nullptr)
 {
     setInterval(LCD_TIME_VIEW_UPDATE_INTERVAL_MS);
     onRun(onRunCallback);
     enabled = true;
-}
-
-void TimeView::setRtc(RtcDS1302<ThreeWire> *pRtc)
-{
-    m_Rtc = pRtc;
 }
 
 void TimeView::enable()

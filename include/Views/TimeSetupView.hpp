@@ -14,18 +14,20 @@ public:
 
     TimeSetupView();
 
-    virtual void setLcd(LiquidCrystal *pLcd);
     virtual void enable();
     virtual void disable();
 
-    void putHours(const uint8_t hour);
-    void putMinutes(const uint8_t hour);
+    virtual void setState(TimeSetupViewState state);
+    virtual TimeSetupViewState getState() const;
+    void putHours(const uint8_t hours);
+    void putMinutes(const uint8_t minutes);
 
 private:
     void update();
     static void onRunCallback();
     uint8_t m_Hours;
     uint8_t m_Minutes;
+    TimeSetupViewIf::TimeSetupViewState m_State;
 
     static TimeSetupView *m_pInstance;
 };
