@@ -14,8 +14,9 @@ public:
     virtual void processButton(const KeyboardControllerIf::ButtonCode button);
 
 private:
-    virtual void
-    enter();
+    void setNewTime();
+
+    virtual void enter();
     virtual void exit();
 
     uint8_t m_Hours;

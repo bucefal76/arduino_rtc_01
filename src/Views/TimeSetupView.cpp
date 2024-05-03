@@ -3,6 +3,11 @@
 #include <LiquidCrystal.h>
 #include <RtcUtility.h>
 
+#define TIME_EDIT_HOUR_COL_0 5U
+#define TIME_EDIT_HOUR_COL_1 TIME_EDIT_HOUR_COL_0 + 1U
+#define TIME_EDIT_MINUTES_COL_1 TIME_EDIT_HOUR_COL_0 + 4U
+#define TIME_EDIT_ROW 1U
+
 TimeSetupView *TimeSetupView::m_pInstance = nullptr;
 
 TimeSetupView *TimeSetupView::getInstance()
@@ -28,11 +33,13 @@ void TimeSetupView::enable()
     {
         enabled = true;
         m_pLcd->clear();
+        m_pLcd->blink();
     }
 }
 
 void TimeSetupView::disable()
 {
+    m_pLcd->noBlink();
     enabled = false;
 }
 
@@ -72,7 +79,16 @@ void TimeSetupView::update()
                    m_Hours,
                    m_Minutes);
 
-        m_pLcd->setCursor(5, 1);
+        m_pLcd->setCursor(TIME_EDIT_HOUR_COL_0, TIME_EDIT_ROW);
         m_pLcd->write(timeString);
+
+        if (SETUP_HOURS == m_State)
+        {
+            m_pLcd->setCursor(TIME_EDIT_HOUR_COL_1, TIME_EDIT_ROW);
+        }
+        else if (SETUP_MINUTES == m_State)
+        {
+            m_pLcd->setCursor(TIME_EDIT_MINUTES_COL_1, TIME_EDIT_ROW);
+        }
     }
 }

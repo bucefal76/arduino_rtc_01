@@ -3,6 +3,7 @@
 
 #include <Arduino.h>
 #include <Thread.h>
+#include <RtcDS1302.h>
 
 #include "ModuleConfig.hpp"
 
@@ -26,6 +27,8 @@ public:
                   MenuViewIf *extendedMenuView,
                   ViewIf *timeSetupView,
                   TimeSetupViewIf *extendedTimeSetupView);
+
+    void setRtc(RtcDS1302<ThreeWire> *rtc);
 
 private:
     void update();

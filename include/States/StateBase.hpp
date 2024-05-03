@@ -2,6 +2,7 @@
 #define STATE_BASE_HPP
 
 #include "KeyboardControllerIf.hpp"
+#include <RtcDS1302.h>
 
 static const char *CAPTION_MENU = "MENU\0";
 
@@ -19,6 +20,8 @@ public:
                          MenuViewIf *extendedMenuView,
                          ViewIf *timeSetupView,
                          TimeSetupViewIf *extendedTimeSetupView);
+
+    static void setRtc(RtcDS1302<ThreeWire> *rtc);
 
     static StateBase *getCurrentState();
     static void setCurrentState(StateBase *state);
@@ -42,6 +45,8 @@ protected:
     static MenuViewIf *m_ExtendedMenuView;
     static ViewIf *m_pTimeSetupView;
     static TimeSetupViewIf *m_pExtendedTimeSetupView;
+    /// @brief Pointer to the RTC driver.
+    static RtcDS1302<ThreeWire> *m_pRtc;
 };
 
 #endif

@@ -1,4 +1,5 @@
 #include "States/StateNewTimeSetup.hpp"
+#include "States/StateDisplayingTime.hpp"
 #include "ViewIf.hpp"
 #include "MenuViewIf.hpp"
 #include "TimeSetupViewIf.hpp"
@@ -48,6 +49,12 @@ void StateNewTimeSetup::processButton(const KeyboardControllerIf::ButtonCode but
         {
             m_pExtendedTimeSetupView->setState(TimeSetupViewIf::TimeSetupViewState::SETUP_MINUTES);
         }
+        else if (KeyboardControllerIf::ButtonCode::BUTTON_CODE_BACK == button)
+        {
+            setNewTime();
+
+            trasitToNextState(StateDisplayingTime::getInstance());
+        }
 
         m_pExtendedTimeSetupView->putHours(m_Hours);
         break;
@@ -55,8 +62,6 @@ void StateNewTimeSetup::processButton(const KeyboardControllerIf::ButtonCode but
 
     case TimeSetupViewIf::TimeSetupViewState::SETUP_MINUTES:
     {
-        Serial.println(F("Ustawiam minuty"));
-
         if (KeyboardControllerIf::ButtonCode::BUTTON_CODE_UP == button)
         {
             m_Minutes++;
@@ -80,6 +85,12 @@ void StateNewTimeSetup::processButton(const KeyboardControllerIf::ButtonCode but
         {
             m_pExtendedTimeSetupView->setState(TimeSetupViewIf::TimeSetupViewState::SETUP_HOURS);
         }
+        else if (KeyboardControllerIf::ButtonCode::BUTTON_CODE_NEXT == button)
+        {
+            setNewTime();
+
+            trasitToNextState(StateDisplayingTime::getInstance());
+        }
 
         m_pExtendedTimeSetupView->putMinutes(m_Minutes);
         break;
@@ -102,4 +113,20 @@ void StateNewTimeSetup::enter()
 void StateNewTimeSetup::exit()
 {
     m_pTimeSetupView->disable();
+}
+
+void StateNewTimeSetup::setNewTime()
+{
+    Serial.println(F("StateNewTimeSetup::setNewTime"));
+
+    const RtcDateTime now = m_pRtc->GetDateTime();
+
+    RtcDateTime modifiedTimeDate(now.Year(),
+                                 now.Month(),
+                                 now.Day(),
+                                 m_Hours,
+                                 m_Minutes,
+                                 0U);
+
+    m_pRtc->SetDateTime(modifiedTimeDate);
 }

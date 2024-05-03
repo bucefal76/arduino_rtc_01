@@ -42,6 +42,11 @@ void ModuleController::setViews(ViewIf *timeView,
     StateBase::setViews(timeView, menuView, extendedMenuView, timeSetupView, extendedTimeSetupView);
 }
 
+void ModuleController::setRtc(RtcDS1302<ThreeWire> *rtc)
+{
+    StateBase::setRtc(rtc);
+}
+
 void ModuleController::update()
 {
     if (m_KeyboardController->isButtonPressDown())

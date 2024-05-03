@@ -46,7 +46,7 @@ void setup()
 {
 #ifdef USE_SERIAL
   Serial.begin(9600);
-
+  Serial.print(F("----------------STARTING!!!-----------------"));
   Serial.print(F("compiled: "));
   Serial.print(F(__DATE__));
   Serial.println(F(__TIME__));
@@ -68,6 +68,7 @@ void setup()
 
 #ifdef USE_SERIAL
     Serial.println(F("RTC lost confidence in the DateTime!"));
+    Serial.println(F("Setting a new time!"));
 #endif
     rtc.SetDateTime(compiled);
   }
@@ -130,6 +131,7 @@ void setup()
 
   moduleController->setKeyboardController(keyboardController);
   moduleController->setViews(timeView, menuView, menuView, timeSetupView, timeSetupView);
+  moduleController->setRtc(&rtc);
 }
 
 void loop()
