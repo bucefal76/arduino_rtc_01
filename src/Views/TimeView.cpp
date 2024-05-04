@@ -76,13 +76,13 @@ void TimeView::update()
             else
             {
                 m_pLcd->setCursor(0, 0);
-                m_pLcd->write(F("Bad battery!!!"));
+                m_pLcd->write("Bad battery!!!");
             }
         }
         else
         {
             m_pLcd->setCursor(0, 0);
-            m_pLcd->write(F("NO RTC obj!"));
+            m_pLcd->write("NO RTC obj!");
         }
     }
 }

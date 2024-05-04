@@ -23,7 +23,6 @@ public:
 private:
     void update();
     static void onRunCallback();
-    bool m_isInitialized;
     const char *m_Title;
     const char *m_Content;
     uint8_t m_TitlePos;
