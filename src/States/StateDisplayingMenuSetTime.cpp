@@ -1,14 +1,16 @@
 #include "States/StateDisplayingMenuSetTime.hpp"
 #include "States/StateDisplayingMenuSetDate.hpp"
 #include "States/StateDisplayingMenuSetExit.hpp"
+#include "States/StateNewTimeSetup.hpp"
 #include "ViewIf.hpp"
 #include "MenuViewIf.hpp"
 
 static const char *CAPTION_SET_TIME = "SET TIME\0";
+static const char *CAPTION_MENU = "MENU\0";
 
 StateDisplayingMenuSetTime StateDisplayingMenuSetTime::m_Instance;
 
-StateBase* StateDisplayingMenuSetTime::getInstance()
+StateBase *StateDisplayingMenuSetTime::getInstance()
 {
     return &m_Instance;
 }
@@ -23,7 +25,10 @@ void StateDisplayingMenuSetTime::processButton(const KeyboardControllerIf::Butto
     {
         trasitToNextState(StateDisplayingMenuSetExit::getInstance());
     }
-
+    else if ((KeyboardControllerIf::ButtonCode::BUTTON_CODE_DOWN == button) || (KeyboardControllerIf::ButtonCode::BUTTON_CODE_UP == button))
+    {
+        trasitToNextState(StateNewTimeSetup::getInstance());
+    }
 }
 
 void StateDisplayingMenuSetTime::enter()

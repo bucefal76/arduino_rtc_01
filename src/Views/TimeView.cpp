@@ -1,7 +1,7 @@
 #include <LiquidCrystal.h>
 #include <stdint.h>
 
-#include "TimeView.hpp"
+#include "Views/TimeView.hpp"
 #include "ModuleConfig.hpp"
 
 TimeView *TimeView::m_Instance = nullptr;
@@ -17,21 +17,10 @@ TimeView *TimeView::getInstance()
 }
 
 TimeView::TimeView()
-    : m_Rtc(nullptr), m_pLcd(nullptr)
 {
     setInterval(LCD_TIME_VIEW_UPDATE_INTERVAL_MS);
     onRun(onRunCallback);
     enabled = true;
-}
-
-void TimeView::setLcd(LiquidCrystal *pLiquidCrystal)
-{
-    m_pLcd = pLiquidCrystal;
-}
-
-void TimeView::setRtc(RtcDS1302<ThreeWire> *pRtc)
-{
-    m_Rtc = pRtc;
 }
 
 void TimeView::enable()

@@ -32,19 +32,39 @@ void ModuleController::setKeyboardController(KeyboardControllerIf *keyboardContr
     m_KeyboardController = keyboardController;
 }
 
-void ModuleController::setViews(ViewIf *timeView, ViewIf *menuView, MenuViewIf *extendedMenuView)
+void ModuleController::setViews(ViewIf *timeView,
+                                ViewIf *menuView,
+                                MenuViewIf *extendedMenuView,
+                                ViewIf *timeSetupView,
+                                TimeSetupViewIf *extendedTimeSetupView,
+                                ViewIf *confirmationView)
 {
     /// Initalize state machine with views to play with:
-    StateBase::setViews(timeView, menuView, extendedMenuView);
+    StateBase::setViews(timeView, menuView, extendedMenuView, timeSetupView, extendedTimeSetupView, confirmationView);
+}
+
+void ModuleController::setRtc(RtcDS1302<ThreeWire> *rtc)
+{
+    StateBase::setRtc(rtc);
 }
 
 void ModuleController::update()
 {
+    /*
+        This is the primary control loop for the clock application.
+        It checks if any key is pressed on the keyboard and sends the corresponding
+        event to the currently selected state of the State Machine.
+        The current state of the State Machine then executes the required actions.
+    */
+
     if (m_KeyboardController->isButtonPressDown())
     {
         const KeyboardControllerIf::ButtonCode button = m_KeyboardController->getButtonCode();
 
-        StateBase::getCurrentState()->processButton(button);
+        if (KeyboardControllerIf::ButtonCode::BUTTON_CODE_NONE != button)
+        {
+            StateBase::getCurrentState()->processButton(button);
+        }
     }
 }
 

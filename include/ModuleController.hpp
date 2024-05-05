@@ -3,6 +3,7 @@
 
 #include <Arduino.h>
 #include <Thread.h>
+#include <RtcDS1302.h>
 
 #include "ModuleConfig.hpp"
 
@@ -10,6 +11,14 @@ class StateBase;
 class KeyboardControllerIf;
 class ViewIf;
 class MenuViewIf;
+class TimeSetupViewIf;
+
+/*
+    The goal is to develop a clock application based on the Controller-View architectural pattern.
+    The Views are responsible for showing messages on the LCD, and the KeyboardController (refer to KeyboardControllerIf) interprets pressed keys.
+    The ModuleController manages the flow of control. To simplify things further (or make it more complex),
+    the ModuleController uses a basic state machine under the hood for flow control.
+*/
 
 class ModuleController : public Thread
 {
@@ -18,9 +27,17 @@ public:
 
     ModuleController();
 
+    /// @brief Use this method on the setup() to set the pointer to the keyboard controller.
     void setKeyboardController(KeyboardControllerIf *keyboardController);
-
-    void setViews(ViewIf *timeView, ViewIf *menuView, MenuViewIf *extendedMenuView);
+    /// @brief  Use this method on the setup() to set the pointer to all views used by the application.
+    void setViews(ViewIf *timeView,
+                  ViewIf *menuView,
+                  MenuViewIf *extendedMenuView,
+                  ViewIf *timeSetupView,
+                  TimeSetupViewIf *extendedTimeSetupView,
+                  ViewIf *confirmationView);
+    /// @brief  Use this method on setup() to set the pointer to the Real Time Clock driver.
+    void setRtc(RtcDS1302<ThreeWire> *rtc);
 
 private:
     void update();
