@@ -13,14 +13,15 @@ public:
 
     virtual void processButton(const KeyboardControllerIf::ButtonCode button);
 
+protected:
+    static uint8_t m_Hours;
+    static uint8_t m_Minutes;
+
 private:
     void setNewTime();
 
     virtual void enter();
     virtual void exit();
-
-    uint8_t m_Hours;
-    uint8_t m_Minutes;
 
     static StateNewTimeSetup m_Instance;
 };

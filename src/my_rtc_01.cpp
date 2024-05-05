@@ -8,6 +8,7 @@
 #include "Views/MenuView.hpp"
 #include "Views/TimeView.hpp"
 #include "Views/TimeSetupView.hpp"
+#include "Views/ConfirmationView.hpp"
 
 #define USE_SERIAL
 
@@ -124,13 +125,14 @@ void setup()
   }
   MenuView *menuView = MenuView::getInstance();
   TimeSetupView *timeSetupView = TimeSetupView::getInstance();
+  ConfirmationView *confirmationView = ConfirmationView::getInstance();
 
   KeyboardController *keyboardController = KeyboardController::getInstance();
 
   ModuleController *moduleController = ModuleController::getInstance();
 
   moduleController->setKeyboardController(keyboardController);
-  moduleController->setViews(timeView, menuView, menuView, timeSetupView, timeSetupView);
+  moduleController->setViews(timeView, menuView, menuView, timeSetupView, timeSetupView, confirmationView);
   moduleController->setRtc(&rtc);
 }
 
@@ -161,6 +163,15 @@ void loop()
     if (timeSetupView->shouldRun())
     {
       timeSetupView->run();
+    }
+  }
+
+  ConfirmationView *confirmationView = ConfirmationView::getInstance();
+  if (nullptr != confirmationView)
+  {
+    if (confirmationView->shouldRun())
+    {
+      confirmationView->run();
     }
   }
 

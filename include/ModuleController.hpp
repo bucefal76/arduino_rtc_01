@@ -26,7 +26,8 @@ public:
                   ViewIf *menuView,
                   MenuViewIf *extendedMenuView,
                   ViewIf *timeSetupView,
-                  TimeSetupViewIf *extendedTimeSetupView);
+                  TimeSetupViewIf *extendedTimeSetupView,
+                  ViewIf *confirmationView);
 
     void setRtc(RtcDS1302<ThreeWire> *rtc);
 

@@ -1,10 +1,13 @@
 #include "States/StateNewTimeSetup.hpp"
-#include "States/StateDisplayingTime.hpp"
+#include "States/StateNewTimeConfirmation.hpp"
 #include "ViewIf.hpp"
 #include "MenuViewIf.hpp"
 #include "TimeSetupViewIf.hpp"
 
 #include <Arduino.h>
+
+uint8_t StateNewTimeSetup::m_Hours = 12U;
+uint8_t StateNewTimeSetup::m_Minutes = 0U;
 
 StateNewTimeSetup StateNewTimeSetup::m_Instance;
 
@@ -14,7 +17,6 @@ StateBase *StateNewTimeSetup::getInstance()
 }
 
 StateNewTimeSetup::StateNewTimeSetup()
-    : m_Hours(12U), m_Minutes(0U)
 {
 }
 
@@ -51,9 +53,7 @@ void StateNewTimeSetup::processButton(const KeyboardControllerIf::ButtonCode but
         }
         else if (KeyboardControllerIf::ButtonCode::BUTTON_CODE_BACK == button)
         {
-            setNewTime();
-
-            trasitToNextState(StateDisplayingTime::getInstance());
+            trasitToNextState(StateNewTimeConfirmation::getInstance());
         }
 
         m_pExtendedTimeSetupView->putHours(m_Hours);
@@ -87,9 +87,7 @@ void StateNewTimeSetup::processButton(const KeyboardControllerIf::ButtonCode but
         }
         else if (KeyboardControllerIf::ButtonCode::BUTTON_CODE_NEXT == button)
         {
-            setNewTime();
-
-            trasitToNextState(StateDisplayingTime::getInstance());
+            trasitToNextState(StateNewTimeConfirmation::getInstance());
         }
 
         m_pExtendedTimeSetupView->putMinutes(m_Minutes);
@@ -117,8 +115,6 @@ void StateNewTimeSetup::exit()
 
 void StateNewTimeSetup::setNewTime()
 {
-    Serial.println(F("StateNewTimeSetup::setNewTime"));
-
     const RtcDateTime now = m_pRtc->GetDateTime();
 
     RtcDateTime modifiedTimeDate(now.Year(),
