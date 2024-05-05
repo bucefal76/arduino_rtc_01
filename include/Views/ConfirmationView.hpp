@@ -4,6 +4,11 @@
 #include <Thread.h>
 #include "Views/BaseView.hpp"
 
+/*
+    The class implements the ViewIf interface.
+    Displays questions (Approve?) with two possible choices (Yes?/No?).
+*/
+
 class ConfirmationView : public Thread, public BaseView
 {
 public:

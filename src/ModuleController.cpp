@@ -50,6 +50,13 @@ void ModuleController::setRtc(RtcDS1302<ThreeWire> *rtc)
 
 void ModuleController::update()
 {
+    /*
+        This is the primary control loop for the clock application.
+        It checks if any key is pressed on the keyboard and sends the corresponding
+        event to the currently selected state of the State Machine.
+        The current state of the State Machine then executes the required actions.
+    */
+
     if (m_KeyboardController->isButtonPressDown())
     {
         const KeyboardControllerIf::ButtonCode button = m_KeyboardController->getButtonCode();

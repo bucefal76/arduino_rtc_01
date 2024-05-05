@@ -5,6 +5,10 @@
 #include "MenuViewIf.hpp"
 #include "Views/BaseView.hpp"
 
+/*
+    The class implements MenuViewIf. Displays settings menu with navigation icons.
+*/
+
 class MenuView : public MenuViewIf, public BaseView, public Thread
 {
 public:

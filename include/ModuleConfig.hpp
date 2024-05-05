@@ -1,6 +1,10 @@
 #ifndef MODULE_CONFIG_HPP
 #define MODULE_CONFIG_HPP
 
+/*
+    Global configuration settings for the clock module (this device).
+*/
+
 /* Global configuration section */
 
 #define STATE_MACHINE_UPDATE_TIME_INTERVAL_MS 35
@@ -19,11 +23,11 @@
 
 #define LCD_TIME_VIEW_UPDATE_INTERVAL_MS 500U
 
-#define RS 7U
-#define EN 6U
-#define D4 5U
-#define D5 4U
-#define D6 3U
-#define D7 2U
+#define RS_IO_LINE 7U
+#define EN_IO_LINE 6U
+#define D4_IO_LINE 5U
+#define D5_IO_LINE 4U
+#define D6_IO_LINE 3U
+#define D7_IO_LINE 2U
 
 #endif

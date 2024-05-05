@@ -6,6 +6,7 @@
 #include "MenuViewIf.hpp"
 
 static const char *CAPTION_EXIT = "EXIT\0";
+static const char *CAPTION_MENU = "MENU\0";
 
 StateDisplayingMenuSetExit StateDisplayingMenuSetExit::m_Instance;
 

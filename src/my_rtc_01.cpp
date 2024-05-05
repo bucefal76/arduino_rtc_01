@@ -10,19 +10,19 @@
 #include "Views/TimeSetupView.hpp"
 #include "Views/ConfirmationView.hpp"
 
-#define USE_SERIAL
-
 /*
-#define DAT_IO D4
-#define CLK D5
-#define RST_CE D3
+  This code uses an Arduino UNO board, RTC DS1302, and a Standard 16x2 LCD to create a real-time clock.
+  To understand the code, it is important to consider two aspects: the View-Controller architectural pattern and the State Machine design pattern.
+
+  The View-Controller is responsible for presenting different information on the screen through separate sets of class views.
+  The Controller, on the other hand, manages the device's behavior through its state machine states.
 */
+
+#define USE_SERIAL
 
 #define DAT_IO 9
 #define CLK 10
 #define RST_CE 8
-
-KeyboardController keyboard;
 
 ThreeWire myWire(DAT_IO, CLK, RST_CE);
 RtcDS1302<ThreeWire> rtc(myWire);
@@ -52,6 +52,11 @@ void setup()
   Serial.print(F(__DATE__));
   Serial.println(F(__TIME__));
 #endif
+
+  /*
+    Part of the code was found over the Internet with examples of how to use the RtcDS1302 library.
+    In this part of the code, some basic settings for the RTC module are done.
+  */
 
   rtc.Begin();
 
@@ -111,12 +116,13 @@ void setup()
 #endif
   }
 
-  LiquidCrystal *lcd = new LiquidCrystal(RS, EN, D4, D5, D6, D7);
+  LiquidCrystal *lcd = new LiquidCrystal(RS_IO_LINE, EN_IO_LINE, D4_IO_LINE, D5_IO_LINE, D6_IO_LINE, D7_IO_LINE);
   if (nullptr != lcd)
   {
     lcd->begin(LCD_MAX_COLS, LCD_MAX_ROWS);
   }
 
+  // Now is a time to create and connect basic functional blocks of the source codes. First, views:
   TimeView *timeView = TimeView::getInstance();
   if (nullptr != timeView)
   {
@@ -126,10 +132,13 @@ void setup()
   MenuView *menuView = MenuView::getInstance();
   TimeSetupView *timeSetupView = TimeSetupView::getInstance();
   ConfirmationView *confirmationView = ConfirmationView::getInstance();
+  // Then the keyboard controller...
 
   KeyboardController *keyboardController = KeyboardController::getInstance();
 
+  // And then the application controller.
   ModuleController *moduleController = ModuleController::getInstance();
+  // Now created modules are injected to the application controller (dependency injection).
 
   moduleController->setKeyboardController(keyboardController);
   moduleController->setViews(timeView, menuView, menuView, timeSetupView, timeSetupView, confirmationView);
@@ -138,6 +147,15 @@ void setup()
 
 void loop()
 {
+  /*
+    The Thread library is utilized to simulate time-sharing on a processor,
+    similar to what occurs on an operating system. However, this is only an approximation of such behavior,
+    as the Thread library does not employ a timer to prompt the task scheduler.
+    Instead, it simply keeps track of the number of milliseconds since the last thread activity and executes a thread task when the time comes.
+    It's important to note that the loop() function does not control the flow or application logic. All of that occurs within the Thread on Run().
+  */
+
+  // Now give a time to the views:
 
   TimeView *timeView = TimeView::getInstance();
   if (nullptr != timeView)
@@ -175,6 +193,7 @@ void loop()
     }
   }
 
+  // Now give a time to the keyboard controller to get any input:
   KeyboardController *keyboardController = KeyboardController::getInstance();
   if (nullptr != keyboardController)
   {
@@ -184,6 +203,7 @@ void loop()
     }
   }
 
+  // Now process the input with application controller:
   ModuleController *moduleController = ModuleController::getInstance();
   if (nullptr != moduleController)
   {

@@ -5,6 +5,10 @@
 
 #include "Views/BaseView.hpp"
 
+/*
+    The class implements the ViewIf interface. It specializes in displaying a time and date.
+*/
+
 class TimeView : public Thread, public BaseView
 {
 public:

@@ -5,6 +5,14 @@
 
 #include "KeyboardControllerIf.hpp"
 
+/*
+    The class implements KeyboardControllerIf.
+    In this case, all 4 supported buttons are connected to the pull-up resistors.
+    When press down the IO line is taken to the ground (0V).
+    The buttons are used in this formula: Back, Up, Down, Next.
+    Check MoppduleConfig.hpp for the line/pin # used with this keyboard.
+*/
+
 class KeyboardController : public Thread, public KeyboardControllerIf
 {
 

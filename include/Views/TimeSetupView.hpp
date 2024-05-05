@@ -7,6 +7,12 @@
 
 class LiquidCrystal;
 
+/*
+    The class implements the ViewIf and TimeSetupViewIf interfaces.
+    Used to set new time settings.
+    Displays hours, minutes, and extra icons to help navigate within the time setup mode.
+*/
+
 class TimeSetupView : public BaseView, public TimeSetupViewIf, public Thread
 {
 public:
@@ -14,9 +20,10 @@ public:
 
     TimeSetupView();
 
+    /// see ViewIf.
     virtual void enable();
     virtual void disable();
-
+    /// see TimeSetupViewIf.
     virtual void setState(TimeSetupViewState state);
     virtual TimeSetupViewState getState() const;
     void putHours(const uint8_t hours);

@@ -6,6 +6,7 @@
 #include "MenuViewIf.hpp"
 
 static const char *CAPTION_SET_TIME = "SET TIME\0";
+static const char *CAPTION_MENU = "MENU\0";
 
 StateDisplayingMenuSetTime StateDisplayingMenuSetTime::m_Instance;
 

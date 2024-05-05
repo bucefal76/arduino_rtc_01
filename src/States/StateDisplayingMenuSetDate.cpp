@@ -7,6 +7,7 @@
 #include "MenuViewIf.hpp"
 
 static const char *CAPTION_SET_DATE = "SET DATE\0";
+static const char *CAPTION_MENU = "MENU\0";
 
 StateDisplayingMenuSetDate StateDisplayingMenuSetDate::m_Instance;
 

@@ -15,6 +15,12 @@
 
 class LiquidCrystal;
 
+/*
+    Among all classes that implement the ViewIf interface,
+    there are some common functionality and data (for example, the pointer to the LCD driver).
+    This class provides such common functionality for all BaseView-derived classes.
+*/
+
 class BaseView : public ViewIf
 {
 public:
@@ -24,7 +30,7 @@ public:
     /// @brief  Set popinter to the Clock.
     /// @param pRtc
     virtual void setRtc(RtcDS1302<ThreeWire> *pRtc);
-
+    // See ViewIf.
     virtual void enable();
     virtual void disable();
 
