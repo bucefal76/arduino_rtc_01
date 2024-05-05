@@ -35,7 +35,8 @@ public:
                   MenuViewIf *extendedMenuView,
                   ViewIf *timeSetupView,
                   TimeSetupViewIf *extendedTimeSetupView,
-                  ViewIf *confirmationView);
+                  ViewIf *confirmationView,
+                  ViewIf *dataSetupView);
     /// @brief  Use this method on setup() to set the pointer to the Real Time Clock driver.
     void setRtc(RtcDS1302<ThreeWire> *rtc);
 

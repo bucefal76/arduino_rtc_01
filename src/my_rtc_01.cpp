@@ -9,6 +9,7 @@
 #include "Views/TimeView.hpp"
 #include "Views/TimeSetupView.hpp"
 #include "Views/ConfirmationView.hpp"
+#include "Views/DateSetupView.hpp"
 
 /*
   This code uses an Arduino UNO board, RTC DS1302, and a Standard 16x2 LCD to create a real-time clock.
@@ -132,6 +133,7 @@ void setup()
   MenuView *menuView = MenuView::getInstance();
   TimeSetupView *timeSetupView = TimeSetupView::getInstance();
   ConfirmationView *confirmationView = ConfirmationView::getInstance();
+  DateSetupView *dataSetupView = DateSetupView::getInstance();
   // Then the keyboard controller...
 
   KeyboardController *keyboardController = KeyboardController::getInstance();
@@ -141,7 +143,7 @@ void setup()
   // Now created modules are injected to the application controller (dependency injection).
 
   moduleController->setKeyboardController(keyboardController);
-  moduleController->setViews(timeView, menuView, menuView, timeSetupView, timeSetupView, confirmationView);
+  moduleController->setViews(timeView, menuView, menuView, timeSetupView, timeSetupView, confirmationView, dataSetupView);
   moduleController->setRtc(&rtc);
 }
 
@@ -181,6 +183,15 @@ void loop()
     if (timeSetupView->shouldRun())
     {
       timeSetupView->run();
+    }
+  }
+
+  DateSetupView *dataSetupView = DateSetupView::getInstance();
+  if (nullptr != dataSetupView)
+  {
+    if (dataSetupView->shouldRun())
+    {
+      dataSetupView->run();
     }
   }
 

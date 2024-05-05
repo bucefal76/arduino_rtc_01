@@ -5,8 +5,6 @@
 #include "Views/BaseView.hpp"
 #include <Thread.h>
 
-class LiquidCrystal;
-
 /*
     The class implements the ViewIf and TimeSetupViewIf interfaces.
     Used to set new time settings.

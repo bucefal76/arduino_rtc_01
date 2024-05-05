@@ -112,17 +112,3 @@ void StateNewTimeSetup::exit()
 {
     m_pTimeSetupView->disable();
 }
-
-void StateNewTimeSetup::setNewTime()
-{
-    const RtcDateTime now = m_pRtc->GetDateTime();
-
-    RtcDateTime modifiedTimeDate(now.Year(),
-                                 now.Month(),
-                                 now.Day(),
-                                 m_Hours,
-                                 m_Minutes,
-                                 0U);
-
-    m_pRtc->SetDateTime(modifiedTimeDate);
-}

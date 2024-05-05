@@ -27,7 +27,8 @@ public:
                          MenuViewIf *extendedMenuView,
                          ViewIf *timeSetupView,
                          TimeSetupViewIf *extendedTimeSetupView,
-                         ViewIf *confirmationView);
+                         ViewIf *confirmationView,
+                         ViewIf *dataSetupView);
     /// @brief State machine needs to have access to the RTC driver.
     static void setRtc(RtcDS1302<ThreeWire> *rtc);
 
@@ -54,6 +55,7 @@ protected:
     static ViewIf *m_pTimeSetupView;
     static TimeSetupViewIf *m_pExtendedTimeSetupView;
     static ViewIf *m_pConfirmationView;
+    static ViewIf *m_pDataSetupView;
     /// @brief Pointer to the RTC driver.
     static RtcDS1302<ThreeWire> *m_pRtc;
 };

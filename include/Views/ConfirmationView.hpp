@@ -6,7 +6,7 @@
 
 /*
     The class implements the ViewIf interface.
-    Displays questions (Approve?) with two possible choices (Yes?/No?).
+    Displays a confirmation question (Approve?) with two possible choices (Yes?/No?).
 */
 
 class ConfirmationView : public Thread, public BaseView
