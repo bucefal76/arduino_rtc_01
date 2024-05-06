@@ -28,6 +28,7 @@ The benefits of this architecture are:
 - LiquidCrystal.h
 - RtcDS1302.h (https://github.com/Makuna/Rtc/blob/master/src/RtcDS1302.h)
 - ThreeWire.h (https://github.com/Makuna/Rtc/blob/master/src/RtcDS1302.h)
+- vector by ArduinoSTL (https://github.com/mike-matera/ArduinoSTL?utm_source=platformio&utm_medium=piohome)
 
 # Wiring
 

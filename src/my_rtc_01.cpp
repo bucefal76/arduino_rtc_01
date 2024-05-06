@@ -1,6 +1,7 @@
 #include <LiquidCrystal.h>
 #include <RtcDS1302.h>
 #include <ThreeWire.h>
+#include <vector>
 
 #include "KeyboardController.hpp"
 #include "ModuleConfig.hpp"
@@ -27,6 +28,7 @@
 
 ThreeWire myWire(DAT_IO, CLK, RST_CE);
 RtcDS1302<ThreeWire> rtc(myWire);
+std::vector<Thread *> threads;
 
 void printDateTime(const RtcDateTime &dt)
 {
@@ -124,27 +126,37 @@ void setup()
   }
 
   // Now is a time to create and connect basic functional blocks of the source codes. First, views:
-  TimeView *timeView = TimeView::getInstance();
-  if (nullptr != timeView)
+  if (nullptr != TimeView::getInstance())
   {
-    timeView->setLcd(lcd);
-    timeView->setRtc(&rtc);
+    TimeView::getInstance()->setLcd(lcd);
+    TimeView::getInstance()->setRtc(&rtc);
   }
-  MenuView *menuView = MenuView::getInstance();
-  TimeSetupView *timeSetupView = TimeSetupView::getInstance();
-  ConfirmationView *confirmationView = ConfirmationView::getInstance();
-  DateSetupView *dataSetupView = DateSetupView::getInstance();
-  // Then the keyboard controller...
 
-  KeyboardController *keyboardController = KeyboardController::getInstance();
+  threads.push_back(TimeView::getInstance());
+  threads.push_back(MenuView::getInstance());
+  threads.push_back(TimeSetupView::getInstance());
+  threads.push_back(ConfirmationView::getInstance());
+  threads.push_back(DateSetupView::getInstance());
+
+  // Then the keyboard controller...
+  threads.push_back(KeyboardController::getInstance());
 
   // And then the application controller.
-  ModuleController *moduleController = ModuleController::getInstance();
+  threads.push_back(ModuleController::getInstance());
   // Now created modules are injected to the application controller (dependency injection).
 
-  moduleController->setKeyboardController(keyboardController);
-  moduleController->setViews(timeView, menuView, menuView, timeSetupView, timeSetupView, confirmationView, dataSetupView);
-  moduleController->setRtc(&rtc);
+  if (nullptr != ModuleController::getInstance())
+  {
+    ModuleController::getInstance()->setKeyboardController(KeyboardController::getInstance());
+    ModuleController::getInstance()->setViews(TimeView::getInstance(),
+                                              MenuView::getInstance(),
+                                              MenuView::getInstance(),
+                                              TimeSetupView::getInstance(),
+                                              TimeSetupView::getInstance(),
+                                              ConfirmationView::getInstance(),
+                                              DateSetupView::getInstance());
+    ModuleController::getInstance()->setRtc(&rtc);
+  }
 }
 
 void loop()
@@ -157,70 +169,15 @@ void loop()
     It's important to note that the loop() function does not control the flow or application logic. All of that occurs within the Thread on Run().
   */
 
-  // Now give a time to the views:
-
-  TimeView *timeView = TimeView::getInstance();
-  if (nullptr != timeView)
+  for (std::vector<Thread *>::iterator it = threads.begin(); it != threads.end(); it++)
   {
-    if (timeView->shouldRun())
+    Thread *thread = *it;
+    if (nullptr != thread)
     {
-      timeView->run();
-    }
-  }
-
-  MenuView *menuView = MenuView::getInstance();
-  if (nullptr != menuView)
-  {
-    if (menuView->shouldRun())
-    {
-      menuView->run();
-    }
-  }
-
-  TimeSetupView *timeSetupView = TimeSetupView::getInstance();
-  if (nullptr != timeSetupView)
-  {
-    if (timeSetupView->shouldRun())
-    {
-      timeSetupView->run();
-    }
-  }
-
-  DateSetupView *dataSetupView = DateSetupView::getInstance();
-  if (nullptr != dataSetupView)
-  {
-    if (dataSetupView->shouldRun())
-    {
-      dataSetupView->run();
-    }
-  }
-
-  ConfirmationView *confirmationView = ConfirmationView::getInstance();
-  if (nullptr != confirmationView)
-  {
-    if (confirmationView->shouldRun())
-    {
-      confirmationView->run();
-    }
-  }
-
-  // Now give a time to the keyboard controller to get any input:
-  KeyboardController *keyboardController = KeyboardController::getInstance();
-  if (nullptr != keyboardController)
-  {
-    if (keyboardController->shouldRun())
-    {
-      keyboardController->run();
-    }
-  }
-
-  // Now process the input with application controller:
-  ModuleController *moduleController = ModuleController::getInstance();
-  if (nullptr != moduleController)
-  {
-    if (moduleController->shouldRun())
-    {
-      moduleController->run();
+      if (thread->shouldRun())
+      {
+        thread->run();
+      }
     }
   }
 }
