@@ -1,6 +1,7 @@
 #include <LiquidCrystal.h>
 #include <RtcDS1302.h>
 #include <ThreeWire.h>
+#include <vector>
 
 #include "KeyboardController.hpp"
 #include "ModuleConfig.hpp"
@@ -9,6 +10,7 @@
 #include "Views/TimeView.hpp"
 #include "Views/TimeSetupView.hpp"
 #include "Views/ConfirmationView.hpp"
+#include "Views/DateSetupView.hpp"
 
 /*
   This code uses an Arduino UNO board, RTC DS1302, and a Standard 16x2 LCD to create a real-time clock.
@@ -26,23 +28,15 @@
 
 ThreeWire myWire(DAT_IO, CLK, RST_CE);
 RtcDS1302<ThreeWire> rtc(myWire);
+std::vector<Thread *> threads;
 
-void printDateTime(const RtcDateTime &dt)
-{
-  char datestring[20];
+void setupThreads();
+void initalizeRct();
+void printDateTime(const RtcDateTime &dt);
 
-  snprintf_P(datestring,
-             countof(datestring),
-             PSTR("%02u/%02u/%04u %02u:%02u:%02u"),
-             dt.Month(),
-             dt.Day(),
-             dt.Year(),
-             dt.Hour(),
-             dt.Minute(),
-             dt.Second());
-  Serial.print(datestring);
-}
-
+//////////////////////////////////////////////////////////////////////////////
+/// @brief Setup function, fired only once!
+//////////////////////////////////////////////////////////////////////////////
 void setup()
 {
 #ifdef USE_SERIAL
@@ -53,6 +47,82 @@ void setup()
   Serial.println(F(__TIME__));
 #endif
 
+  initalizeRct();
+
+  setupThreads();
+}
+
+//////////////////////////////////////////////////////////////////////////////
+/// @brief Main program loop.
+//////////////////////////////////////////////////////////////////////////////
+void loop()
+{
+  /*
+    The Thread library is utilized to simulate time-sharing on a processor,
+    similar to what occurs on an operating system. However, this is only an approximation of such behavior,
+    as the Thread library does not employ a timer to prompt the task scheduler.
+    Instead, it simply keeps track of the number of milliseconds since the last thread activity and executes a thread task when the time comes.
+    It's important to note that the loop() function does not control the flow or application logic. All of that occurs within the Thread on Run().
+  */
+
+  for (std::vector<Thread *>::iterator it = threads.begin(); it != threads.end(); it++)
+  {
+    Thread *thread = *it;
+    if (nullptr != thread)
+    {
+      if (thread->shouldRun())
+      {
+        thread->run();
+      }
+    }
+  }
+}
+
+void setupThreads()
+{
+  LiquidCrystal *lcd = new LiquidCrystal(RS_IO_LINE, EN_IO_LINE, D4_IO_LINE, D5_IO_LINE, D6_IO_LINE, D7_IO_LINE);
+  if (nullptr != lcd)
+  {
+    lcd->begin(LCD_MAX_COLS, LCD_MAX_ROWS);
+  }
+
+  // Now is a time to create and connect basic functional blocks of the source codes. First, views:
+  if (nullptr != TimeView::getInstance())
+  {
+    TimeView::getInstance()->setLcd(lcd);
+    TimeView::getInstance()->setRtc(&rtc);
+  }
+
+  threads.push_back(TimeView::getInstance());
+  threads.push_back(MenuView::getInstance());
+  threads.push_back(TimeSetupView::getInstance());
+  threads.push_back(ConfirmationView::getInstance());
+  threads.push_back(DateSetupView::getInstance());
+
+  // Then the keyboard controller...
+  threads.push_back(KeyboardController::getInstance());
+
+  // And then the application controller.
+  threads.push_back(ModuleController::getInstance());
+  // Now created modules are injected to the application controller (dependency injection).
+
+  if (nullptr != ModuleController::getInstance())
+  {
+    ModuleController::getInstance()->setKeyboardController(KeyboardController::getInstance());
+    ModuleController::getInstance()->setViews(TimeView::getInstance(),
+                                              MenuView::getInstance(),
+                                              MenuView::getInstance(),
+                                              TimeSetupView::getInstance(),
+                                              TimeSetupView::getInstance(),
+                                              ConfirmationView::getInstance(),
+                                              DateSetupView::getInstance(),
+                                              DateSetupView::getInstance());
+    ModuleController::getInstance()->setRtc(&rtc);
+  }
+}
+
+void initalizeRct()
+{
   /*
     Part of the code was found over the Internet with examples of how to use the RtcDS1302 library.
     In this part of the code, some basic settings for the RTC module are done.
@@ -115,101 +185,22 @@ void setup()
     Serial.println(F("RTC is the same as compile time! (not expected but all is fine)"));
 #endif
   }
-
-  LiquidCrystal *lcd = new LiquidCrystal(RS_IO_LINE, EN_IO_LINE, D4_IO_LINE, D5_IO_LINE, D6_IO_LINE, D7_IO_LINE);
-  if (nullptr != lcd)
-  {
-    lcd->begin(LCD_MAX_COLS, LCD_MAX_ROWS);
-  }
-
-  // Now is a time to create and connect basic functional blocks of the source codes. First, views:
-  TimeView *timeView = TimeView::getInstance();
-  if (nullptr != timeView)
-  {
-    timeView->setLcd(lcd);
-    timeView->setRtc(&rtc);
-  }
-  MenuView *menuView = MenuView::getInstance();
-  TimeSetupView *timeSetupView = TimeSetupView::getInstance();
-  ConfirmationView *confirmationView = ConfirmationView::getInstance();
-  // Then the keyboard controller...
-
-  KeyboardController *keyboardController = KeyboardController::getInstance();
-
-  // And then the application controller.
-  ModuleController *moduleController = ModuleController::getInstance();
-  // Now created modules are injected to the application controller (dependency injection).
-
-  moduleController->setKeyboardController(keyboardController);
-  moduleController->setViews(timeView, menuView, menuView, timeSetupView, timeSetupView, confirmationView);
-  moduleController->setRtc(&rtc);
 }
 
-void loop()
+#ifdef USE_SERIAL
+void printDateTime(const RtcDateTime &dt)
 {
-  /*
-    The Thread library is utilized to simulate time-sharing on a processor,
-    similar to what occurs on an operating system. However, this is only an approximation of such behavior,
-    as the Thread library does not employ a timer to prompt the task scheduler.
-    Instead, it simply keeps track of the number of milliseconds since the last thread activity and executes a thread task when the time comes.
-    It's important to note that the loop() function does not control the flow or application logic. All of that occurs within the Thread on Run().
-  */
+  char datestring[20];
 
-  // Now give a time to the views:
-
-  TimeView *timeView = TimeView::getInstance();
-  if (nullptr != timeView)
-  {
-    if (timeView->shouldRun())
-    {
-      timeView->run();
-    }
-  }
-
-  MenuView *menuView = MenuView::getInstance();
-  if (nullptr != menuView)
-  {
-    if (menuView->shouldRun())
-    {
-      menuView->run();
-    }
-  }
-
-  TimeSetupView *timeSetupView = TimeSetupView::getInstance();
-  if (nullptr != timeSetupView)
-  {
-    if (timeSetupView->shouldRun())
-    {
-      timeSetupView->run();
-    }
-  }
-
-  ConfirmationView *confirmationView = ConfirmationView::getInstance();
-  if (nullptr != confirmationView)
-  {
-    if (confirmationView->shouldRun())
-    {
-      confirmationView->run();
-    }
-  }
-
-  // Now give a time to the keyboard controller to get any input:
-  KeyboardController *keyboardController = KeyboardController::getInstance();
-  if (nullptr != keyboardController)
-  {
-    if (keyboardController->shouldRun())
-    {
-      keyboardController->run();
-    }
-  }
-
-  // Now process the input with application controller:
-  ModuleController *moduleController = ModuleController::getInstance();
-  if (nullptr != moduleController)
-  {
-    if (moduleController->shouldRun())
-    {
-      moduleController->run();
-    }
-  }
+  snprintf_P(datestring,
+             countof(datestring),
+             PSTR("%02u/%02u/%04u %02u:%02u:%02u"),
+             dt.Month(),
+             dt.Day(),
+             dt.Year(),
+             dt.Hour(),
+             dt.Minute(),
+             dt.Second());
+  Serial.print(datestring);
 }
+#endif

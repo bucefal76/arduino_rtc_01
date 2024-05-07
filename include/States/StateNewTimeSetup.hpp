@@ -1,8 +1,12 @@
-#ifndef STATE_DNEW_TIME_SETUP_HPP
-#define STATE_DNEW_TIME_SETUP_HPP
+#ifndef STATE_NEW_TIME_SETUP_HPP
+#define STATE_NEW_TIME_SETUP_HPP
 
 #include "StateBase.hpp"
 #include <Arduino.h>
+
+/*
+    This state controls the device behavior when it allows the to set operator a new time.
+*/
 
 class StateNewTimeSetup : public StateBase
 {
@@ -18,8 +22,6 @@ protected:
     static uint8_t m_Minutes;
 
 private:
-    void setNewTime();
-
     virtual void enter();
     virtual void exit();
 

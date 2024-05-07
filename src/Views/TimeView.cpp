@@ -56,10 +56,10 @@ void TimeView::update()
                 m_pLcd->setCursor(0, 1);
                 snprintf_P(datestring,
                            countof(datestring),
-                           PSTR("%02u/%02u/%04u"),
+                           PSTR("%04u/%02u/%02u"),
+                           now.Year(),
                            now.Month(),
-                           now.Day(),
-                           now.Year());
+                           now.Day());
 
                 m_pLcd->write(datestring);
 

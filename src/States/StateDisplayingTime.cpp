@@ -14,7 +14,7 @@ StateBase *StateDisplayingTime::getInstance()
 
 void StateDisplayingTime::processButton(const KeyboardControllerIf::ButtonCode button)
 {
-    trasitToNextState(StateDisplayingMenuSetTime::getInstance());
+    trasitToState(StateDisplayingMenuSetTime::getInstance());
 }
 
 void StateDisplayingTime::enter()

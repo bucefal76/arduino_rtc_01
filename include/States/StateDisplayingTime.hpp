@@ -3,6 +3,11 @@
 
 #include "StateBase.hpp"
 
+/*
+    This state controls the device's behavior when it is displaying time and date.
+    This is the most common state for the watch.
+*/
+
 class StateDisplayingTime : public StateBase
 {
 public:

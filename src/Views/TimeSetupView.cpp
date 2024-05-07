@@ -43,7 +43,7 @@ void TimeSetupView::disable()
     enabled = false;
 }
 
-void TimeSetupView::setState(TimeSetupViewIf::TimeSetupViewState state)
+void TimeSetupView::setState(const TimeSetupViewIf::TimeSetupViewState state)
 {
     m_State = state;
 }

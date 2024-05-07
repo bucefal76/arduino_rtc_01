@@ -7,6 +7,7 @@
 class ViewIf;
 class MenuViewIf;
 class TimeSetupViewIf;
+class DateSetupViewIf;
 
 /*
     BaseState is an abstract class that serves as the root class for several derived classes,
@@ -14,7 +15,14 @@ class TimeSetupViewIf;
     such as pointers to views, and are also required to implement certain virtual methods.
     The BaseState class exists for these two specific reasons.
 
-    The BaseState is used to build a kind of State Machine pattern (not a G.O.F one).
+    The BaseState is used to create a State Machine pattern that is not based on the G.O.F pattern.
+    The state machine implementation has a few simplifications and rules.
+    Firstly, all machine states must be derived from StateBase.
+    Secondly, all derived classes are singletons and global in themselves to save memory resources.
+    Finally, to move from one state to another, the trasitToState method should be used, and only this method.
+
+    Call to trasitToState will cause execution of the exit() method at the old state and then execution
+    of the enter() at the new state.
 */
 
 class StateBase
@@ -27,7 +35,9 @@ public:
                          MenuViewIf *extendedMenuView,
                          ViewIf *timeSetupView,
                          TimeSetupViewIf *extendedTimeSetupView,
-                         ViewIf *confirmationView);
+                         ViewIf *confirmationView,
+                         ViewIf *dataSetupView,
+                         DateSetupViewIf *extendedDateSetupView);
     /// @brief State machine needs to have access to the RTC driver.
     static void setRtc(RtcDS1302<ThreeWire> *rtc);
 
@@ -37,7 +47,7 @@ public:
 protected:
     /// @brief Use this methid to switch state machine to next state
     /// @param pNexState
-    void trasitToNextState(StateBase *pNexState);
+    void trasitToState(StateBase *pNexState);
     /// @brief When transitioning to a new state, a method is automatically called by transitToNextState.
     virtual void enter() = 0;
     /// @brief When transitioning to a new state, a method is automatically called by transitToNextState.
@@ -54,6 +64,8 @@ protected:
     static ViewIf *m_pTimeSetupView;
     static TimeSetupViewIf *m_pExtendedTimeSetupView;
     static ViewIf *m_pConfirmationView;
+    static ViewIf *m_pDataSetupView;
+    static DateSetupViewIf *m_pExtendedDateSetupView;
     /// @brief Pointer to the RTC driver.
     static RtcDS1302<ThreeWire> *m_pRtc;
 };

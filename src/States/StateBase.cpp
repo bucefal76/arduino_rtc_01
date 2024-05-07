@@ -8,6 +8,9 @@ MenuViewIf *StateBase::m_ExtendedMenuView = nullptr;
 ViewIf *StateBase::m_pTimeSetupView = nullptr;
 TimeSetupViewIf *StateBase::m_pExtendedTimeSetupView = nullptr;
 ViewIf *StateBase::m_pConfirmationView = nullptr;
+ViewIf *StateBase::m_pDataSetupView = nullptr;
+DateSetupViewIf *StateBase::m_pExtendedDateSetupView = nullptr;
+
 RtcDS1302<ThreeWire> *StateBase::m_pRtc = nullptr;
 
 void StateBase::processButton(const KeyboardControllerIf::ButtonCode button)
@@ -19,7 +22,9 @@ void StateBase::setViews(ViewIf *timeView,
                          MenuViewIf *extendedMenuView,
                          ViewIf *timeSetupView,
                          TimeSetupViewIf *extendedTimeSetupView,
-                         ViewIf *confirmationView)
+                         ViewIf *confirmationView,
+                         ViewIf *dataSetupView,
+                         DateSetupViewIf *extendedDateSetupViewIf)
 {
     m_TimeView = timeView;
     m_MenuView = menuView;
@@ -27,6 +32,8 @@ void StateBase::setViews(ViewIf *timeView,
     m_pTimeSetupView = timeSetupView;
     m_pExtendedTimeSetupView = extendedTimeSetupView;
     m_pConfirmationView = confirmationView;
+    m_pDataSetupView = dataSetupView;
+    m_pExtendedDateSetupView = extendedDateSetupViewIf;
 }
 
 void StateBase::setRtc(RtcDS1302<ThreeWire> *rtc)
@@ -44,7 +51,7 @@ void StateBase::setCurrentState(StateBase *state)
     m_pCurrentState = state;
 }
 
-void StateBase::trasitToNextState(StateBase *pNexState)
+void StateBase::trasitToState(StateBase *pNexState)
 {
     m_pCurrentState->exit();
 

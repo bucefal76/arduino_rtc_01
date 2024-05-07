@@ -3,6 +3,11 @@
 
 #include "States/StateNewTimeSetup.hpp"
 
+/*
+    This state controls the device's behavior when it asks the operator to accept
+    the newly entered time. A confirmation dialog - are you sure?
+*/
+
 class StateNewTimeConfirmation : public StateNewTimeSetup
 {
 public:
