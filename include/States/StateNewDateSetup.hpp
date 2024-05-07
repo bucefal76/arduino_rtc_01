@@ -4,6 +4,10 @@
 #include "StateBase.hpp"
 #include <Arduino.h>
 
+/*
+    This state controls the device behavior when it allows the to set operator a new date.
+*/
+
 class StateNewDateSetup : public StateBase
 {
 public:
@@ -21,6 +25,9 @@ protected:
 private:
     virtual void enter();
     virtual void exit();
+
+    void updateViewData() const;
+    uint8_t getNumberOfDays(const uint8_t month, const uint16_t year) const;
 
     static StateNewDateSetup m_Instance;
 };

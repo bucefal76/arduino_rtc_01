@@ -12,6 +12,7 @@ class KeyboardControllerIf;
 class ViewIf;
 class MenuViewIf;
 class TimeSetupViewIf;
+class DateSetupViewIf;
 
 /*
     The goal is to develop a clock application based on the Controller-View architectural pattern.
@@ -36,7 +37,8 @@ public:
                   ViewIf *timeSetupView,
                   TimeSetupViewIf *extendedTimeSetupView,
                   ViewIf *confirmationView,
-                  ViewIf *dataSetupView);
+                  ViewIf *dataSetupView,
+                  DateSetupViewIf *extendedDateSetupView);
     /// @brief  Use this method on setup() to set the pointer to the Real Time Clock driver.
     void setRtc(RtcDS1302<ThreeWire> *rtc);
 

@@ -36,13 +36,13 @@ See the ModuleConfig.hpp file.
 
 # To do
 
-- The date setup is still not completed.
 - An alarm setup could be nice to have.
 - Some architectural fixes could be nice to do.D
 - ???
 
 # Resources
 
-RAM:   [===       ]  31.5% (used 646 bytes from 2048 bytes)
-Flash: [=====     ]  45.3% (used 14620 bytes from 32256 bytes)
+RAM:   [====      ]  36.5% (used 747 bytes from 2048 bytes)
+Flash: [=====     ]  52.5% (used 16938 bytes from 32256 bytes)
+
 

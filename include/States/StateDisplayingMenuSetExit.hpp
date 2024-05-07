@@ -3,6 +3,10 @@
 
 #include "StateBase.hpp"
 
+/*
+    This state allows to exit the main menu.
+*/
+
 class StateDisplayingMenuSetExit : public StateBase
 {
 public:

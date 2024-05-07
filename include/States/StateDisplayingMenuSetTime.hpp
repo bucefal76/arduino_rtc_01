@@ -3,6 +3,10 @@
 
 #include "StateBase.hpp"
 
+/*
+    This state controls the device's behavior when it is displaying the "set time" submenu.
+*/
+
 class StateDisplayingMenuSetTime : public StateBase
 {
 public:

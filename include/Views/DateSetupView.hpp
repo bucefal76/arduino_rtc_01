@@ -5,6 +5,12 @@
 #include "Views/BaseView.hpp"
 #include <Thread.h>
 
+/*
+    The class implements the ViewIf and DateSetupViewIf interfaces.
+    Used to set new date settings.
+    Displays year, month, day and extra icons to help navigate within the time setup mode.
+*/
+
 class DateSetupView : public BaseView, public DateSetupViewIf, public Thread
 {
 public:

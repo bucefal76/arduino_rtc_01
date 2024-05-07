@@ -19,15 +19,15 @@ void StateDisplayingMenuSetTime::processButton(const KeyboardControllerIf::Butto
 {
     if (KeyboardControllerIf::ButtonCode::BUTTON_CODE_NEXT == button)
     {
-        trasitToNextState(StateDisplayingMenuSetDate::getInstance());
+        trasitToState(StateDisplayingMenuSetDate::getInstance());
     }
     else if (KeyboardControllerIf::ButtonCode::BUTTON_CODE_BACK == button)
     {
-        trasitToNextState(StateDisplayingMenuSetExit::getInstance());
+        trasitToState(StateDisplayingMenuSetExit::getInstance());
     }
     else if ((KeyboardControllerIf::ButtonCode::BUTTON_CODE_DOWN == button) || (KeyboardControllerIf::ButtonCode::BUTTON_CODE_UP == button))
     {
-        trasitToNextState(StateNewTimeSetup::getInstance());
+        trasitToState(StateNewTimeSetup::getInstance());
     }
 }
 

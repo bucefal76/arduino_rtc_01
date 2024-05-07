@@ -22,16 +22,12 @@ public:
     /// @brief Time setup requires modifying display behavior.
     /// For example, setting hours shall be different visually from setting minutes.
     //  This method allows for tuning view behavior.
-    /// @param state
     virtual void setState(const TimeSetupViewState state) = 0;
     /// @brief Get the curretnt view state, see setState.
-    /// @return
     virtual TimeSetupViewState getState() const = 0;
     /// @brief  Set a required hour to display.
-    /// @param hours
     virtual void putHours(const uint8_t hours) = 0;
     /// @brief  Set a required minute to display.
-    /// @param minutes
     virtual void putMinutes(const uint8_t minutes) = 0;
 };
 

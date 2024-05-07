@@ -6,6 +6,11 @@
 
 #include <Arduino.h>
 
+#define HOURS_MAX_VALUE 23U
+#define HOURS_MIN_VALUE 0U
+#define MINUTES_MAX_VALUE 59U
+#define MINUTES_MIN_VALUE 0U
+
 uint8_t StateNewTimeSetup::m_Hours = 12U;
 uint8_t StateNewTimeSetup::m_Minutes = 0U;
 
@@ -31,20 +36,20 @@ void StateNewTimeSetup::processButton(const KeyboardControllerIf::ButtonCode but
         if (KeyboardControllerIf::ButtonCode::BUTTON_CODE_UP == button)
         {
             m_Hours++;
-            if (m_Hours >= 24U)
+            if (m_Hours > HOURS_MAX_VALUE)
             {
-                m_Hours = 0U;
+                m_Hours = HOURS_MIN_VALUE;
             }
         }
         else if (KeyboardControllerIf::ButtonCode::BUTTON_CODE_DOWN == button)
         {
-            if (m_Hours > 0U)
+            if (m_Hours > HOURS_MIN_VALUE)
             {
                 m_Hours--;
             }
-            else if (m_Hours == 0U)
+            else if (m_Hours == HOURS_MIN_VALUE)
             {
-                m_Hours = 23U;
+                m_Hours = HOURS_MAX_VALUE;
             }
         }
         else if (KeyboardControllerIf::ButtonCode::BUTTON_CODE_NEXT == button)
@@ -53,7 +58,7 @@ void StateNewTimeSetup::processButton(const KeyboardControllerIf::ButtonCode but
         }
         else if (KeyboardControllerIf::ButtonCode::BUTTON_CODE_BACK == button)
         {
-            trasitToNextState(StateNewTimeConfirmation::getInstance());
+            trasitToState(StateNewTimeConfirmation::getInstance());
         }
 
         m_pExtendedTimeSetupView->putHours(m_Hours);
@@ -65,20 +70,20 @@ void StateNewTimeSetup::processButton(const KeyboardControllerIf::ButtonCode but
         if (KeyboardControllerIf::ButtonCode::BUTTON_CODE_UP == button)
         {
             m_Minutes++;
-            if (m_Minutes >= 59U)
+            if (m_Minutes > MINUTES_MAX_VALUE)
             {
-                m_Minutes = 0U;
+                m_Minutes = MINUTES_MIN_VALUE;
             }
         }
         else if (KeyboardControllerIf::ButtonCode::BUTTON_CODE_DOWN == button)
         {
-            if (m_Minutes > 0U)
+            if (m_Minutes > MINUTES_MIN_VALUE)
             {
                 m_Minutes--;
             }
-            else if (m_Minutes == 0U)
+            else if (m_Minutes == MINUTES_MIN_VALUE)
             {
-                m_Minutes = 59U;
+                m_Minutes = MINUTES_MAX_VALUE;
             }
         }
         else if (KeyboardControllerIf::ButtonCode::BUTTON_CODE_BACK == button)
@@ -87,7 +92,7 @@ void StateNewTimeSetup::processButton(const KeyboardControllerIf::ButtonCode but
         }
         else if (KeyboardControllerIf::ButtonCode::BUTTON_CODE_NEXT == button)
         {
-            trasitToNextState(StateNewTimeConfirmation::getInstance());
+            trasitToState(StateNewTimeConfirmation::getInstance());
         }
 
         m_pExtendedTimeSetupView->putMinutes(m_Minutes);

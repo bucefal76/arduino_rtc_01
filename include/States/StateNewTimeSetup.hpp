@@ -4,6 +4,10 @@
 #include "StateBase.hpp"
 #include <Arduino.h>
 
+/*
+    This state controls the device behavior when it allows the to set operator a new time.
+*/
+
 class StateNewTimeSetup : public StateBase
 {
 public:

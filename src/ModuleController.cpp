@@ -38,10 +38,11 @@ void ModuleController::setViews(ViewIf *timeView,
                                 ViewIf *timeSetupView,
                                 TimeSetupViewIf *extendedTimeSetupView,
                                 ViewIf *confirmationView,
-                                ViewIf *dataSetupView)
+                                ViewIf *dataSetupView,
+                                DateSetupViewIf *extendedDateSetupView)
 {
     /// Initalize state machine with views to play with:
-    StateBase::setViews(timeView, menuView, extendedMenuView, timeSetupView, extendedTimeSetupView, confirmationView, dataSetupView);
+    StateBase::setViews(timeView, menuView, extendedMenuView, timeSetupView, extendedTimeSetupView, confirmationView, dataSetupView, extendedDateSetupView);
 }
 
 void ModuleController::setRtc(RtcDS1302<ThreeWire> *rtc)
