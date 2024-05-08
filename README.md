@@ -37,12 +37,12 @@ See the ModuleConfig.hpp file.
 # To do
 
 - An alarm setup could be nice to have.
-- Some architectural fixes could be nice to do.D
+- Some architectural fixes could be nice to do. Stil need to do more refactor to get generic framework.
 - ???
 
 # Resources
 
-RAM:   [====      ]  36.5% (used 747 bytes from 2048 bytes)
-Flash: [=====     ]  52.5% (used 16938 bytes from 32256 bytes)
+RAM:   [====      ]  37.4% (used 765 bytes from 2048 bytes)
+Flash: [=====     ]  53.0% (used 17108 bytes from 32256 bytes)
 
 

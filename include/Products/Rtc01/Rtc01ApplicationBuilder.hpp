@@ -1,11 +1,15 @@
 #ifndef RTC01_APPLICATION_BUILDER_HPP
 #define RTC01_APPLICATION_BUILDER_HPP
 
-#include "ModuleApplicationBuilderIf.hpp"
+#include "ModuleApplicationBuilder.hpp"
 
-class RtcDateTime;
+/*
+    The class implements product-specific configuration code.
+    Here the threads are added for application execution.
+    Each product built on this common code base shall have its implementation of this file.
+*/
 
-class Rtc01ApplicationBuilder : public ModuleApplicationBuilderIf
+class Rtc01ApplicationBuilder : public ModuleApplicationBuilder
 {
 public:
     Rtc01ApplicationBuilder();
@@ -14,10 +18,6 @@ public:
 
 private:
     void setupThreads(ModuleApplicationIf &rApplication);
-
-    void initalizeRct();
-
-    void printDateTime(const RtcDateTime &dt);
 };
 
 #endif
