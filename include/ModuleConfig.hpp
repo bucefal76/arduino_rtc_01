@@ -7,6 +7,8 @@
 
 /* Global configuration section */
 
+#define USE_SERIAL
+
 #define STATE_MACHINE_UPDATE_TIME_INTERVAL_MS 35
 
 /* Keyboard configuration section */
@@ -29,5 +31,10 @@
 #define D5_IO_LINE 4U
 #define D6_IO_LINE 3U
 #define D7_IO_LINE 2U
+
+/* RCT configuration section */
+#define DAT_IO 9
+#define CLK 10
+#define RST_CE 8
 
 #endif
