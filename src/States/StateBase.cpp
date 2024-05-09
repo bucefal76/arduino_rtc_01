@@ -1,43 +1,37 @@
+#include "assert.h"
 #include "States/StateBase.hpp"
 #include "ViewIf.hpp"
 
 StateBase *StateBase::m_pCurrentState = nullptr;
-ViewIf *StateBase::m_TimeView = nullptr;
-ViewIf *StateBase::m_MenuView = nullptr;
 MenuViewIf *StateBase::m_ExtendedMenuView = nullptr;
-ViewIf *StateBase::m_pTimeSetupView = nullptr;
 TimeSetupViewIf *StateBase::m_pExtendedTimeSetupView = nullptr;
-ViewIf *StateBase::m_pConfirmationView = nullptr;
-ViewIf *StateBase::m_pDataSetupView = nullptr;
 DateSetupViewIf *StateBase::m_pExtendedDateSetupView = nullptr;
 
 RtcDS1302<ThreeWire> *StateBase::m_pRtc = nullptr;
+std::map<uint8_t, ViewIf *> StateBase::m_Views;
 
 void StateBase::processButton(const KeyboardControllerIf::ButtonCode button)
 {
 }
 
-void StateBase::setViews(ViewIf *timeView,
-                         ViewIf *menuView,
-                         MenuViewIf *extendedMenuView,
-                         ViewIf *timeSetupView,
+void StateBase::setExtendedViews(MenuViewIf *extendedMenuView,
                          TimeSetupViewIf *extendedTimeSetupView,
-                         ViewIf *confirmationView,
-                         ViewIf *dataSetupView,
                          DateSetupViewIf *extendedDateSetupViewIf)
 {
-    m_TimeView = timeView;
-    m_MenuView = menuView;
     m_ExtendedMenuView = extendedMenuView;
-    m_pTimeSetupView = timeSetupView;
     m_pExtendedTimeSetupView = extendedTimeSetupView;
-    m_pConfirmationView = confirmationView;
-    m_pDataSetupView = dataSetupView;
     m_pExtendedDateSetupView = extendedDateSetupViewIf;
+}
+
+void StateBase::addView(ViewIf *pView)
+{
+    assert(nullptr != pView);
+    m_Views[pView->getViewid()] = pView;
 }
 
 void StateBase::setRtc(RtcDS1302<ThreeWire> *rtc)
 {
+    assert(nullptr != rtc);
     m_pRtc = rtc;
 }
 
@@ -58,4 +52,11 @@ void StateBase::trasitToState(StateBase *pNexState)
     m_pCurrentState = pNexState;
 
     m_pCurrentState->enter();
+}
+
+ViewIf *StateBase::getView(const uint8_t viewId) const
+{
+    ViewIf *pView = m_Views[viewId];
+    assert(nullptr != pView);
+    return pView;
 }

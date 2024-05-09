@@ -3,6 +3,7 @@
 
 #include "KeyboardControllerIf.hpp"
 #include <RtcDS1302.h>
+#include <map>
 
 class ViewIf;
 class MenuViewIf;
@@ -29,15 +30,14 @@ class StateBase
 {
 public:
     virtual void processButton(const KeyboardControllerIf::ButtonCode button);
-    /// @brief  State machine needs to have an access to the views objects:
-    static void setViews(ViewIf *timeView,
-                         ViewIf *menuView,
-                         MenuViewIf *extendedMenuView,
-                         ViewIf *timeSetupView,
-                         TimeSetupViewIf *extendedTimeSetupView,
-                         ViewIf *confirmationView,
-                         ViewIf *dataSetupView,
-                         DateSetupViewIf *extendedDateSetupView);
+    /// @brief  State machine needs to have an access to the views objects, the special one.
+    ///         Not sure how to refactor it to more generic interface.
+    static void setExtendedViews(MenuViewIf *extendedMenuView,
+                                 TimeSetupViewIf *extendedTimeSetupView,
+                                 DateSetupViewIf *extendedDateSetupView);
+    /// @brief  State machine needs to have an access to the views objects, the typical one.
+    static void addView(ViewIf *pView);
+
     /// @brief State machine needs to have access to the RTC driver.
     static void setRtc(RtcDS1302<ThreeWire> *rtc);
 
@@ -54,18 +54,16 @@ protected:
     virtual void exit() = 0;
     /// @brief Current state of the state machine.
     static StateBase *m_pCurrentState;
-    /// @brief Pointer to the time display view.
-    static ViewIf *m_TimeView;
-    /// @brief Pointers to the Manu view, twwo as we have
-    /// two different interfaces (see Interface Soup antipattern)
+    /// Returns pointer to the view bny given ID, see ModuleConfig.hpp for views ID.
+    ViewIf *getView(const uint8_t viewId) const;
+    /// @brief Pointers to the Manu view, for some more than one pointer for one object.
+    /// Because we may have different interfaces for diferent purpose for single view object (see Interface Soup antipattern)
     /// Adaptive Code: Agile coding with design patterns and SOLID principles by Gary Mclean Hall.
-    static ViewIf *m_MenuView;
     static MenuViewIf *m_ExtendedMenuView;
-    static ViewIf *m_pTimeSetupView;
     static TimeSetupViewIf *m_pExtendedTimeSetupView;
-    static ViewIf *m_pConfirmationView;
-    static ViewIf *m_pDataSetupView;
     static DateSetupViewIf *m_pExtendedDateSetupView;
+    /// @brief Map with pointer to the standard views.
+    static std::map<uint8_t, ViewIf *> m_Views;
     /// @brief Pointer to the RTC driver.
     static RtcDS1302<ThreeWire> *m_pRtc;
 };

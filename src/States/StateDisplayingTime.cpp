@@ -2,6 +2,7 @@
 #include "States/StateDisplayingMenuSetTime.hpp"
 #include "ViewIf.hpp"
 #include "MenuViewIf.hpp"
+#include "ModuleConfig.hpp"
 
 #include <Arduino.h>
 
@@ -19,10 +20,10 @@ void StateDisplayingTime::processButton(const KeyboardControllerIf::ButtonCode b
 
 void StateDisplayingTime::enter()
 {
-    m_TimeView->enable();
+    getView(VIEW_ID_TIME_VIEW)->enable();
 }
 
 void StateDisplayingTime::exit()
 {
-    m_TimeView->disable();
+    getView(VIEW_ID_TIME_VIEW)->disable();
 }

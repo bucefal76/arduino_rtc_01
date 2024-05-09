@@ -6,6 +6,7 @@
 #include "States/StateNewDateSetup.hpp"
 #include "ViewIf.hpp"
 #include "MenuViewIf.hpp"
+#include "ModuleConfig.hpp"
 
 static const char *CAPTION_SET_DATE = "SET DATE\0";
 static const char *CAPTION_MENU = "MENU\0";
@@ -35,12 +36,13 @@ void StateDisplayingMenuSetDate::processButton(const KeyboardControllerIf::Butto
 
 void StateDisplayingMenuSetDate::enter()
 {
-    m_MenuView->enable();
+    getView(VIEW_ID_MENU_VIEW)->enable();
+
     m_ExtendedMenuView->setTitle(CAPTION_MENU);
     m_ExtendedMenuView->setContent(CAPTION_SET_DATE);
 }
 
 void StateDisplayingMenuSetDate::exit()
 {
-    m_MenuView->disable();
+    getView(VIEW_ID_MENU_VIEW)->disable();
 }

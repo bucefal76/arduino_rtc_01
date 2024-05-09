@@ -1,6 +1,7 @@
 #include "States/StateNewDateConfirmation.hpp"
 #include "States/StateDisplayingTime.hpp"
 #include "ViewIf.hpp"
+#include "ModuleConfig.hpp"
 
 StateNewDateConfirmation StateNewDateConfirmation::m_Instance;
 
@@ -43,10 +44,10 @@ void StateNewDateConfirmation::setNewDate()
 
 void StateNewDateConfirmation::enter()
 {
-    m_pConfirmationView->enable();
+    getView(VIEW_ID_CONFIRMATION_VIEW)->enable();
 }
 
 void StateNewDateConfirmation::exit()
 {
-    m_pConfirmationView->disable();
+    getView(VIEW_ID_CONFIRMATION_VIEW)->disable();
 }

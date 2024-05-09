@@ -1,6 +1,7 @@
 #include "States/StateNewTimeConfirmation.hpp"
 #include "States/StateDisplayingTime.hpp"
 #include "ViewIf.hpp"
+#include "ModuleConfig.hpp"
 
 StateNewTimeConfirmation StateNewTimeConfirmation::m_Instance;
 
@@ -29,12 +30,20 @@ void StateNewTimeConfirmation::processButton(const KeyboardControllerIf::ButtonC
 
 void StateNewTimeConfirmation::enter()
 {
-    m_pConfirmationView->enable();
+    ViewIf *pView = getView(VIEW_ID_CONFIRMATION_VIEW);
+    if (nullptr != pView)
+    {
+        pView->enable();
+    }
 }
 
 void StateNewTimeConfirmation::exit()
 {
-    m_pConfirmationView->disable();
+    ViewIf *pView = getView(VIEW_ID_CONFIRMATION_VIEW);
+    if (nullptr != pView)
+    {
+        pView->disable();
+    }
 }
 
 void StateNewTimeConfirmation::setNewTime()

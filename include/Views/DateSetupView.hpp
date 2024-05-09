@@ -19,6 +19,7 @@ public:
     DateSetupView();
 
     /// see ViewIf.
+    virtual uint8_t getViewid() const;
     virtual void enable();
     virtual void disable();
     /// see DateSetupViewIf.
