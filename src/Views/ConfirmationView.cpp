@@ -25,6 +25,11 @@ ConfirmationView::ConfirmationView()
     enabled = false;
 }
 
+uint8_t ConfirmationView::getViewid() const
+{
+    return VIEW_ID_CONFIRMATION_VIEW;
+}
+
 void ConfirmationView::enable()
 {
     if (nullptr != m_pLcd)

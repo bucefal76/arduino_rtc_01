@@ -27,6 +27,11 @@ DateSetupView::DateSetupView()
     enabled = false;
 }
 
+uint8_t DateSetupView::getViewid() const
+{
+    return VIEW_ID_DATE_SETUP_VIEW;
+}
+
 void DateSetupView::enable()
 {
     if (nullptr != m_pLcd)

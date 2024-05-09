@@ -4,6 +4,7 @@
 #include "States/StateDisplayingTime.hpp"
 #include "ViewIf.hpp"
 #include "MenuViewIf.hpp"
+#include "ModuleConfig.hpp"
 
 static const char *CAPTION_EXIT = "EXIT\0";
 static const char *CAPTION_MENU = "MENU\0";
@@ -33,12 +34,13 @@ void StateDisplayingMenuSetExit::processButton(const KeyboardControllerIf::Butto
 
 void StateDisplayingMenuSetExit::enter()
 {
-    m_MenuView->enable();
+    getView(VIEW_ID_MENU_VIEW)->enable();
+
     m_ExtendedMenuView->setTitle(CAPTION_MENU);
     m_ExtendedMenuView->setContent(CAPTION_EXIT);
 }
 
 void StateDisplayingMenuSetExit::exit()
 {
-    m_MenuView->disable();
+    getView(VIEW_ID_MENU_VIEW)->disable();
 }

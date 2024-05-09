@@ -2,6 +2,7 @@
 #include "States/StateNewDateConfirmation.hpp"
 #include "ViewIf.hpp"
 #include "DateSetupViewIf.hpp"
+#include "ModuleConfig.hpp"
 
 #define YEAR_MAX_VALUE 2035U
 #define YEAR_MIN_VALUE 2020U
@@ -135,7 +136,7 @@ void StateNewDateSetup::processButton(const KeyboardControllerIf::ButtonCode but
 }
 void StateNewDateSetup::enter()
 {
-    m_pDataSetupView->enable();
+    getView(VIEW_ID_DATE_SETUP_VIEW)->enable();
 
     m_pExtendedDateSetupView->setState(DateSetupViewIf::SETUP_YEAR);
     m_pExtendedDateSetupView->putDay(m_Day);
@@ -145,7 +146,7 @@ void StateNewDateSetup::enter()
 
 void StateNewDateSetup::exit()
 {
-    m_pDataSetupView->disable();
+    getView(VIEW_ID_DATE_SETUP_VIEW)->disable();
 }
 
 void StateNewDateSetup::updateViewData() const

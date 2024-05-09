@@ -31,14 +31,12 @@ public:
     /// @brief Use this method on the setup() to set the pointer to the keyboard controller.
     void setKeyboardController(KeyboardControllerIf *keyboardController);
     /// @brief  Use this method on the setup() to set the pointer to all views used by the application.
-    void setViews(ViewIf *timeView,
-                  ViewIf *menuView,
-                  MenuViewIf *extendedMenuView,
-                  ViewIf *timeSetupView,
+    void setExtendedViews(MenuViewIf *extendedMenuView,
                   TimeSetupViewIf *extendedTimeSetupView,
-                  ViewIf *confirmationView,
-                  ViewIf *dataSetupView,
                   DateSetupViewIf *extendedDateSetupView);
+
+    void addView(ViewIf *pView);
+
     /// @brief  Use this method on setup() to set the pointer to the Real Time Clock driver.
     void setRtc(RtcDS1302<ThreeWire> *rtc);
 

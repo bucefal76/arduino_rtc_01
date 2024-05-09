@@ -56,14 +56,17 @@ void ModuleApplicationBuilder::setupThreads(ModuleApplicationIf &rApplication)
     if (nullptr != ModuleController::getInstance())
     {
         ModuleController::getInstance()->setKeyboardController(KeyboardController::getInstance());
-        ModuleController::getInstance()->setViews(TimeView::getInstance(),
-                                                  MenuView::getInstance(),
-                                                  MenuView::getInstance(),
+
+        ModuleController::getInstance()->setExtendedViews(MenuView::getInstance(),
                                                   TimeSetupView::getInstance(),
-                                                  TimeSetupView::getInstance(),
-                                                  ConfirmationView::getInstance(),
-                                                  DateSetupView::getInstance(),
                                                   DateSetupView::getInstance());
+
+        ModuleController::getInstance()->addView(TimeView::getInstance());
+        ModuleController::getInstance()->addView(MenuView::getInstance());
+        ModuleController::getInstance()->addView(TimeSetupView::getInstance());
+        ModuleController::getInstance()->addView(ConfirmationView::getInstance());
+        ModuleController::getInstance()->addView(DateSetupView::getInstance());
+
         ModuleController::getInstance()->setRtc(&m_rtc);
     }
 }

@@ -3,6 +3,7 @@
 #include "ViewIf.hpp"
 #include "MenuViewIf.hpp"
 #include "TimeSetupViewIf.hpp"
+#include "ModuleConfig.hpp"
 
 #include <Arduino.h>
 
@@ -107,7 +108,11 @@ void StateNewTimeSetup::processButton(const KeyboardControllerIf::ButtonCode but
 
 void StateNewTimeSetup::enter()
 {
-    m_pTimeSetupView->enable();
+    ViewIf *pView = getView(VIEW_ID_TIME_SETUP_VIEW);
+    if (nullptr != pView)
+    {
+        pView->enable();
+    }
 
     m_pExtendedTimeSetupView->putHours(m_Hours);
     m_pExtendedTimeSetupView->putMinutes(m_Minutes);
@@ -115,5 +120,9 @@ void StateNewTimeSetup::enter()
 
 void StateNewTimeSetup::exit()
 {
-    m_pTimeSetupView->disable();
+    ViewIf *pView = getView(VIEW_ID_TIME_SETUP_VIEW);
+    if (nullptr != pView)
+    {
+        pView->disable();
+    }
 }

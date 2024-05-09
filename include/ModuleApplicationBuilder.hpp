@@ -5,7 +5,7 @@
 #include <ThreeWire.h>
 
 /*
-
+    Class wraps application configuration details.
 */
 
 class ModuleApplicationIf;
@@ -13,7 +13,9 @@ class ModuleApplicationIf;
 class ModuleApplicationBuilder
 {
 public:
-    virtual void buildApplication(ModuleApplicationIf &rApplication);
+    /// @brief Builds the application.
+    /// @param rApplication
+    void buildApplication(ModuleApplicationIf &rApplication);
 
 protected:
     void setupThreads(ModuleApplicationIf &rApplication);

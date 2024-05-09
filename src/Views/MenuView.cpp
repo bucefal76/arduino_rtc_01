@@ -41,6 +41,11 @@ void MenuView::setContent(const char *content)
     m_ContentPos = m_ContentPos / 2;
 }
 
+uint8_t MenuView::getViewid() const
+{
+    return VIEW_ID_MENU_VIEW;
+}
+
 void MenuView::enable()
 {
     if (nullptr != m_pLcd)

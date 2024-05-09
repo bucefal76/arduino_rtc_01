@@ -4,6 +4,7 @@
 #include "States/StateNewTimeSetup.hpp"
 #include "ViewIf.hpp"
 #include "MenuViewIf.hpp"
+#include "ModuleConfig.hpp"
 
 static const char *CAPTION_SET_TIME = "SET TIME\0";
 static const char *CAPTION_MENU = "MENU\0";
@@ -33,12 +34,13 @@ void StateDisplayingMenuSetTime::processButton(const KeyboardControllerIf::Butto
 
 void StateDisplayingMenuSetTime::enter()
 {
-    m_MenuView->enable();
+    getView(VIEW_ID_MENU_VIEW)->enable();
+
     m_ExtendedMenuView->setTitle(CAPTION_MENU);
     m_ExtendedMenuView->setContent(CAPTION_SET_TIME);
 }
 
 void StateDisplayingMenuSetTime::exit()
 {
-    m_MenuView->disable();
+    getView(VIEW_ID_MENU_VIEW)->disable();
 }

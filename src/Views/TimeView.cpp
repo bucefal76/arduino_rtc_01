@@ -23,6 +23,11 @@ TimeView::TimeView()
     enabled = true;
 }
 
+uint8_t TimeView::getViewid() const
+{
+    return VIEW_ID_TIME_VIEW;
+}
+
 void TimeView::enable()
 {
     if (nullptr != m_pLcd)

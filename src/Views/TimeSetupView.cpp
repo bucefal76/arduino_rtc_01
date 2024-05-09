@@ -27,6 +27,11 @@ TimeSetupView::TimeSetupView()
     enabled = false;
 }
 
+uint8_t TimeSetupView::getViewid() const
+{
+    return VIEW_ID_TIME_SETUP_VIEW;
+}
+
 void TimeSetupView::enable()
 {
     if (nullptr != m_pLcd)

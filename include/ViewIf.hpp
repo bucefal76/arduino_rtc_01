@@ -1,6 +1,8 @@
 #ifndef VIEW_IF_HPP
 #define VIEW_IF_HPP
 
+#include <Arduino.h>
+
 class LiquidCrystal;
 
 /*
@@ -11,6 +13,8 @@ class LiquidCrystal;
 class ViewIf
 {
 public:
+    /// @brief Returns the view ID.
+    virtual uint8_t getViewid() const = 0;
     /// @brief Views require a pointer to the LCD driver to display view content.
     /// @param pLcd
     virtual void setLcd(LiquidCrystal *pLcd) = 0;

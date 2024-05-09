@@ -42,7 +42,7 @@ See the ModuleConfig.hpp file.
 
 # Resources
 
-RAM:   [====      ]  37.4% (used 765 bytes from 2048 bytes)
-Flash: [=====     ]  53.0% (used 17108 bytes from 32256 bytes)
+RAM:   [====      ]  37.8% (used 775 bytes from 2048 bytes)
+Flash: [======    ]  55.9% (used 18034 bytes from 32256 bytes)
 
 
