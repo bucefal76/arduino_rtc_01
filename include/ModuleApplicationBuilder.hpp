@@ -1,18 +1,23 @@
 #ifndef MODULE_APPLICATION_BUILDER_HPP
 #define MODULE_APPLICATION_BUILDER_HPP
 
-#include "ModuleApplicationBuilderIf.hpp"
 #include <RtcDS1302.h>
 #include <ThreeWire.h>
 
 /*
-    Every product-specific application builder needs some basic, generic functionality.
-    For example, setup for the RTC hardware unit.
+
 */
 
-class ModuleApplicationBuilder : public ModuleApplicationBuilderIf
+class ModuleApplicationIf;
+
+class ModuleApplicationBuilder
 {
+public:
+    virtual void buildApplication(ModuleApplicationIf &rApplication);
+
 protected:
+    void setupThreads(ModuleApplicationIf &rApplication);
+
     void initalizeRct();
 
     void printDateTime(const RtcDateTime &dt);

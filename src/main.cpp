@@ -1,9 +1,7 @@
 #include <Arduino.h>
 #include "ModuleConfig.hpp"
 #include "ModuleApplication.hpp"
-#include "ModuleApplicationBuilderIf.hpp"
-
-#include "Products/Rtc01/Rtc01ApplicationBuilder.hpp"
+#include "ModuleApplicationBuilder.hpp"
 
 /*
   This code uses an Arduino UNO board, RTC DS1302, and a Standard 16x2 LCD to create a real-time clock.
@@ -16,7 +14,6 @@
 //////////////////////////////////////////////////////////////////////////////
 // Global objects:
 ModuleApplication gApplication;
-ModuleApplicationBuilderIf *pApplicationBuilder = new Rtc01ApplicationBuilder();
 //////////////////////////////////////////////////////////////////////////////
 
 void printDateTime(const RtcDateTime &dt);
@@ -33,10 +30,8 @@ void setup()
   Serial.println(F(__TIME__));
 #endif
 
-  if (nullptr != pApplicationBuilder)
-  {
-    pApplicationBuilder->buildApplication(gApplication);
-  }
+  ModuleApplicationBuilder gApplicationBuilder;
+  gApplicationBuilder.buildApplication(gApplication);
 }
 
 //////////////////////////////////////////////////////////////////////////////
