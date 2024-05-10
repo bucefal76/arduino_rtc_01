@@ -1,6 +1,6 @@
 #include <Arduino.h>
 
-#include "KeyboardController.hpp"
+#include "Controller/KeyboardController.hpp"
 #include "ModuleConfig.hpp"
 
 KeyboardController *KeyboardController::m_Instance = nullptr;

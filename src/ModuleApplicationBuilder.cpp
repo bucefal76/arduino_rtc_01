@@ -1,9 +1,9 @@
 #include <LiquidCrystal.h>
 
 #include "ModuleApplicationBuilder.hpp"
-#include "KeyboardController.hpp"
+#include "Controller/KeyboardController.hpp"
+#include "Controller/ModuleController.hpp"
 #include "ModuleConfig.hpp"
-#include "ModuleController.hpp"
 #include "ModuleApplicationIf.hpp"
 #include "Views/ConfirmationView.hpp"
 #include "Views/DateSetupView.hpp"
@@ -58,8 +58,8 @@ void ModuleApplicationBuilder::setupThreads(ModuleApplicationIf &rApplication)
         ModuleController::getInstance()->setKeyboardController(KeyboardController::getInstance());
 
         ModuleController::getInstance()->setExtendedViews(MenuView::getInstance(),
-                                                  TimeSetupView::getInstance(),
-                                                  DateSetupView::getInstance());
+                                                          TimeSetupView::getInstance(),
+                                                          DateSetupView::getInstance());
 
         ModuleController::getInstance()->addView(TimeView::getInstance());
         ModuleController::getInstance()->addView(MenuView::getInstance());

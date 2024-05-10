@@ -1,5 +1,5 @@
-#include "States/StateDisplayingTime.hpp"
-#include "States/StateDisplayingMenuSetTime.hpp"
+#include "Controller/States/StateDisplayingTime.hpp"
+#include "Controller/States/StateDisplayingMenuSetTime.hpp"
 #include "ViewIf.hpp"
 #include "MenuViewIf.hpp"
 #include "ModuleConfig.hpp"

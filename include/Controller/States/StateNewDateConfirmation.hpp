@@ -1,7 +1,7 @@
 #ifndef SET_NEW_DATA_CONFIRMATION_HPP
 #define SET_NEW_DATA_CONFIRMATION_HPP
 
-#include "States/StateNewDateSetup.hpp"
+#include "Controller/States/StateNewDateSetup.hpp"
 
 /*
     This state controls the device's behavior when it asks the operator to accept

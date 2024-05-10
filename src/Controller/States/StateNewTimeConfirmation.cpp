@@ -1,5 +1,5 @@
-#include "States/StateNewTimeConfirmation.hpp"
-#include "States/StateDisplayingTime.hpp"
+#include "Controller/States/StateNewTimeConfirmation.hpp"
+#include "Controller/States/StateDisplayingTime.hpp"
 #include "ViewIf.hpp"
 #include "ModuleConfig.hpp"
 

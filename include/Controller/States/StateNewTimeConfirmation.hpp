@@ -1,7 +1,7 @@
 #ifndef STATE_DNEW_TIME_CONFIRMATION_HPP
 #define STATE_DNEW_TIME_CONFIRMATION_HPP
 
-#include "States/StateNewTimeSetup.hpp"
+#include "Controller/States/StateNewTimeSetup.hpp"
 
 /*
     This state controls the device's behavior when it asks the operator to accept

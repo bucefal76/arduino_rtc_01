@@ -1,5 +1,5 @@
 #include "assert.h"
-#include "States/StateBase.hpp"
+#include "Controller/States/StateBase.hpp"
 #include "ViewIf.hpp"
 
 StateBase *StateBase::m_pCurrentState = nullptr;
@@ -15,8 +15,8 @@ void StateBase::processButton(const KeyboardControllerIf::ButtonCode button)
 }
 
 void StateBase::setExtendedViews(MenuViewIf *extendedMenuView,
-                         TimeSetupViewIf *extendedTimeSetupView,
-                         DateSetupViewIf *extendedDateSetupViewIf)
+                                 TimeSetupViewIf *extendedTimeSetupView,
+                                 DateSetupViewIf *extendedDateSetupViewIf)
 {
     m_ExtendedMenuView = extendedMenuView;
     m_pExtendedTimeSetupView = extendedTimeSetupView;

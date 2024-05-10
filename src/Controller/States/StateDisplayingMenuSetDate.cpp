@@ -1,9 +1,9 @@
 #include <avr/pgmspace.h>
 
-#include "States/StateDisplayingMenuSetDate.hpp"
-#include "States/StateDisplayingMenuSetTime.hpp"
-#include "States/StateDisplayingMenuSetExit.hpp"
-#include "States/StateNewDateSetup.hpp"
+#include "Controller/States/StateDisplayingMenuSetDate.hpp"
+#include "Controller/States/StateDisplayingMenuSetTime.hpp"
+#include "Controller/States/StateDisplayingMenuSetExit.hpp"
+#include "Controller/States/StateNewDateSetup.hpp"
 #include "ViewIf.hpp"
 #include "MenuViewIf.hpp"
 #include "ModuleConfig.hpp"
