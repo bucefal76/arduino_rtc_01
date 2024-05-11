@@ -18,6 +18,10 @@ StateBase *StateDisplayingMenuSetDate::getInstance()
     return &m_Instance;
 }
 
+StateDisplayingMenuSetDate::StateDisplayingMenuSetDate()
+{
+}
+
 void StateDisplayingMenuSetDate::processButton(const KeyboardControllerIf::ButtonCode button)
 {
     if (KeyboardControllerIf::ButtonCode::BUTTON_CODE_NEXT == button)

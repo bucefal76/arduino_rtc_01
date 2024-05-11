@@ -26,14 +26,12 @@ class ModuleController : public Thread
 public:
     static ModuleController *getInstance();
 
-    ModuleController();
-
     /// @brief Use this method on the setup() to set the pointer to the keyboard controller.
     void setKeyboardController(KeyboardControllerIf *keyboardController);
     /// @brief  Use this method on the setup() to set the pointer to all views used by the application.
     void setExtendedViews(MenuViewIf *extendedMenuView,
-                  TimeSetupViewIf *extendedTimeSetupView,
-                  DateSetupViewIf *extendedDateSetupView);
+                          TimeSetupViewIf *extendedTimeSetupView,
+                          DateSetupViewIf *extendedDateSetupView);
 
     void addView(ViewIf *pView);
 
@@ -41,6 +39,8 @@ public:
     void setRtc(RtcDS1302<ThreeWire> *rtc);
 
 private:
+    ModuleController();
+
     void update();
 
     static void onRunCallback();

@@ -19,13 +19,13 @@ class KeyboardController : public Thread, public KeyboardControllerIf
 public:
     static KeyboardController *getInstance();
 
-    KeyboardController();
-
     virtual bool isButtonPressDown() const;
 
     virtual KeyboardControllerIf::ButtonCode getButtonCode();
 
 private:
+    KeyboardController();
+
     void update();
     static void onRunCallback();
 

@@ -16,6 +16,10 @@ StateBase *StateDisplayingMenuSetExit::getInstance()
     return &m_Instance;
 }
 
+StateDisplayingMenuSetExit::StateDisplayingMenuSetExit()
+{
+}
+
 void StateDisplayingMenuSetExit::processButton(const KeyboardControllerIf::ButtonCode button)
 {
     if (KeyboardControllerIf::ButtonCode::BUTTON_CODE_NEXT == button)

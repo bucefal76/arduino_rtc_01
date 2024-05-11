@@ -13,11 +13,11 @@ class StateNewDateSetup : public StateBase
 public:
     static StateBase *getInstance();
 
-    StateNewDateSetup();
-
     virtual void processButton(const KeyboardControllerIf::ButtonCode button);
 
 protected:
+    StateNewDateSetup();
+
     static uint16_t m_Year;
     static uint8_t m_Month;
     static uint8_t m_Day;

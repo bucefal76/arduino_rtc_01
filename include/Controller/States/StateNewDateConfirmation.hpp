@@ -13,11 +13,11 @@ class StateNewDateConfirmation : public StateNewDateSetup
 public:
     static StateBase *getInstance();
 
-    StateNewDateConfirmation();
-
     virtual void processButton(const KeyboardControllerIf::ButtonCode button);
 
 private:
+    StateNewDateConfirmation();
+
     void setNewDate();
 
     virtual void enter();

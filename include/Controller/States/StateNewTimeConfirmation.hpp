@@ -13,11 +13,11 @@ class StateNewTimeConfirmation : public StateNewTimeSetup
 public:
     static StateBase *getInstance();
 
-    StateNewTimeConfirmation();
-
     virtual void processButton(const KeyboardControllerIf::ButtonCode button);
 
 private:
+    StateNewTimeConfirmation();
+
     void setNewTime();
 
     virtual void enter();

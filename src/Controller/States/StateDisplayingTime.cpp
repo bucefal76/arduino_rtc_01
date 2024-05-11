@@ -13,6 +13,10 @@ StateBase *StateDisplayingTime::getInstance()
     return &m_Instance;
 }
 
+StateDisplayingTime::StateDisplayingTime()
+{
+}
+
 void StateDisplayingTime::processButton(const KeyboardControllerIf::ButtonCode button)
 {
     trasitToState(StateDisplayingMenuSetTime::getInstance());
