@@ -30,68 +30,7 @@ The benefits of this architecture are:
 ## Components diagram
 A simplified diagram presents the main components of the software architecture. Note that formal interfaces are not listed here. 
 
-![alternative text](http://www.plantuml.com/plantuml/proxy?cache=no&src=???https://github.com/bucefal76/arduino_rtc_01/blob/bucefal76/rct_pin_extension_with_PCF8574_01/PlantUmlDiagram1.txt)
-
-@startuml
-```plantuml
-
-
-package Application {
-    
-    interface ViewIf
-    interface ModuleModelIf
-
-
-    package Controller {
-
-        interface KeyboardControllerIf
-
-        component ModuleController
-        component KeyboardController
-        
-        package "States" as States {
-            
-            component BaseState
-            component StateN        
-
-            BaseState <|-down- StateN : extends
-        }
-
-
-        KeyboardController -up- KeyboardControllerIf
-    }
-
-    package "Model" as Model {
-
-        component ModuleModel
-        component RtcDS1302
-        component ThreeWire
-
-        ModuleModel -up- ModuleModelIf
-        ModuleModel -down-> RtcDS1302 : use
-        RtcDS1302 --> ThreeWire : use
-    }
-
-    package "Views" as Views {      
-
-        component BaseView
-        component ViewN
-
-        BaseView -up- ViewIf
-
-        BaseView <|-down- ViewN : extends
-    }    
-
-}
-
-Controller -down-( ViewIf : use
-Controller -down-( ModuleModelIf : use
-Views --( ModuleModelIf : use / getDateTime()
-ModuleController -down-( KeyboardControllerIf : use
-ModuleController --> States : use
-
-```
-@enduml
+//www.plantuml.com/plantuml/png/TPC_JyCm4CNtV8fJfp9O_653g2hG1I4wq0fcarnBX6D7ZgE2GhyxxiMrczZD45bvltlsktFcZU7Qj9N8Qfv_yot2GrsBCkUcL1Aw3En3hr8Qr1kU8xoNk7lUZ3w-gg8LQDyeh9QHUdHyKj9e9GHgw7fbMFk2lv-Awo9mri9pkQfg9L4QjqUWOYIs2f1RX6DDLeORR2R06-YNBk-eOhp78s-G-3CwQKjlCg1yBTp_iKBj93lYTu0_1cNHU7wVXTeu5x2sPkdMkU91LfeCHQKLTESRJ412VJFvOdLzUtMJqDPV6l6ZrEXjJytehCChaiQe8xEma-rAsw1dmtTcAR-derAn3tUrdp2jeFD3IOxr0CKIrIvzZISfbliTOjLFc8ZnWFVzCUnvJqTA_DHPkbYnFkoam_fyBAt29MpHBBZ1TLdXz2BhcTWwTQ6SHwA6pToFuuYvZTTMuXy0
 
 ## Dependencies
 
