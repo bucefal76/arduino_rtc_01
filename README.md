@@ -30,6 +30,8 @@ The benefits of this architecture are:
 ## Components diagram
 A simplified diagram presents the main components of the software architecture. Note that formal interfaces are not listed here. 
 
+![alternative text](http://www.plantuml.com/plantuml/proxy?cache=no&src=???https://github.com/bucefal76/arduino_rtc_01/blob/bucefal76/rct_pin_extension_with_PCF8574_01/PlantUmlDiagram1.txt)
+
 @startuml
 ```plantuml
 
