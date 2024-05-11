@@ -1,7 +1,7 @@
 #ifndef SET_NEW_DATA_CONFIRMATION_HPP
 #define SET_NEW_DATA_CONFIRMATION_HPP
 
-#include "States/StateNewDateSetup.hpp"
+#include "Controller/States/StateNewDateSetup.hpp"
 
 /*
     This state controls the device's behavior when it asks the operator to accept
@@ -13,11 +13,11 @@ class StateNewDateConfirmation : public StateNewDateSetup
 public:
     static StateBase *getInstance();
 
-    StateNewDateConfirmation();
-
     virtual void processButton(const KeyboardControllerIf::ButtonCode button);
 
 private:
+    StateNewDateConfirmation();
+
     void setNewDate();
 
     virtual void enter();

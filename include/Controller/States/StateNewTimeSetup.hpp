@@ -13,11 +13,11 @@ class StateNewTimeSetup : public StateBase
 public:
     static StateBase *getInstance();
 
-    StateNewTimeSetup();
-
     virtual void processButton(const KeyboardControllerIf::ButtonCode button);
 
 protected:
+    StateNewTimeSetup();
+
     static uint8_t m_Hours;
     static uint8_t m_Minutes;
 

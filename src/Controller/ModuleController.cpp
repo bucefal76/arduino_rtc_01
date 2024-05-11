@@ -1,9 +1,9 @@
-#include "ModuleController.hpp"
+#include "Controller/ModuleController.hpp"
+#include "Controller/States/StateBase.hpp"
+#include "Controller/States/StateDisplayingTime.hpp"
 #include "KeyboardControllerIf.hpp"
 #include "MenuViewIf.hpp"
 #include "ViewIf.hpp"
-#include "States/StateBase.hpp"
-#include "States/StateDisplayingTime.hpp"
 
 ModuleController *ModuleController::m_pInstance = nullptr;
 
@@ -33,8 +33,8 @@ void ModuleController::setKeyboardController(KeyboardControllerIf *keyboardContr
 }
 
 void ModuleController::setExtendedViews(MenuViewIf *extendedMenuView,
-                                TimeSetupViewIf *extendedTimeSetupView,
-                                DateSetupViewIf *extendedDateSetupView)
+                                        TimeSetupViewIf *extendedTimeSetupView,
+                                        DateSetupViewIf *extendedDateSetupView)
 {
     /// Initalize state machine with views to play with:
     StateBase::setExtendedViews(extendedMenuView, extendedTimeSetupView, extendedDateSetupView);
@@ -45,9 +45,9 @@ void ModuleController::addView(ViewIf *pView)
     StateBase::addView(pView);
 }
 
-void ModuleController::setRtc(RtcDS1302<ThreeWire> *rtc)
+void ModuleController::setModel(ModuleModelIf *pModel)
 {
-    StateBase::setRtc(rtc);
+    StateBase::setModel(pModel);
 }
 
 void ModuleController::update()

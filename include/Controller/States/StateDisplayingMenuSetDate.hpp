@@ -15,6 +15,8 @@ public:
     static StateBase *getInstance();
 
 private:
+    StateDisplayingMenuSetDate();
+
     virtual void enter();
 
     virtual void exit();

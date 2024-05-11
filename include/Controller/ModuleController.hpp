@@ -13,6 +13,7 @@ class ViewIf;
 class MenuViewIf;
 class TimeSetupViewIf;
 class DateSetupViewIf;
+class ModuleModelIf;
 
 /*
     The goal is to develop a clock application based on the Controller-View architectural pattern.
@@ -26,21 +27,23 @@ class ModuleController : public Thread
 public:
     static ModuleController *getInstance();
 
-    ModuleController();
-
     /// @brief Use this method on the setup() to set the pointer to the keyboard controller.
     void setKeyboardController(KeyboardControllerIf *keyboardController);
-    /// @brief  Use this method on the setup() to set the pointer to all views used by the application.
-    void setExtendedViews(MenuViewIf *extendedMenuView,
-                  TimeSetupViewIf *extendedTimeSetupView,
-                  DateSetupViewIf *extendedDateSetupView);
-
+    /// @brief Add views to the list of views managed by the Controller.
+    /// @param pView
     void addView(ViewIf *pView);
-
-    /// @brief  Use this method on setup() to set the pointer to the Real Time Clock driver.
-    void setRtc(RtcDS1302<ThreeWire> *rtc);
+    /// @brief  Use this method on the setup() to set the pointer to all views used by the controller.
+    ///         Only the special type of views.
+    void setExtendedViews(MenuViewIf *extendedMenuView,
+                          TimeSetupViewIf *extendedTimeSetupView,
+                          DateSetupViewIf *extendedDateSetupView);
+    /// @brief Set Model that represents RTC.
+    /// @param pModel
+    void setModel(ModuleModelIf *pModel);
 
 private:
+    ModuleController();
+
     void update();
 
     static void onRunCallback();

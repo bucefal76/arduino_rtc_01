@@ -2,7 +2,7 @@
 #include <LiquidCrystal.h>
 
 LiquidCrystal *BaseView::m_pLcd = nullptr;
-RtcDS1302<ThreeWire> *BaseView::m_Rtc = nullptr;
+ModuleModelIf *BaseView::m_pModel = nullptr;
 
 uint8_t BaseView::m_SpecialChars[VIEWS_SPECIAL_CHARACTERS_COUNT][VIEWS_SPECIAL_CHARACTERS_SIZE] = {
     {B00010,
@@ -39,9 +39,12 @@ void BaseView::setLcd(LiquidCrystal *pLiquidCrystal)
     }
 }
 
-void BaseView::setRtc(RtcDS1302<ThreeWire> *pRtc)
+void BaseView::setModel(ModuleModelIf *pModel)
 {
-    m_Rtc = pRtc;
+    if (nullptr == m_pModel)
+    {
+        m_pModel = pModel;
+    }
 }
 
 void BaseView::enable()

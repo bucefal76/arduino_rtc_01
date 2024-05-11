@@ -9,6 +9,7 @@ class ViewIf;
 class MenuViewIf;
 class TimeSetupViewIf;
 class DateSetupViewIf;
+class ModuleModelIf;
 
 /*
     BaseState is an abstract class that serves as the root class for several derived classes,
@@ -35,13 +36,13 @@ public:
     static void setExtendedViews(MenuViewIf *extendedMenuView,
                                  TimeSetupViewIf *extendedTimeSetupView,
                                  DateSetupViewIf *extendedDateSetupView);
-    /// @brief  State machine needs to have an access to the views objects, the typical one.
+    /// @brief State machine needs to have an access to the views objects, the typical one.
     static void addView(ViewIf *pView);
-
-    /// @brief State machine needs to have access to the RTC driver.
-    static void setRtc(RtcDS1302<ThreeWire> *rtc);
-
+    /// @brief Set pointer to the Model that represents RTC.
+    static void setModel(ModuleModelIf *pModel);
+    /// @brief Get the current state of the controller.
     static StateBase *getCurrentState();
+    /// @brief Set current state in the controller.
     static void setCurrentState(StateBase *state);
 
 protected:
@@ -64,8 +65,8 @@ protected:
     static DateSetupViewIf *m_pExtendedDateSetupView;
     /// @brief Map with pointer to the standard views.
     static std::map<uint8_t, ViewIf *> m_Views;
-    /// @brief Pointer to the RTC driver.
-    static RtcDS1302<ThreeWire> *m_pRtc;
+    /// @brief  Pointer to the model of the RTC.
+    static ModuleModelIf *m_pModel;
 };
 
 #endif

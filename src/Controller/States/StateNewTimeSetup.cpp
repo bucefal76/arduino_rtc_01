@@ -1,5 +1,5 @@
-#include "States/StateNewTimeSetup.hpp"
-#include "States/StateNewTimeConfirmation.hpp"
+#include "Controller/States/StateNewTimeSetup.hpp"
+#include "Controller/States/StateNewTimeConfirmation.hpp"
 #include "ViewIf.hpp"
 #include "MenuViewIf.hpp"
 #include "TimeSetupViewIf.hpp"

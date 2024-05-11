@@ -1,8 +1,9 @@
 #include <LiquidCrystal.h>
 #include <stdint.h>
-
 #include "Views/TimeView.hpp"
 #include "ModuleConfig.hpp"
+#include "Model/DateTime.hpp"
+#include "SerialPrintAssert.h"
 
 TimeView *TimeView::m_Instance = nullptr;
 
@@ -30,11 +31,9 @@ uint8_t TimeView::getViewid() const
 
 void TimeView::enable()
 {
-    if (nullptr != m_pLcd)
-    {
-        enabled = true;
-        m_pLcd->clear();
-    }
+    RUNTIME_PTR_CHECK(m_pLcd);
+    enabled = true;
+    m_pLcd->clear();
 }
 
 void TimeView::disable()
@@ -49,45 +48,34 @@ void TimeView::onRunCallback()
 
 void TimeView::update()
 {
-    if (nullptr != m_pLcd)
+    const DateTime now = m_pModel->getDateTime();
+    if (now.isValid())
     {
-        if (nullptr != m_Rtc)
-        {
-            const RtcDateTime now = m_Rtc->GetDateTime();
-            if (now.IsValid())
-            {
-                char datestring[20];
+        char datestring[20];
 
-                m_pLcd->setCursor(0, 1);
-                snprintf_P(datestring,
-                           countof(datestring),
-                           PSTR("%04u/%02u/%02u"),
-                           now.Year(),
-                           now.Month(),
-                           now.Day());
+        m_pLcd->setCursor(0, 1);
+        snprintf_P(datestring,
+                   countof(datestring),
+                   PSTR("%04u/%02u/%02u"),
+                   now.getYear(),
+                   now.getMonth(),
+                   now.getDay());
 
-                m_pLcd->write(datestring);
+        m_pLcd->write(datestring);
 
-                m_pLcd->setCursor(0, 0);
-                snprintf_P(datestring,
-                           countof(datestring),
-                           PSTR("%02u:%02u:%02u"),
-                           now.Hour(),
-                           now.Minute(),
-                           now.Second());
+        m_pLcd->setCursor(0, 0);
+        snprintf_P(datestring,
+                   countof(datestring),
+                   PSTR("%02u:%02u:%02u"),
+                   now.getHour(),
+                   now.getMinute(),
+                   now.getSecond());
 
-                m_pLcd->write(datestring);
-            }
-            else
-            {
-                m_pLcd->setCursor(0, 0);
-                m_pLcd->write("Bad battery!!!");
-            }
-        }
-        else
-        {
-            m_pLcd->setCursor(0, 0);
-            m_pLcd->write("NO RTC obj!");
-        }
+        m_pLcd->write(datestring);
+    }
+    else
+    {
+        m_pLcd->setCursor(0, 0);
+        m_pLcd->write("No battery!");
     }
 }

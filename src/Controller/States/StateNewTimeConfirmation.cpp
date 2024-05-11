@@ -1,7 +1,9 @@
-#include "States/StateNewTimeConfirmation.hpp"
-#include "States/StateDisplayingTime.hpp"
+#include "Controller/States/StateNewTimeConfirmation.hpp"
+#include "Controller/States/StateDisplayingTime.hpp"
 #include "ViewIf.hpp"
 #include "ModuleConfig.hpp"
+#include "ModuleModelIf.hpp"
+#include "Model/DateTime.hpp"
 
 StateNewTimeConfirmation StateNewTimeConfirmation::m_Instance;
 
@@ -48,14 +50,14 @@ void StateNewTimeConfirmation::exit()
 
 void StateNewTimeConfirmation::setNewTime()
 {
-    const RtcDateTime now = m_pRtc->GetDateTime();
+    const DateTime now = m_pModel->getDateTime();
 
-    RtcDateTime modifiedTimeDate(now.Year(),
-                                 now.Month(),
-                                 now.Day(),
-                                 m_Hours,
-                                 m_Minutes,
-                                 0U);
+    DateTime modifiedTimeDate(now.getYear(),
+                              now.getMonth(),
+                              now.getDay(),
+                              m_Hours,
+                              m_Minutes,
+                              0U);
 
-    m_pRtc->SetDateTime(modifiedTimeDate);
+    m_pModel->setDateTime(modifiedTimeDate);
 }

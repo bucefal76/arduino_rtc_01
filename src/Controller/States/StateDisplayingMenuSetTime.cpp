@@ -1,7 +1,7 @@
-#include "States/StateDisplayingMenuSetTime.hpp"
-#include "States/StateDisplayingMenuSetDate.hpp"
-#include "States/StateDisplayingMenuSetExit.hpp"
-#include "States/StateNewTimeSetup.hpp"
+#include "Controller/States/StateDisplayingMenuSetTime.hpp"
+#include "Controller/States/StateDisplayingMenuSetDate.hpp"
+#include "Controller/States/StateDisplayingMenuSetExit.hpp"
+#include "Controller/States/StateNewTimeSetup.hpp"
 #include "ViewIf.hpp"
 #include "MenuViewIf.hpp"
 #include "ModuleConfig.hpp"
@@ -14,6 +14,10 @@ StateDisplayingMenuSetTime StateDisplayingMenuSetTime::m_Instance;
 StateBase *StateDisplayingMenuSetTime::getInstance()
 {
     return &m_Instance;
+}
+
+StateDisplayingMenuSetTime::StateDisplayingMenuSetTime()
+{
 }
 
 void StateDisplayingMenuSetTime::processButton(const KeyboardControllerIf::ButtonCode button)
