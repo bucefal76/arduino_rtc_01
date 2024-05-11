@@ -26,6 +26,12 @@ public:
     /// @param dt
     virtual void setDateTime(const DateTime &dateTime);
 
+    // temp solution
+    RtcDS1302<ThreeWire> *getRtc()
+    {
+        return &m_Rtc;
+    }
+
 private:
     ModuleModel();
 

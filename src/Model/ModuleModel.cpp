@@ -20,9 +20,9 @@ ModuleModel *ModuleModel::getInstance()
 ModuleModel::ModuleModel()
 {
     /*
-  Part of the code was found over the Internet with examples of how to use the RtcDS1302 library.
-  In this part of the code, some basic settings for the RTC module are done.
-*/
+      Part of the code was found over the Internet with examples of how to use the RtcDS1302 library.
+      In this part of the code, some basic settings for the RTC module are done.
+    */
 
     m_Rtc.Begin();
 
