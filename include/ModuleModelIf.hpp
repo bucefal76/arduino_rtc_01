@@ -18,7 +18,7 @@ public:
     virtual DateTime getDateTime() const = 0;
     /// @brief
     /// @param dt
-    virtual void setDateTime(const DateTime &dt) = 0;
+    virtual void setDateTime(const DateTime &dateTime) = 0;
 };
 
 #endif

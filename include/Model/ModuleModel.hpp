@@ -3,10 +3,11 @@
 
 #include <Arduino.h>
 
+#include "ModuleConfig.hpp"
 #include "ModuleModelIf.hpp"
 #include "DateTime.hpp"
-// #include "RtcDS1302.h"
-// #include "RtcDateTime.h"
+#include "RtcDS1302.h"
+#include "RtcDateTime.h"
 
 class ModuleModel : public ModuleModelIf
 {
@@ -23,10 +24,18 @@ public:
     virtual DateTime getDateTime() const;
     /// @brief
     /// @param dt
-    virtual void setDateTime(const DateTime &dt);
+    virtual void setDateTime(const DateTime &dateTime);
 
 private:
     ModuleModel();
+
+#ifdef USE_SERIAL
+    void printDateTime(const RtcDateTime &dt);
+#endif
+
+    static ThreeWire m_Wire;
+    static RtcDS1302<ThreeWire> m_Rtc;
+    static ModuleModel *m_Instance;
 };
 
 #endif
