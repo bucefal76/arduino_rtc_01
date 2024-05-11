@@ -28,7 +28,11 @@ The benefits of this architecture are:
 # Architecture
 
 ## Components diagram
-A simplified diagram presents the main components of the software architecture. Note that formal interfaces are not listed here. 
+A simplified diagram presents the main components of the software architecture.
+
+- Controller - controls the software behavior. The details of the software behavior are defined by the State Machine (component States). ModuleControler captures the input from the KeyboardControler and then passes it to the State Machine.
+- States of the State Machine give requests to the Views component. In the Views component, there are multiple - Views adapted for selected states of State Machine (for example, view to set new time).
+- Finally, the Model component encapsulates the hardware Real real-time clock (RTC) details. The Views use Model to get the date and time, while Controler can alter the Model (RTC) setting.
 
 ![PlantUML model](https://www.plantuml.com/plantuml/png/TPC_JyCm4CNtV8fJfp9O_653g2hG1I4wq0fcarnBX6D7ZgE2GhyxxiMrczZD45bvltlsktFcZU7Qj9N8Qfv_yot2GrsBCkUcL1Aw3En3hr8Qr1kU8xoNk7lUZ3w-gg8LQDyeh9QHUdHyKj9e9GHgw7fbMFk2lv-Awo9mri9pkQfg9L4QjqUWOYIs2f1RX6DDLeORR2R06-YNBk-eOhp78s-G-3CwQKjlCg1yBTp_iKBj93lYTu0_1cNHU7wVXTeu5x2sPkdMkU91LfeCHQKLTESRJ412VJFvOdLzUtMJqDPV6l6ZrEXjJytehCChaiQe8xEma-rAsw1dmtTcAR-derAn3tUrdp2jeFD3IOxr0CKIrIvzZISfbliTOjLFc8ZnWFVzCUnvJqTA_DHPkbYnFkoam_fyBAt29MpHBBZ1TLdXz2BhcTWwTQ6SHwA6pToFuuYvZTTMuXy0)
 
