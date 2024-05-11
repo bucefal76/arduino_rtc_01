@@ -1,0 +1,60 @@
+@startuml
+```plantuml
+
+
+package Application {
+    
+    interface ViewIf
+    interface ModuleModelIf
+
+
+    package Controller {
+
+        interface KeyboardControllerIf
+
+        component ModuleController
+        component KeyboardController
+        
+        package "States" as States {
+            
+            component BaseState
+            component StateN        
+
+            BaseState <|-down- StateN : extends
+        }
+
+
+        KeyboardController -up- KeyboardControllerIf
+    }
+
+    package "Model" as Model {
+
+        component ModuleModel
+        component RtcDS1302
+        component ThreeWire
+
+        ModuleModel -up- ModuleModelIf
+        ModuleModel -down-> RtcDS1302 : use
+        RtcDS1302 --> ThreeWire : use
+    }
+
+    package "Views" as Views {      
+
+        component BaseView
+        component ViewN
+
+        BaseView -up- ViewIf
+
+        BaseView <|-down- ViewN : extends
+    }    
+
+}
+
+Controller -down-( ViewIf : use
+Controller -down-( ModuleModelIf : use
+Views --( ModuleModelIf : use / getDateTime()
+ModuleController -down-( KeyboardControllerIf : use
+ModuleController --> States : use
+
+```
+@enduml
