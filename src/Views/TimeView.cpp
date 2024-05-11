@@ -1,10 +1,9 @@
 #include <LiquidCrystal.h>
 #include <stdint.h>
-
 #include "Views/TimeView.hpp"
-#include "assert.h"
 #include "ModuleConfig.hpp"
 #include "Model/DateTime.hpp"
+#include "SerialPrintAssert.h"
 
 TimeView *TimeView::m_Instance = nullptr;
 
@@ -32,7 +31,7 @@ uint8_t TimeView::getViewid() const
 
 void TimeView::enable()
 {
-    assert(nullptr != m_pLcd);
+    RUNTIME_PTR_CHECK(m_pLcd);
     enabled = true;
     m_pLcd->clear();
 }
@@ -77,6 +76,6 @@ void TimeView::update()
     else
     {
         m_pLcd->setCursor(0, 0);
-        m_pLcd->write("Bad battery!!!");
+        m_pLcd->write("No battery!");
     }
 }

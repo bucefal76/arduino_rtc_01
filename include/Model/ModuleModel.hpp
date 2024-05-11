@@ -9,6 +9,10 @@
 #include "RtcDS1302.h"
 #include "RtcDateTime.h"
 
+/*
+    This class decouples the client code from dependency to the currently used RTC driver implementation.
+*/
+
 class ModuleModel : public ModuleModelIf
 {
 public:
@@ -16,21 +20,12 @@ public:
     /// code representation can be only one, we have a singleton in this case.
     /// @return Pointer to the ModuleModel instance.
     static ModuleModel *getInstance();
-    /// @brief
-    /// @return
+    /// @brief Says true if date time at RTC is valid.
     virtual bool isDateTimeValid() const;
-    /// @brief
-    /// @return
+    /// @brief Returns Date and Time as DateTime struct from the RTC.
     virtual DateTime getDateTime() const;
-    /// @brief
-    /// @param dt
+    /// @brief Sets the new date and time to the RTC.
     virtual void setDateTime(const DateTime &dateTime);
-
-    // temp solution
-    RtcDS1302<ThreeWire> *getRtc()
-    {
-        return &m_Rtc;
-    }
 
 private:
     ModuleModel();

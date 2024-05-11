@@ -1,5 +1,4 @@
 #include "Model/ModuleModel.hpp"
-#include "assert.h"
 #include "RtcDS1302.h"
 #include "ModuleConfig.hpp"
 
@@ -27,8 +26,8 @@ ModuleModel::ModuleModel()
     m_Rtc.Begin();
 
     RtcDateTime compiled = RtcDateTime(__DATE__, __TIME__);
-    printDateTime(compiled);
 #ifdef USE_SERIAL
+    printDateTime(compiled);
     Serial.println();
 #endif
 

@@ -45,9 +45,9 @@ void ModuleController::addView(ViewIf *pView)
     StateBase::addView(pView);
 }
 
-void ModuleController::setRtc(RtcDS1302<ThreeWire> *rtc)
+void ModuleController::setModel(ModuleModelIf *pModel)
 {
-    StateBase::setRtc(rtc);
+    StateBase::setModel(pModel);
 }
 
 void ModuleController::update()

@@ -1,14 +1,15 @@
-#include "assert.h"
 #include "Controller/States/StateBase.hpp"
 #include "ViewIf.hpp"
+#include "SerialPrintAssert.h"
+#include "ModuleModelIf.hpp"
 
 StateBase *StateBase::m_pCurrentState = nullptr;
 MenuViewIf *StateBase::m_ExtendedMenuView = nullptr;
 TimeSetupViewIf *StateBase::m_pExtendedTimeSetupView = nullptr;
 DateSetupViewIf *StateBase::m_pExtendedDateSetupView = nullptr;
 
-RtcDS1302<ThreeWire> *StateBase::m_pRtc = nullptr;
 std::map<uint8_t, ViewIf *> StateBase::m_Views;
+ModuleModelIf *StateBase::m_pModel = nullptr;
 
 void StateBase::processButton(const KeyboardControllerIf::ButtonCode button)
 {
@@ -25,14 +26,13 @@ void StateBase::setExtendedViews(MenuViewIf *extendedMenuView,
 
 void StateBase::addView(ViewIf *pView)
 {
-    assert(nullptr != pView);
+    RUNTIME_PTR_CHECK(pView);
     m_Views[pView->getViewid()] = pView;
 }
 
-void StateBase::setRtc(RtcDS1302<ThreeWire> *rtc)
+void StateBase::setModel(ModuleModelIf *pModel)
 {
-    assert(nullptr != rtc);
-    m_pRtc = rtc;
+    m_pModel = pModel;
 }
 
 StateBase *StateBase::getCurrentState()
@@ -57,6 +57,6 @@ void StateBase::trasitToState(StateBase *pNexState)
 ViewIf *StateBase::getView(const uint8_t viewId) const
 {
     ViewIf *pView = m_Views[viewId];
-    assert(nullptr != pView);
+    RUNTIME_PTR_CHECK(pView);
     return pView;
 }

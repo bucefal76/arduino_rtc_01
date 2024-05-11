@@ -2,6 +2,8 @@
 #include "Controller/States/StateDisplayingTime.hpp"
 #include "ViewIf.hpp"
 #include "ModuleConfig.hpp"
+#include "ModuleModelIf.hpp"
+#include "Model/DateTime.hpp"
 
 StateNewDateConfirmation StateNewDateConfirmation::m_Instance;
 
@@ -30,16 +32,16 @@ void StateNewDateConfirmation::processButton(const KeyboardControllerIf::ButtonC
 
 void StateNewDateConfirmation::setNewDate()
 {
-    const RtcDateTime now = m_pRtc->GetDateTime();
+    const DateTime now = m_pModel->getDateTime();
 
-    RtcDateTime modifiedTimeDate(m_Year,
-                                 m_Month,
-                                 m_Day,
-                                 now.Hour(),
-                                 now.Minute(),
-                                 now.Second());
+    DateTime modifiedTimeDate(m_Year,
+                              m_Month,
+                              m_Day,
+                              now.getHour(),
+                              now.getMinute(),
+                              now.getSecond());
 
-    m_pRtc->SetDateTime(modifiedTimeDate);
+    m_pModel->setDateTime(modifiedTimeDate);
 }
 
 void StateNewDateConfirmation::enter()

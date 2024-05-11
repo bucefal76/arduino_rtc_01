@@ -12,6 +12,8 @@
 #include "Views/TimeSetupView.hpp"
 #include "Views/TimeView.hpp"
 
+#include "SerialPrintAssert.h"
+
 void ModuleApplicationBuilder::buildApplication(ModuleApplicationIf &rApplication)
 {
     setupThreads(rApplication);
@@ -65,6 +67,6 @@ void ModuleApplicationBuilder::setupThreads(ModuleApplicationIf &rApplication)
         ModuleController::getInstance()->addView(ConfirmationView::getInstance());
         ModuleController::getInstance()->addView(DateSetupView::getInstance());
 
-        ModuleController::getInstance()->setRtc(model->getRtc());
+        ModuleController::getInstance()->setModel(model);
     }
 }
