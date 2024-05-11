@@ -25,6 +25,12 @@ DateTime::DateTime()
     m_pRtcDateTime = new RtcDateTime(__DATE__, __TIME__);
 }
 
+bool DateTime::isValid() const
+{
+    assert(nullptr != m_pRtcDateTime);
+    return m_pRtcDateTime->IsValid();
+}
+
 uint16_t DateTime::getYear() const
 {
     assert(nullptr != m_pRtcDateTime);

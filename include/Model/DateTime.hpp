@@ -25,6 +25,9 @@ public:
 
     /// @brief
     /// @return
+    bool isValid() const;
+    /// @brief
+    /// @return
     virtual uint16_t getYear() const;
     /// @brief
     /// @return

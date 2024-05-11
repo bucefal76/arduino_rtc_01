@@ -35,7 +35,7 @@ void ModuleApplicationBuilder::setupThreads(ModuleApplicationIf &rApplication)
     if (nullptr != TimeView::getInstance())
     {
         TimeView::getInstance()->setLcd(lcd);
-        TimeView::getInstance()->setRtc(model->getRtc());
+        TimeView::getInstance()->setModel(model);
     }
 
     rApplication.addThread(TimeView::getInstance());
