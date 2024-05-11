@@ -30,7 +30,9 @@ The benefits of this architecture are:
 ## Components diagram
 A simplified diagram presents the main components of the software architecture. Note that formal interfaces are not listed here. 
 
+@startuml
 ```plantuml
+
 
 package Application {
     
@@ -87,6 +89,7 @@ ModuleController -down-( KeyboardControllerIf : use
 ModuleController --> States : use
 
 ```
+@enduml
 
 ## Dependencies
 
