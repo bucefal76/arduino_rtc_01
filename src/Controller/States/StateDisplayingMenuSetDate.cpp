@@ -2,7 +2,7 @@
 
 #include "Controller/States/StateDisplayingMenuSetDate.hpp"
 #include "Controller/States/StateDisplayingMenuSetTime.hpp"
-#include "Controller/States/StateDisplayingMenuSetExit.hpp"
+#include "Controller/States/StateDisplayingMenuSetAlarms.hpp"
 #include "Controller/States/StateNewDateSetup.hpp"
 #include "ViewIf.hpp"
 #include "MenuViewIf.hpp"
@@ -26,7 +26,7 @@ void StateDisplayingMenuSetDate::processButton(const KeyboardControllerIf::Butto
 {
     if (KeyboardControllerIf::ButtonCode::BUTTON_CODE_NEXT == button)
     {
-        trasitToState(StateDisplayingMenuSetExit::getInstance());
+        trasitToState(StateDisplayingMenuSetAlarms::getInstance());
     }
     else if (KeyboardControllerIf::ButtonCode::BUTTON_CODE_BACK == button)
     {

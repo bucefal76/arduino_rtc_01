@@ -11,6 +11,7 @@
 #include "Views/MenuView.hpp"
 #include "Views/TimeSetupView.hpp"
 #include "Views/TimeView.hpp"
+#include "Views/AlarmsStatusView.hpp"
 
 #include "SerialPrintAssert.h"
 
@@ -45,6 +46,7 @@ void ModuleApplicationBuilder::setupThreads(ModuleApplicationIf &rApplication)
     rApplication.addThread(TimeSetupView::getInstance());
     rApplication.addThread(ConfirmationView::getInstance());
     rApplication.addThread(DateSetupView::getInstance());
+    rApplication.addThread(AlarmsStatusView::getInstance());
 
     // Then the keyboard controller...
     rApplication.addThread(KeyboardController::getInstance());
@@ -66,6 +68,7 @@ void ModuleApplicationBuilder::setupThreads(ModuleApplicationIf &rApplication)
         ModuleController::getInstance()->addView(TimeSetupView::getInstance());
         ModuleController::getInstance()->addView(ConfirmationView::getInstance());
         ModuleController::getInstance()->addView(DateSetupView::getInstance());
+        ModuleController::getInstance()->addView(AlarmsStatusView::getInstance());
 
         ModuleController::getInstance()->setModel(model);
     }

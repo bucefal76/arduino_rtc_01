@@ -25,7 +25,21 @@ uint8_t BaseView::m_SpecialChars[VIEWS_SPECIAL_CHARACTERS_COUNT][VIEWS_SPECIAL_C
      B00000,
      B11111,
      B01110,
-     B00100}};
+     B00100},
+    {B01110,
+     B01010,
+     B01010,
+     B01010,
+     B01010,
+     B01010,
+     B11011},
+    {B00000,
+     B00000,
+     B00000,
+     B00000,
+     B00000,
+     B00000,
+     B11111}};
 
 void BaseView::setLcd(LiquidCrystal *pLiquidCrystal)
 {

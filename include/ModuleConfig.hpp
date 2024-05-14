@@ -43,5 +43,6 @@
 #define VIEW_ID_MENU_VIEW 3
 #define VIEW_ID_TIME_SETUP_VIEW 4
 #define VIEW_ID_TIME_VIEW 5
+#define VIEW_ID_ALARMS_STATUS_VIEW 6
 
 #endif

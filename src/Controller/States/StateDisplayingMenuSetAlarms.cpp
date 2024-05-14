@@ -1,42 +1,43 @@
-#include "Controller/States/StateDisplayingMenuSetTime.hpp"
+#include "Controller/States/StateDisplayingMenuSetAlarms.hpp"
 #include "Controller/States/StateDisplayingMenuSetDate.hpp"
 #include "Controller/States/StateDisplayingMenuSetExit.hpp"
+#include "Controller/States/StateDisplayAlarmsStatus.hpp"
 #include "Controller/States/StateNewTimeSetup.hpp"
 #include "ViewIf.hpp"
 #include "MenuViewIf.hpp"
 #include "ModuleConfig.hpp"
 
-static const char *CAPTION_SET_ALARMS = "SET TIME\0";
+static const char *CAPTION_SET_ALARMS = "SET ALARMS\0";
 static const char *CAPTION_MENU = "MENU\0";
 
-StateDisplayingMenuSetTime StateDisplayingMenuSetTime::m_Instance;
+StateDisplayingMenuSetAlarms StateDisplayingMenuSetAlarms::m_Instance;
 
-StateBase *StateDisplayingMenuSetTime::getInstance()
+StateBase *StateDisplayingMenuSetAlarms::getInstance()
 {
     return &m_Instance;
 }
 
-StateDisplayingMenuSetTime::StateDisplayingMenuSetTime()
+StateDisplayingMenuSetAlarms::StateDisplayingMenuSetAlarms()
 {
 }
 
-void StateDisplayingMenuSetTime::processButton(const KeyboardControllerIf::ButtonCode button)
+void StateDisplayingMenuSetAlarms::processButton(const KeyboardControllerIf::ButtonCode button)
 {
     if (KeyboardControllerIf::ButtonCode::BUTTON_CODE_NEXT == button)
     {
-        trasitToState(StateDisplayingMenuSetDate::getInstance());
+        trasitToState(StateDisplayingMenuSetExit::getInstance());
     }
     else if (KeyboardControllerIf::ButtonCode::BUTTON_CODE_BACK == button)
     {
-        trasitToState(StateDisplayingMenuSetExit::getInstance());
+        trasitToState(StateDisplayingMenuSetDate::getInstance());
     }
     else if ((KeyboardControllerIf::ButtonCode::BUTTON_CODE_DOWN == button) || (KeyboardControllerIf::ButtonCode::BUTTON_CODE_UP == button))
     {
-        trasitToState(StateNewTimeSetup::getInstance());
+        trasitToState(StateDisplayAlarmsStatus::getInstance());
     }
 }
 
-void StateDisplayingMenuSetTime::enter()
+void StateDisplayingMenuSetAlarms::enter()
 {
     getView(VIEW_ID_MENU_VIEW)->enable();
 
@@ -44,7 +45,7 @@ void StateDisplayingMenuSetTime::enter()
     m_ExtendedMenuView->setContent(CAPTION_SET_ALARMS);
 }
 
-void StateDisplayingMenuSetTime::exit()
+void StateDisplayingMenuSetAlarms::exit()
 {
     getView(VIEW_ID_MENU_VIEW)->disable();
 }
