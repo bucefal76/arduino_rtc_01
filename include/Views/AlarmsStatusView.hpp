@@ -20,6 +20,8 @@ private:
     void update();
     static void onRunCallback();
 
+    uint8_t m_AlarmId;
+
     static AlarmsStatusView *m_pInstance;
 };
 
