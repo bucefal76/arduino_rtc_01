@@ -3,6 +3,7 @@
 #include "Controller/States/StateDisplayingMenuSetExit.hpp"
 #include "Controller/States/StateNewTimeSetup.hpp"
 #include "ViewIf.hpp"
+#include "ExtendedViewIf.hpp"
 #include "MenuViewIf.hpp"
 #include "ModuleConfig.hpp"
 
@@ -40,8 +41,11 @@ void StateDisplayingMenuSetTime::enter()
 {
     getView(VIEW_ID_MENU_VIEW)->enable();
 
-    m_ExtendedMenuView->setTitle(CAPTION_MENU);
-    m_ExtendedMenuView->setContent(CAPTION_SET_ALARMS);
+    ExtendedViewIf *pExtendedView = getExtendedView(VIEW_ID_MENU_VIEW);
+    MenuViewIf *pMenuView = static_cast<MenuViewIf *>(pExtendedView);
+
+    pMenuView->setTitle(CAPTION_MENU);
+    pMenuView->setContent(CAPTION_SET_ALARMS);
 }
 
 void StateDisplayingMenuSetTime::exit()

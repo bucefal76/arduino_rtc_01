@@ -1,8 +1,10 @@
 #include "Controller/States/StateNewDateSetup.hpp"
 #include "Controller/States/StateNewDateConfirmation.hpp"
 #include "ViewIf.hpp"
+#include "ExtendedViewIf.hpp"
 #include "DateSetupViewIf.hpp"
 #include "ModuleConfig.hpp"
+#include "SerialPrintAssert.h"
 
 #define YEAR_MAX_VALUE 2035U
 #define YEAR_MIN_VALUE 2020U
@@ -27,7 +29,9 @@ StateNewDateSetup::StateNewDateSetup()
 
 void StateNewDateSetup::processButton(const KeyboardControllerIf::ButtonCode button)
 {
-    const DateSetupViewIf::DateSetupViewState currentlyInSetup = m_pExtendedDateSetupView->getState();
+    DateSetupViewIf *pExtendedDateSetupView = getMyExtendedView();
+
+    const DateSetupViewIf::DateSetupViewState currentlyInSetup = pExtendedDateSetupView->getState();
 
     switch (currentlyInSetup)
     {
@@ -55,7 +59,7 @@ void StateNewDateSetup::processButton(const KeyboardControllerIf::ButtonCode but
         }
         else if (KeyboardControllerIf::ButtonCode::BUTTON_CODE_NEXT == button)
         {
-            m_pExtendedDateSetupView->setState(DateSetupViewIf::DateSetupViewState::SETUP_MONTH);
+            pExtendedDateSetupView->setState(DateSetupViewIf::DateSetupViewState::SETUP_MONTH);
         }
         else if (KeyboardControllerIf::ButtonCode::BUTTON_CODE_BACK == button)
         {
@@ -88,11 +92,11 @@ void StateNewDateSetup::processButton(const KeyboardControllerIf::ButtonCode but
         }
         else if (KeyboardControllerIf::ButtonCode::BUTTON_CODE_NEXT == button)
         {
-            m_pExtendedDateSetupView->setState(DateSetupViewIf::DateSetupViewState::SETUP_DAY);
+            pExtendedDateSetupView->setState(DateSetupViewIf::DateSetupViewState::SETUP_DAY);
         }
         else if (KeyboardControllerIf::ButtonCode::BUTTON_CODE_BACK == button)
         {
-            m_pExtendedDateSetupView->setState(DateSetupViewIf::DateSetupViewState::SETUP_YEAR);
+            pExtendedDateSetupView->setState(DateSetupViewIf::DateSetupViewState::SETUP_YEAR);
         }
         break;
     }
@@ -126,7 +130,7 @@ void StateNewDateSetup::processButton(const KeyboardControllerIf::ButtonCode but
         }
         else if (KeyboardControllerIf::ButtonCode::BUTTON_CODE_BACK == button)
         {
-            m_pExtendedDateSetupView->setState(DateSetupViewIf::DateSetupViewState::SETUP_MONTH);
+            pExtendedDateSetupView->setState(DateSetupViewIf::DateSetupViewState::SETUP_MONTH);
         }
         break;
     }
@@ -138,10 +142,11 @@ void StateNewDateSetup::enter()
 {
     getView(VIEW_ID_DATE_SETUP_VIEW)->enable();
 
-    m_pExtendedDateSetupView->setState(DateSetupViewIf::SETUP_YEAR);
-    m_pExtendedDateSetupView->putDay(m_Day);
-    m_pExtendedDateSetupView->putMonth(m_Month);
-    m_pExtendedDateSetupView->putYear(m_Year);
+    DateSetupViewIf *pDateSetupView = getMyExtendedView();
+    pDateSetupView->setState(DateSetupViewIf::SETUP_YEAR);
+    pDateSetupView->putDay(m_Day);
+    pDateSetupView->putMonth(m_Month);
+    pDateSetupView->putYear(m_Year);
 }
 
 void StateNewDateSetup::exit()
@@ -151,8 +156,10 @@ void StateNewDateSetup::exit()
 
 void StateNewDateSetup::updateViewData() const
 {
-    m_pExtendedDateSetupView->putYear(m_Year);
-    m_pExtendedDateSetupView->putMonth(m_Month);
+    DateSetupViewIf *pDateSetupView = getMyExtendedView();
+
+    pDateSetupView->putYear(m_Year);
+    pDateSetupView->putMonth(m_Month);
 
     const uint8_t maxDaysInCurrentMonth = getNumberOfDays(m_Month, m_Year);
 
@@ -160,7 +167,7 @@ void StateNewDateSetup::updateViewData() const
     {
         m_Day = maxDaysInCurrentMonth;
     }
-    m_pExtendedDateSetupView->putDay(m_Day);
+    pDateSetupView->putDay(m_Day);
 }
 
 uint8_t StateNewDateSetup::getNumberOfDays(const uint8_t month, const uint16_t year) const
@@ -189,4 +196,13 @@ uint8_t StateNewDateSetup::getNumberOfDays(const uint8_t month, const uint16_t y
         // Months with 31 days
         return 31;
     }
+}
+
+DateSetupViewIf *StateNewDateSetup::getMyExtendedView() const
+{
+    ExtendedViewIf *pExtendedView = getExtendedView(VIEW_ID_DATE_SETUP_VIEW);
+    RUNTIME_PTR_CHECK(pExtendedView);
+    DateSetupViewIf *pDateSetupView = static_cast<DateSetupViewIf *>(pExtendedView);
+    RUNTIME_PTR_CHECK(pDateSetupView);
+    return pDateSetupView;
 }

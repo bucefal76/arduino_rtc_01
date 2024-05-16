@@ -1,9 +1,11 @@
 #include "Controller/States/StateNewTimeSetup.hpp"
 #include "Controller/States/StateNewTimeConfirmation.hpp"
 #include "ViewIf.hpp"
+#include "ExtendedViewIf.hpp"
 #include "MenuViewIf.hpp"
 #include "TimeSetupViewIf.hpp"
 #include "ModuleConfig.hpp"
+#include "SerialPrintAssert.h"
 
 #include <Arduino.h>
 
@@ -28,7 +30,9 @@ StateNewTimeSetup::StateNewTimeSetup()
 
 void StateNewTimeSetup::processButton(const KeyboardControllerIf::ButtonCode button)
 {
-    const TimeSetupViewIf::TimeSetupViewState currentlyInSetup = m_pExtendedTimeSetupView->getState();
+    TimeSetupViewIf *pExtendedTimeSetupView = getMyExtendedView();
+
+    const TimeSetupViewIf::TimeSetupViewState currentlyInSetup = pExtendedTimeSetupView->getState();
 
     switch (currentlyInSetup)
     {
@@ -55,14 +59,14 @@ void StateNewTimeSetup::processButton(const KeyboardControllerIf::ButtonCode but
         }
         else if (KeyboardControllerIf::ButtonCode::BUTTON_CODE_NEXT == button)
         {
-            m_pExtendedTimeSetupView->setState(TimeSetupViewIf::TimeSetupViewState::SETUP_MINUTES);
+            pExtendedTimeSetupView->setState(TimeSetupViewIf::TimeSetupViewState::SETUP_MINUTES);
         }
         else if (KeyboardControllerIf::ButtonCode::BUTTON_CODE_BACK == button)
         {
             trasitToState(StateNewTimeConfirmation::getInstance());
         }
 
-        m_pExtendedTimeSetupView->putHours(m_Hours);
+        pExtendedTimeSetupView->putHours(m_Hours);
         break;
     }
 
@@ -89,14 +93,14 @@ void StateNewTimeSetup::processButton(const KeyboardControllerIf::ButtonCode but
         }
         else if (KeyboardControllerIf::ButtonCode::BUTTON_CODE_BACK == button)
         {
-            m_pExtendedTimeSetupView->setState(TimeSetupViewIf::TimeSetupViewState::SETUP_HOURS);
+            pExtendedTimeSetupView->setState(TimeSetupViewIf::TimeSetupViewState::SETUP_HOURS);
         }
         else if (KeyboardControllerIf::ButtonCode::BUTTON_CODE_NEXT == button)
         {
             trasitToState(StateNewTimeConfirmation::getInstance());
         }
 
-        m_pExtendedTimeSetupView->putMinutes(m_Minutes);
+        pExtendedTimeSetupView->putMinutes(m_Minutes);
         break;
     }
 
@@ -114,8 +118,10 @@ void StateNewTimeSetup::enter()
         pView->enable();
     }
 
-    m_pExtendedTimeSetupView->putHours(m_Hours);
-    m_pExtendedTimeSetupView->putMinutes(m_Minutes);
+    TimeSetupViewIf *pTimeSetupView = getMyExtendedView();
+
+    pTimeSetupView->putHours(m_Hours);
+    pTimeSetupView->putMinutes(m_Minutes);
 }
 
 void StateNewTimeSetup::exit()
@@ -125,4 +131,13 @@ void StateNewTimeSetup::exit()
     {
         pView->disable();
     }
+}
+
+TimeSetupViewIf *StateNewTimeSetup::getMyExtendedView() const
+{
+    ExtendedViewIf *pExtendedView = getExtendedView(VIEW_ID_TIME_SETUP_VIEW);
+    RUNTIME_PTR_CHECK(pExtendedView);
+    TimeSetupViewIf *pTimeSetupView = static_cast<TimeSetupViewIf *>(pExtendedView);
+    RUNTIME_PTR_CHECK(pTimeSetupView);
+    return pTimeSetupView;
 }

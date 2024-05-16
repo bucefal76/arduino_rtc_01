@@ -26,6 +26,8 @@ private:
     virtual void enter();
     virtual void exit();
 
+    DateSetupViewIf *getMyExtendedView() const;
+
     void updateViewData() const;
     uint8_t getNumberOfDays(const uint8_t month, const uint16_t year) const;
 

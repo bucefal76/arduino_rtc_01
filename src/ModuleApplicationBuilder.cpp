@@ -59,16 +59,16 @@ void ModuleApplicationBuilder::setupThreads(ModuleApplicationIf &rApplication)
     {
         ModuleController::getInstance()->setKeyboardController(KeyboardController::getInstance());
 
-        ModuleController::getInstance()->setExtendedViews(MenuView::getInstance(),
-                                                          TimeSetupView::getInstance(),
-                                                          DateSetupView::getInstance());
-
         ModuleController::getInstance()->addView(TimeView::getInstance());
         ModuleController::getInstance()->addView(MenuView::getInstance());
         ModuleController::getInstance()->addView(TimeSetupView::getInstance());
         ModuleController::getInstance()->addView(ConfirmationView::getInstance());
         ModuleController::getInstance()->addView(DateSetupView::getInstance());
         ModuleController::getInstance()->addView(AlarmsStatusView::getInstance());
+
+        ModuleController::getInstance()->addExtendedView(MenuView::getInstance()->getViewid(), MenuView::getInstance());
+        ModuleController::getInstance()->addExtendedView(TimeSetupView::getInstance()->getViewid(), TimeSetupView::getInstance());
+        ModuleController::getInstance()->addExtendedView(DateSetupView::getInstance()->getViewid(), DateSetupView::getInstance());
 
         ModuleController::getInstance()->setModel(model);
     }

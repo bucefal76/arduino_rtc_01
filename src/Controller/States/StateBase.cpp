@@ -1,33 +1,28 @@
 #include "Controller/States/StateBase.hpp"
 #include "ViewIf.hpp"
+#include "ExtendedViewIf.hpp"
 #include "SerialPrintAssert.h"
 #include "ModuleModelIf.hpp"
 
 StateBase *StateBase::m_pCurrentState = nullptr;
-MenuViewIf *StateBase::m_ExtendedMenuView = nullptr;
-TimeSetupViewIf *StateBase::m_pExtendedTimeSetupView = nullptr;
-DateSetupViewIf *StateBase::m_pExtendedDateSetupView = nullptr;
-
 std::map<uint8_t, ViewIf *> StateBase::m_Views;
+std::map<uint8_t, ExtendedViewIf *> StateBase::m_ExtendedViews;
 ModuleModelIf *StateBase::m_pModel = nullptr;
 
 void StateBase::processButton(const KeyboardControllerIf::ButtonCode button)
 {
 }
 
-void StateBase::setExtendedViews(MenuViewIf *extendedMenuView,
-                                 TimeSetupViewIf *extendedTimeSetupView,
-                                 DateSetupViewIf *extendedDateSetupViewIf)
-{
-    m_ExtendedMenuView = extendedMenuView;
-    m_pExtendedTimeSetupView = extendedTimeSetupView;
-    m_pExtendedDateSetupView = extendedDateSetupViewIf;
-}
-
 void StateBase::addView(ViewIf *pView)
 {
     RUNTIME_PTR_CHECK(pView);
     m_Views[pView->getViewid()] = pView;
+}
+
+void StateBase::addExtendedView(const uint8_t viewId, ExtendedViewIf *pExtendedView)
+{
+    RUNTIME_PTR_CHECK(pExtendedView);
+    m_ExtendedViews[viewId] = pExtendedView;
 }
 
 void StateBase::setModel(ModuleModelIf *pModel)
@@ -59,4 +54,11 @@ ViewIf *StateBase::getView(const uint8_t viewId) const
     ViewIf *pView = m_Views[viewId];
     RUNTIME_PTR_CHECK(pView);
     return pView;
+}
+
+ExtendedViewIf *StateBase::getExtendedView(const uint8_t viewId) const
+{
+    ExtendedViewIf *pExtendedView = m_ExtendedViews[viewId];
+    RUNTIME_PTR_CHECK(pExtendedView);
+    return pExtendedView;
 }

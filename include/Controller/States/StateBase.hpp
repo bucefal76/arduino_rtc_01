@@ -6,6 +6,7 @@
 #include <map>
 
 class ViewIf;
+class ExtendedViewIf;
 class MenuViewIf;
 class TimeSetupViewIf;
 class DateSetupViewIf;
@@ -32,10 +33,7 @@ class StateBase
 public:
     virtual void processButton(const KeyboardControllerIf::ButtonCode button);
     /// @brief  State machine needs to have an access to the views objects, the special one.
-    ///         Not sure how to refactor it to more generic interface.
-    static void setExtendedViews(MenuViewIf *extendedMenuView,
-                                 TimeSetupViewIf *extendedTimeSetupView,
-                                 DateSetupViewIf *extendedDateSetupView);
+    static void addExtendedView(const uint8_t viewId, ExtendedViewIf *pExtendedView);
     /// @brief State machine needs to have an access to the views objects, the typical one.
     static void addView(ViewIf *pView);
     /// @brief Set pointer to the Model that represents RTC.
@@ -55,16 +53,14 @@ protected:
     virtual void exit() = 0;
     /// @brief Current state of the state machine.
     static StateBase *m_pCurrentState;
-    /// Returns pointer to the view bny given ID, see ModuleConfig.hpp for views ID.
+    /// Returns pointer to the standard view bny given ID, see ModuleConfig.hpp for views ID.
     ViewIf *getView(const uint8_t viewId) const;
-    /// @brief Pointers to the Manu view, for some more than one pointer for one object.
-    /// Because we may have different interfaces for diferent purpose for single view object (see Interface Soup antipattern)
-    /// Adaptive Code: Agile coding with design patterns and SOLID principles by Gary Mclean Hall.
-    static MenuViewIf *m_ExtendedMenuView;
-    static TimeSetupViewIf *m_pExtendedTimeSetupView;
-    static DateSetupViewIf *m_pExtendedDateSetupView;
-    /// @brief Map with pointer to the standard views.
+    /// Returns pointer to the extended view bny given ID, see ModuleConfig.hpp for views ID.
+    ExtendedViewIf *getExtendedView(const uint8_t viewId) const;
+    /// @brief Map with pointers to the standard views.
     static std::map<uint8_t, ViewIf *> m_Views;
+    /// @brief Map with pointers to the extended views.
+    static std::map<uint8_t, ExtendedViewIf *> m_ExtendedViews;
     /// @brief  Pointer to the model of the RTC.
     static ModuleModelIf *m_pModel;
 };

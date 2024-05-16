@@ -32,17 +32,14 @@ void ModuleController::setKeyboardController(KeyboardControllerIf *keyboardContr
     m_KeyboardController = keyboardController;
 }
 
-void ModuleController::setExtendedViews(MenuViewIf *extendedMenuView,
-                                        TimeSetupViewIf *extendedTimeSetupView,
-                                        DateSetupViewIf *extendedDateSetupView)
-{
-    /// Initalize state machine with views to play with:
-    StateBase::setExtendedViews(extendedMenuView, extendedTimeSetupView, extendedDateSetupView);
-}
-
 void ModuleController::addView(ViewIf *pView)
 {
     StateBase::addView(pView);
+}
+
+void ModuleController::addExtendedView(const uint8_t viewId, ExtendedViewIf *pExtendedView)
+{
+    StateBase::addExtendedView(viewId, pExtendedView);
 }
 
 void ModuleController::setModel(ModuleModelIf *pModel)

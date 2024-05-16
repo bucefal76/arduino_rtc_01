@@ -10,6 +10,7 @@
 class StateBase;
 class KeyboardControllerIf;
 class ViewIf;
+class ExtendedViewIf;
 class MenuViewIf;
 class TimeSetupViewIf;
 class DateSetupViewIf;
@@ -32,11 +33,8 @@ public:
     /// @brief Add views to the list of views managed by the Controller.
     /// @param pView
     void addView(ViewIf *pView);
-    /// @brief  Use this method on the setup() to set the pointer to all views used by the controller.
-    ///         Only the special type of views.
-    void setExtendedViews(MenuViewIf *extendedMenuView,
-                          TimeSetupViewIf *extendedTimeSetupView,
-                          DateSetupViewIf *extendedDateSetupView);
+    /// @brief Add extended views to the list of views managed by the Controller.
+    void addExtendedView(const uint8_t viewId, ExtendedViewIf *pExtendedView);
     /// @brief Set Model that represents RTC.
     /// @param pModel
     void setModel(ModuleModelIf *pModel);

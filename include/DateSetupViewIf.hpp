@@ -2,13 +2,14 @@
 #define DATE_SETUP_VIEW_IF_HPP
 
 #include <Arduino.h>
+#include "ExtendedViewIf.hpp"
 
 /*
     Interfaces declares methods required by the view used to set up the date by the operator.
     These methods are not standard ViewIf things, so they require their interface by the SOLID principles.
 */
 
-class DateSetupViewIf
+class DateSetupViewIf: public ExtendedViewIf
 {
 public:
     /// @brief See setState.
