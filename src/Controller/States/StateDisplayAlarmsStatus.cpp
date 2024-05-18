@@ -15,6 +15,18 @@ StateDisplayAlarmsStatus::StateDisplayAlarmsStatus()
 
 void StateDisplayAlarmsStatus::processButton(const KeyboardControllerIf::ButtonCode button)
 {
+    if (KeyboardControllerIf::ButtonCode::BUTTON_CODE_NEXT == button)
+    {
+    }
+    else if (KeyboardControllerIf::ButtonCode::BUTTON_CODE_BACK == button)
+    {
+    }
+    else if (KeyboardControllerIf::ButtonCode::BUTTON_CODE_DOWN == button)
+    {
+    }
+    else if (KeyboardControllerIf::ButtonCode::BUTTON_CODE_UP == button)
+    {
+    }
 }
 
 void StateDisplayAlarmsStatus::enter()

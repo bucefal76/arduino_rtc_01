@@ -2,7 +2,7 @@
 #include <LiquidCrystal.h>
 
 LiquidCrystal *BaseView::m_pLcd = nullptr;
-ModuleModelIf *BaseView::m_pModel = nullptr;
+ModuleModelStateIf *BaseView::m_pModel = nullptr;
 
 uint8_t BaseView::m_SpecialChars[VIEWS_SPECIAL_CHARACTERS_COUNT][VIEWS_SPECIAL_CHARACTERS_SIZE] = {
     {B00010,
@@ -55,7 +55,7 @@ void BaseView::setLcd(LiquidCrystal *pLiquidCrystal)
     }
 }
 
-void BaseView::setModel(ModuleModelIf *pModel)
+void BaseView::setModel(ModuleModelStateIf *pModel)
 {
     if (nullptr == m_pModel)
     {

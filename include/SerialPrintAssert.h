@@ -6,24 +6,22 @@
 
 #ifdef USE_SERIAL
 
-#define RUNTIME_ASSERT(condition)                       \
-    if (false == condition)                             \
-    {                                                   \
-        Serial.print(F("ASSERT: "));                    \
-        Serial.print(F("[File: " __FILE__ ", Line: ")); \
-        Serial.println(__LINE__);                       \
-        while (true)                                    \
-            ;                                           \
+#define RUNTIME_ASSERT(condition)                   \
+    if (false == condition)                         \
+    {                                               \
+        Serial.print(F("ASRT: " __FILE__ ", @: ")); \
+        Serial.println(__LINE__);                   \
+        while (true)                                \
+            ;                                       \
     }
 
-#define RUNTIME_PTR_CHECK(pointer)                      \
-    if (nullptr == pointer)                             \
-    {                                                   \
-        Serial.print(F("ASSERT BAD PTR: "));            \
-        Serial.print(F("[File: " __FILE__ ", Line: ")); \
-        Serial.println(__LINE__);                       \
-        while (true)                                    \
-            ;                                           \
+#define RUNTIME_PTR_CHECK(pointer)                  \
+    if (nullptr == pointer)                         \
+    {                                               \
+        Serial.print(F("ASRT: " __FILE__ ", @: ")); \
+        Serial.println(__LINE__);                   \
+        while (true)                                \
+            ;                                       \
     }
 
 #else

@@ -15,6 +15,7 @@ class MenuViewIf;
 class TimeSetupViewIf;
 class DateSetupViewIf;
 class ModuleModelIf;
+class ModuleModelStateIf;
 
 /*
     The goal is to develop a clock application based on the Controller-View architectural pattern.
@@ -35,9 +36,10 @@ public:
     void addView(ViewIf *pView);
     /// @brief Add extended views to the list of views managed by the Controller.
     void addExtendedView(const uint8_t viewId, ExtendedViewIf *pExtendedView);
-    /// @brief Set Model that represents RTC.
-    /// @param pModel
+    /// @brief Set Model that represents RTC, interface to do changes on the RTC.
     void setModel(ModuleModelIf *pModel);
+    /// @brief   Set Model that represents RTC, interface to get state of the model.
+    void setModelState(ModuleModelStateIf *pModelStatus);
 
 private:
     ModuleController();

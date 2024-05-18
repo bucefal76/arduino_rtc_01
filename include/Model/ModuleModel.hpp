@@ -5,6 +5,7 @@
 
 #include "ModuleConfig.hpp"
 #include "ModuleModelIf.hpp"
+#include "ModuleModelStateIf.hpp"
 #include "DateTime.hpp"
 #include "RtcDS1302.h"
 #include "RtcDateTime.h"
@@ -13,7 +14,7 @@
     This class decouples the client code from dependency to the currently used RTC driver implementation.
 */
 
-class ModuleModel : public ModuleModelIf
+class ModuleModel : public ModuleModelStateIf, public ModuleModelIf
 {
 public:
     /// @brief As there is only one RTC hardware module, then
@@ -26,6 +27,8 @@ public:
     virtual DateTime getDateTime() const;
     /// @brief Sets the new date and time to the RTC.
     virtual void setDateTime(const DateTime &dateTime);
+    ///
+    virtual bool isAlarmActive(const uint8_t alarmId);
 
 private:
     ModuleModel();

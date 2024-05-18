@@ -4,6 +4,7 @@
 #include "Controller/KeyboardController.hpp"
 #include "Controller/ModuleController.hpp"
 #include "ModuleModelIf.hpp"
+#include "ModuleModelStateIf.hpp"
 #include "Model/ModuleModel.hpp"
 #include "ModuleApplicationIf.hpp"
 #include "Views/ConfirmationView.hpp"
@@ -71,5 +72,6 @@ void ModuleApplicationBuilder::setupThreads(ModuleApplicationIf &rApplication)
         ModuleController::getInstance()->addExtendedView(DateSetupView::getInstance()->getViewid(), DateSetupView::getInstance());
 
         ModuleController::getInstance()->setModel(model);
+        ModuleController::getInstance()->setModelState(model);
     }
 }

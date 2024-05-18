@@ -11,6 +11,7 @@ class MenuViewIf;
 class TimeSetupViewIf;
 class DateSetupViewIf;
 class ModuleModelIf;
+class ModuleModelStateIf;
 
 /*
     BaseState is an abstract class that serves as the root class for several derived classes,
@@ -36,15 +37,17 @@ public:
     static void addExtendedView(const uint8_t viewId, ExtendedViewIf *pExtendedView);
     /// @brief State machine needs to have an access to the views objects, the typical one.
     static void addView(ViewIf *pView);
-    /// @brief Set pointer to the Model that represents RTC.
+    /// @brief Set pointer to the Model that represents RTC, interface  to do changes at the model.
     static void setModel(ModuleModelIf *pModel);
+    /// @brief Set pointer to the Model that represents RTC, interface to get state of the model.
+    static void setModelState(ModuleModelStateIf *pModelState);
     /// @brief Get the current state of the controller.
     static StateBase *getCurrentState();
     /// @brief Set current state in the controller.
     static void setCurrentState(StateBase *state);
 
 protected:
-    /// @brief Use this methid to switch state machine to next state
+    /// @brief Use this method to switch state machine to next state
     /// @param pNexState
     void trasitToState(StateBase *pNexState);
     /// @brief When transitioning to a new state, a method is automatically called by transitToNextState.
@@ -61,8 +64,10 @@ protected:
     static std::map<uint8_t, ViewIf *> m_Views;
     /// @brief Map with pointers to the extended views.
     static std::map<uint8_t, ExtendedViewIf *> m_ExtendedViews;
-    /// @brief  Pointer to the model of the RTC.
+    /// @brief Pointer to the model of the RTC. Interface to do changes.
     static ModuleModelIf *m_pModel;
+    /// @brief Pointer to the model of the RTC. Interface to get state only.
+    static ModuleModelStateIf *m_pModelState;
 };
 
 #endif

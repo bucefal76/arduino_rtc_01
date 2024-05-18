@@ -3,11 +3,13 @@
 #include "ExtendedViewIf.hpp"
 #include "SerialPrintAssert.h"
 #include "ModuleModelIf.hpp"
+#include "ModuleModelStateIf.hpp"
 
 StateBase *StateBase::m_pCurrentState = nullptr;
 std::map<uint8_t, ViewIf *> StateBase::m_Views;
 std::map<uint8_t, ExtendedViewIf *> StateBase::m_ExtendedViews;
 ModuleModelIf *StateBase::m_pModel = nullptr;
+ModuleModelStateIf *StateBase::m_pModelState = nullptr;
 
 void StateBase::processButton(const KeyboardControllerIf::ButtonCode button)
 {
@@ -28,6 +30,11 @@ void StateBase::addExtendedView(const uint8_t viewId, ExtendedViewIf *pExtendedV
 void StateBase::setModel(ModuleModelIf *pModel)
 {
     m_pModel = pModel;
+}
+
+void StateBase::setModelState(ModuleModelStateIf *pModelState)
+{
+    m_pModelState = pModelState;
 }
 
 StateBase *StateBase::getCurrentState()

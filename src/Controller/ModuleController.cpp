@@ -19,7 +19,7 @@ ModuleController *ModuleController::getInstance()
 ModuleController::ModuleController()
     : m_KeyboardController(nullptr)
 {
-    // Initalize the state machine with first state
+    // Initialize the state machine with first state
     StateBase::setCurrentState(StateDisplayingTime::getInstance());
 
     setInterval(STATE_MACHINE_UPDATE_TIME_INTERVAL_MS);
@@ -45,6 +45,11 @@ void ModuleController::addExtendedView(const uint8_t viewId, ExtendedViewIf *pEx
 void ModuleController::setModel(ModuleModelIf *pModel)
 {
     StateBase::setModel(pModel);
+}
+
+void ModuleController::setModelState(ModuleModelStateIf *pModelState)
+{
+    StateBase::setModelState(pModelState);
 }
 
 void ModuleController::update()

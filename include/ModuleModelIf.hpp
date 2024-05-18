@@ -11,10 +11,6 @@ class DateTime;
 class ModuleModelIf
 {
 public:
-    /// @brief Returns true if date time at RTC is valid.
-    virtual bool isDateTimeValid() const = 0;
-    /// @brief Returns DateTime structure
-    virtual DateTime getDateTime() const = 0;
     /// @brief Set a new date and time on the RCT.
     virtual void setDateTime(const DateTime &dateTime) = 0;
 };

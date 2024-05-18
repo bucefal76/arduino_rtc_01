@@ -2,7 +2,7 @@
 #define BASE_VIEW_HPP
 
 #include "ViewIf.hpp"
-#include "ModuleModelIf.hpp"
+#include "ModuleModelStateIf.hpp"
 
 #define VIEWS_SPECIAL_CHARACTERS_COUNT 5U
 #define VIEWS_SPECIAL_CHARACTERS_SIZE 8U
@@ -35,7 +35,7 @@ public:
     virtual void setLcd(LiquidCrystal *pLiquidCrystal);
     /// @brief Set poiter to the Model. Model represnts the RTC.
     /// @param pModel
-    virtual void setModel(ModuleModelIf *pModel);
+    virtual void setModel(ModuleModelStateIf *pModel);
     // See ViewIf.
     virtual void enable();
     virtual void disable();
@@ -43,7 +43,7 @@ public:
 protected:
     static uint8_t m_SpecialChars[VIEWS_SPECIAL_CHARACTERS_COUNT][VIEWS_SPECIAL_CHARACTERS_SIZE];
     static LiquidCrystal *m_pLcd;
-    static ModuleModelIf *m_pModel;
+    static ModuleModelStateIf *m_pModel;
 };
 
 #endif

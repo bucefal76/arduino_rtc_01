@@ -73,7 +73,6 @@ void KeyboardController::update()
         {
             m_isButtonBackPressDown = true;
             m_ButtonCode = ButtonCode::BUTTON_CODE_BACK;
-            Serial.println(F("Back is down"));
         }
     }
     else if (digitalRead(BUTTON_UP_IO_LINE) == LOW)
@@ -82,7 +81,6 @@ void KeyboardController::update()
         {
             m_isButtonUpPressDown = true;
             m_ButtonCode = ButtonCode::BUTTON_CODE_UP;
-            Serial.println(F("Up is down"));
         }
     }
 
@@ -92,7 +90,6 @@ void KeyboardController::update()
         {
             m_isButtonDownPressDown = true;
             m_ButtonCode = ButtonCode::BUTTON_CODE_DOWN;
-            Serial.println(F("Down is down"));
         }
     }
 
@@ -102,7 +99,6 @@ void KeyboardController::update()
         {
             m_isButtonNextPressDown = true;
             m_ButtonCode = ButtonCode::BUTTON_CODE_NEXT;
-            Serial.println(F("Next is down"));
         }
     }
 }
