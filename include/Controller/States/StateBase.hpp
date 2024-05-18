@@ -23,9 +23,9 @@ class ModuleModelStateIf;
     The state machine implementation has a few simplifications and rules.
     Firstly, all machine states must be derived from StateBase.
     Secondly, all derived classes are singletons and global in themselves to save memory resources.
-    Finally, to move from one state to another, the trasitToState method should be used, and only this method.
+    Finally, to move from one state to another, the transitToState method should be used, and only this method.
 
-    Call to trasitToState will cause execution of the exit() method at the old state and then execution
+    Call to transitToState will cause execution of the exit() method at the old state and then execution
     of the enter() at the new state.
 */
 
@@ -49,7 +49,7 @@ public:
 protected:
     /// @brief Use this method to switch state machine to next state
     /// @param pNexState
-    void trasitToState(StateBase *pNexState);
+    void transitToState(StateBase *pNexState);
     /// @brief When transitioning to a new state, a method is automatically called by transitToNextState.
     virtual void enter() = 0;
     /// @brief When transitioning to a new state, a method is automatically called by transitToNextState.

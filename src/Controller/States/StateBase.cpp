@@ -47,7 +47,7 @@ void StateBase::setCurrentState(StateBase *state)
     m_pCurrentState = state;
 }
 
-void StateBase::trasitToState(StateBase *pNexState)
+void StateBase::transitToState(StateBase *pNexState)
 {
     m_pCurrentState->exit();
 

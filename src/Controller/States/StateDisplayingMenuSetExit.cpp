@@ -25,15 +25,15 @@ void StateDisplayingMenuSetExit::processButton(const KeyboardControllerIf::Butto
 {
     if (KeyboardControllerIf::ButtonCode::BUTTON_CODE_NEXT == button)
     {
-        trasitToState(StateDisplayingMenuSetTime::getInstance());
+        transitToState(StateDisplayingMenuSetTime::getInstance());
     }
     else if (KeyboardControllerIf::ButtonCode::BUTTON_CODE_BACK == button)
     {
-        trasitToState(StateDisplayingMenuSetAlarms::getInstance());
+        transitToState(StateDisplayingMenuSetAlarms::getInstance());
     }
     else if (KeyboardControllerIf::ButtonCode::BUTTON_CODE_NONE != button)
     {
-        trasitToState(StateDisplayingTime::getInstance());
+        transitToState(StateDisplayingTime::getInstance());
     }
 }
 

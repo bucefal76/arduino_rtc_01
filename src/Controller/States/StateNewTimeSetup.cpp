@@ -63,7 +63,7 @@ void StateNewTimeSetup::processButton(const KeyboardControllerIf::ButtonCode but
         }
         else if (KeyboardControllerIf::ButtonCode::BUTTON_CODE_BACK == button)
         {
-            trasitToState(StateNewTimeConfirmation::getInstance());
+            transitToState(StateNewTimeConfirmation::getInstance());
         }
 
         pExtendedTimeSetupView->putHours(m_Hours);
@@ -97,7 +97,7 @@ void StateNewTimeSetup::processButton(const KeyboardControllerIf::ButtonCode but
         }
         else if (KeyboardControllerIf::ButtonCode::BUTTON_CODE_NEXT == button)
         {
-            trasitToState(StateNewTimeConfirmation::getInstance());
+            transitToState(StateNewTimeConfirmation::getInstance());
         }
 
         pExtendedTimeSetupView->putMinutes(m_Minutes);

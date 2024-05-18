@@ -26,15 +26,15 @@ void StateDisplayingMenuSetAlarms::processButton(const KeyboardControllerIf::But
 {
     if (KeyboardControllerIf::ButtonCode::BUTTON_CODE_NEXT == button)
     {
-        trasitToState(StateDisplayingMenuSetExit::getInstance());
+        transitToState(StateDisplayingMenuSetExit::getInstance());
     }
     else if (KeyboardControllerIf::ButtonCode::BUTTON_CODE_BACK == button)
     {
-        trasitToState(StateDisplayingMenuSetDate::getInstance());
+        transitToState(StateDisplayingMenuSetDate::getInstance());
     }
     else if ((KeyboardControllerIf::ButtonCode::BUTTON_CODE_DOWN == button) || (KeyboardControllerIf::ButtonCode::BUTTON_CODE_UP == button))
     {
-        trasitToState(StateDisplayAlarmsStatus::getInstance());
+        transitToState(StateDisplayAlarmsStatus::getInstance());
     }
 }
 

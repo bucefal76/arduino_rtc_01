@@ -63,7 +63,7 @@ void StateNewDateSetup::processButton(const KeyboardControllerIf::ButtonCode but
         }
         else if (KeyboardControllerIf::ButtonCode::BUTTON_CODE_BACK == button)
         {
-            trasitToState(StateNewDateConfirmation::getInstance());
+            transitToState(StateNewDateConfirmation::getInstance());
         }
 
         break;
@@ -126,7 +126,7 @@ void StateNewDateSetup::processButton(const KeyboardControllerIf::ButtonCode but
         }
         else if (KeyboardControllerIf::ButtonCode::BUTTON_CODE_NEXT == button)
         {
-            trasitToState(StateNewDateConfirmation::getInstance());
+            transitToState(StateNewDateConfirmation::getInstance());
         }
         else if (KeyboardControllerIf::ButtonCode::BUTTON_CODE_BACK == button)
         {

@@ -19,7 +19,7 @@ StateDisplayingTime::StateDisplayingTime()
 
 void StateDisplayingTime::processButton(const KeyboardControllerIf::ButtonCode button)
 {
-    trasitToState(StateDisplayingMenuSetTime::getInstance());
+    transitToState(StateDisplayingMenuSetTime::getInstance());
 }
 
 void StateDisplayingTime::enter()

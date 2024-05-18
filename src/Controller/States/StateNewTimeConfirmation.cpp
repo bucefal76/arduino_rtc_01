@@ -23,11 +23,11 @@ void StateNewTimeConfirmation::processButton(const KeyboardControllerIf::ButtonC
     {
         setNewTime();
 
-        trasitToState(StateDisplayingTime::getInstance());
+        transitToState(StateDisplayingTime::getInstance());
     }
     else if (KeyboardControllerIf::ButtonCode::BUTTON_CODE_BACK == button)
     {
-        trasitToState(StateDisplayingTime::getInstance());
+        transitToState(StateDisplayingTime::getInstance());
     }
 }
 
