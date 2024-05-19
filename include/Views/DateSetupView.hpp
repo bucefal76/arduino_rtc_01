@@ -2,7 +2,7 @@
 #define DATE_SETUP_VIEW_HPP
 
 #include "DateSetupViewIf.hpp"
-#include "Views/BaseView.hpp"
+#include "Views/ViewBase.hpp"
 #include <Thread.h>
 
 /*
@@ -11,7 +11,7 @@
     Displays year, month, day and extra icons to help navigate within the time setup mode.
 */
 
-class DateSetupView : public BaseView, public DateSetupViewIf, public Thread
+class DateSetupView : public ViewBase, public DateSetupViewIf, public Thread
 {
 public:
     static DateSetupView *getInstance();

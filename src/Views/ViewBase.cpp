@@ -1,10 +1,10 @@
-#include "Views/BaseView.hpp"
+#include "Views/ViewBase.hpp"
 #include <LiquidCrystal.h>
 
-LiquidCrystal *BaseView::m_pLcd = nullptr;
-ModuleModelStateIf *BaseView::m_pModel = nullptr;
+LiquidCrystal *ViewBase::m_pLcd = nullptr;
+ModuleModelStateIf *ViewBase::m_pModel = nullptr;
 
-uint8_t BaseView::m_SpecialChars[VIEWS_SPECIAL_CHARACTERS_COUNT][VIEWS_SPECIAL_CHARACTERS_SIZE] = {
+uint8_t ViewBase::m_SpecialChars[VIEWS_SPECIAL_CHARACTERS_COUNT][VIEWS_SPECIAL_CHARACTERS_SIZE] = {
     {B00010,
      B00110,
      B01110,
@@ -41,7 +41,7 @@ uint8_t BaseView::m_SpecialChars[VIEWS_SPECIAL_CHARACTERS_COUNT][VIEWS_SPECIAL_C
      B00000,
      B11111}};
 
-void BaseView::setLcd(LiquidCrystal *pLiquidCrystal)
+void ViewBase::setLcd(LiquidCrystal *pLiquidCrystal)
 {
     if (nullptr == m_pLcd)
     {
@@ -55,7 +55,7 @@ void BaseView::setLcd(LiquidCrystal *pLiquidCrystal)
     }
 }
 
-void BaseView::setModel(ModuleModelStateIf *pModel)
+void ViewBase::setModel(ModuleModelStateIf *pModel)
 {
     if (nullptr == m_pModel)
     {
@@ -63,10 +63,10 @@ void BaseView::setModel(ModuleModelStateIf *pModel)
     }
 }
 
-void BaseView::enable()
+void ViewBase::enable()
 {
 }
 
-void BaseView::disable()
+void ViewBase::disable()
 {
 }

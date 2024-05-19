@@ -3,13 +3,13 @@
 
 #include <Thread.h>
 #include "MenuViewIf.hpp"
-#include "Views/BaseView.hpp"
+#include "Views/ViewBase.hpp"
 
 /*
     The class implements MenuViewIf. Displays settings menu with navigation icons.
 */
 
-class MenuView : public MenuViewIf, public BaseView, public Thread
+class MenuView : public MenuViewIf, public ViewBase, public Thread
 {
 public:
     static MenuView *getInstance();

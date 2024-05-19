@@ -2,7 +2,7 @@
 #define TIME_SETUP_VIEW_HPP
 
 #include "TimeSetupViewIf.hpp"
-#include "Views/BaseView.hpp"
+#include "Views/ViewBase.hpp"
 #include <Thread.h>
 
 /*
@@ -11,7 +11,7 @@
     Displays hours, minutes, and extra icons to help navigate within the time setup mode.
 */
 
-class TimeSetupView : public BaseView, public TimeSetupViewIf, public Thread
+class TimeSetupView : public ViewBase, public TimeSetupViewIf, public Thread
 {
 public:
     static TimeSetupView *getInstance();

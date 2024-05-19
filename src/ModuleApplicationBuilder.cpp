@@ -11,7 +11,7 @@
 #include "Views/DateSetupView.hpp"
 #include "Views/MenuView.hpp"
 #include "Views/TimeSetupView.hpp"
-#include "Views/TimeView.hpp"
+#include "Views/ViewTime.hpp"
 #include "Views/AlarmsStatusView.hpp"
 
 #include "SerialPrintAssert.h"
@@ -36,13 +36,13 @@ void ModuleApplicationBuilder::setupThreads(ModuleApplicationIf &rApplication)
     }
 
     // Now is a time to create and connect basic functional blocks of the source codes. First, views:
-    if (nullptr != TimeView::getInstance())
+    if (nullptr != ViewTime::getInstance())
     {
-        TimeView::getInstance()->setLcd(lcd);
-        TimeView::getInstance()->setModel(model);
+        ViewTime::getInstance()->setLcd(lcd);
+        ViewTime::getInstance()->setModel(model);
     }
 
-    rApplication.addThread(TimeView::getInstance());
+    rApplication.addThread(ViewTime::getInstance());
     rApplication.addThread(MenuView::getInstance());
     rApplication.addThread(TimeSetupView::getInstance());
     rApplication.addThread(ConfirmationView::getInstance());
@@ -60,7 +60,7 @@ void ModuleApplicationBuilder::setupThreads(ModuleApplicationIf &rApplication)
     {
         ModuleController::getInstance()->setKeyboardController(KeyboardController::getInstance());
 
-        ModuleController::getInstance()->addView(TimeView::getInstance());
+        ModuleController::getInstance()->addView(ViewTime::getInstance());
         ModuleController::getInstance()->addView(MenuView::getInstance());
         ModuleController::getInstance()->addView(TimeSetupView::getInstance());
         ModuleController::getInstance()->addView(ConfirmationView::getInstance());

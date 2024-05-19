@@ -3,10 +3,10 @@
 
 #include <Thread.h>
 
-#include "Views/BaseView.hpp"
+#include "Views/ViewBase.hpp"
 #include "AlarmsStatusViewIf.hpp"
 
-class AlarmsStatusView : public BaseView, public Thread, public AlarmsStatusViewIf
+class AlarmsStatusView : public ViewBase, public Thread, public AlarmsStatusViewIf
 {
 public:
     static AlarmsStatusView *getInstance();

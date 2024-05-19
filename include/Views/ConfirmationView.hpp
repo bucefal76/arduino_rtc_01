@@ -2,14 +2,14 @@
 #define CONFIRMATION_VIEW_HPP
 
 #include <Thread.h>
-#include "Views/BaseView.hpp"
+#include "Views/ViewBase.hpp"
 
 /*
     The class implements the ViewIf interface.
     Displays a confirmation question (Approve?) with two possible choices (Yes?/No?).
 */
 
-class ConfirmationView : public Thread, public BaseView
+class ConfirmationView : public Thread, public ViewBase
 {
 public:
     static ConfirmationView *getInstance();

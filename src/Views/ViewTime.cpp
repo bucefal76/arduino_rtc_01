@@ -1,52 +1,52 @@
 #include <LiquidCrystal.h>
 #include <stdint.h>
-#include "Views/TimeView.hpp"
+#include "Views/ViewTime.hpp"
 #include "ModuleConfig.hpp"
 #include "Model/DateTime.hpp"
 #include "SerialPrintAssert.h"
 
-TimeView *TimeView::m_Instance = nullptr;
+ViewTime *ViewTime::m_Instance = nullptr;
 
-TimeView *TimeView::getInstance()
+ViewTime *ViewTime::getInstance()
 {
     if (m_Instance == nullptr)
     {
-        m_Instance = new TimeView();
+        m_Instance = new ViewTime();
     }
 
     return m_Instance;
 }
 
-TimeView::TimeView()
+ViewTime::ViewTime()
 {
     setInterval(LCD_TIME_VIEW_UPDATE_INTERVAL_MS);
     onRun(onRunCallback);
     enabled = true;
 }
 
-uint8_t TimeView::getViewid() const
+uint8_t ViewTime::getViewid() const
 {
     return VIEW_ID_TIME_VIEW;
 }
 
-void TimeView::enable()
+void ViewTime::enable()
 {
     RUNTIME_PTR_CHECK(m_pLcd);
     enabled = true;
     m_pLcd->clear();
 }
 
-void TimeView::disable()
+void ViewTime::disable()
 {
     enabled = false;
 }
 
-void TimeView::onRunCallback()
+void ViewTime::onRunCallback()
 {
     m_Instance->update();
 }
 
-void TimeView::update()
+void ViewTime::update()
 {
     const DateTime now = m_pModel->getDateTime();
     if (now.isValid())

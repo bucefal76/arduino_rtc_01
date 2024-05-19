@@ -24,16 +24,16 @@ class LiquidCrystal;
 /*
     Among all classes that implement the ViewIf interface,
     there are some common functionality and data (for example, the pointer to the LCD driver).
-    This class provides such common functionality for all BaseView-derived classes.
+    This class provides such common functionality for all ViewBase-derived classes.
 */
 
-class BaseView : public ViewIf
+class ViewBase : public ViewIf
 {
 public:
     /// @brief  Set pointer to the LCD driver.
     /// @param pLiquidCrystal
     virtual void setLcd(LiquidCrystal *pLiquidCrystal);
-    /// @brief Set poiter to the Model. Model represnts the RTC.
+    /// @brief Set pointer to the Model. Model represents the RTC.
     /// @param pModel
     virtual void setModel(ModuleModelStateIf *pModel);
     // See ViewIf.
