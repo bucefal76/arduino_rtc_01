@@ -9,8 +9,8 @@
 #include "ModuleApplicationIf.hpp"
 #include "Views/ConfirmationView.hpp"
 #include "Views/DateSetupView.hpp"
-#include "Views/MenuView.hpp"
-#include "Views/TimeSetupView.hpp"
+#include "Views/ViewMenu.hpp"
+#include "Views/ViewTimeSetup.hpp"
 #include "Views/ViewTime.hpp"
 #include "Views/AlarmsStatusView.hpp"
 
@@ -43,8 +43,8 @@ void ModuleApplicationBuilder::setupThreads(ModuleApplicationIf &rApplication)
     }
 
     rApplication.addThread(ViewTime::getInstance());
-    rApplication.addThread(MenuView::getInstance());
-    rApplication.addThread(TimeSetupView::getInstance());
+    rApplication.addThread(ViewMenu::getInstance());
+    rApplication.addThread(ViewTimeSetup::getInstance());
     rApplication.addThread(ConfirmationView::getInstance());
     rApplication.addThread(DateSetupView::getInstance());
     rApplication.addThread(AlarmsStatusView::getInstance());
@@ -61,14 +61,14 @@ void ModuleApplicationBuilder::setupThreads(ModuleApplicationIf &rApplication)
         ModuleController::getInstance()->setKeyboardController(KeyboardController::getInstance());
 
         ModuleController::getInstance()->addView(ViewTime::getInstance());
-        ModuleController::getInstance()->addView(MenuView::getInstance());
-        ModuleController::getInstance()->addView(TimeSetupView::getInstance());
+        ModuleController::getInstance()->addView(ViewMenu::getInstance());
+        ModuleController::getInstance()->addView(ViewTimeSetup::getInstance());
         ModuleController::getInstance()->addView(ConfirmationView::getInstance());
         ModuleController::getInstance()->addView(DateSetupView::getInstance());
         ModuleController::getInstance()->addView(AlarmsStatusView::getInstance());
 
-        ModuleController::getInstance()->addExtendedView(MenuView::getInstance()->getViewid(), MenuView::getInstance());
-        ModuleController::getInstance()->addExtendedView(TimeSetupView::getInstance()->getViewid(), TimeSetupView::getInstance());
+        ModuleController::getInstance()->addExtendedView(ViewMenu::getInstance()->getViewid(), ViewMenu::getInstance());
+        ModuleController::getInstance()->addExtendedView(ViewTimeSetup::getInstance()->getViewid(), ViewTimeSetup::getInstance());
         ModuleController::getInstance()->addExtendedView(DateSetupView::getInstance()->getViewid(), DateSetupView::getInstance());
         ModuleController::getInstance()->addExtendedView(AlarmsStatusView::getInstance()->getViewid(), AlarmsStatusView::getInstance());
 

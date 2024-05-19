@@ -4,7 +4,7 @@
 #include "Controller/States/StateDisplayingTime.hpp"
 #include "ViewIf.hpp"
 #include "ExtendedViewIf.hpp"
-#include "MenuViewIf.hpp"
+#include "ViewMenuIf.hpp"
 #include "ModuleConfig.hpp"
 
 static const char *CAPTION_EXIT = "EXIT\0";
@@ -42,10 +42,10 @@ void StateDisplayingMenuSetExit::enter()
     getView(VIEW_ID_MENU_VIEW)->enable();
 
     ExtendedViewIf *pExtendedView = getExtendedView(VIEW_ID_MENU_VIEW);
-    MenuViewIf *pMenuView = static_cast<MenuViewIf *>(pExtendedView);
+    ViewMenuIf *pViewMenu = static_cast<ViewMenuIf *>(pExtendedView);
 
-    pMenuView->setTitle(CAPTION_MENU);
-    pMenuView->setContent(CAPTION_EXIT);
+    pViewMenu->setTitle(CAPTION_MENU);
+    pViewMenu->setContent(CAPTION_EXIT);
 }
 
 void StateDisplayingMenuSetExit::exit()

@@ -4,7 +4,7 @@
 #include "Controller/States/StateNewTimeSetup.hpp"
 #include "ViewIf.hpp"
 #include "ExtendedViewIf.hpp"
-#include "MenuViewIf.hpp"
+#include "ViewMenuIf.hpp"
 #include "ModuleConfig.hpp"
 
 static const char *CAPTION_SET_ALARMS = "SET TIME\0";
@@ -42,10 +42,10 @@ void StateDisplayingMenuSetTime::enter()
     getView(VIEW_ID_MENU_VIEW)->enable();
 
     ExtendedViewIf *pExtendedView = getExtendedView(VIEW_ID_MENU_VIEW);
-    MenuViewIf *pMenuView = static_cast<MenuViewIf *>(pExtendedView);
+    ViewMenuIf *pViewMenu = static_cast<ViewMenuIf *>(pExtendedView);
 
-    pMenuView->setTitle(CAPTION_MENU);
-    pMenuView->setContent(CAPTION_SET_ALARMS);
+    pViewMenu->setTitle(CAPTION_MENU);
+    pViewMenu->setContent(CAPTION_SET_ALARMS);
 }
 
 void StateDisplayingMenuSetTime::exit()

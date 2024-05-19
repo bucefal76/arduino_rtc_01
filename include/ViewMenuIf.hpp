@@ -7,7 +7,7 @@
     An interface declares a methods to extend the view with the functionality required to display the settings menu.
 */
 
-class MenuViewIf : public ExtendedViewIf
+class ViewMenuIf : public ExtendedViewIf
 {
 public:
     /// @brief Set title on the menu screen.

@@ -9,11 +9,11 @@
     These methods are not standard ViewIf things, so they require their interface by the SOLID principles.
 */
 
-class TimeSetupViewIf : public ExtendedViewIf
+class ViewTimeSetupIf : public ExtendedViewIf
 {
 public:
     /// @brief See setState.
-    enum TimeSetupViewState
+    enum ViewTimeSetupState
     {
         SETUP_HOURS,
         SETUP_MINUTES,
@@ -23,9 +23,9 @@ public:
     /// @brief Time setup requires modifying display behavior.
     /// For example, setting hours shall be different visually from setting minutes.
     //  This method allows for tuning view behavior.
-    virtual void setState(const TimeSetupViewState state) = 0;
+    virtual void setState(const ViewTimeSetupState state) = 0;
     /// @brief Get the curretnt view state, see setState.
-    virtual TimeSetupViewState getState() const = 0;
+    virtual ViewTimeSetupState getState() const = 0;
     /// @brief  Set a required hour to display.
     virtual void putHours(const uint8_t hours) = 0;
     /// @brief  Set a required minute to display.

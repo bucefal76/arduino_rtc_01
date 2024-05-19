@@ -25,7 +25,7 @@ private:
     virtual void enter();
     virtual void exit();
 
-    TimeSetupViewIf *getMyExtendedView() const;
+    ViewTimeSetupIf *getMyExtendedView() const;
 
     static StateNewTimeSetup m_Instance;
 };

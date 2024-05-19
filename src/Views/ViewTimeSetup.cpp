@@ -1,4 +1,4 @@
-#include "Views/TimeSetupView.hpp"
+#include "Views/ViewTimeSetup.hpp"
 #include "ModuleConfig.hpp"
 #include <LiquidCrystal.h>
 #include <RtcUtility.h>
@@ -8,31 +8,31 @@
 #define TIME_EDIT_MINUTES_COL_1 TIME_EDIT_HOUR_COL_0 + 4U
 #define TIME_EDIT_ROW 1U
 
-TimeSetupView *TimeSetupView::m_pInstance = nullptr;
+ViewTimeSetup *ViewTimeSetup::m_pInstance = nullptr;
 
-TimeSetupView *TimeSetupView::getInstance()
+ViewTimeSetup *ViewTimeSetup::getInstance()
 {
     if (nullptr == m_pInstance)
     {
-        m_pInstance = new TimeSetupView();
+        m_pInstance = new ViewTimeSetup();
     }
     return m_pInstance;
 }
 
-TimeSetupView::TimeSetupView()
-    : m_Hours(0U), m_Minutes(0U), m_State(TimeSetupViewIf::TimeSetupViewState::SETUP_HOURS)
+ViewTimeSetup::ViewTimeSetup()
+    : m_Hours(0U), m_Minutes(0U), m_State(ViewTimeSetupIf::ViewTimeSetupState::SETUP_HOURS)
 {
     setInterval(STATE_MACHINE_UPDATE_TIME_INTERVAL_MS);
     onRun(onRunCallback);
     enabled = false;
 }
 
-uint8_t TimeSetupView::getViewid() const
+uint8_t ViewTimeSetup::getViewid() const
 {
     return VIEW_ID_TIME_SETUP_VIEW;
 }
 
-void TimeSetupView::enable()
+void ViewTimeSetup::enable()
 {
     if (nullptr != m_pLcd)
     {
@@ -42,38 +42,38 @@ void TimeSetupView::enable()
     }
 }
 
-void TimeSetupView::disable()
+void ViewTimeSetup::disable()
 {
     m_pLcd->noBlink();
     enabled = false;
 }
 
-void TimeSetupView::setState(const TimeSetupViewIf::TimeSetupViewState state)
+void ViewTimeSetup::setState(const ViewTimeSetupIf::ViewTimeSetupState state)
 {
     m_State = state;
 }
 
-TimeSetupViewIf::TimeSetupViewState TimeSetupView::getState() const
+ViewTimeSetupIf::ViewTimeSetupState ViewTimeSetup::getState() const
 {
     return m_State;
 }
 
-void TimeSetupView::putHours(const uint8_t hours)
+void ViewTimeSetup::putHours(const uint8_t hours)
 {
     m_Hours = hours;
 }
 
-void TimeSetupView::putMinutes(const uint8_t minutes)
+void ViewTimeSetup::putMinutes(const uint8_t minutes)
 {
     m_Minutes = minutes;
 }
 
-void TimeSetupView::onRunCallback()
+void ViewTimeSetup::onRunCallback()
 {
     m_pInstance->update();
 }
 
-void TimeSetupView::update()
+void ViewTimeSetup::update()
 {
     if (nullptr != m_pLcd)
     {

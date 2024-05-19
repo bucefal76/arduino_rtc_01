@@ -7,8 +7,8 @@
 
 class ViewIf;
 class ExtendedViewIf;
-class MenuViewIf;
-class TimeSetupViewIf;
+class ViewMenuIf;
+class ViewTimeSetupIf;
 class DateSetupViewIf;
 class ModuleModelIf;
 class ModuleModelStateIf;

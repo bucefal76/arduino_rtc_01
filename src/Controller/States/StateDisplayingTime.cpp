@@ -1,7 +1,7 @@
 #include "Controller/States/StateDisplayingTime.hpp"
 #include "Controller/States/StateDisplayingMenuSetTime.hpp"
 #include "ViewIf.hpp"
-#include "MenuViewIf.hpp"
+#include "ViewMenuIf.hpp"
 #include "ModuleConfig.hpp"
 
 #include <Arduino.h>

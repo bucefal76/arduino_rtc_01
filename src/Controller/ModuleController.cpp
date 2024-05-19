@@ -2,7 +2,7 @@
 #include "Controller/States/StateBase.hpp"
 #include "Controller/States/StateDisplayingTime.hpp"
 #include "KeyboardControllerIf.hpp"
-#include "MenuViewIf.hpp"
+#include "ViewMenuIf.hpp"
 #include "ViewIf.hpp"
 
 ModuleController *ModuleController::m_pInstance = nullptr;
