@@ -7,7 +7,7 @@
 #include "ModuleModelStateIf.hpp"
 #include "Model/ModuleModel.hpp"
 #include "ModuleApplicationIf.hpp"
-#include "Views/ConfirmationView.hpp"
+#include "Views/ViewConfirmationQuestion.hpp"
 #include "Views/ViewDateSetup.hpp"
 #include "Views/ViewMenu.hpp"
 #include "Views/ViewTimeSetup.hpp"
@@ -45,7 +45,7 @@ void ModuleApplicationBuilder::setupThreads(ModuleApplicationIf &rApplication)
     rApplication.addThread(ViewTime::getInstance());
     rApplication.addThread(ViewMenu::getInstance());
     rApplication.addThread(ViewTimeSetup::getInstance());
-    rApplication.addThread(ConfirmationView::getInstance());
+    rApplication.addThread(ViewConfirmationQuestion::getInstance());
     rApplication.addThread(ViewDateSetup::getInstance());
     rApplication.addThread(ViewAlarmsStatus::getInstance());
 
@@ -63,7 +63,7 @@ void ModuleApplicationBuilder::setupThreads(ModuleApplicationIf &rApplication)
         ModuleController::getInstance()->addView(ViewTime::getInstance());
         ModuleController::getInstance()->addView(ViewMenu::getInstance());
         ModuleController::getInstance()->addView(ViewTimeSetup::getInstance());
-        ModuleController::getInstance()->addView(ConfirmationView::getInstance());
+        ModuleController::getInstance()->addView(ViewConfirmationQuestion::getInstance());
         ModuleController::getInstance()->addView(ViewDateSetup::getInstance());
         ModuleController::getInstance()->addView(ViewAlarmsStatus::getInstance());
 

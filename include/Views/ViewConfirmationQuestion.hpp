@@ -9,12 +9,12 @@
     Displays a confirmation question (Approve?) with two possible choices (Yes?/No?).
 */
 
-class ConfirmationView : public Thread, public ViewBase
+class ViewConfirmationQuestion : public Thread, public ViewBase
 {
 public:
-    static ConfirmationView *getInstance();
+    static ViewConfirmationQuestion *getInstance();
 
-    ConfirmationView();
+    ViewConfirmationQuestion();
 
     virtual uint8_t getViewid() const;
     virtual void enable();
@@ -24,7 +24,7 @@ private:
     void update();
     static void onRunCallback();
 
-    static ConfirmationView *m_Instance;
+    static ViewConfirmationQuestion *m_Instance;
 };
 
 #endif

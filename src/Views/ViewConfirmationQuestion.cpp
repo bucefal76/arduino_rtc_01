@@ -1,36 +1,36 @@
 #include <LiquidCrystal.h>
 
-#include "Views/ConfirmationView.hpp"
+#include "Views/ViewConfirmationQuestion.hpp"
 #include "ModuleConfig.hpp"
 
 #define STR_ACCEPT "Accept?"
 #define STR_YES "Yes?"
 #define STR_NO "No?"
 
-ConfirmationView *ConfirmationView::m_Instance = nullptr;
+ViewConfirmationQuestion *ViewConfirmationQuestion::m_Instance = nullptr;
 
-ConfirmationView *ConfirmationView::getInstance()
+ViewConfirmationQuestion *ViewConfirmationQuestion::getInstance()
 {
     if (nullptr == m_Instance)
     {
-        m_Instance = new ConfirmationView();
+        m_Instance = new ViewConfirmationQuestion();
     }
     return m_Instance;
 }
 
-ConfirmationView::ConfirmationView()
+ViewConfirmationQuestion::ViewConfirmationQuestion()
 {
     setInterval(STATE_MACHINE_UPDATE_TIME_INTERVAL_MS);
     onRun(onRunCallback);
     enabled = false;
 }
 
-uint8_t ConfirmationView::getViewid() const
+uint8_t ViewConfirmationQuestion::getViewid() const
 {
     return VIEW_ID_CONFIRMATION_VIEW;
 }
 
-void ConfirmationView::enable()
+void ViewConfirmationQuestion::enable()
 {
     if (nullptr != m_pLcd)
     {
@@ -39,12 +39,12 @@ void ConfirmationView::enable()
     }
 }
 
-void ConfirmationView::disable()
+void ViewConfirmationQuestion::disable()
 {
     enabled = false;
 }
 
-void ConfirmationView::update()
+void ViewConfirmationQuestion::update()
 {
     if (nullptr != m_pLcd)
     {
@@ -61,7 +61,7 @@ void ConfirmationView::update()
     }
 }
 
-void ConfirmationView::onRunCallback()
+void ViewConfirmationQuestion::onRunCallback()
 {
     getInstance()->update();
 }
