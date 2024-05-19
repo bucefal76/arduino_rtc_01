@@ -3,7 +3,7 @@
 #include <LiquidCrystal.h>
 
 static const char *ALARMS_CAPTION = "ALARM:\0";
-static const char *ALAMRS_COUNTER_CAPTION = "/8\0";
+static const char *ALARMS_COUNTER_CAPTION = "/8\0";
 
 #define ALARMS_CAPTION_COL 2
 #define ALARM_ID_CHANGE_CHAR_COL ALARMS_CAPTION_COL + 7
@@ -73,11 +73,19 @@ void ViewAlarmsStatus::update()
 
         m_pLcd->setCursor(ALARM_ID_DIGIT_COL, ALARMS_CAPTIONS_ROW);
         m_pLcd->write(alarmIdString);
-        m_pLcd->write(ALAMRS_COUNTER_CAPTION);
+        m_pLcd->write(ALARMS_COUNTER_CAPTION);
 
         m_pLcd->setCursor(ALARM_STATUS_COL, ALARMS_CAPTIONS_ROW);
         m_pLcd->write(byte(VIEWS_SPECIAL_CHARACTER_NEXT_INDEX));
-        m_pLcd->write(byte(VIEWS_SPECIAL_CHARACTER_ALARM_ENABLED_INDEX));
+
+        if (m_pModel->isAlarmActive(m_AlarmId))
+        {
+            m_pLcd->write(byte(VIEWS_SPECIAL_CHARACTER_ALARM_ENABLED_INDEX));
+        }
+        else
+        {
+            m_pLcd->write(byte(VIEWS_SPECIAL_CHARACTER_ALARM_DISABLED_INDEX));
+        }
 
         m_pLcd->setCursor(ALARM_ID_DIGIT_COL, ALARMS_CAPTIONS_ROW);
     }
