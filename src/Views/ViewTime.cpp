@@ -24,7 +24,7 @@ ViewTime::ViewTime()
     enabled = true;
 }
 
-uint8_t ViewTime::getViewid() const
+uint8_t ViewTime::getViewId() const
 {
     return VIEW_ID_TIME_VIEW;
 }

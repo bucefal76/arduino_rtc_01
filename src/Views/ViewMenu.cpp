@@ -41,7 +41,7 @@ void ViewMenu::setContent(const char *content)
     m_ContentPos = m_ContentPos / 2;
 }
 
-uint8_t ViewMenu::getViewid() const
+uint8_t ViewMenu::getViewId() const
 {
     return VIEW_ID_MENU_VIEW;
 }

@@ -14,7 +14,7 @@ public:
     ViewAlarmsStatus();
 
     /// see ViewIf.
-    virtual uint8_t getViewid() const;
+    virtual uint8_t getViewId() const;
     virtual void enable();
     virtual void disable();
     /// see ViewAlarmsStatusIf

@@ -18,7 +18,7 @@ void StateBase::processButton(const KeyboardControllerIf::ButtonCode button)
 void StateBase::addView(ViewIf *pView)
 {
     RUNTIME_PTR_CHECK(pView);
-    m_Views[pView->getViewid()] = pView;
+    m_Views[pView->getViewId()] = pView;
 }
 
 void StateBase::addExtendedView(const uint8_t viewId, ViewExtendedIf *pExtendedView)

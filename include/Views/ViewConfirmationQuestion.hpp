@@ -16,7 +16,7 @@ public:
 
     ViewConfirmationQuestion();
 
-    virtual uint8_t getViewid() const;
+    virtual uint8_t getViewId() const;
     virtual void enable();
     virtual void disable();
 

@@ -21,7 +21,7 @@ public:
     virtual void setTitle(const char *title);
     virtual void setContent(const char *content);
     /// @brief ViewIf implementation.
-    virtual uint8_t getViewid() const;
+    virtual uint8_t getViewId() const;
     virtual void enable();
     virtual void disable();
 

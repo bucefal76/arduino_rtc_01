@@ -27,7 +27,7 @@ ViewTimeSetup::ViewTimeSetup()
     enabled = false;
 }
 
-uint8_t ViewTimeSetup::getViewid() const
+uint8_t ViewTimeSetup::getViewId() const
 {
     return VIEW_ID_TIME_SETUP_VIEW;
 }

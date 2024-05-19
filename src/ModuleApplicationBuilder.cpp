@@ -67,10 +67,10 @@ void ModuleApplicationBuilder::setupThreads(ModuleApplicationIf &rApplication)
         ModuleController::getInstance()->addView(ViewDateSetup::getInstance());
         ModuleController::getInstance()->addView(ViewAlarmsStatus::getInstance());
 
-        ModuleController::getInstance()->addExtendedView(ViewMenu::getInstance()->getViewid(), ViewMenu::getInstance());
-        ModuleController::getInstance()->addExtendedView(ViewTimeSetup::getInstance()->getViewid(), ViewTimeSetup::getInstance());
-        ModuleController::getInstance()->addExtendedView(ViewDateSetup::getInstance()->getViewid(), ViewDateSetup::getInstance());
-        ModuleController::getInstance()->addExtendedView(ViewAlarmsStatus::getInstance()->getViewid(), ViewAlarmsStatus::getInstance());
+        ModuleController::getInstance()->addExtendedView(ViewMenu::getInstance()->getViewId(), ViewMenu::getInstance());
+        ModuleController::getInstance()->addExtendedView(ViewTimeSetup::getInstance()->getViewId(), ViewTimeSetup::getInstance());
+        ModuleController::getInstance()->addExtendedView(ViewDateSetup::getInstance()->getViewId(), ViewDateSetup::getInstance());
+        ModuleController::getInstance()->addExtendedView(ViewAlarmsStatus::getInstance()->getViewId(), ViewAlarmsStatus::getInstance());
 
         ModuleController::getInstance()->setModel(model);
         ModuleController::getInstance()->setModelState(model);

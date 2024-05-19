@@ -25,7 +25,7 @@ ViewConfirmationQuestion::ViewConfirmationQuestion()
     enabled = false;
 }
 
-uint8_t ViewConfirmationQuestion::getViewid() const
+uint8_t ViewConfirmationQuestion::getViewId() const
 {
     return VIEW_ID_CONFIRMATION_VIEW;
 }

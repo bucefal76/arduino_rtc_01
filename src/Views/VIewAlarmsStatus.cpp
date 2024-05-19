@@ -31,7 +31,7 @@ ViewAlarmsStatus::ViewAlarmsStatus()
     enabled = false;
 }
 
-uint8_t ViewAlarmsStatus::getViewid() const
+uint8_t ViewAlarmsStatus::getViewId() const
 {
     return VIEW_ID_ALARMS_STATUS_VIEW;
 }
