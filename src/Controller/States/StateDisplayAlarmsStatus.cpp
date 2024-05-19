@@ -1,4 +1,5 @@
 #include "Controller/States/StateDisplayAlarmsStatus.hpp"
+#include "Controller/States/StateDisplayingMenuSetAlarms.hpp"
 #include "ModuleConfig.hpp"
 #include "ViewIf.hpp"
 #include "ViewAlarmsStatusIf.hpp"
@@ -25,6 +26,7 @@ void StateDisplayAlarmsStatus::processButton(const KeyboardControllerIf::ButtonC
     }
     else if (KeyboardControllerIf::ButtonCode::BUTTON_CODE_BACK == button)
     {
+        transitToState(StateDisplayingMenuSetAlarms::getInstance());
     }
     else if (KeyboardControllerIf::ButtonCode::BUTTON_CODE_DOWN == button)
     {
