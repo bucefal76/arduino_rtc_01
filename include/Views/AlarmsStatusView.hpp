@@ -1,10 +1,12 @@
 #ifndef ALARMS_STATUS_VIEW_HPP
 #define ALARMS_STATUS_VIEW_HPP
 
-#include "Views/BaseView.hpp"
 #include <Thread.h>
 
-class AlarmsStatusView : public BaseView, public Thread
+#include "Views/BaseView.hpp"
+#include "AlarmsStatusViewIf.hpp"
+
+class AlarmsStatusView : public BaseView, public Thread, public AlarmsStatusViewIf
 {
 public:
     static AlarmsStatusView *getInstance();
@@ -15,6 +17,8 @@ public:
     virtual uint8_t getViewid() const;
     virtual void enable();
     virtual void disable();
+    /// see AlarmsStatusViewIf
+    virtual void setAlarmToDisplay(const uint8_t alarmId);
 
 private:
     void update();

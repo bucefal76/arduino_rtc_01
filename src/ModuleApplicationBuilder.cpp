@@ -70,6 +70,7 @@ void ModuleApplicationBuilder::setupThreads(ModuleApplicationIf &rApplication)
         ModuleController::getInstance()->addExtendedView(MenuView::getInstance()->getViewid(), MenuView::getInstance());
         ModuleController::getInstance()->addExtendedView(TimeSetupView::getInstance()->getViewid(), TimeSetupView::getInstance());
         ModuleController::getInstance()->addExtendedView(DateSetupView::getInstance()->getViewid(), DateSetupView::getInstance());
+        ModuleController::getInstance()->addExtendedView(AlarmsStatusView::getInstance()->getViewid(), AlarmsStatusView::getInstance());
 
         ModuleController::getInstance()->setModel(model);
         ModuleController::getInstance()->setModelState(model);

@@ -83,6 +83,11 @@ void AlarmsStatusView::update()
     }
 }
 
+void AlarmsStatusView::setAlarmToDisplay(const uint8_t alarmId)
+{
+    m_AlarmId = alarmId;
+}
+
 void AlarmsStatusView::onRunCallback()
 {
     AlarmsStatusView::getInstance()->update();
