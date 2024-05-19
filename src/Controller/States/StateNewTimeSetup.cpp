@@ -1,9 +1,11 @@
 #include "Controller/States/StateNewTimeSetup.hpp"
 #include "Controller/States/StateNewTimeConfirmation.hpp"
 #include "ViewIf.hpp"
-#include "MenuViewIf.hpp"
-#include "TimeSetupViewIf.hpp"
+#include "ViewExtendedIf.hpp"
+#include "ViewMenuIf.hpp"
+#include "ViewTimeSetupIf.hpp"
 #include "ModuleConfig.hpp"
+#include "SerialPrintAssert.h"
 
 #include <Arduino.h>
 
@@ -28,11 +30,13 @@ StateNewTimeSetup::StateNewTimeSetup()
 
 void StateNewTimeSetup::processButton(const KeyboardControllerIf::ButtonCode button)
 {
-    const TimeSetupViewIf::TimeSetupViewState currentlyInSetup = m_pExtendedTimeSetupView->getState();
+    ViewTimeSetupIf *pExtendedViewTimeSetup = getMyExtendedView();
+
+    const ViewTimeSetupIf::ViewTimeSetupState currentlyInSetup = pExtendedViewTimeSetup->getState();
 
     switch (currentlyInSetup)
     {
-    case TimeSetupViewIf::TimeSetupViewState::SETUP_HOURS:
+    case ViewTimeSetupIf::ViewTimeSetupState::SETUP_HOURS:
     {
         if (KeyboardControllerIf::ButtonCode::BUTTON_CODE_UP == button)
         {
@@ -55,18 +59,18 @@ void StateNewTimeSetup::processButton(const KeyboardControllerIf::ButtonCode but
         }
         else if (KeyboardControllerIf::ButtonCode::BUTTON_CODE_NEXT == button)
         {
-            m_pExtendedTimeSetupView->setState(TimeSetupViewIf::TimeSetupViewState::SETUP_MINUTES);
+            pExtendedViewTimeSetup->setState(ViewTimeSetupIf::ViewTimeSetupState::SETUP_MINUTES);
         }
         else if (KeyboardControllerIf::ButtonCode::BUTTON_CODE_BACK == button)
         {
-            trasitToState(StateNewTimeConfirmation::getInstance());
+            transitToState(StateNewTimeConfirmation::getInstance());
         }
 
-        m_pExtendedTimeSetupView->putHours(m_Hours);
+        pExtendedViewTimeSetup->putHours(m_Hours);
         break;
     }
 
-    case TimeSetupViewIf::TimeSetupViewState::SETUP_MINUTES:
+    case ViewTimeSetupIf::ViewTimeSetupState::SETUP_MINUTES:
     {
         if (KeyboardControllerIf::ButtonCode::BUTTON_CODE_UP == button)
         {
@@ -89,14 +93,14 @@ void StateNewTimeSetup::processButton(const KeyboardControllerIf::ButtonCode but
         }
         else if (KeyboardControllerIf::ButtonCode::BUTTON_CODE_BACK == button)
         {
-            m_pExtendedTimeSetupView->setState(TimeSetupViewIf::TimeSetupViewState::SETUP_HOURS);
+            pExtendedViewTimeSetup->setState(ViewTimeSetupIf::ViewTimeSetupState::SETUP_HOURS);
         }
         else if (KeyboardControllerIf::ButtonCode::BUTTON_CODE_NEXT == button)
         {
-            trasitToState(StateNewTimeConfirmation::getInstance());
+            transitToState(StateNewTimeConfirmation::getInstance());
         }
 
-        m_pExtendedTimeSetupView->putMinutes(m_Minutes);
+        pExtendedViewTimeSetup->putMinutes(m_Minutes);
         break;
     }
 
@@ -114,8 +118,10 @@ void StateNewTimeSetup::enter()
         pView->enable();
     }
 
-    m_pExtendedTimeSetupView->putHours(m_Hours);
-    m_pExtendedTimeSetupView->putMinutes(m_Minutes);
+    ViewTimeSetupIf *pViewTimeSetup = getMyExtendedView();
+
+    pViewTimeSetup->putHours(m_Hours);
+    pViewTimeSetup->putMinutes(m_Minutes);
 }
 
 void StateNewTimeSetup::exit()
@@ -125,4 +131,13 @@ void StateNewTimeSetup::exit()
     {
         pView->disable();
     }
+}
+
+ViewTimeSetupIf *StateNewTimeSetup::getMyExtendedView() const
+{
+    ViewExtendedIf *pExtendedView = getExtendedView(VIEW_ID_TIME_SETUP_VIEW);
+    RUNTIME_PTR_CHECK(pExtendedView);
+    ViewTimeSetupIf *pViewTimeSetup = static_cast<ViewTimeSetupIf *>(pExtendedView);
+    RUNTIME_PTR_CHECK(pViewTimeSetup);
+    return pViewTimeSetup;
 }

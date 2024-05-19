@@ -55,7 +55,7 @@ ModuleModel::ModuleModel()
     if (!m_Rtc.GetIsRunning())
     {
 #ifdef USE_SERIAL
-        Serial.println(F("RTC was not actively running, starting now"));
+        Serial.println(F("RTC was not running, starting now"));
 #endif
         m_Rtc.SetIsRunning(true);
     }
@@ -99,6 +99,18 @@ void ModuleModel::setDateTime(const DateTime &dateTime)
     RtcDateTime rctDateTime(dateTime.getYear(), dateTime.getMonth(), dateTime.getDay(), dateTime.getHour(), dateTime.getMinute(), dateTime.getSecond());
 
     m_Rtc.SetDateTime(rctDateTime);
+}
+
+bool ModuleModel::isAlarmActive(const uint8_t alarmId)
+{
+    if (alarmId == 1)
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
 }
 
 #ifdef USE_SERIAL

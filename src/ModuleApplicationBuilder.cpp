@@ -4,13 +4,15 @@
 #include "Controller/KeyboardController.hpp"
 #include "Controller/ModuleController.hpp"
 #include "ModuleModelIf.hpp"
+#include "ModuleModelStateIf.hpp"
 #include "Model/ModuleModel.hpp"
 #include "ModuleApplicationIf.hpp"
-#include "Views/ConfirmationView.hpp"
-#include "Views/DateSetupView.hpp"
-#include "Views/MenuView.hpp"
-#include "Views/TimeSetupView.hpp"
-#include "Views/TimeView.hpp"
+#include "Views/ViewConfirmationQuestion.hpp"
+#include "Views/ViewDateSetup.hpp"
+#include "Views/ViewMenu.hpp"
+#include "Views/ViewTimeSetup.hpp"
+#include "Views/ViewTime.hpp"
+#include "Views/ViewAlarmsStatus.hpp"
 
 #include "SerialPrintAssert.h"
 
@@ -34,17 +36,18 @@ void ModuleApplicationBuilder::setupThreads(ModuleApplicationIf &rApplication)
     }
 
     // Now is a time to create and connect basic functional blocks of the source codes. First, views:
-    if (nullptr != TimeView::getInstance())
+    if (nullptr != ViewTime::getInstance())
     {
-        TimeView::getInstance()->setLcd(lcd);
-        TimeView::getInstance()->setModel(model);
+        ViewTime::getInstance()->setLcd(lcd);
+        ViewTime::getInstance()->setModel(model);
     }
 
-    rApplication.addThread(TimeView::getInstance());
-    rApplication.addThread(MenuView::getInstance());
-    rApplication.addThread(TimeSetupView::getInstance());
-    rApplication.addThread(ConfirmationView::getInstance());
-    rApplication.addThread(DateSetupView::getInstance());
+    rApplication.addThread(ViewTime::getInstance());
+    rApplication.addThread(ViewMenu::getInstance());
+    rApplication.addThread(ViewTimeSetup::getInstance());
+    rApplication.addThread(ViewConfirmationQuestion::getInstance());
+    rApplication.addThread(ViewDateSetup::getInstance());
+    rApplication.addThread(ViewAlarmsStatus::getInstance());
 
     // Then the keyboard controller...
     rApplication.addThread(KeyboardController::getInstance());
@@ -57,16 +60,19 @@ void ModuleApplicationBuilder::setupThreads(ModuleApplicationIf &rApplication)
     {
         ModuleController::getInstance()->setKeyboardController(KeyboardController::getInstance());
 
-        ModuleController::getInstance()->setExtendedViews(MenuView::getInstance(),
-                                                          TimeSetupView::getInstance(),
-                                                          DateSetupView::getInstance());
+        ModuleController::getInstance()->addView(ViewTime::getInstance());
+        ModuleController::getInstance()->addView(ViewMenu::getInstance());
+        ModuleController::getInstance()->addView(ViewTimeSetup::getInstance());
+        ModuleController::getInstance()->addView(ViewConfirmationQuestion::getInstance());
+        ModuleController::getInstance()->addView(ViewDateSetup::getInstance());
+        ModuleController::getInstance()->addView(ViewAlarmsStatus::getInstance());
 
-        ModuleController::getInstance()->addView(TimeView::getInstance());
-        ModuleController::getInstance()->addView(MenuView::getInstance());
-        ModuleController::getInstance()->addView(TimeSetupView::getInstance());
-        ModuleController::getInstance()->addView(ConfirmationView::getInstance());
-        ModuleController::getInstance()->addView(DateSetupView::getInstance());
+        ModuleController::getInstance()->addExtendedView(ViewMenu::getInstance()->getViewId(), ViewMenu::getInstance());
+        ModuleController::getInstance()->addExtendedView(ViewTimeSetup::getInstance()->getViewId(), ViewTimeSetup::getInstance());
+        ModuleController::getInstance()->addExtendedView(ViewDateSetup::getInstance()->getViewId(), ViewDateSetup::getInstance());
+        ModuleController::getInstance()->addExtendedView(ViewAlarmsStatus::getInstance()->getViewId(), ViewAlarmsStatus::getInstance());
 
         ModuleController::getInstance()->setModel(model);
+        ModuleController::getInstance()->setModelState(model);
     }
 }

@@ -1,11 +1,13 @@
 #ifndef MENU_VIEW__IF_HPP
 #define MENU_VIEW_IF_HPP
 
+#include "ViewExtendedIf.hpp"
+
 /*
     An interface declares a methods to extend the view with the functionality required to display the settings menu.
 */
 
-class MenuViewIf
+class ViewMenuIf : public ViewExtendedIf
 {
 public:
     /// @brief Set title on the menu screen.

@@ -1,4 +1,4 @@
-#include "Views/DateSetupView.hpp"
+#include "Views/ViewDateSetup.hpp"
 #include "ModuleConfig.hpp"
 #include <LiquidCrystal.h>
 
@@ -8,31 +8,31 @@
 
 #define DATE_EDIT_ROW 1U
 
-DateSetupView *DateSetupView::m_pInstance = nullptr;
+ViewDateSetup *ViewDateSetup::m_pInstance = nullptr;
 
-DateSetupView *DateSetupView::getInstance()
+ViewDateSetup *ViewDateSetup::getInstance()
 {
     if (nullptr == m_pInstance)
     {
-        m_pInstance = new DateSetupView();
+        m_pInstance = new ViewDateSetup();
     }
     return m_pInstance;
 }
 
-DateSetupView::DateSetupView()
-    : m_State(DateSetupViewIf::DateSetupViewState::SETUP_DAY), m_Year(0U), m_Month(0U), m_Day(0U)
+ViewDateSetup::ViewDateSetup()
+    : m_State(ViewDateSetupIf::ViewDateSetupState::SETUP_DAY), m_Year(0U), m_Month(0U), m_Day(0U)
 {
     setInterval(STATE_MACHINE_UPDATE_TIME_INTERVAL_MS);
     onRun(onRunCallback);
     enabled = false;
 }
 
-uint8_t DateSetupView::getViewid() const
+uint8_t ViewDateSetup::getViewId() const
 {
     return VIEW_ID_DATE_SETUP_VIEW;
 }
 
-void DateSetupView::enable()
+void ViewDateSetup::enable()
 {
     if (nullptr != m_pLcd)
     {
@@ -42,7 +42,7 @@ void DateSetupView::enable()
     }
 }
 
-void DateSetupView::disable()
+void ViewDateSetup::disable()
 {
     enabled = false;
     if (nullptr != m_pLcd)
@@ -51,32 +51,32 @@ void DateSetupView::disable()
     }
 }
 
-void DateSetupView::setState(const DateSetupViewIf::DateSetupViewState state)
+void ViewDateSetup::setState(const ViewDateSetupIf::ViewDateSetupState state)
 {
     m_State = state;
 }
 
-DateSetupViewIf::DateSetupViewState DateSetupView::getState() const
+ViewDateSetupIf::ViewDateSetupState ViewDateSetup::getState() const
 {
     return m_State;
 }
 
-void DateSetupView::putYear(const uint16_t year)
+void ViewDateSetup::putYear(const uint16_t year)
 {
     m_Year = year;
 }
 
-void DateSetupView::putMonth(const uint8_t month)
+void ViewDateSetup::putMonth(const uint8_t month)
 {
     m_Month = month;
 }
 
-void DateSetupView::putDay(const uint8_t day)
+void ViewDateSetup::putDay(const uint8_t day)
 {
     m_Day = day;
 }
 
-void DateSetupView::update()
+void ViewDateSetup::update()
 {
     if (nullptr != m_pLcd)
     {
@@ -95,7 +95,7 @@ void DateSetupView::update()
 
         switch (m_State)
         {
-        case DateSetupViewIf::DateSetupViewState::SETUP_YEAR:
+        case ViewDateSetupIf::ViewDateSetupState::SETUP_YEAR:
         {
             m_pLcd->setCursor(YEAR_EDIT_COL - 1, DATE_EDIT_ROW);
             m_pLcd->write(byte(VIEWS_SPECIAL_CHARACTER_MODIFICATION_INDEX));
@@ -112,7 +112,7 @@ void DateSetupView::update()
             m_pLcd->setCursor(YEAR_EDIT_COL + 3, DATE_EDIT_ROW);
         }
         break;
-        case DateSetupViewIf::DateSetupViewState::SETUP_MONTH:
+        case ViewDateSetupIf::ViewDateSetupState::SETUP_MONTH:
         {
             m_pLcd->setCursor(MONTH_EDIT_COL - 1, DATE_EDIT_ROW);
             m_pLcd->write(byte(VIEWS_SPECIAL_CHARACTER_MODIFICATION_INDEX));
@@ -129,7 +129,7 @@ void DateSetupView::update()
             m_pLcd->setCursor(MONTH_EDIT_COL + 1, DATE_EDIT_ROW);
         }
         break;
-        case DateSetupViewIf::DateSetupViewState::SETUP_DAY:
+        case ViewDateSetupIf::ViewDateSetupState::SETUP_DAY:
         {
             m_pLcd->setCursor(DAY_EDIT_COL - 1, DATE_EDIT_ROW);
             m_pLcd->write(byte(VIEWS_SPECIAL_CHARACTER_MODIFICATION_INDEX));
@@ -152,7 +152,7 @@ void DateSetupView::update()
     }
 }
 
-void DateSetupView::onRunCallback()
+void ViewDateSetup::onRunCallback()
 {
-    DateSetupView::getInstance()->update();
+    ViewDateSetup::getInstance()->update();
 }

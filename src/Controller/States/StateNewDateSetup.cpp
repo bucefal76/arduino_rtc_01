@@ -1,8 +1,10 @@
 #include "Controller/States/StateNewDateSetup.hpp"
 #include "Controller/States/StateNewDateConfirmation.hpp"
 #include "ViewIf.hpp"
-#include "DateSetupViewIf.hpp"
+#include "ViewExtendedIf.hpp"
+#include "ViewDateSetupIf.hpp"
 #include "ModuleConfig.hpp"
+#include "SerialPrintAssert.h"
 
 #define YEAR_MAX_VALUE 2035U
 #define YEAR_MIN_VALUE 2020U
@@ -27,11 +29,13 @@ StateNewDateSetup::StateNewDateSetup()
 
 void StateNewDateSetup::processButton(const KeyboardControllerIf::ButtonCode button)
 {
-    const DateSetupViewIf::DateSetupViewState currentlyInSetup = m_pExtendedDateSetupView->getState();
+    ViewDateSetupIf *pExtendedViewDateSetup = getMyExtendedView();
+
+    const ViewDateSetupIf::ViewDateSetupState currentlyInSetup = pExtendedViewDateSetup->getState();
 
     switch (currentlyInSetup)
     {
-    case DateSetupViewIf::DateSetupViewState::SETUP_YEAR:
+    case ViewDateSetupIf::ViewDateSetupState::SETUP_YEAR:
     {
         if (KeyboardControllerIf::ButtonCode::BUTTON_CODE_UP == button)
         {
@@ -55,16 +59,16 @@ void StateNewDateSetup::processButton(const KeyboardControllerIf::ButtonCode but
         }
         else if (KeyboardControllerIf::ButtonCode::BUTTON_CODE_NEXT == button)
         {
-            m_pExtendedDateSetupView->setState(DateSetupViewIf::DateSetupViewState::SETUP_MONTH);
+            pExtendedViewDateSetup->setState(ViewDateSetupIf::ViewDateSetupState::SETUP_MONTH);
         }
         else if (KeyboardControllerIf::ButtonCode::BUTTON_CODE_BACK == button)
         {
-            trasitToState(StateNewDateConfirmation::getInstance());
+            transitToState(StateNewDateConfirmation::getInstance());
         }
 
         break;
     }
-    case DateSetupViewIf::DateSetupViewState::SETUP_MONTH:
+    case ViewDateSetupIf::ViewDateSetupState::SETUP_MONTH:
     {
         if (KeyboardControllerIf::ButtonCode::BUTTON_CODE_UP == button)
         {
@@ -88,15 +92,15 @@ void StateNewDateSetup::processButton(const KeyboardControllerIf::ButtonCode but
         }
         else if (KeyboardControllerIf::ButtonCode::BUTTON_CODE_NEXT == button)
         {
-            m_pExtendedDateSetupView->setState(DateSetupViewIf::DateSetupViewState::SETUP_DAY);
+            pExtendedViewDateSetup->setState(ViewDateSetupIf::ViewDateSetupState::SETUP_DAY);
         }
         else if (KeyboardControllerIf::ButtonCode::BUTTON_CODE_BACK == button)
         {
-            m_pExtendedDateSetupView->setState(DateSetupViewIf::DateSetupViewState::SETUP_YEAR);
+            pExtendedViewDateSetup->setState(ViewDateSetupIf::ViewDateSetupState::SETUP_YEAR);
         }
         break;
     }
-    case DateSetupViewIf::DateSetupViewState::SETUP_DAY:
+    case ViewDateSetupIf::ViewDateSetupState::SETUP_DAY:
     {
         if (KeyboardControllerIf::ButtonCode::BUTTON_CODE_UP == button)
         {
@@ -122,11 +126,11 @@ void StateNewDateSetup::processButton(const KeyboardControllerIf::ButtonCode but
         }
         else if (KeyboardControllerIf::ButtonCode::BUTTON_CODE_NEXT == button)
         {
-            trasitToState(StateNewDateConfirmation::getInstance());
+            transitToState(StateNewDateConfirmation::getInstance());
         }
         else if (KeyboardControllerIf::ButtonCode::BUTTON_CODE_BACK == button)
         {
-            m_pExtendedDateSetupView->setState(DateSetupViewIf::DateSetupViewState::SETUP_MONTH);
+            pExtendedViewDateSetup->setState(ViewDateSetupIf::ViewDateSetupState::SETUP_MONTH);
         }
         break;
     }
@@ -138,10 +142,11 @@ void StateNewDateSetup::enter()
 {
     getView(VIEW_ID_DATE_SETUP_VIEW)->enable();
 
-    m_pExtendedDateSetupView->setState(DateSetupViewIf::SETUP_YEAR);
-    m_pExtendedDateSetupView->putDay(m_Day);
-    m_pExtendedDateSetupView->putMonth(m_Month);
-    m_pExtendedDateSetupView->putYear(m_Year);
+    ViewDateSetupIf *pViewDateSetup = getMyExtendedView();
+    pViewDateSetup->setState(ViewDateSetupIf::SETUP_YEAR);
+    pViewDateSetup->putDay(m_Day);
+    pViewDateSetup->putMonth(m_Month);
+    pViewDateSetup->putYear(m_Year);
 }
 
 void StateNewDateSetup::exit()
@@ -151,8 +156,10 @@ void StateNewDateSetup::exit()
 
 void StateNewDateSetup::updateViewData() const
 {
-    m_pExtendedDateSetupView->putYear(m_Year);
-    m_pExtendedDateSetupView->putMonth(m_Month);
+    ViewDateSetupIf *pViewDateSetup = getMyExtendedView();
+
+    pViewDateSetup->putYear(m_Year);
+    pViewDateSetup->putMonth(m_Month);
 
     const uint8_t maxDaysInCurrentMonth = getNumberOfDays(m_Month, m_Year);
 
@@ -160,7 +167,7 @@ void StateNewDateSetup::updateViewData() const
     {
         m_Day = maxDaysInCurrentMonth;
     }
-    m_pExtendedDateSetupView->putDay(m_Day);
+    pViewDateSetup->putDay(m_Day);
 }
 
 uint8_t StateNewDateSetup::getNumberOfDays(const uint8_t month, const uint16_t year) const
@@ -189,4 +196,13 @@ uint8_t StateNewDateSetup::getNumberOfDays(const uint8_t month, const uint16_t y
         // Months with 31 days
         return 31;
     }
+}
+
+ViewDateSetupIf *StateNewDateSetup::getMyExtendedView() const
+{
+    ViewExtendedIf *pExtendedView = getExtendedView(VIEW_ID_DATE_SETUP_VIEW);
+    RUNTIME_PTR_CHECK(pExtendedView);
+    ViewDateSetupIf *pViewDateSetup = static_cast<ViewDateSetupIf *>(pExtendedView);
+    RUNTIME_PTR_CHECK(pViewDateSetup);
+    return pViewDateSetup;
 }

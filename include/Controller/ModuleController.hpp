@@ -10,10 +10,12 @@
 class StateBase;
 class KeyboardControllerIf;
 class ViewIf;
-class MenuViewIf;
-class TimeSetupViewIf;
-class DateSetupViewIf;
+class ViewExtendedIf;
+class ViewMenuIf;
+class ViewTimeSetupIf;
+class ViewDateSetupIf;
 class ModuleModelIf;
+class ModuleModelStateIf;
 
 /*
     The goal is to develop a clock application based on the Controller-View architectural pattern.
@@ -32,14 +34,12 @@ public:
     /// @brief Add views to the list of views managed by the Controller.
     /// @param pView
     void addView(ViewIf *pView);
-    /// @brief  Use this method on the setup() to set the pointer to all views used by the controller.
-    ///         Only the special type of views.
-    void setExtendedViews(MenuViewIf *extendedMenuView,
-                          TimeSetupViewIf *extendedTimeSetupView,
-                          DateSetupViewIf *extendedDateSetupView);
-    /// @brief Set Model that represents RTC.
-    /// @param pModel
+    /// @brief Add extended views to the list of views managed by the Controller.
+    void addExtendedView(const uint8_t viewId, ViewExtendedIf *pExtendedView);
+    /// @brief Set Model that represents RTC, interface to do changes on the RTC.
     void setModel(ModuleModelIf *pModel);
+    /// @brief   Set Model that represents RTC, interface to get state of the model.
+    void setModelState(ModuleModelStateIf *pModelStatus);
 
 private:
     ModuleController();

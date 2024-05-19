@@ -3,6 +3,7 @@
 #include "ViewIf.hpp"
 #include "ModuleConfig.hpp"
 #include "ModuleModelIf.hpp"
+#include "ModuleModelStateIf.hpp"
 #include "Model/DateTime.hpp"
 
 StateNewDateConfirmation StateNewDateConfirmation::m_Instance;
@@ -22,17 +23,17 @@ void StateNewDateConfirmation::processButton(const KeyboardControllerIf::ButtonC
     {
         setNewDate();
 
-        trasitToState(StateDisplayingTime::getInstance());
+        transitToState(StateDisplayingTime::getInstance());
     }
     else if (KeyboardControllerIf::ButtonCode::BUTTON_CODE_BACK == button)
     {
-        trasitToState(StateDisplayingTime::getInstance());
+        transitToState(StateDisplayingTime::getInstance());
     }
 }
 
 void StateNewDateConfirmation::setNewDate()
 {
-    const DateTime now = m_pModel->getDateTime();
+    const DateTime now = m_pModelState->getDateTime();
 
     DateTime modifiedTimeDate(m_Year,
                               m_Month,

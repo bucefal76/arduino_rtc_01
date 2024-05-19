@@ -2,7 +2,7 @@
 #include "Controller/States/StateBase.hpp"
 #include "Controller/States/StateDisplayingTime.hpp"
 #include "KeyboardControllerIf.hpp"
-#include "MenuViewIf.hpp"
+#include "ViewMenuIf.hpp"
 #include "ViewIf.hpp"
 
 ModuleController *ModuleController::m_pInstance = nullptr;
@@ -19,7 +19,7 @@ ModuleController *ModuleController::getInstance()
 ModuleController::ModuleController()
     : m_KeyboardController(nullptr)
 {
-    // Initalize the state machine with first state
+    // Initialize the state machine with first state
     StateBase::setCurrentState(StateDisplayingTime::getInstance());
 
     setInterval(STATE_MACHINE_UPDATE_TIME_INTERVAL_MS);
@@ -32,22 +32,24 @@ void ModuleController::setKeyboardController(KeyboardControllerIf *keyboardContr
     m_KeyboardController = keyboardController;
 }
 
-void ModuleController::setExtendedViews(MenuViewIf *extendedMenuView,
-                                        TimeSetupViewIf *extendedTimeSetupView,
-                                        DateSetupViewIf *extendedDateSetupView)
-{
-    /// Initalize state machine with views to play with:
-    StateBase::setExtendedViews(extendedMenuView, extendedTimeSetupView, extendedDateSetupView);
-}
-
 void ModuleController::addView(ViewIf *pView)
 {
     StateBase::addView(pView);
 }
 
+void ModuleController::addExtendedView(const uint8_t viewId, ViewExtendedIf *pExtendedView)
+{
+    StateBase::addExtendedView(viewId, pExtendedView);
+}
+
 void ModuleController::setModel(ModuleModelIf *pModel)
 {
     StateBase::setModel(pModel);
+}
+
+void ModuleController::setModelState(ModuleModelStateIf *pModelState)
+{
+    StateBase::setModelState(pModelState);
 }
 
 void ModuleController::update()

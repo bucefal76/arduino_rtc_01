@@ -1,23 +1,23 @@
 #include <LiquidCrystal.h>
 
-#include "Views/MenuView.hpp"
+#include "Views/ViewMenu.hpp"
 #include "ModuleConfig.hpp"
 
 #define MENU_TITLE_ROW 0U
 #define MENU_CONTENT_ROW 1U
 
-MenuView *MenuView::m_pInstance = nullptr;
+ViewMenu *ViewMenu::m_pInstance = nullptr;
 
-MenuView *MenuView::getInstance()
+ViewMenu *ViewMenu::getInstance()
 {
     if (nullptr == m_pInstance)
     {
-        m_pInstance = new MenuView();
+        m_pInstance = new ViewMenu();
     }
     return m_pInstance;
 }
 
-MenuView::MenuView()
+ViewMenu::ViewMenu()
     : m_Title(nullptr), m_Content(nullptr), m_TitlePos(0U), m_ContentPos(0U)
 {
     setInterval(STATE_MACHINE_UPDATE_TIME_INTERVAL_MS);
@@ -25,7 +25,7 @@ MenuView::MenuView()
     enabled = false;
 }
 
-void MenuView::setTitle(const char *title)
+void ViewMenu::setTitle(const char *title)
 {
     m_Title = title;
     const int length = strlen(m_Title);
@@ -33,7 +33,7 @@ void MenuView::setTitle(const char *title)
     m_TitlePos = m_TitlePos / 2;
 }
 
-void MenuView::setContent(const char *content)
+void ViewMenu::setContent(const char *content)
 {
     m_Content = content;
     const int length = strlen(m_Content);
@@ -41,12 +41,12 @@ void MenuView::setContent(const char *content)
     m_ContentPos = m_ContentPos / 2;
 }
 
-uint8_t MenuView::getViewid() const
+uint8_t ViewMenu::getViewId() const
 {
     return VIEW_ID_MENU_VIEW;
 }
 
-void MenuView::enable()
+void ViewMenu::enable()
 {
     if (nullptr != m_pLcd)
     {
@@ -55,12 +55,12 @@ void MenuView::enable()
     }
 }
 
-void MenuView::disable()
+void ViewMenu::disable()
 {
     enabled = false;
 }
 
-void MenuView::update()
+void ViewMenu::update()
 {
     if (nullptr != m_pLcd)
     {
@@ -77,7 +77,7 @@ void MenuView::update()
     }
 }
 
-void MenuView::onRunCallback()
+void ViewMenu::onRunCallback()
 {
     getInstance()->update();
 }

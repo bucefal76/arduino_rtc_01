@@ -1,30 +1,30 @@
 #ifndef DATE_SETUP_VIEW_HPP
 #define DATE_SETUP_VIEW_HPP
 
-#include "DateSetupViewIf.hpp"
-#include "Views/BaseView.hpp"
+#include "ViewDateSetupIf.hpp"
+#include "Views/ViewBase.hpp"
 #include <Thread.h>
 
 /*
-    The class implements the ViewIf and DateSetupViewIf interfaces.
+    The class implements the ViewIf and ViewDateSetupIf interfaces.
     Used to set new date settings.
     Displays year, month, day and extra icons to help navigate within the time setup mode.
 */
 
-class DateSetupView : public BaseView, public DateSetupViewIf, public Thread
+class ViewDateSetup : public ViewBase, public ViewDateSetupIf, public Thread
 {
 public:
-    static DateSetupView *getInstance();
+    static ViewDateSetup *getInstance();
 
-    DateSetupView();
+    ViewDateSetup();
 
     /// see ViewIf.
-    virtual uint8_t getViewid() const;
+    virtual uint8_t getViewId() const;
     virtual void enable();
     virtual void disable();
-    /// see DateSetupViewIf.
-    virtual void setState(const DateSetupViewState state);
-    virtual DateSetupViewState getState() const;
+    /// see ViewDateSetupIf.
+    virtual void setState(const ViewDateSetupState state);
+    virtual ViewDateSetupState getState() const;
     virtual void putYear(const uint16_t year);
     virtual void putMonth(const uint8_t month);
     virtual void putDay(const uint8_t day);
@@ -33,12 +33,12 @@ private:
     void update();
     static void onRunCallback();
 
-    DateSetupViewIf::DateSetupViewState m_State;
+    ViewDateSetupIf::ViewDateSetupState m_State;
     uint16_t m_Year;
     uint8_t m_Month;
     uint8_t m_Day;
 
-    static DateSetupView *m_pInstance;
+    static ViewDateSetup *m_pInstance;
 };
 
 #endif

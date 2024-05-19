@@ -3,20 +3,20 @@
 
 #include <Thread.h>
 
-#include "Views/BaseView.hpp"
+#include "Views/ViewBase.hpp"
 
 /*
     The class implements the ViewIf interface. It specializes in displaying a time and date.
 */
 
-class TimeView : public Thread, public BaseView
+class ViewTime : public Thread, public ViewBase
 {
 public:
-    static TimeView *getInstance();
+    static ViewTime *getInstance();
 
-    TimeView();
+    ViewTime();
 
-    virtual uint8_t getViewid() const;
+    virtual uint8_t getViewId() const;
     virtual void enable();
     virtual void disable();
 
@@ -24,7 +24,7 @@ private:
     void update();
     static void onRunCallback();
 
-    static TimeView *m_Instance;
+    static ViewTime *m_Instance;
 };
 
 #endif

@@ -2,17 +2,18 @@
 #define DATE_SETUP_VIEW_IF_HPP
 
 #include <Arduino.h>
+#include "ViewExtendedIf.hpp"
 
 /*
     Interfaces declares methods required by the view used to set up the date by the operator.
     These methods are not standard ViewIf things, so they require their interface by the SOLID principles.
 */
 
-class DateSetupViewIf
+class ViewDateSetupIf : public ViewExtendedIf
 {
 public:
     /// @brief See setState.
-    enum DateSetupViewState
+    enum ViewDateSetupState
     {
         SETUP_YEAR,
         SETUP_MONTH,
@@ -22,9 +23,9 @@ public:
     /// @brief Date setup requires modifying display behavior.
     /// For example, setting year shall be different visually from setting month.
     //  This method allows for tuning view behavior.
-    virtual void setState(const DateSetupViewState state) = 0;
-    /// @brief Returns the current display mode of the DateSetupViewIf.
-    virtual DateSetupViewState getState() const = 0;
+    virtual void setState(const ViewDateSetupState state) = 0;
+    /// @brief Returns the current display mode of the ViewDateSetupIf.
+    virtual ViewDateSetupState getState() const = 0;
     /// @brief Sets the year value to display.
     virtual void putYear(const uint16_t year) = 0;
     /// @brief Sets the month value to display.
