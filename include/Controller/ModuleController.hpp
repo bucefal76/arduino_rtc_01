@@ -13,7 +13,7 @@ class ViewIf;
 class ExtendedViewIf;
 class ViewMenuIf;
 class ViewTimeSetupIf;
-class DateSetupViewIf;
+class ViewDateSetupIf;
 class ModuleModelIf;
 class ModuleModelStateIf;
 

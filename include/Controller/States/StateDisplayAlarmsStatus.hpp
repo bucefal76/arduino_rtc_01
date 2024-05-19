@@ -7,7 +7,7 @@
     This state controls the device's behavior when it is displaying the states of all alarms.
 */
 
-class AlarmsStatusViewIf;
+class ViewAlarmsStatusIf;
 
 class StateDisplayAlarmsStatus : public StateBase
 {
@@ -23,7 +23,7 @@ private:
 
     virtual void exit();
 
-    AlarmsStatusViewIf *getAlarmsStatusView();
+    ViewAlarmsStatusIf *getViewAlarmsStatus();
 
     uint8_t m_AlarmId;
 

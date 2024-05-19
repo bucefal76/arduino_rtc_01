@@ -9,11 +9,11 @@
     These methods are not standard ViewIf things, so they require their interface by the SOLID principles.
 */
 
-class DateSetupViewIf: public ExtendedViewIf
+class ViewDateSetupIf : public ExtendedViewIf
 {
 public:
     /// @brief See setState.
-    enum DateSetupViewState
+    enum ViewDateSetupState
     {
         SETUP_YEAR,
         SETUP_MONTH,
@@ -23,9 +23,9 @@ public:
     /// @brief Date setup requires modifying display behavior.
     /// For example, setting year shall be different visually from setting month.
     //  This method allows for tuning view behavior.
-    virtual void setState(const DateSetupViewState state) = 0;
-    /// @brief Returns the current display mode of the DateSetupViewIf.
-    virtual DateSetupViewState getState() const = 0;
+    virtual void setState(const ViewDateSetupState state) = 0;
+    /// @brief Returns the current display mode of the ViewDateSetupIf.
+    virtual ViewDateSetupState getState() const = 0;
     /// @brief Sets the year value to display.
     virtual void putYear(const uint16_t year) = 0;
     /// @brief Sets the month value to display.

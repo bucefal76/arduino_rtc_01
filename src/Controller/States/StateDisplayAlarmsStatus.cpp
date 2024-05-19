@@ -1,7 +1,7 @@
 #include "Controller/States/StateDisplayAlarmsStatus.hpp"
 #include "ModuleConfig.hpp"
 #include "ViewIf.hpp"
-#include "AlarmsStatusViewIf.hpp"
+#include "ViewAlarmsStatusIf.hpp"
 
 #define ALARM_ID_MAX_VALUE ALARMS_NO_OF_ALARMS
 #define ALARM_ID_MIN_VALUE 1U
@@ -34,7 +34,7 @@ void StateDisplayAlarmsStatus::processButton(const KeyboardControllerIf::ButtonC
             m_AlarmId = ALARM_ID_MAX_VALUE;
         }
 
-        AlarmsStatusViewIf *pAlarmStatusView = getAlarmsStatusView();
+        ViewAlarmsStatusIf *pAlarmStatusView = getViewAlarmsStatus();
         pAlarmStatusView->setAlarmToDisplay(m_AlarmId);
     }
     else if (KeyboardControllerIf::ButtonCode::BUTTON_CODE_UP == button)
@@ -45,7 +45,7 @@ void StateDisplayAlarmsStatus::processButton(const KeyboardControllerIf::ButtonC
             m_AlarmId = ALARM_ID_MIN_VALUE;
         }
 
-        AlarmsStatusViewIf *pAlarmStatusView = getAlarmsStatusView();
+        ViewAlarmsStatusIf *pAlarmStatusView = getViewAlarmsStatus();
         pAlarmStatusView->setAlarmToDisplay(m_AlarmId);
     }
 }
@@ -60,9 +60,9 @@ void StateDisplayAlarmsStatus::exit()
     getView(VIEW_ID_ALARMS_STATUS_VIEW)->disable();
 }
 
-AlarmsStatusViewIf *StateDisplayAlarmsStatus::getAlarmsStatusView()
+ViewAlarmsStatusIf *StateDisplayAlarmsStatus::getViewAlarmsStatus()
 {
     ExtendedViewIf *pExtendedView = getExtendedView(VIEW_ID_ALARMS_STATUS_VIEW);
-    AlarmsStatusViewIf *pAlarmStatusView = static_cast<AlarmsStatusViewIf *>(pExtendedView);
+    ViewAlarmsStatusIf *pAlarmStatusView = static_cast<ViewAlarmsStatusIf *>(pExtendedView);
     return pAlarmStatusView;
 }

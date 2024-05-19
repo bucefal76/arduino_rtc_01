@@ -8,11 +8,11 @@
 #include "Model/ModuleModel.hpp"
 #include "ModuleApplicationIf.hpp"
 #include "Views/ConfirmationView.hpp"
-#include "Views/DateSetupView.hpp"
+#include "Views/ViewDateSetup.hpp"
 #include "Views/ViewMenu.hpp"
 #include "Views/ViewTimeSetup.hpp"
 #include "Views/ViewTime.hpp"
-#include "Views/AlarmsStatusView.hpp"
+#include "Views/ViewAlarmsStatus.hpp"
 
 #include "SerialPrintAssert.h"
 
@@ -46,8 +46,8 @@ void ModuleApplicationBuilder::setupThreads(ModuleApplicationIf &rApplication)
     rApplication.addThread(ViewMenu::getInstance());
     rApplication.addThread(ViewTimeSetup::getInstance());
     rApplication.addThread(ConfirmationView::getInstance());
-    rApplication.addThread(DateSetupView::getInstance());
-    rApplication.addThread(AlarmsStatusView::getInstance());
+    rApplication.addThread(ViewDateSetup::getInstance());
+    rApplication.addThread(ViewAlarmsStatus::getInstance());
 
     // Then the keyboard controller...
     rApplication.addThread(KeyboardController::getInstance());
@@ -64,13 +64,13 @@ void ModuleApplicationBuilder::setupThreads(ModuleApplicationIf &rApplication)
         ModuleController::getInstance()->addView(ViewMenu::getInstance());
         ModuleController::getInstance()->addView(ViewTimeSetup::getInstance());
         ModuleController::getInstance()->addView(ConfirmationView::getInstance());
-        ModuleController::getInstance()->addView(DateSetupView::getInstance());
-        ModuleController::getInstance()->addView(AlarmsStatusView::getInstance());
+        ModuleController::getInstance()->addView(ViewDateSetup::getInstance());
+        ModuleController::getInstance()->addView(ViewAlarmsStatus::getInstance());
 
         ModuleController::getInstance()->addExtendedView(ViewMenu::getInstance()->getViewid(), ViewMenu::getInstance());
         ModuleController::getInstance()->addExtendedView(ViewTimeSetup::getInstance()->getViewid(), ViewTimeSetup::getInstance());
-        ModuleController::getInstance()->addExtendedView(DateSetupView::getInstance()->getViewid(), DateSetupView::getInstance());
-        ModuleController::getInstance()->addExtendedView(AlarmsStatusView::getInstance()->getViewid(), AlarmsStatusView::getInstance());
+        ModuleController::getInstance()->addExtendedView(ViewDateSetup::getInstance()->getViewid(), ViewDateSetup::getInstance());
+        ModuleController::getInstance()->addExtendedView(ViewAlarmsStatus::getInstance()->getViewid(), ViewAlarmsStatus::getInstance());
 
         ModuleController::getInstance()->setModel(model);
         ModuleController::getInstance()->setModelState(model);

@@ -4,7 +4,7 @@
 #include <Arduino.h>
 #include "ExtendedViewIf.hpp"
 
-class AlarmsStatusViewIf : public ExtendedViewIf
+class ViewAlarmsStatusIf : public ExtendedViewIf
 {
 public:
     virtual void setAlarmToDisplay(const uint8_t alarmId) = 0;

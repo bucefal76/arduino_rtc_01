@@ -4,20 +4,20 @@
 #include <Thread.h>
 
 #include "Views/ViewBase.hpp"
-#include "AlarmsStatusViewIf.hpp"
+#include "ViewAlarmsStatusIf.hpp"
 
-class AlarmsStatusView : public ViewBase, public Thread, public AlarmsStatusViewIf
+class ViewAlarmsStatus : public ViewBase, public Thread, public ViewAlarmsStatusIf
 {
 public:
-    static AlarmsStatusView *getInstance();
+    static ViewAlarmsStatus *getInstance();
 
-    AlarmsStatusView();
+    ViewAlarmsStatus();
 
     /// see ViewIf.
     virtual uint8_t getViewid() const;
     virtual void enable();
     virtual void disable();
-    /// see AlarmsStatusViewIf
+    /// see ViewAlarmsStatusIf
     virtual void setAlarmToDisplay(const uint8_t alarmId);
 
 private:
@@ -26,7 +26,7 @@ private:
 
     uint8_t m_AlarmId;
 
-    static AlarmsStatusView *m_pInstance;
+    static ViewAlarmsStatus *m_pInstance;
 };
 
 #endif

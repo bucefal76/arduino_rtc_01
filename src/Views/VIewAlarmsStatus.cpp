@@ -1,4 +1,4 @@
-#include "Views/AlarmsStatusView.hpp"
+#include "Views/ViewAlarmsStatus.hpp"
 #include "ModuleConfig.hpp"
 #include <LiquidCrystal.h>
 
@@ -12,18 +12,18 @@ static const char *ALAMRS_COUNTER_CAPTION = "/8\0";
 
 #define ALARMS_CAPTIONS_ROW 1
 
-AlarmsStatusView *AlarmsStatusView::m_pInstance = nullptr;
+ViewAlarmsStatus *ViewAlarmsStatus::m_pInstance = nullptr;
 
-AlarmsStatusView *AlarmsStatusView::getInstance()
+ViewAlarmsStatus *ViewAlarmsStatus::getInstance()
 {
     if (nullptr == m_pInstance)
     {
-        m_pInstance = new AlarmsStatusView();
+        m_pInstance = new ViewAlarmsStatus();
     }
     return m_pInstance;
 }
 
-AlarmsStatusView::AlarmsStatusView()
+ViewAlarmsStatus::ViewAlarmsStatus()
     : m_AlarmId(1U)
 {
     setInterval(STATE_MACHINE_UPDATE_TIME_INTERVAL_MS);
@@ -31,12 +31,12 @@ AlarmsStatusView::AlarmsStatusView()
     enabled = false;
 }
 
-uint8_t AlarmsStatusView::getViewid() const
+uint8_t ViewAlarmsStatus::getViewid() const
 {
     return VIEW_ID_ALARMS_STATUS_VIEW;
 }
 
-void AlarmsStatusView::enable()
+void ViewAlarmsStatus::enable()
 {
     if (nullptr != m_pLcd)
     {
@@ -46,7 +46,7 @@ void AlarmsStatusView::enable()
     }
 }
 
-void AlarmsStatusView::disable()
+void ViewAlarmsStatus::disable()
 {
     enabled = false;
     if (nullptr != m_pLcd)
@@ -55,7 +55,7 @@ void AlarmsStatusView::disable()
     }
 }
 
-void AlarmsStatusView::update()
+void ViewAlarmsStatus::update()
 {
     if (nullptr != m_pLcd)
     {
@@ -83,12 +83,12 @@ void AlarmsStatusView::update()
     }
 }
 
-void AlarmsStatusView::setAlarmToDisplay(const uint8_t alarmId)
+void ViewAlarmsStatus::setAlarmToDisplay(const uint8_t alarmId)
 {
     m_AlarmId = alarmId;
 }
 
-void AlarmsStatusView::onRunCallback()
+void ViewAlarmsStatus::onRunCallback()
 {
-    AlarmsStatusView::getInstance()->update();
+    ViewAlarmsStatus::getInstance()->update();
 }
