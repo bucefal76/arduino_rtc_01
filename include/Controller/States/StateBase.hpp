@@ -6,7 +6,7 @@
 #include <map>
 
 class ViewIf;
-class ExtendedViewIf;
+class ViewExtendedIf;
 class ViewMenuIf;
 class ViewTimeSetupIf;
 class ViewDateSetupIf;
@@ -34,7 +34,7 @@ class StateBase
 public:
     virtual void processButton(const KeyboardControllerIf::ButtonCode button);
     /// @brief  State machine needs to have an access to the views objects, the special one.
-    static void addExtendedView(const uint8_t viewId, ExtendedViewIf *pExtendedView);
+    static void addExtendedView(const uint8_t viewId, ViewExtendedIf *pExtendedView);
     /// @brief State machine needs to have an access to the views objects, the typical one.
     static void addView(ViewIf *pView);
     /// @brief Set pointer to the Model that represents RTC, interface  to do changes at the model.
@@ -59,11 +59,11 @@ protected:
     /// Returns pointer to the standard view bny given ID, see ModuleConfig.hpp for views ID.
     ViewIf *getView(const uint8_t viewId) const;
     /// Returns pointer to the extended view bny given ID, see ModuleConfig.hpp for views ID.
-    ExtendedViewIf *getExtendedView(const uint8_t viewId) const;
+    ViewExtendedIf *getExtendedView(const uint8_t viewId) const;
     /// @brief Map with pointers to the standard views.
     static std::map<uint8_t, ViewIf *> m_Views;
     /// @brief Map with pointers to the extended views.
-    static std::map<uint8_t, ExtendedViewIf *> m_ExtendedViews;
+    static std::map<uint8_t, ViewExtendedIf *> m_ExtendedViews;
     /// @brief Pointer to the model of the RTC. Interface to do changes.
     static ModuleModelIf *m_pModel;
     /// @brief Pointer to the model of the RTC. Interface to get state only.

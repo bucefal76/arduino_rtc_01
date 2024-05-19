@@ -2,9 +2,9 @@
 #define ALARMS_STATUS_VIEW_IF_HPP
 
 #include <Arduino.h>
-#include "ExtendedViewIf.hpp"
+#include "ViewExtendedIf.hpp"
 
-class ViewAlarmsStatusIf : public ExtendedViewIf
+class ViewAlarmsStatusIf : public ViewExtendedIf
 {
 public:
     virtual void setAlarmToDisplay(const uint8_t alarmId) = 0;

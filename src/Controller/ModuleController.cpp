@@ -37,7 +37,7 @@ void ModuleController::addView(ViewIf *pView)
     StateBase::addView(pView);
 }
 
-void ModuleController::addExtendedView(const uint8_t viewId, ExtendedViewIf *pExtendedView)
+void ModuleController::addExtendedView(const uint8_t viewId, ViewExtendedIf *pExtendedView)
 {
     StateBase::addExtendedView(viewId, pExtendedView);
 }

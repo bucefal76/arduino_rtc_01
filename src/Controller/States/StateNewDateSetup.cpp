@@ -1,7 +1,7 @@
 #include "Controller/States/StateNewDateSetup.hpp"
 #include "Controller/States/StateNewDateConfirmation.hpp"
 #include "ViewIf.hpp"
-#include "ExtendedViewIf.hpp"
+#include "ViewExtendedIf.hpp"
 #include "ViewDateSetupIf.hpp"
 #include "ModuleConfig.hpp"
 #include "SerialPrintAssert.h"
@@ -200,7 +200,7 @@ uint8_t StateNewDateSetup::getNumberOfDays(const uint8_t month, const uint16_t y
 
 ViewDateSetupIf *StateNewDateSetup::getMyExtendedView() const
 {
-    ExtendedViewIf *pExtendedView = getExtendedView(VIEW_ID_DATE_SETUP_VIEW);
+    ViewExtendedIf *pExtendedView = getExtendedView(VIEW_ID_DATE_SETUP_VIEW);
     RUNTIME_PTR_CHECK(pExtendedView);
     ViewDateSetupIf *pViewDateSetup = static_cast<ViewDateSetupIf *>(pExtendedView);
     RUNTIME_PTR_CHECK(pViewDateSetup);

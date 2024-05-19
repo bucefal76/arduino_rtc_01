@@ -1,13 +1,13 @@
 #include "Controller/States/StateBase.hpp"
 #include "ViewIf.hpp"
-#include "ExtendedViewIf.hpp"
+#include "ViewExtendedIf.hpp"
 #include "SerialPrintAssert.h"
 #include "ModuleModelIf.hpp"
 #include "ModuleModelStateIf.hpp"
 
 StateBase *StateBase::m_pCurrentState = nullptr;
 std::map<uint8_t, ViewIf *> StateBase::m_Views;
-std::map<uint8_t, ExtendedViewIf *> StateBase::m_ExtendedViews;
+std::map<uint8_t, ViewExtendedIf *> StateBase::m_ExtendedViews;
 ModuleModelIf *StateBase::m_pModel = nullptr;
 ModuleModelStateIf *StateBase::m_pModelState = nullptr;
 
@@ -21,7 +21,7 @@ void StateBase::addView(ViewIf *pView)
     m_Views[pView->getViewid()] = pView;
 }
 
-void StateBase::addExtendedView(const uint8_t viewId, ExtendedViewIf *pExtendedView)
+void StateBase::addExtendedView(const uint8_t viewId, ViewExtendedIf *pExtendedView)
 {
     RUNTIME_PTR_CHECK(pExtendedView);
     m_ExtendedViews[viewId] = pExtendedView;
@@ -63,9 +63,9 @@ ViewIf *StateBase::getView(const uint8_t viewId) const
     return pView;
 }
 
-ExtendedViewIf *StateBase::getExtendedView(const uint8_t viewId) const
+ViewExtendedIf *StateBase::getExtendedView(const uint8_t viewId) const
 {
-    ExtendedViewIf *pExtendedView = m_ExtendedViews[viewId];
+    ViewExtendedIf *pExtendedView = m_ExtendedViews[viewId];
     RUNTIME_PTR_CHECK(pExtendedView);
     return pExtendedView;
 }

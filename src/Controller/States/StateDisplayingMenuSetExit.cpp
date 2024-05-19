@@ -3,7 +3,7 @@
 #include "Controller/States/StateDisplayingMenuSetAlarms.hpp"
 #include "Controller/States/StateDisplayingTime.hpp"
 #include "ViewIf.hpp"
-#include "ExtendedViewIf.hpp"
+#include "ViewExtendedIf.hpp"
 #include "ViewMenuIf.hpp"
 #include "ModuleConfig.hpp"
 
@@ -41,7 +41,7 @@ void StateDisplayingMenuSetExit::enter()
 {
     getView(VIEW_ID_MENU_VIEW)->enable();
 
-    ExtendedViewIf *pExtendedView = getExtendedView(VIEW_ID_MENU_VIEW);
+    ViewExtendedIf *pExtendedView = getExtendedView(VIEW_ID_MENU_VIEW);
     ViewMenuIf *pViewMenu = static_cast<ViewMenuIf *>(pExtendedView);
 
     pViewMenu->setTitle(CAPTION_MENU);

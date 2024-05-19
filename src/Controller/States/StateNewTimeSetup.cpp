@@ -1,7 +1,7 @@
 #include "Controller/States/StateNewTimeSetup.hpp"
 #include "Controller/States/StateNewTimeConfirmation.hpp"
 #include "ViewIf.hpp"
-#include "ExtendedViewIf.hpp"
+#include "ViewExtendedIf.hpp"
 #include "ViewMenuIf.hpp"
 #include "ViewTimeSetupIf.hpp"
 #include "ModuleConfig.hpp"
@@ -135,7 +135,7 @@ void StateNewTimeSetup::exit()
 
 ViewTimeSetupIf *StateNewTimeSetup::getMyExtendedView() const
 {
-    ExtendedViewIf *pExtendedView = getExtendedView(VIEW_ID_TIME_SETUP_VIEW);
+    ViewExtendedIf *pExtendedView = getExtendedView(VIEW_ID_TIME_SETUP_VIEW);
     RUNTIME_PTR_CHECK(pExtendedView);
     ViewTimeSetupIf *pViewTimeSetup = static_cast<ViewTimeSetupIf *>(pExtendedView);
     RUNTIME_PTR_CHECK(pViewTimeSetup);

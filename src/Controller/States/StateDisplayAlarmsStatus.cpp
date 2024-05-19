@@ -62,7 +62,7 @@ void StateDisplayAlarmsStatus::exit()
 
 ViewAlarmsStatusIf *StateDisplayAlarmsStatus::getViewAlarmsStatus()
 {
-    ExtendedViewIf *pExtendedView = getExtendedView(VIEW_ID_ALARMS_STATUS_VIEW);
+    ViewExtendedIf *pExtendedView = getExtendedView(VIEW_ID_ALARMS_STATUS_VIEW);
     ViewAlarmsStatusIf *pAlarmStatusView = static_cast<ViewAlarmsStatusIf *>(pExtendedView);
     return pAlarmStatusView;
 }

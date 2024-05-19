@@ -10,7 +10,7 @@
 class StateBase;
 class KeyboardControllerIf;
 class ViewIf;
-class ExtendedViewIf;
+class ViewExtendedIf;
 class ViewMenuIf;
 class ViewTimeSetupIf;
 class ViewDateSetupIf;
@@ -35,7 +35,7 @@ public:
     /// @param pView
     void addView(ViewIf *pView);
     /// @brief Add extended views to the list of views managed by the Controller.
-    void addExtendedView(const uint8_t viewId, ExtendedViewIf *pExtendedView);
+    void addExtendedView(const uint8_t viewId, ViewExtendedIf *pExtendedView);
     /// @brief Set Model that represents RTC, interface to do changes on the RTC.
     void setModel(ModuleModelIf *pModel);
     /// @brief   Set Model that represents RTC, interface to get state of the model.
