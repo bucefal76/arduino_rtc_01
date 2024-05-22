@@ -2,7 +2,7 @@
 #include "ModuleConfig.hpp"
 #include <LiquidCrystal.h>
 
-static const char *ALARMS_CAPTION = "ALARM:\0";
+static const char *ALARMS_CAPTION = "LINE:\0";
 static const char *ALARMS_COUNTER_CAPTION = "/8\0";
 
 #define ALARMS_CAPTION_COL 2
@@ -33,7 +33,7 @@ ViewAlarmsStatus::ViewAlarmsStatus()
 
 uint8_t ViewAlarmsStatus::getViewId() const
 {
-    return VIEW_ID_ALARMS_STATUS_VIEW;
+    return VIEW_ID_LINES_STATUS_VIEW;
 }
 
 void ViewAlarmsStatus::enable()
