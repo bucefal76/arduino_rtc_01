@@ -51,12 +51,11 @@ See the ModuleConfig.hpp file.
 
 - An alarm setup could be nice to have.
 - Improve documentation.
-- The ExtendedViews interfaces looks like not best idea, need to clean this up.
 - ???
 
 # Resources
 
-RAM:   [====      ]  38.4% (used 787 bytes from 2048 bytes)
-Flash: [======    ]  59.8% (used 19274 bytes from 32256 bytes)
+RAM:   [=====     ]  47.9% (used 980 bytes from 2048 bytes)
+Flash: [=======   ]  68.5% (used 22102 bytes from 32256 bytes)
 
 

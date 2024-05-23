@@ -74,6 +74,7 @@ void ModuleApplicationBuilder::setupThreads(ModuleApplicationIf &rApplication)
         ModuleController::getInstance()->addExtendedView(ViewTimeSetup::getInstance()->getViewId(), ViewTimeSetup::getInstance());
         ModuleController::getInstance()->addExtendedView(ViewDateSetup::getInstance()->getViewId(), ViewDateSetup::getInstance());
         ModuleController::getInstance()->addExtendedView(ViewAlarmsStatus::getInstance()->getViewId(), ViewAlarmsStatus::getInstance());
+        ModuleController::getInstance()->addExtendedView(ViewAlarmSettings::getInstance()->getViewId(), ViewAlarmSettings::getInstance());
 
         ModuleController::getInstance()->setModel(model);
         ModuleController::getInstance()->setModelState(model);

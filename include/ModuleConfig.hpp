@@ -48,5 +48,6 @@
 
 /* Alarms configuration */
 #define ALARMS_NO_OF_LINES 8
+#define ALARMS_NO_OF_CYCLES_PER_LINE 2
 
 #endif
