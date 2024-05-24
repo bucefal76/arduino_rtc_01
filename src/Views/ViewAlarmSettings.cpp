@@ -75,6 +75,11 @@ void ViewAlarmSettings::setState(const ViewAlarmSettingsState newState)
     m_State = newState;
 }
 
+ViewAlarmSettingsIf::ViewAlarmSettingsState ViewAlarmSettings::getState() const
+{
+    return m_State;
+}
+
 void ViewAlarmSettings::setAlarmToDisplay(const uint8_t alarmId)
 {
     m_AlarmId = alarmId;
@@ -143,6 +148,8 @@ void ViewAlarmSettings::update()
         case ViewAlarmSettingsIf::SETUP_ON_HOURS:
         case ViewAlarmSettingsIf::SETUP_ON_MINUTES:
         {
+            m_pLcd->setCursor(LINE_ALARM_OFF_TIME_EDITED_POS, LINE_EDIT_ROW);
+            m_pLcd->write(" ");
             m_pLcd->setCursor(LINE_ALARM_ON_TIME_EDITED_POS, LINE_EDIT_ROW);
         }
         break;
@@ -150,6 +157,8 @@ void ViewAlarmSettings::update()
         case ViewAlarmSettingsIf::SETUP_OFF_HOURS:
         case ViewAlarmSettingsIf::SETUP_OFF_MINUTES:
         {
+            m_pLcd->setCursor(LINE_ALARM_ON_TIME_EDITED_POS, LINE_EDIT_ROW);
+            m_pLcd->write(" ");
             m_pLcd->setCursor(LINE_ALARM_OFF_TIME_EDITED_POS, LINE_EDIT_ROW);
         }
         break;

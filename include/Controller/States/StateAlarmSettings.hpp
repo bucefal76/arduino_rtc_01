@@ -2,6 +2,7 @@
 #define STATE_ALARM_SETTINGS_HPP
 
 #include "StateBase.hpp"
+#include "Controller/TimeInvariant.hpp"
 
 class StateAlarmSettings : public StateBase
 {
@@ -18,6 +19,9 @@ private:
     virtual void exit();
 
     static StateAlarmSettings m_Instance;
+
+    TimeInvariant m_OnTime;
+    TimeInvariant m_OffTime;
 };
 
 #endif

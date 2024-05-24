@@ -9,11 +9,6 @@
 
 #include <Arduino.h>
 
-#define HOURS_MAX_VALUE 23U
-#define HOURS_MIN_VALUE 0U
-#define MINUTES_MAX_VALUE 59U
-#define MINUTES_MIN_VALUE 0U
-
 uint8_t StateNewTimeSetup::m_Hours = 12U;
 uint8_t StateNewTimeSetup::m_Minutes = 0U;
 

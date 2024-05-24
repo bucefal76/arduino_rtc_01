@@ -50,4 +50,10 @@
 #define ALARMS_NO_OF_LINES 8
 #define ALARMS_NO_OF_CYCLES_PER_LINE 2
 
+/* Helpers */
+#define HOURS_MAX_VALUE 23U
+#define HOURS_MIN_VALUE 0U
+#define MINUTES_MAX_VALUE 59U
+#define MINUTES_MIN_VALUE 0U
+
 #endif

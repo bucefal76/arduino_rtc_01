@@ -15,6 +15,7 @@ public:
     };
 
     virtual void setState(const ViewAlarmSettingsState newState) = 0;
+    virtual ViewAlarmSettingsState getState() const = 0;
     virtual void setAlarmToDisplay(const uint8_t alarmId) = 0;
     virtual void setOnTimeToDisplay(const uint8_t hours, const uint8_t minutes) = 0;
     virtual void setOffTimeToDisplay(const uint8_t hours, const uint8_t minutes) = 0;
