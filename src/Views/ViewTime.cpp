@@ -49,6 +49,7 @@ void ViewTime::onRunCallback()
 void ViewTime::update()
 {
     const DateTime now = m_pModel->getDateTime();
+
     if (now.isValid())
     {
         char datestring[20];

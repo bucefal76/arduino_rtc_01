@@ -12,13 +12,13 @@ class RtcDateTime;
 class DateTime
 {
 public:
-    explicit DateTime(uint32_t secondsFrom2000 = 0);
     DateTime(uint16_t year,
              uint8_t month,
              uint8_t dayOfMonth,
              uint8_t hour,
              uint8_t minute,
-             uint8_t second);
+             uint8_t second,
+             bool isValid = true);
     DateTime();
     /// @brief Returns true if date time is valid
     bool isValid() const;
@@ -36,7 +36,13 @@ public:
     virtual uint8_t getSecond() const;
 
 private:
-    RtcDateTime *m_pRtcDateTime;
+    uint16_t m_Year;
+    uint8_t m_Month;
+    uint8_t m_Day;
+    uint8_t m_Hour;
+    uint8_t m_Minute;
+    uint8_t m_Second;
+    bool m_IsValid;
 };
 
 #endif
