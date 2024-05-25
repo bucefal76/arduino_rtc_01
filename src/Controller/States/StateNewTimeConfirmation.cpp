@@ -56,8 +56,8 @@ void StateNewTimeConfirmation::setNewTime()
     DateTime modifiedTimeDate(now.getYear(),
                               now.getMonth(),
                               now.getDay(),
-                              m_Hours,
-                              m_Minutes,
+                              m_Time.getHours(),
+                              m_Time.getMinutes(),
                               0U);
 
     m_pModel->setDateTime(modifiedTimeDate);

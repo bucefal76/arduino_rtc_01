@@ -18,13 +18,13 @@ public:
     virtual void enable();
     virtual void disable();
     /// see ViewAlarmsStatusIf
-    virtual void setAlarmToDisplay(const uint8_t alarmId);
+    virtual void setAlarmIdToDisplay(const uint8_t alarmId);
 
 private:
     void update();
     static void onRunCallback();
 
-    uint8_t m_AlarmId;
+    uint8_t m_AlarmLineId;
 
     static ViewAlarmsStatus *m_pInstance;
 };

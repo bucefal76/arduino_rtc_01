@@ -1,8 +1,10 @@
 #ifndef STATE_NEW_TIME_SETUP_HPP
 #define STATE_NEW_TIME_SETUP_HPP
 
-#include "StateBase.hpp"
 #include <Arduino.h>
+
+#include "StateBase.hpp"
+#include "Controller/TimeInvariant.hpp"
 
 /*
     This state controls the device behavior when it allows the to set operator a new time.
@@ -18,8 +20,7 @@ public:
 protected:
     StateNewTimeSetup();
 
-    static uint8_t m_Hours;
-    static uint8_t m_Minutes;
+    static TimeInvariant m_Time;
 
 private:
     virtual void enter();

@@ -43,9 +43,17 @@
 #define VIEW_ID_MENU_VIEW 3
 #define VIEW_ID_TIME_SETUP_VIEW 4
 #define VIEW_ID_TIME_VIEW 5
-#define VIEW_ID_ALARMS_STATUS_VIEW 6
+#define VIEW_ID_LINES_STATUS_VIEW 6
+#define VIEW_ID_LINE_SETTINGS_VIEW 7
 
 /* Alarms configuration */
-#define ALARMS_NO_OF_ALARMS 8
+#define ALARMS_NO_OF_LINES 8
+#define ALARMS_NO_OF_CYCLES_PER_LINE 2
+
+/* Helpers */
+#define HOURS_MAX_VALUE 23U
+#define HOURS_MIN_VALUE 0U
+#define MINUTES_MAX_VALUE 59U
+#define MINUTES_MIN_VALUE 0U
 
 #endif

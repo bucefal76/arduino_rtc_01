@@ -39,7 +39,21 @@ uint8_t ViewBase::m_SpecialChars[VIEWS_SPECIAL_CHARACTERS_COUNT][VIEWS_SPECIAL_C
      B00000,
      B00000,
      B00000,
-     B11111}};
+     B11111},
+    {B00111,
+     B00100,
+     B00100,
+     B00100,
+     B00100,
+     B00100,
+     B11100},
+    {B11100,
+     B00100,
+     B00100,
+     B00100,
+     B00100,
+     B00100,
+     B00111}};
 
 void ViewBase::setLcd(LiquidCrystal *pLiquidCrystal)
 {
@@ -52,6 +66,8 @@ void ViewBase::setLcd(LiquidCrystal *pLiquidCrystal)
         m_pLcd->createChar(VIEWS_SPECIAL_CHARACTER_MODIFICATION_INDEX, &m_SpecialChars[VIEWS_SPECIAL_CHARACTER_MODIFICATION_INDEX][0]);
         m_pLcd->createChar(VIEWS_SPECIAL_CHARACTER_ALARM_ENABLED_INDEX, &m_SpecialChars[VIEWS_SPECIAL_CHARACTER_ALARM_ENABLED_INDEX][0]);
         m_pLcd->createChar(VIEWS_SPECIAL_CHARACTER_ALARM_DISABLED_INDEX, &m_SpecialChars[VIEWS_SPECIAL_CHARACTER_ALARM_DISABLED_INDEX][0]);
+        m_pLcd->createChar(VIEWS_SPECIAL_CHARACTER_ALARM_ON_INDEX, &m_SpecialChars[VIEWS_SPECIAL_CHARACTER_ALARM_ON_INDEX][0]);
+        m_pLcd->createChar(VIEWS_SPECIAL_CHARACTER_ALARM_OFF_INDEX, &m_SpecialChars[VIEWS_SPECIAL_CHARACTER_ALARM_OFF_INDEX][0]);
     }
 }
 

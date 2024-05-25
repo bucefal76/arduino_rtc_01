@@ -1,5 +1,3 @@
-#include <avr/pgmspace.h>
-
 #include "Controller/States/StateDisplayingMenuSetDate.hpp"
 #include "Controller/States/StateDisplayingMenuSetTime.hpp"
 #include "Controller/States/StateDisplayingMenuSetAlarms.hpp"

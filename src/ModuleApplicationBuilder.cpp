@@ -13,6 +13,7 @@
 #include "Views/ViewTimeSetup.hpp"
 #include "Views/ViewTime.hpp"
 #include "Views/ViewAlarmsStatus.hpp"
+#include "Views/ViewAlarmSettings.hpp"
 
 #include "SerialPrintAssert.h"
 
@@ -48,6 +49,7 @@ void ModuleApplicationBuilder::setupThreads(ModuleApplicationIf &rApplication)
     rApplication.addThread(ViewConfirmationQuestion::getInstance());
     rApplication.addThread(ViewDateSetup::getInstance());
     rApplication.addThread(ViewAlarmsStatus::getInstance());
+    rApplication.addThread(ViewAlarmSettings::getInstance());
 
     // Then the keyboard controller...
     rApplication.addThread(KeyboardController::getInstance());
@@ -66,11 +68,13 @@ void ModuleApplicationBuilder::setupThreads(ModuleApplicationIf &rApplication)
         ModuleController::getInstance()->addView(ViewConfirmationQuestion::getInstance());
         ModuleController::getInstance()->addView(ViewDateSetup::getInstance());
         ModuleController::getInstance()->addView(ViewAlarmsStatus::getInstance());
+        ModuleController::getInstance()->addView(ViewAlarmSettings::getInstance());
 
         ModuleController::getInstance()->addExtendedView(ViewMenu::getInstance()->getViewId(), ViewMenu::getInstance());
         ModuleController::getInstance()->addExtendedView(ViewTimeSetup::getInstance()->getViewId(), ViewTimeSetup::getInstance());
         ModuleController::getInstance()->addExtendedView(ViewDateSetup::getInstance()->getViewId(), ViewDateSetup::getInstance());
         ModuleController::getInstance()->addExtendedView(ViewAlarmsStatus::getInstance()->getViewId(), ViewAlarmsStatus::getInstance());
+        ModuleController::getInstance()->addExtendedView(ViewAlarmSettings::getInstance()->getViewId(), ViewAlarmSettings::getInstance());
 
         ModuleController::getInstance()->setModel(model);
         ModuleController::getInstance()->setModelState(model);
