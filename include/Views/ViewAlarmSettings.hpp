@@ -29,7 +29,7 @@ private:
     void update();
     static void onRunCallback();
 
-    uint8_t m_AlarmId;
+    uint8_t m_AlarmLineId;
     uint8_t m_CycleId;
     uint8_t m_pOnTimeHours;
     uint8_t m_pOnTimeMinutes;

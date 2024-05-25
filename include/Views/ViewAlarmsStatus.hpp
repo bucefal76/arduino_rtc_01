@@ -24,7 +24,7 @@ private:
     void update();
     static void onRunCallback();
 
-    uint8_t m_AlarmId;
+    uint8_t m_AlarmLineId;
 
     static ViewAlarmsStatus *m_pInstance;
 };

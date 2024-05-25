@@ -32,7 +32,7 @@ ViewAlarmSettings *ViewAlarmSettings::getInstance()
 }
 
 ViewAlarmSettings::ViewAlarmSettings()
-    : m_AlarmId(ALARMS_NO_OF_LINES),
+    : m_AlarmLineId(ALARMS_NO_OF_LINES),
       m_CycleId(ALARMS_NO_OF_CYCLES_PER_LINE),
       m_pOnTimeHours(0U),
       m_pOnTimeMinutes(0U),
@@ -82,7 +82,7 @@ ViewAlarmSettingsIf::ViewAlarmSettingsState ViewAlarmSettings::getState() const
 
 void ViewAlarmSettings::setAlarmIdToDisplay(const uint8_t alarmId)
 {
-    m_AlarmId = alarmId;
+    m_AlarmLineId = alarmId;
 }
 
 void ViewAlarmSettings::setAlarmCycleToDisplay(const uint8_t alarmCycleId)
@@ -109,7 +109,7 @@ void ViewAlarmSettings::update()
         // LINE:
         m_pLcd->setCursor(LINE_CAPTION_COL, LINE_CAPTION_ROW);
         m_pLcd->write(LINE_CAPTION);
-        m_pLcd->print(m_AlarmId);
+        m_pLcd->print(m_AlarmLineId);
 
         // CYCLE:
         m_pLcd->write(CYCLE_CAPTION);

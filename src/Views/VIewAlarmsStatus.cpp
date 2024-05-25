@@ -24,7 +24,7 @@ ViewAlarmsStatus *ViewAlarmsStatus::getInstance()
 }
 
 ViewAlarmsStatus::ViewAlarmsStatus()
-    : m_AlarmId(1U)
+    : m_AlarmLineId(1U)
 {
     setInterval(STATE_MACHINE_UPDATE_TIME_INTERVAL_MS);
     onRun(onRunCallback);
@@ -69,7 +69,7 @@ void ViewAlarmsStatus::update()
         m_pLcd->write(byte(VIEWS_SPECIAL_CHARACTER_MODIFICATION_INDEX));
 
         char alarmIdString[2];
-        snprintf_P(alarmIdString, countof(alarmIdString), PSTR("%01u"), m_AlarmId);
+        snprintf_P(alarmIdString, countof(alarmIdString), PSTR("%01u"), m_AlarmLineId);
 
         m_pLcd->setCursor(ALARM_ID_DIGIT_COL, ALARMS_CAPTIONS_ROW);
         m_pLcd->write(alarmIdString);
@@ -78,7 +78,7 @@ void ViewAlarmsStatus::update()
         m_pLcd->setCursor(ALARM_STATUS_COL, ALARMS_CAPTIONS_ROW);
         m_pLcd->write(byte(VIEWS_SPECIAL_CHARACTER_NEXT_INDEX));
 
-        if (m_pModel->isAlarmActive(m_AlarmId))
+        if (m_pModel->isAlarmActive(m_AlarmLineId))
         {
             m_pLcd->write(byte(VIEWS_SPECIAL_CHARACTER_ALARM_ENABLED_INDEX));
         }
@@ -93,7 +93,7 @@ void ViewAlarmsStatus::update()
 
 void ViewAlarmsStatus::setAlarmIdToDisplay(const uint8_t alarmId)
 {
-    m_AlarmId = alarmId;
+    m_AlarmLineId = alarmId;
 }
 
 void ViewAlarmsStatus::onRunCallback()

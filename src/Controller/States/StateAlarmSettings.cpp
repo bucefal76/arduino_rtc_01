@@ -1,10 +1,12 @@
 #include "Controller/States/StateAlarmSettings.hpp"
+#include "Controller/States/StateAlarmSettingsConfirmation.hpp"
 #include "ViewIf.hpp"
 #include "ViewExtendedIf.hpp"
 #include "Views/ViewAlarmSettings.hpp"
 #include "ModuleConfig.hpp"
 
 StateAlarmSettings StateAlarmSettings::m_Instance;
+uint8_t StateAlarmSettings::m_CurrentLineId = 0U;
 
 StateBase *StateAlarmSettings::getInstance()
 {
@@ -12,8 +14,13 @@ StateBase *StateAlarmSettings::getInstance()
 }
 
 StateAlarmSettings::StateAlarmSettings()
-    : m_CurrentLineId(0U), m_CurrentCycleId(0U)
+    : m_CurrentCycleId(0U)
 {
+}
+
+void StateAlarmSettings::setCurrentLineId(const uint8_t currentLineId)
+{
+    m_CurrentLineId = currentLineId;
 }
 
 void StateAlarmSettings::processButton(const KeyboardControllerIf::ButtonCode button)
@@ -41,6 +48,7 @@ void StateAlarmSettings::processButton(const KeyboardControllerIf::ButtonCode bu
         {
             if (ALARMS_NO_OF_CYCLES_PER_LINE == (m_CurrentCycleId + 1))
             {
+                transitToState(StateAlarmSettingsConfirmation::getInstance());
             }
             else
             {
@@ -55,6 +63,7 @@ void StateAlarmSettings::processButton(const KeyboardControllerIf::ButtonCode bu
         {
             if (0 == m_CurrentCycleId)
             {
+                transitToState(StateAlarmSettingsConfirmation::getInstance());
             }
             else
             {

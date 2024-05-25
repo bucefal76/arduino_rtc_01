@@ -25,7 +25,7 @@ private:
 
     ViewAlarmsStatusIf *getViewAlarmsStatus();
 
-    uint8_t m_AlarmId;
+    uint8_t m_AlarmLineId;
 
     static StateDisplayAlarmsStatus m_Instance;
 };
