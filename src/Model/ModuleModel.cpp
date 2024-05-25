@@ -91,7 +91,7 @@ DateTime ModuleModel::getDateTime() const
 {
     RtcDateTime dateTime = m_Rtc.GetDateTime();
 
-    return DateTime(dateTime.Year(), dateTime.Month(), dateTime.Day(), dateTime.Hour(), dateTime.Minute(), dateTime.Second());
+    return DateTime(dateTime.Year(), dateTime.Month(), dateTime.Day(), dateTime.Hour(), dateTime.Minute(), dateTime.Second(), dateTime.IsValid());
 }
 
 void ModuleModel::setDateTime(const DateTime &dateTime)

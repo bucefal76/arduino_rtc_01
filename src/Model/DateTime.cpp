@@ -2,62 +2,65 @@
 #include "RtcDS1302.h"
 #include "SerialPrintAssert.h"
 
-DateTime::DateTime(uint32_t secondsFrom2000)
-{
-    m_pRtcDateTime = new RtcDateTime(secondsFrom2000);
-    RUNTIME_PTR_CHECK(m_pRtcDateTime);
-}
-
 DateTime::DateTime(uint16_t year,
                    uint8_t month,
                    uint8_t dayOfMonth,
                    uint8_t hour,
                    uint8_t minute,
-                   uint8_t second)
-    : m_pRtcDateTime(nullptr)
+                   uint8_t second,
+                   bool isValid)
+    : m_Year(year),
+      m_Month(month),
+      m_Day(dayOfMonth),
+      m_Hour(hour),
+      m_Minute(minute),
+      m_Second(second),
+      m_IsValid(isValid)
 {
-    m_pRtcDateTime = new RtcDateTime(year, month, dayOfMonth, hour, minute, second);
-    RUNTIME_PTR_CHECK(m_pRtcDateTime);
 }
 
 DateTime::DateTime()
+    : m_Year(0U),
+      m_Month(0U),
+      m_Day(0U),
+      m_Hour(0U),
+      m_Minute(0U),
+      m_Second(0U),
+      m_IsValid(0U)
 {
-    m_pRtcDateTime = new RtcDateTime(__DATE__, __TIME__);
-    RUNTIME_PTR_CHECK(m_pRtcDateTime);
 }
 
 bool DateTime::isValid() const
 {
-    RUNTIME_PTR_CHECK(m_pRtcDateTime);
-    return m_pRtcDateTime->IsValid();
+    return m_IsValid;
 }
 
 uint16_t DateTime::getYear() const
 {
-    return m_pRtcDateTime->Year();
+    return m_Year;
 }
 
 uint8_t DateTime::getMonth() const
 {
-    return m_pRtcDateTime->Month();
+    return m_Month;
 }
 
 uint8_t DateTime::getDay() const
 {
-    return m_pRtcDateTime->Day();
+    return m_Day;
 }
 
 uint8_t DateTime::getHour() const
 {
-    return m_pRtcDateTime->Hour();
+    return m_Hour;
 }
 
 uint8_t DateTime::getMinute() const
 {
-    return m_pRtcDateTime->Minute();
+    return m_Minute;
 }
 
 uint8_t DateTime::getSecond() const
 {
-    return m_pRtcDateTime->Second();
+    return m_Second;
 }
