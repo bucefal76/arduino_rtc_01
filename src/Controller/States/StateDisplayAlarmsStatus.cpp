@@ -39,7 +39,7 @@ void StateDisplayAlarmsStatus::processButton(const KeyboardControllerIf::ButtonC
         }
 
         ViewAlarmsStatusIf *pAlarmStatusView = getViewAlarmsStatus();
-        pAlarmStatusView->setAlarmToDisplay(m_AlarmId);
+        pAlarmStatusView->setAlarmIdToDisplay(m_AlarmId);
     }
     else if (KeyboardControllerIf::ButtonCode::BUTTON_CODE_UP == button)
     {
@@ -50,7 +50,7 @@ void StateDisplayAlarmsStatus::processButton(const KeyboardControllerIf::ButtonC
         }
 
         ViewAlarmsStatusIf *pAlarmStatusView = getViewAlarmsStatus();
-        pAlarmStatusView->setAlarmToDisplay(m_AlarmId);
+        pAlarmStatusView->setAlarmIdToDisplay(m_AlarmId);
     }
 }
 

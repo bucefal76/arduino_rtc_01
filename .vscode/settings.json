@@ -35,5 +35,8 @@
         "type_traits": "cpp",
         "typeinfo": "cpp",
         "valarray": "cpp"
-    }
+    },
+    "cSpell.words": [
+        "susequential"
+    ]
 }

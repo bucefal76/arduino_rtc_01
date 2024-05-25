@@ -20,7 +20,8 @@ public:
     //  see ViewTimeSettingsIf
     virtual void setState(const ViewAlarmSettingsState newState);
     virtual ViewAlarmSettingsIf::ViewAlarmSettingsState getState() const;
-    virtual void setAlarmToDisplay(const uint8_t alarmId);
+    virtual void setAlarmIdToDisplay(const uint8_t alarmId);
+    virtual void setAlarmCycleToDisplay(const uint8_t alarmCycleId);
     virtual void setOnTimeToDisplay(const uint8_t hours, const uint8_t minutes);
     virtual void setOffTimeToDisplay(const uint8_t hours, const uint8_t minutes);
 

@@ -32,8 +32,8 @@ ViewAlarmSettings *ViewAlarmSettings::getInstance()
 }
 
 ViewAlarmSettings::ViewAlarmSettings()
-    : m_AlarmId(1U),
-      m_CycleId(1U),
+    : m_AlarmId(ALARMS_NO_OF_LINES),
+      m_CycleId(ALARMS_NO_OF_CYCLES_PER_LINE),
       m_pOnTimeHours(0U),
       m_pOnTimeMinutes(0U),
       m_pOffTimeHours(0U),
@@ -80,9 +80,14 @@ ViewAlarmSettingsIf::ViewAlarmSettingsState ViewAlarmSettings::getState() const
     return m_State;
 }
 
-void ViewAlarmSettings::setAlarmToDisplay(const uint8_t alarmId)
+void ViewAlarmSettings::setAlarmIdToDisplay(const uint8_t alarmId)
 {
     m_AlarmId = alarmId;
+}
+
+void ViewAlarmSettings::setAlarmCycleToDisplay(const uint8_t alarmCycleId)
+{
+    m_CycleId = alarmCycleId;
 }
 
 void ViewAlarmSettings::setOnTimeToDisplay(const uint8_t hours, const uint8_t minutes)

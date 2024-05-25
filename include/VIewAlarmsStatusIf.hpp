@@ -7,7 +7,7 @@
 class ViewAlarmsStatusIf : public ViewExtendedIf
 {
 public:
-    virtual void setAlarmToDisplay(const uint8_t alarmId) = 0;
+    virtual void setAlarmIdToDisplay(const uint8_t alarmId) = 0;
 };
 
 #endif

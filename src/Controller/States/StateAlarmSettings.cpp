@@ -12,7 +12,7 @@ StateBase *StateAlarmSettings::getInstance()
 }
 
 StateAlarmSettings::StateAlarmSettings()
-    : m_OnTime(11, 55), m_OffTime(14, 30)
+    : m_CurrentLineId(0U), m_CurrentCycleId(0U)
 {
 }
 
@@ -39,14 +39,28 @@ void StateAlarmSettings::processButton(const KeyboardControllerIf::ButtonCode bu
         }
         else if (ViewAlarmSettingsIf::SETUP_OFF_MINUTES == viewState)
         {
-            // TODO
+            if (ALARMS_NO_OF_CYCLES_PER_LINE == (m_CurrentCycleId + 1))
+            {
+            }
+            else
+            {
+                m_CurrentCycleId++;
+                pViewAlarmSettings->setState(ViewAlarmSettingsIf::SETUP_ON_HOURS);
+            }
         }
     }
     else if (KeyboardControllerIf::ButtonCode::BUTTON_CODE_BACK == button)
     {
         if (ViewAlarmSettingsIf::SETUP_ON_HOURS == viewState)
         {
-            // TODO
+            if (0 == m_CurrentCycleId)
+            {
+            }
+            else
+            {
+                m_CurrentCycleId--;
+                pViewAlarmSettings->setState(ViewAlarmSettingsIf::SETUP_OFF_MINUTES);
+            }
         }
         else if (ViewAlarmSettingsIf::SETUP_ON_MINUTES == viewState)
         {
@@ -65,54 +79,58 @@ void StateAlarmSettings::processButton(const KeyboardControllerIf::ButtonCode bu
     {
         if (ViewAlarmSettingsIf::SETUP_ON_HOURS == viewState)
         {
-            m_OnTime.decrementHours();
+            m_OnTime[m_CurrentCycleId].decrementHours();
         }
         else if (ViewAlarmSettingsIf::SETUP_ON_MINUTES == viewState)
         {
-            m_OnTime.decrementMinutes();
+            m_OnTime[m_CurrentCycleId].decrementMinutes();
         }
         else if (ViewAlarmSettingsIf::SETUP_OFF_HOURS == viewState)
         {
-            m_OffTime.decrementHours();
+            m_OffTime[m_CurrentCycleId].decrementHours();
         }
         else if (ViewAlarmSettingsIf::SETUP_OFF_MINUTES == viewState)
         {
-            m_OffTime.decrementMinutes();
+            m_OffTime[m_CurrentCycleId].decrementMinutes();
         }
     }
     else if (KeyboardControllerIf::ButtonCode::BUTTON_CODE_UP == button)
     {
         if (ViewAlarmSettingsIf::SETUP_ON_HOURS == viewState)
         {
-            m_OnTime.incrementHours();
+            m_OnTime[m_CurrentCycleId].incrementHours();
         }
         else if (ViewAlarmSettingsIf::SETUP_ON_MINUTES == viewState)
         {
-            m_OnTime.incrementMinutes();
+            m_OnTime[m_CurrentCycleId].incrementMinutes();
         }
         else if (ViewAlarmSettingsIf::SETUP_OFF_HOURS == viewState)
         {
-            m_OffTime.incrementHours();
+            m_OffTime[m_CurrentCycleId].incrementHours();
         }
         else if (ViewAlarmSettingsIf::SETUP_OFF_MINUTES == viewState)
         {
-            m_OffTime.incrementMinutes();
+            m_OffTime[m_CurrentCycleId].incrementMinutes();
         }
     }
 
-    pViewAlarmSettings->setOnTimeToDisplay(m_OnTime.getHours(), m_OnTime.getMinutes());
-    pViewAlarmSettings->setOffTimeToDisplay(m_OffTime.getHours(), m_OffTime.getMinutes());
+    pViewAlarmSettings->setAlarmCycleToDisplay(m_CurrentCycleId + 1);
+
+    pViewAlarmSettings->setOnTimeToDisplay(m_OnTime[m_CurrentCycleId].getHours(), m_OnTime[m_CurrentCycleId].getMinutes());
+    pViewAlarmSettings->setOffTimeToDisplay(m_OffTime[m_CurrentCycleId].getHours(), m_OffTime[m_CurrentCycleId].getMinutes());
 }
 
 void StateAlarmSettings::enter()
 {
-
-    /* TO DO  replace this code with accessing current settings from the EEPROM trough the MODEL*/
     ViewExtendedIf *pExtendedView = getExtendedView(VIEW_ID_LINE_SETTINGS_VIEW);
     ViewAlarmSettingsIf *pViewAlarmSettings = static_cast<ViewAlarmSettingsIf *>(pExtendedView);
 
-    pViewAlarmSettings->setOnTimeToDisplay(m_OnTime.getHours(), m_OnTime.getMinutes());
-    pViewAlarmSettings->setOffTimeToDisplay(m_OffTime.getHours(), m_OffTime.getMinutes());
+    pViewAlarmSettings->setAlarmIdToDisplay(m_CurrentLineId + 1);
+    pViewAlarmSettings->setAlarmCycleToDisplay(m_CurrentCycleId + 1);
+
+    /* TO DO  replace this code with accessing current settings from the EEPROM trough the MODEL*/
+    pViewAlarmSettings->setOnTimeToDisplay(m_OnTime[m_CurrentCycleId].getHours(), m_OnTime[m_CurrentCycleId].getMinutes());
+    pViewAlarmSettings->setOffTimeToDisplay(m_OffTime[m_CurrentCycleId].getHours(), m_OffTime[m_CurrentCycleId].getMinutes());
 
     getView(VIEW_ID_LINE_SETTINGS_VIEW)->enable();
 }

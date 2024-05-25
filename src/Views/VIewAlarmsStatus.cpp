@@ -91,7 +91,7 @@ void ViewAlarmsStatus::update()
     }
 }
 
-void ViewAlarmsStatus::setAlarmToDisplay(const uint8_t alarmId)
+void ViewAlarmsStatus::setAlarmIdToDisplay(const uint8_t alarmId)
 {
     m_AlarmId = alarmId;
 }
