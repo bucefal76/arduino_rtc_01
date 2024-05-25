@@ -1,10 +1,12 @@
 
 # Introduction
 
-This is a Real Time Clock with the use of Arduino UNO, RTC DS1302 and 16x2 LCD.
-- Displays time and date.
-- Allows to set up time manually with the keyboard.
-- Allows to set up the date manually with the keyboard.
+This is a Real Time Clock with the use of Arduino UNO, RTC DS1302, PCF8574 and 16x2 LCD.
+- Displays time and date - DONE.
+- Allows to set up time manually with the keyboard - DONE.
+- Allows to set up the date manually with the keyboard - DONE.
+- Allows to set up the ON/OFF alarms on IO controll lines. - NOT READY YET.
+In this case 8 control IO lines are provided by the i2C to IO PCF8574 extender.
 
 ## Goal
 
@@ -49,13 +51,15 @@ See the ModuleConfig.hpp file.
 
 # To do
 
-- An alarm setup could be nice to have.
+- Save and restore alarm/line controll settings in the EEPROM.
+- Task that will use stored in EEPROM data to trigger the otput on the controll lines.
 - Improve documentation.
 - ???
 
 # Resources
 
-RAM:   [=====     ]  47.9% (used 980 bytes from 2048 bytes)
-Flash: [=======   ]  68.5% (used 22102 bytes from 32256 bytes)
+RAM:   [=====     ]  50.4% (used 1032 bytes from 2048 bytes)
+
+Flash: [=======   ]  71.3% (used 23008 bytes from 32256 bytes)
 
 
