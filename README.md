@@ -6,6 +6,7 @@ This is a Real Time Clock with the use of Arduino UNO, RTC DS1302, PCF8574 and 1
 - Allows to set up time manually with the keyboard - DONE.
 - Allows to set up the date manually with the keyboard - DONE.
 - Allows to set up the ON/OFF alarms on IO controll lines. - NOT READY YET.
+
 In this case 8 control IO lines are provided by the i2C to IO PCF8574 extender.
 
 ## Goal
