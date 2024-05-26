@@ -21,14 +21,18 @@ public:
     /// code representation can be only one, we have a singleton in this case.
     /// @return Pointer to the ModuleModel instance.
     static ModuleModel *getInstance();
-    /// @brief Says true if date time at RTC is valid.
+    /// @brief Says true if date time at RTC is valid. Use this hen call getDateTime().
     virtual bool isDateTimeValid() const;
-    /// @brief Returns Date and Time as DateTime struct from the RTC.
+    /// @brief See ModuleModelStateIf.
     virtual DateTime getDateTime() const;
-    /// @brief Sets the new date and time to the RTC.
+    /// @brief See ModuleModelStateIf.
+    virtual bool isAlarmLineArmed(const uint8_t alarmId);
+    /// @brief See ModuleModelStateIf.
+    virtual TimeInvariant getAlarmLineOnTime(const uint8_t alarmLine, const uint8_t cycle);
+    /// @brief See ModuleModelIf.
     virtual void setDateTime(const DateTime &dateTime);
-    ///
-    virtual bool isAlarmActive(const uint8_t alarmId);
+    /// @brief See ModuleModelIf.
+    virtual bool addAlarmLineCycle(const uint8_t alarmLineId, TimeInvariant &onTime, const TimeInvariant &offTime);
 
 private:
     ModuleModel();

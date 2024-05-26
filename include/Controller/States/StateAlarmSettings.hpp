@@ -2,7 +2,7 @@
 #define STATE_ALARM_SETTINGS_HPP
 
 #include "StateBase.hpp"
-#include "Controller/TimeInvariant.hpp"
+#include "Model/TimeInvariant.hpp"
 
 class StateAlarmSettings : public StateBase
 {

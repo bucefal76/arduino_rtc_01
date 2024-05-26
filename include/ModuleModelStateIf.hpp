@@ -2,6 +2,7 @@
 #define MODULE_MODEL_STATE_IF_HPP
 
 #include <Arduino.h>
+#include "Model/TimeInvariant.hpp"
 
 /*
     This class decouples the client code from dependency to the currently used RTC driver implementation.
@@ -19,8 +20,10 @@ public:
     virtual bool isDateTimeValid() const = 0;
     /// @brief Returns DateTime structure
     virtual DateTime getDateTime() const = 0;
-    /// @brief Returns true if alarm selected by alramId is set to be active.
-    virtual bool isAlarmActive(const uint8_t alarmId) = 0;
+    /// @brief Returns true if alarm selected by alarmId is armed to be active witch some cycle.
+    virtual bool isAlarmLineArmed(const uint8_t alarmId) = 0;
+
+    virtual TimeInvariant getAlarmLineOnTime(const uint8_t alarmLine, const uint8_t cycle) = 0;
 };
 
 #endif

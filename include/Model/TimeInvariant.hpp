@@ -1,14 +1,15 @@
-#ifndef ALARM_TIME_HPP
-#define ALARM_TIME_HPP
+#ifndef ALARM_TIME_INVARIANT_HPP
+#define ALARM_TIME_INVARIANT_HPP
 
 #include "ModuleConfig.hpp"
 
 struct TimeInvariant
 {
-public:
+private:
     uint8_t m_Hours;
     uint8_t m_Minutes;
 
+public:
     TimeInvariant()
         : m_Hours(0U), m_Minutes(0U)
     {

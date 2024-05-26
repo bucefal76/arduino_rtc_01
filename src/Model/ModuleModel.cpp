@@ -101,7 +101,7 @@ void ModuleModel::setDateTime(const DateTime &dateTime)
     m_Rtc.SetDateTime(rctDateTime);
 }
 
-bool ModuleModel::isAlarmActive(const uint8_t alarmId)
+bool ModuleModel::isAlarmLineArmed(const uint8_t alarmId)
 {
     if (alarmId == 1)
     {
@@ -111,6 +111,17 @@ bool ModuleModel::isAlarmActive(const uint8_t alarmId)
     {
         return false;
     }
+}
+
+TimeInvariant ModuleModel::getAlarmLineOnTime(const uint8_t alarmLine, const uint8_t cycle)
+{
+    TimeInvariant s;
+    return s;
+}
+
+bool ModuleModel::addAlarmLineCycle(const uint8_t alarmLineId, TimeInvariant &onTime, const TimeInvariant &offTime)
+{
+    return true;
 }
 
 #ifdef USE_SERIAL
