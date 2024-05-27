@@ -137,7 +137,11 @@ void StateAlarmSettings::enter()
     pViewAlarmSettings->setAlarmIdToDisplay(m_CurrentLineId + 1);
     pViewAlarmSettings->setAlarmCycleToDisplay(m_CurrentCycleId + 1);
 
-    /* TO DO  replace this code with accessing current settings from the EEPROM trough the MODEL*/
+    for (uint8_t i = 0; i < ALARMS_NO_OF_CYCLES_PER_LINE; i++)
+    {
+        m_OnTime[i].consume(m_pModelState->getAlarmLineOnTime(m_CurrentLineId,i));
+    }
+
     pViewAlarmSettings->setOnTimeToDisplay(m_OnTime[m_CurrentCycleId].getHours(), m_OnTime[m_CurrentCycleId].getMinutes());
     pViewAlarmSettings->setOffTimeToDisplay(m_OffTime[m_CurrentCycleId].getHours(), m_OffTime[m_CurrentCycleId].getMinutes());
 

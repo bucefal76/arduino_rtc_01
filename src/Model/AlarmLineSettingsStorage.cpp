@@ -2,6 +2,30 @@
 
 AlarmLineSettingsStorage::AlarmLineSettingsStorage()
 {
+    /// temp:
+    m_OnTimes[0].m_Hours = 1U;
+    m_OnTimes[0].m_Minutes = 1U;
+
+    m_OnTimes[1].m_Hours = 6U;
+    m_OnTimes[1].m_Minutes = 6U;
+
+    m_OnTimes[2].m_Hours = 10U;
+    m_OnTimes[2].m_Minutes = 10U;
+
+    m_OnTimes[3].m_Hours = 12U;
+    m_OnTimes[3].m_Minutes = 12U;
+
+    m_OffTimes[0].m_Hours = 2U;
+    m_OffTimes[0].m_Minutes = 2U;
+
+    m_OffTimes[1].m_Hours = 7U;
+    m_OffTimes[1].m_Minutes = 7U;
+
+    m_OffTimes[2].m_Hours = 11U;
+    m_OffTimes[2].m_Minutes = 11U;
+
+    m_OffTimes[3].m_Hours = 13U;
+    m_OffTimes[3].m_Minutes = 13U;
 }
 
 bool AlarmLineSettingsStorage::readFromEeprom()

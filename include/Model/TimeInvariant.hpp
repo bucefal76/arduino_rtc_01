@@ -2,21 +2,18 @@
 #define ALARM_TIME_INVARIANT_HPP
 
 #include "ModuleConfig.hpp"
+#include "Model/AlarmLineFlagTime.hpp"
 
-struct TimeInvariant
+struct TimeInvariant : protected AlarmLineFlagTime
 {
-private:
-    uint8_t m_Hours;
-    uint8_t m_Minutes;
-
 public:
     TimeInvariant()
-        : m_Hours(0U), m_Minutes(0U)
+        : AlarmLineFlagTime(0U, 0U)
     {
     }
 
     TimeInvariant(const uint8_t hour, const uint8_t minute)
-        : m_Hours(hour), m_Minutes(minute)
+        : AlarmLineFlagTime(hour, minute)
     {
     }
 
@@ -67,6 +64,27 @@ public:
             m_Minutes--;
         }
         else if (m_Minutes == MINUTES_MIN_VALUE)
+        {
+            m_Minutes = MINUTES_MAX_VALUE;
+        }
+    }
+
+    void consume(const AlarmLineFlagTime &time)
+    {
+        if (time.m_Hours < HOURS_MAX_VALUE)
+        {
+            m_Hours = time.m_Hours;
+        }
+        else
+        {
+            m_Hours = HOURS_MAX_VALUE;
+        }
+
+        if (time.m_Minutes < MINUTES_MAX_VALUE)
+        {
+            m_Minutes = time.m_Minutes;
+        }
+        else
         {
             m_Minutes = MINUTES_MAX_VALUE;
         }
