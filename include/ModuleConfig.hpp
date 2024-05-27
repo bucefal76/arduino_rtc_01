@@ -48,7 +48,10 @@
 
 /* Alarms configuration */
 #define ALARMS_NO_OF_LINES 8
-#define ALARMS_NO_OF_CYCLES_PER_LINE 2
+#define ALARMS_NO_OF_CYCLES_PER_LINE 5
+#if ALARMS_NO_OF_CYCLES_PER_LINE > 5
+#error Cant support more than 5 cycle per line
+#endif
 
 /* Helpers */
 #define HOURS_MAX_VALUE 23U

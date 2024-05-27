@@ -80,6 +80,8 @@ ModuleModel::ModuleModel()
         Serial.println(F("RTC is the same as compile time! (not expected but all is fine)"));
 #endif
     }
+
+    initAlarmSettingsStorage();
 }
 
 bool ModuleModel::isDateTimeValid() const
@@ -113,15 +115,30 @@ bool ModuleModel::isAlarmLineArmed(const uint8_t alarmId)
     }
 }
 
-TimeInvariant ModuleModel::getAlarmLineOnTime(const uint8_t alarmLine, const uint8_t cycle)
+AlarmLineFlagTime ModuleModel::getAlarmLineOnTime(const uint8_t alarmLine, const uint8_t cycle)
 {
-    TimeInvariant s;
-    return s;
+    if (alarmLine < ALARMS_NO_OF_LINES)
+    {
+        return m_AlarmLinesSettings[alarmLine].getOnTimeForCycle(cycle);
+    }
+    else
+    {
+        return AlarmLineFlagTime();
+    }
 }
 
 bool ModuleModel::addAlarmLineCycle(const uint8_t alarmLineId, TimeInvariant &onTime, const TimeInvariant &offTime)
 {
     return true;
+}
+
+void ModuleModel::initAlarmSettingsStorage()
+{
+    // Load settings from the eeprom
+    for (uint8_t i = 0; i < ALARMS_NO_OF_LINES; i++)
+    {
+        m_AlarmLinesSettings[i].readFromEeprom();
+    }
 }
 
 #ifdef USE_SERIAL

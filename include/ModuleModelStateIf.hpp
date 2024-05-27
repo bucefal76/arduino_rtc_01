@@ -2,7 +2,7 @@
 #define MODULE_MODEL_STATE_IF_HPP
 
 #include <Arduino.h>
-#include "Model/TimeInvariant.hpp"
+#include "Model/AlarmLineFlagTime.hpp"
 
 /*
     This class decouples the client code from dependency to the currently used RTC driver implementation.
@@ -23,7 +23,7 @@ public:
     /// @brief Returns true if alarm selected by alarmId is armed to be active witch some cycle.
     virtual bool isAlarmLineArmed(const uint8_t alarmId) = 0;
 
-    virtual TimeInvariant getAlarmLineOnTime(const uint8_t alarmLine, const uint8_t cycle) = 0;
+    virtual AlarmLineFlagTime getAlarmLineOnTime(const uint8_t alarmLine, const uint8_t cycle) = 0;
 };
 
 #endif

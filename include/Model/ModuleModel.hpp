@@ -9,6 +9,7 @@
 #include "DateTime.hpp"
 #include "RtcDS1302.h"
 #include "RtcDateTime.h"
+#include "AlarmLineSettingsStorage.hpp"
 
 /*
     This class decouples the client code from dependency to the currently used RTC driver implementation.
@@ -28,7 +29,7 @@ public:
     /// @brief See ModuleModelStateIf.
     virtual bool isAlarmLineArmed(const uint8_t alarmId);
     /// @brief See ModuleModelStateIf.
-    virtual TimeInvariant getAlarmLineOnTime(const uint8_t alarmLine, const uint8_t cycle);
+    virtual AlarmLineFlagTime getAlarmLineOnTime(const uint8_t alarmLine, const uint8_t cycle);
     /// @brief See ModuleModelIf.
     virtual void setDateTime(const DateTime &dateTime);
     /// @brief See ModuleModelIf.
@@ -37,8 +38,13 @@ public:
 private:
     ModuleModel();
 
+    void initAlarmSettingsStorage();
+    /// @brief Table with the alarm lines settings objects.
+    AlarmLineSettingsStorage m_AlarmLinesSettings[ALARMS_NO_OF_LINES];
+
 #ifdef USE_SERIAL
-    void printDateTime(const RtcDateTime &dt);
+    void
+    printDateTime(const RtcDateTime &dt);
 #endif
 
     static ThreeWire m_Wire;
