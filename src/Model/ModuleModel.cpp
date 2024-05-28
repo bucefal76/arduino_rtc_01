@@ -141,12 +141,12 @@ AlarmLineFlagTime ModuleModel::getAlarmLineOffTime(const uint8_t alarmLine, cons
 
 bool ModuleModel::setAlarmLineOnTime(const uint8_t alarmLineId, const uint8_t cycle, const TimeInvariant &onTime)
 {
-    return m_AlarmLinesSettings[alarmLineId].setOnTimeForCycle(onTime.getAlarmLineFlagTime(), cycle);
+    return m_AlarmLinesSettings[alarmLineId].setOnTimeForCycle(onTime, cycle);
 }
 
 bool ModuleModel::setAlarmLineOffTime(const uint8_t alarmLineId, const uint8_t cycle, const TimeInvariant &offTime)
 {
-    return m_AlarmLinesSettings[alarmLineId].setOffTimeForCycle(offTime.getAlarmLineFlagTime(), cycle);
+    return m_AlarmLinesSettings[alarmLineId].setOffTimeForCycle(offTime, cycle);
 }
 
 void ModuleModel::initAlarmSettingsStorage()
@@ -155,6 +155,46 @@ void ModuleModel::initAlarmSettingsStorage()
     {
         m_AlarmLinesSettings[alarmLineIt].readFromEEPROM(alarmLineIt);
     }
+}
+
+void ModuleModel::incrementOnHours(const uint8_t alarmLineId, const uint8_t cycle)
+{
+    m_AlarmLinesSettings[alarmLineId].incrementOnHours(cycle);
+}
+
+void ModuleModel::decrementOnHours(const uint8_t alarmLineId, const uint8_t cycle)
+{
+    m_AlarmLinesSettings[alarmLineId].decrementOnHours(cycle);
+}
+
+void ModuleModel::incrementOnMinutes(const uint8_t alarmLineId, const uint8_t cycle)
+{
+    m_AlarmLinesSettings[alarmLineId].incrementOnMinutes(cycle);
+}
+
+void ModuleModel::decrementOnMinutes(const uint8_t alarmLineId, const uint8_t cycle)
+{
+    m_AlarmLinesSettings[alarmLineId].decrementOnMinutes(cycle);
+}
+
+void ModuleModel::incrementOffHours(const uint8_t alarmLineId, const uint8_t cycle)
+{
+    m_AlarmLinesSettings[alarmLineId].incrementOffHours(cycle);
+}
+
+void ModuleModel::decrementOffHours(const uint8_t alarmLineId, const uint8_t cycle)
+{
+    m_AlarmLinesSettings[alarmLineId].decrementOffHours(cycle);
+}
+
+void ModuleModel::incrementOffMinutes(const uint8_t alarmLineId, const uint8_t cycle)
+{
+    m_AlarmLinesSettings[alarmLineId].incrementOffMinutes(cycle);
+}
+
+void ModuleModel::decrementOffMinutes(const uint8_t alarmLineId, const uint8_t cycle)
+{
+    m_AlarmLinesSettings[alarmLineId].decrementOffMinutes(cycle);
 }
 
 #ifdef USE_SERIAL

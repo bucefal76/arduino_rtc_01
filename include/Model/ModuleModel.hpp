@@ -39,6 +39,22 @@ public:
     /// @brief See ModuleModelIf.
     virtual bool setAlarmLineOffTime(const uint8_t alarmLineId, const uint8_t cycle, const TimeInvariant &offTime);
 
+    virtual void incrementOnHours(const uint8_t alarmLineId, const uint8_t cycle);
+
+    virtual void decrementOnHours(const uint8_t alarmLineId, const uint8_t cycle);
+
+    virtual void incrementOnMinutes(const uint8_t alarmLineId, const uint8_t cycle);
+
+    virtual void decrementOnMinutes(const uint8_t alarmLineId, const uint8_t cycle);
+
+    virtual void incrementOffHours(const uint8_t alarmLineId, const uint8_t cycle);
+
+    virtual void decrementOffHours(const uint8_t alarmLineId, const uint8_t cycle);
+
+    virtual void incrementOffMinutes(const uint8_t alarmLineId, const uint8_t cycle);
+
+    virtual void decrementOffMinutes(const uint8_t alarmLineId, const uint8_t cycle);
+
 private:
     ModuleModel();
 

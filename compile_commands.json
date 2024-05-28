@@ -1,0 +1,668 @@
+[
+    {
+        "command": "C:\\Users\\TJakobiec\\.platformio\\packages\\toolchain-atmelavr\\bin\\avr-g++.exe -o .pio\\build\\uno\\FrameworkArduino\\CDC.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60115 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -IC:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\cores\\arduino -IC:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\variants\\standard C:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\cores\\arduino\\CDC.cpp",
+        "directory": "C:\\Users\\TJakobiec\\Documents\\PlatformIO\\Projects\\AdwancedClock01",
+        "file": "C:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\cores\\arduino\\CDC.cpp",
+        "output": ".pio\\build\\uno\\FrameworkArduino\\CDC.cpp.o"
+    },
+    {
+        "command": "C:\\Users\\TJakobiec\\.platformio\\packages\\toolchain-atmelavr\\bin\\avr-g++.exe -o .pio\\build\\uno\\FrameworkArduino\\HardwareSerial.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60115 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -IC:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\cores\\arduino -IC:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\variants\\standard C:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\cores\\arduino\\HardwareSerial.cpp",
+        "directory": "C:\\Users\\TJakobiec\\Documents\\PlatformIO\\Projects\\AdwancedClock01",
+        "file": "C:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\cores\\arduino\\HardwareSerial.cpp",
+        "output": ".pio\\build\\uno\\FrameworkArduino\\HardwareSerial.cpp.o"
+    },
+    {
+        "command": "C:\\Users\\TJakobiec\\.platformio\\packages\\toolchain-atmelavr\\bin\\avr-g++.exe -o .pio\\build\\uno\\FrameworkArduino\\HardwareSerial0.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60115 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -IC:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\cores\\arduino -IC:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\variants\\standard C:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\cores\\arduino\\HardwareSerial0.cpp",
+        "directory": "C:\\Users\\TJakobiec\\Documents\\PlatformIO\\Projects\\AdwancedClock01",
+        "file": "C:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\cores\\arduino\\HardwareSerial0.cpp",
+        "output": ".pio\\build\\uno\\FrameworkArduino\\HardwareSerial0.cpp.o"
+    },
+    {
+        "command": "C:\\Users\\TJakobiec\\.platformio\\packages\\toolchain-atmelavr\\bin\\avr-g++.exe -o .pio\\build\\uno\\FrameworkArduino\\HardwareSerial1.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60115 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -IC:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\cores\\arduino -IC:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\variants\\standard C:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\cores\\arduino\\HardwareSerial1.cpp",
+        "directory": "C:\\Users\\TJakobiec\\Documents\\PlatformIO\\Projects\\AdwancedClock01",
+        "file": "C:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\cores\\arduino\\HardwareSerial1.cpp",
+        "output": ".pio\\build\\uno\\FrameworkArduino\\HardwareSerial1.cpp.o"
+    },
+    {
+        "command": "C:\\Users\\TJakobiec\\.platformio\\packages\\toolchain-atmelavr\\bin\\avr-g++.exe -o .pio\\build\\uno\\FrameworkArduino\\HardwareSerial2.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60115 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -IC:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\cores\\arduino -IC:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\variants\\standard C:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\cores\\arduino\\HardwareSerial2.cpp",
+        "directory": "C:\\Users\\TJakobiec\\Documents\\PlatformIO\\Projects\\AdwancedClock01",
+        "file": "C:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\cores\\arduino\\HardwareSerial2.cpp",
+        "output": ".pio\\build\\uno\\FrameworkArduino\\HardwareSerial2.cpp.o"
+    },
+    {
+        "command": "C:\\Users\\TJakobiec\\.platformio\\packages\\toolchain-atmelavr\\bin\\avr-g++.exe -o .pio\\build\\uno\\FrameworkArduino\\HardwareSerial3.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60115 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -IC:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\cores\\arduino -IC:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\variants\\standard C:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\cores\\arduino\\HardwareSerial3.cpp",
+        "directory": "C:\\Users\\TJakobiec\\Documents\\PlatformIO\\Projects\\AdwancedClock01",
+        "file": "C:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\cores\\arduino\\HardwareSerial3.cpp",
+        "output": ".pio\\build\\uno\\FrameworkArduino\\HardwareSerial3.cpp.o"
+    },
+    {
+        "command": "C:\\Users\\TJakobiec\\.platformio\\packages\\toolchain-atmelavr\\bin\\avr-g++.exe -o .pio\\build\\uno\\FrameworkArduino\\IPAddress.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60115 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -IC:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\cores\\arduino -IC:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\variants\\standard C:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\cores\\arduino\\IPAddress.cpp",
+        "directory": "C:\\Users\\TJakobiec\\Documents\\PlatformIO\\Projects\\AdwancedClock01",
+        "file": "C:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\cores\\arduino\\IPAddress.cpp",
+        "output": ".pio\\build\\uno\\FrameworkArduino\\IPAddress.cpp.o"
+    },
+    {
+        "command": "C:\\Users\\TJakobiec\\.platformio\\packages\\toolchain-atmelavr\\bin\\avr-g++.exe -o .pio\\build\\uno\\FrameworkArduino\\PluggableUSB.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60115 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -IC:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\cores\\arduino -IC:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\variants\\standard C:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\cores\\arduino\\PluggableUSB.cpp",
+        "directory": "C:\\Users\\TJakobiec\\Documents\\PlatformIO\\Projects\\AdwancedClock01",
+        "file": "C:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\cores\\arduino\\PluggableUSB.cpp",
+        "output": ".pio\\build\\uno\\FrameworkArduino\\PluggableUSB.cpp.o"
+    },
+    {
+        "command": "C:\\Users\\TJakobiec\\.platformio\\packages\\toolchain-atmelavr\\bin\\avr-g++.exe -o .pio\\build\\uno\\FrameworkArduino\\Print.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60115 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -IC:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\cores\\arduino -IC:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\variants\\standard C:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\cores\\arduino\\Print.cpp",
+        "directory": "C:\\Users\\TJakobiec\\Documents\\PlatformIO\\Projects\\AdwancedClock01",
+        "file": "C:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\cores\\arduino\\Print.cpp",
+        "output": ".pio\\build\\uno\\FrameworkArduino\\Print.cpp.o"
+    },
+    {
+        "command": "C:\\Users\\TJakobiec\\.platformio\\packages\\toolchain-atmelavr\\bin\\avr-g++.exe -o .pio\\build\\uno\\FrameworkArduino\\Stream.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60115 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -IC:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\cores\\arduino -IC:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\variants\\standard C:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\cores\\arduino\\Stream.cpp",
+        "directory": "C:\\Users\\TJakobiec\\Documents\\PlatformIO\\Projects\\AdwancedClock01",
+        "file": "C:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\cores\\arduino\\Stream.cpp",
+        "output": ".pio\\build\\uno\\FrameworkArduino\\Stream.cpp.o"
+    },
+    {
+        "command": "C:\\Users\\TJakobiec\\.platformio\\packages\\toolchain-atmelavr\\bin\\avr-g++.exe -o .pio\\build\\uno\\FrameworkArduino\\Tone.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60115 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -IC:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\cores\\arduino -IC:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\variants\\standard C:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\cores\\arduino\\Tone.cpp",
+        "directory": "C:\\Users\\TJakobiec\\Documents\\PlatformIO\\Projects\\AdwancedClock01",
+        "file": "C:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\cores\\arduino\\Tone.cpp",
+        "output": ".pio\\build\\uno\\FrameworkArduino\\Tone.cpp.o"
+    },
+    {
+        "command": "C:\\Users\\TJakobiec\\.platformio\\packages\\toolchain-atmelavr\\bin\\avr-g++.exe -o .pio\\build\\uno\\FrameworkArduino\\USBCore.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60115 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -IC:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\cores\\arduino -IC:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\variants\\standard C:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\cores\\arduino\\USBCore.cpp",
+        "directory": "C:\\Users\\TJakobiec\\Documents\\PlatformIO\\Projects\\AdwancedClock01",
+        "file": "C:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\cores\\arduino\\USBCore.cpp",
+        "output": ".pio\\build\\uno\\FrameworkArduino\\USBCore.cpp.o"
+    },
+    {
+        "command": "C:\\Users\\TJakobiec\\.platformio\\packages\\toolchain-atmelavr\\bin\\avr-gcc.exe -o .pio\\build\\uno\\FrameworkArduino\\WInterrupts.c.o -c -std=gnu11 -fno-fat-lto-objects -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60115 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -IC:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\cores\\arduino -IC:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\variants\\standard C:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\cores\\arduino\\WInterrupts.c",
+        "directory": "C:\\Users\\TJakobiec\\Documents\\PlatformIO\\Projects\\AdwancedClock01",
+        "file": "C:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\cores\\arduino\\WInterrupts.c",
+        "output": ".pio\\build\\uno\\FrameworkArduino\\WInterrupts.c.o"
+    },
+    {
+        "command": "C:\\Users\\TJakobiec\\.platformio\\packages\\toolchain-atmelavr\\bin\\avr-g++.exe -o .pio\\build\\uno\\FrameworkArduino\\WMath.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60115 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -IC:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\cores\\arduino -IC:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\variants\\standard C:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\cores\\arduino\\WMath.cpp",
+        "directory": "C:\\Users\\TJakobiec\\Documents\\PlatformIO\\Projects\\AdwancedClock01",
+        "file": "C:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\cores\\arduino\\WMath.cpp",
+        "output": ".pio\\build\\uno\\FrameworkArduino\\WMath.cpp.o"
+    },
+    {
+        "command": "C:\\Users\\TJakobiec\\.platformio\\packages\\toolchain-atmelavr\\bin\\avr-g++.exe -o .pio\\build\\uno\\FrameworkArduino\\WString.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60115 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -IC:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\cores\\arduino -IC:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\variants\\standard C:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\cores\\arduino\\WString.cpp",
+        "directory": "C:\\Users\\TJakobiec\\Documents\\PlatformIO\\Projects\\AdwancedClock01",
+        "file": "C:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\cores\\arduino\\WString.cpp",
+        "output": ".pio\\build\\uno\\FrameworkArduino\\WString.cpp.o"
+    },
+    {
+        "command": "C:\\Users\\TJakobiec\\.platformio\\packages\\toolchain-atmelavr\\bin\\avr-g++.exe -o .pio\\build\\uno\\FrameworkArduino\\abi.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60115 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -IC:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\cores\\arduino -IC:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\variants\\standard C:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\cores\\arduino\\abi.cpp",
+        "directory": "C:\\Users\\TJakobiec\\Documents\\PlatformIO\\Projects\\AdwancedClock01",
+        "file": "C:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\cores\\arduino\\abi.cpp",
+        "output": ".pio\\build\\uno\\FrameworkArduino\\abi.cpp.o"
+    },
+    {
+        "command": "C:\\Users\\TJakobiec\\.platformio\\packages\\toolchain-atmelavr\\bin\\avr-gcc.exe -o .pio\\build\\uno\\FrameworkArduino\\hooks.c.o -c -std=gnu11 -fno-fat-lto-objects -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60115 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -IC:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\cores\\arduino -IC:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\variants\\standard C:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\cores\\arduino\\hooks.c",
+        "directory": "C:\\Users\\TJakobiec\\Documents\\PlatformIO\\Projects\\AdwancedClock01",
+        "file": "C:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\cores\\arduino\\hooks.c",
+        "output": ".pio\\build\\uno\\FrameworkArduino\\hooks.c.o"
+    },
+    {
+        "command": "C:\\Users\\TJakobiec\\.platformio\\packages\\toolchain-atmelavr\\bin\\avr-g++.exe -o .pio\\build\\uno\\FrameworkArduino\\main.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60115 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -IC:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\cores\\arduino -IC:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\variants\\standard C:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\cores\\arduino\\main.cpp",
+        "directory": "C:\\Users\\TJakobiec\\Documents\\PlatformIO\\Projects\\AdwancedClock01",
+        "file": "C:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\cores\\arduino\\main.cpp",
+        "output": ".pio\\build\\uno\\FrameworkArduino\\main.cpp.o"
+    },
+    {
+        "command": "C:\\Users\\TJakobiec\\.platformio\\packages\\toolchain-atmelavr\\bin\\avr-g++.exe -o .pio\\build\\uno\\FrameworkArduino\\new.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60115 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -IC:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\cores\\arduino -IC:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\variants\\standard C:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\cores\\arduino\\new.cpp",
+        "directory": "C:\\Users\\TJakobiec\\Documents\\PlatformIO\\Projects\\AdwancedClock01",
+        "file": "C:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\cores\\arduino\\new.cpp",
+        "output": ".pio\\build\\uno\\FrameworkArduino\\new.cpp.o"
+    },
+    {
+        "command": "C:\\Users\\TJakobiec\\.platformio\\packages\\toolchain-atmelavr\\bin\\avr-gcc.exe -o .pio\\build\\uno\\FrameworkArduino\\wiring.c.o -c -std=gnu11 -fno-fat-lto-objects -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60115 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -IC:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\cores\\arduino -IC:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\variants\\standard C:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\cores\\arduino\\wiring.c",
+        "directory": "C:\\Users\\TJakobiec\\Documents\\PlatformIO\\Projects\\AdwancedClock01",
+        "file": "C:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\cores\\arduino\\wiring.c",
+        "output": ".pio\\build\\uno\\FrameworkArduino\\wiring.c.o"
+    },
+    {
+        "command": "C:\\Users\\TJakobiec\\.platformio\\packages\\toolchain-atmelavr\\bin\\avr-gcc.exe -o .pio\\build\\uno\\FrameworkArduino\\wiring_analog.c.o -c -std=gnu11 -fno-fat-lto-objects -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60115 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -IC:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\cores\\arduino -IC:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\variants\\standard C:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\cores\\arduino\\wiring_analog.c",
+        "directory": "C:\\Users\\TJakobiec\\Documents\\PlatformIO\\Projects\\AdwancedClock01",
+        "file": "C:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\cores\\arduino\\wiring_analog.c",
+        "output": ".pio\\build\\uno\\FrameworkArduino\\wiring_analog.c.o"
+    },
+    {
+        "command": "C:\\Users\\TJakobiec\\.platformio\\packages\\toolchain-atmelavr\\bin\\avr-gcc.exe -o .pio\\build\\uno\\FrameworkArduino\\wiring_digital.c.o -c -std=gnu11 -fno-fat-lto-objects -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60115 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -IC:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\cores\\arduino -IC:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\variants\\standard C:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\cores\\arduino\\wiring_digital.c",
+        "directory": "C:\\Users\\TJakobiec\\Documents\\PlatformIO\\Projects\\AdwancedClock01",
+        "file": "C:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\cores\\arduino\\wiring_digital.c",
+        "output": ".pio\\build\\uno\\FrameworkArduino\\wiring_digital.c.o"
+    },
+    {
+        "command": "C:\\Users\\TJakobiec\\.platformio\\packages\\toolchain-atmelavr\\bin\\avr-gcc.exe -mmcu=atmega328p -x assembler-with-cpp -DPLATFORMIO=60115 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -IC:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\cores\\arduino -IC:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\variants\\standard -c -o .pio\\build\\uno\\FrameworkArduino\\wiring_pulse.S.o C:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\cores\\arduino\\wiring_pulse.S",
+        "directory": "C:\\Users\\TJakobiec\\Documents\\PlatformIO\\Projects\\AdwancedClock01",
+        "file": "C:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\cores\\arduino\\wiring_pulse.S",
+        "output": ".pio\\build\\uno\\FrameworkArduino\\wiring_pulse.S.o"
+    },
+    {
+        "command": "C:\\Users\\TJakobiec\\.platformio\\packages\\toolchain-atmelavr\\bin\\avr-gcc.exe -o .pio\\build\\uno\\FrameworkArduino\\wiring_pulse.c.o -c -std=gnu11 -fno-fat-lto-objects -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60115 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -IC:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\cores\\arduino -IC:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\variants\\standard C:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\cores\\arduino\\wiring_pulse.c",
+        "directory": "C:\\Users\\TJakobiec\\Documents\\PlatformIO\\Projects\\AdwancedClock01",
+        "file": "C:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\cores\\arduino\\wiring_pulse.c",
+        "output": ".pio\\build\\uno\\FrameworkArduino\\wiring_pulse.c.o"
+    },
+    {
+        "command": "C:\\Users\\TJakobiec\\.platformio\\packages\\toolchain-atmelavr\\bin\\avr-gcc.exe -o .pio\\build\\uno\\FrameworkArduino\\wiring_shift.c.o -c -std=gnu11 -fno-fat-lto-objects -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60115 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -IC:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\cores\\arduino -IC:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\variants\\standard C:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\cores\\arduino\\wiring_shift.c",
+        "directory": "C:\\Users\\TJakobiec\\Documents\\PlatformIO\\Projects\\AdwancedClock01",
+        "file": "C:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\cores\\arduino\\wiring_shift.c",
+        "output": ".pio\\build\\uno\\FrameworkArduino\\wiring_shift.c.o"
+    },
+    {
+        "command": "C:\\Users\\TJakobiec\\.platformio\\packages\\toolchain-atmelavr\\bin\\avr-g++.exe -o .pio\\build\\uno\\libbe4\\ArduinoThread\\Thread.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60115 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -I.pio\\libdeps\\uno\\ArduinoThread -IC:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\cores\\arduino -IC:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\variants\\standard .pio\\libdeps\\uno\\ArduinoThread\\Thread.cpp",
+        "directory": "C:\\Users\\TJakobiec\\Documents\\PlatformIO\\Projects\\AdwancedClock01",
+        "file": ".pio\\libdeps\\uno\\ArduinoThread\\Thread.cpp",
+        "output": ".pio\\build\\uno\\libbe4\\ArduinoThread\\Thread.cpp.o"
+    },
+    {
+        "command": "C:\\Users\\TJakobiec\\.platformio\\packages\\toolchain-atmelavr\\bin\\avr-g++.exe -o .pio\\build\\uno\\libbe4\\ArduinoThread\\ThreadController.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60115 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -I.pio\\libdeps\\uno\\ArduinoThread -IC:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\cores\\arduino -IC:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\variants\\standard .pio\\libdeps\\uno\\ArduinoThread\\ThreadController.cpp",
+        "directory": "C:\\Users\\TJakobiec\\Documents\\PlatformIO\\Projects\\AdwancedClock01",
+        "file": ".pio\\libdeps\\uno\\ArduinoThread\\ThreadController.cpp",
+        "output": ".pio\\build\\uno\\libbe4\\ArduinoThread\\ThreadController.cpp.o"
+    },
+    {
+        "command": "C:\\Users\\TJakobiec\\.platformio\\packages\\toolchain-atmelavr\\bin\\avr-g++.exe -o .pio\\build\\uno\\lib042\\LiquidCrystal\\LiquidCrystal.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60115 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -I.pio\\libdeps\\uno\\LiquidCrystal\\src -IC:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\cores\\arduino -IC:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\variants\\standard .pio\\libdeps\\uno\\LiquidCrystal\\src\\LiquidCrystal.cpp",
+        "directory": "C:\\Users\\TJakobiec\\Documents\\PlatformIO\\Projects\\AdwancedClock01",
+        "file": ".pio\\libdeps\\uno\\LiquidCrystal\\src\\LiquidCrystal.cpp",
+        "output": ".pio\\build\\uno\\lib042\\LiquidCrystal\\LiquidCrystal.cpp.o"
+    },
+    {
+        "command": "C:\\Users\\TJakobiec\\.platformio\\packages\\toolchain-atmelavr\\bin\\avr-g++.exe -o .pio\\build\\uno\\libb6b\\RTC\\RtcDateTime.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60115 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -I.pio\\libdeps\\uno\\RTC\\src -IC:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\cores\\arduino -IC:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\variants\\standard .pio\\libdeps\\uno\\RTC\\src\\RtcDateTime.cpp",
+        "directory": "C:\\Users\\TJakobiec\\Documents\\PlatformIO\\Projects\\AdwancedClock01",
+        "file": ".pio\\libdeps\\uno\\RTC\\src\\RtcDateTime.cpp",
+        "output": ".pio\\build\\uno\\libb6b\\RTC\\RtcDateTime.cpp.o"
+    },
+    {
+        "command": "C:\\Users\\TJakobiec\\.platformio\\packages\\toolchain-atmelavr\\bin\\avr-g++.exe -o .pio\\build\\uno\\libb6b\\RTC\\RtcLocaleEn.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60115 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -I.pio\\libdeps\\uno\\RTC\\src -IC:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\cores\\arduino -IC:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\variants\\standard .pio\\libdeps\\uno\\RTC\\src\\RtcLocaleEn.cpp",
+        "directory": "C:\\Users\\TJakobiec\\Documents\\PlatformIO\\Projects\\AdwancedClock01",
+        "file": ".pio\\libdeps\\uno\\RTC\\src\\RtcLocaleEn.cpp",
+        "output": ".pio\\build\\uno\\libb6b\\RTC\\RtcLocaleEn.cpp.o"
+    },
+    {
+        "command": "C:\\Users\\TJakobiec\\.platformio\\packages\\toolchain-atmelavr\\bin\\avr-g++.exe -o .pio\\build\\uno\\libb6b\\RTC\\RtcLocaleEnUs.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60115 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -I.pio\\libdeps\\uno\\RTC\\src -IC:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\cores\\arduino -IC:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\variants\\standard .pio\\libdeps\\uno\\RTC\\src\\RtcLocaleEnUs.cpp",
+        "directory": "C:\\Users\\TJakobiec\\Documents\\PlatformIO\\Projects\\AdwancedClock01",
+        "file": ".pio\\libdeps\\uno\\RTC\\src\\RtcLocaleEnUs.cpp",
+        "output": ".pio\\build\\uno\\libb6b\\RTC\\RtcLocaleEnUs.cpp.o"
+    },
+    {
+        "command": "C:\\Users\\TJakobiec\\.platformio\\packages\\toolchain-atmelavr\\bin\\avr-g++.exe -o .pio\\build\\uno\\libb6b\\RTC\\RtcUtility.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60115 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -I.pio\\libdeps\\uno\\RTC\\src -IC:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\cores\\arduino -IC:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\variants\\standard .pio\\libdeps\\uno\\RTC\\src\\RtcUtility.cpp",
+        "directory": "C:\\Users\\TJakobiec\\Documents\\PlatformIO\\Projects\\AdwancedClock01",
+        "file": ".pio\\libdeps\\uno\\RTC\\src\\RtcUtility.cpp",
+        "output": ".pio\\build\\uno\\libb6b\\RTC\\RtcUtility.cpp.o"
+    },
+    {
+        "command": "C:\\Users\\TJakobiec\\.platformio\\packages\\toolchain-atmelavr\\bin\\avr-g++.exe -o .pio\\build\\uno\\libb32\\ArduinoSTL\\ArduinoSTL.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60115 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -I.pio\\libdeps\\uno\\ArduinoSTL\\src -IC:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\cores\\arduino -IC:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\variants\\standard .pio\\libdeps\\uno\\ArduinoSTL\\src\\ArduinoSTL.cpp",
+        "directory": "C:\\Users\\TJakobiec\\Documents\\PlatformIO\\Projects\\AdwancedClock01",
+        "file": ".pio\\libdeps\\uno\\ArduinoSTL\\src\\ArduinoSTL.cpp",
+        "output": ".pio\\build\\uno\\libb32\\ArduinoSTL\\ArduinoSTL.cpp.o"
+    },
+    {
+        "command": "C:\\Users\\TJakobiec\\.platformio\\packages\\toolchain-atmelavr\\bin\\avr-g++.exe -o .pio\\build\\uno\\libb32\\ArduinoSTL\\abi\\abi.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60115 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -I.pio\\libdeps\\uno\\ArduinoSTL\\src -IC:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\cores\\arduino -IC:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\variants\\standard .pio\\libdeps\\uno\\ArduinoSTL\\src\\abi\\abi.cpp",
+        "directory": "C:\\Users\\TJakobiec\\Documents\\PlatformIO\\Projects\\AdwancedClock01",
+        "file": ".pio\\libdeps\\uno\\ArduinoSTL\\src\\abi\\abi.cpp",
+        "output": ".pio\\build\\uno\\libb32\\ArduinoSTL\\abi\\abi.cpp.o"
+    },
+    {
+        "command": "C:\\Users\\TJakobiec\\.platformio\\packages\\toolchain-atmelavr\\bin\\avr-g++.exe -o .pio\\build\\uno\\libb32\\ArduinoSTL\\algorithm.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60115 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -I.pio\\libdeps\\uno\\ArduinoSTL\\src -IC:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\cores\\arduino -IC:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\variants\\standard .pio\\libdeps\\uno\\ArduinoSTL\\src\\algorithm.cpp",
+        "directory": "C:\\Users\\TJakobiec\\Documents\\PlatformIO\\Projects\\AdwancedClock01",
+        "file": ".pio\\libdeps\\uno\\ArduinoSTL\\src\\algorithm.cpp",
+        "output": ".pio\\build\\uno\\libb32\\ArduinoSTL\\algorithm.cpp.o"
+    },
+    {
+        "command": "C:\\Users\\TJakobiec\\.platformio\\packages\\toolchain-atmelavr\\bin\\avr-g++.exe -o .pio\\build\\uno\\libb32\\ArduinoSTL\\associative_base.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60115 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -I.pio\\libdeps\\uno\\ArduinoSTL\\src -IC:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\cores\\arduino -IC:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\variants\\standard .pio\\libdeps\\uno\\ArduinoSTL\\src\\associative_base.cpp",
+        "directory": "C:\\Users\\TJakobiec\\Documents\\PlatformIO\\Projects\\AdwancedClock01",
+        "file": ".pio\\libdeps\\uno\\ArduinoSTL\\src\\associative_base.cpp",
+        "output": ".pio\\build\\uno\\libb32\\ArduinoSTL\\associative_base.cpp.o"
+    },
+    {
+        "command": "C:\\Users\\TJakobiec\\.platformio\\packages\\toolchain-atmelavr\\bin\\avr-g++.exe -o .pio\\build\\uno\\libb32\\ArduinoSTL\\bitset.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60115 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -I.pio\\libdeps\\uno\\ArduinoSTL\\src -IC:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\cores\\arduino -IC:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\variants\\standard .pio\\libdeps\\uno\\ArduinoSTL\\src\\bitset.cpp",
+        "directory": "C:\\Users\\TJakobiec\\Documents\\PlatformIO\\Projects\\AdwancedClock01",
+        "file": ".pio\\libdeps\\uno\\ArduinoSTL\\src\\bitset.cpp",
+        "output": ".pio\\build\\uno\\libb32\\ArduinoSTL\\bitset.cpp.o"
+    },
+    {
+        "command": "C:\\Users\\TJakobiec\\.platformio\\packages\\toolchain-atmelavr\\bin\\avr-g++.exe -o .pio\\build\\uno\\libb32\\ArduinoSTL\\char_traits.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60115 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -I.pio\\libdeps\\uno\\ArduinoSTL\\src -IC:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\cores\\arduino -IC:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\variants\\standard .pio\\libdeps\\uno\\ArduinoSTL\\src\\char_traits.cpp",
+        "directory": "C:\\Users\\TJakobiec\\Documents\\PlatformIO\\Projects\\AdwancedClock01",
+        "file": ".pio\\libdeps\\uno\\ArduinoSTL\\src\\char_traits.cpp",
+        "output": ".pio\\build\\uno\\libb32\\ArduinoSTL\\char_traits.cpp.o"
+    },
+    {
+        "command": "C:\\Users\\TJakobiec\\.platformio\\packages\\toolchain-atmelavr\\bin\\avr-g++.exe -o .pio\\build\\uno\\libb32\\ArduinoSTL\\complex.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60115 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -I.pio\\libdeps\\uno\\ArduinoSTL\\src -IC:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\cores\\arduino -IC:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\variants\\standard .pio\\libdeps\\uno\\ArduinoSTL\\src\\complex.cpp",
+        "directory": "C:\\Users\\TJakobiec\\Documents\\PlatformIO\\Projects\\AdwancedClock01",
+        "file": ".pio\\libdeps\\uno\\ArduinoSTL\\src\\complex.cpp",
+        "output": ".pio\\build\\uno\\libb32\\ArduinoSTL\\complex.cpp.o"
+    },
+    {
+        "command": "C:\\Users\\TJakobiec\\.platformio\\packages\\toolchain-atmelavr\\bin\\avr-g++.exe -o .pio\\build\\uno\\libb32\\ArduinoSTL\\del_op.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60115 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -I.pio\\libdeps\\uno\\ArduinoSTL\\src -IC:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\cores\\arduino -IC:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\variants\\standard .pio\\libdeps\\uno\\ArduinoSTL\\src\\del_op.cpp",
+        "directory": "C:\\Users\\TJakobiec\\Documents\\PlatformIO\\Projects\\AdwancedClock01",
+        "file": ".pio\\libdeps\\uno\\ArduinoSTL\\src\\del_op.cpp",
+        "output": ".pio\\build\\uno\\libb32\\ArduinoSTL\\del_op.cpp.o"
+    },
+    {
+        "command": "C:\\Users\\TJakobiec\\.platformio\\packages\\toolchain-atmelavr\\bin\\avr-g++.exe -o .pio\\build\\uno\\libb32\\ArduinoSTL\\del_opnt.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60115 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -I.pio\\libdeps\\uno\\ArduinoSTL\\src -IC:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\cores\\arduino -IC:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\variants\\standard .pio\\libdeps\\uno\\ArduinoSTL\\src\\del_opnt.cpp",
+        "directory": "C:\\Users\\TJakobiec\\Documents\\PlatformIO\\Projects\\AdwancedClock01",
+        "file": ".pio\\libdeps\\uno\\ArduinoSTL\\src\\del_opnt.cpp",
+        "output": ".pio\\build\\uno\\libb32\\ArduinoSTL\\del_opnt.cpp.o"
+    },
+    {
+        "command": "C:\\Users\\TJakobiec\\.platformio\\packages\\toolchain-atmelavr\\bin\\avr-g++.exe -o .pio\\build\\uno\\libb32\\ArduinoSTL\\del_ops.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60115 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -I.pio\\libdeps\\uno\\ArduinoSTL\\src -IC:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\cores\\arduino -IC:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\variants\\standard .pio\\libdeps\\uno\\ArduinoSTL\\src\\del_ops.cpp",
+        "directory": "C:\\Users\\TJakobiec\\Documents\\PlatformIO\\Projects\\AdwancedClock01",
+        "file": ".pio\\libdeps\\uno\\ArduinoSTL\\src\\del_ops.cpp",
+        "output": ".pio\\build\\uno\\libb32\\ArduinoSTL\\del_ops.cpp.o"
+    },
+    {
+        "command": "C:\\Users\\TJakobiec\\.platformio\\packages\\toolchain-atmelavr\\bin\\avr-g++.exe -o .pio\\build\\uno\\libb32\\ArduinoSTL\\del_opv.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60115 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -I.pio\\libdeps\\uno\\ArduinoSTL\\src -IC:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\cores\\arduino -IC:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\variants\\standard .pio\\libdeps\\uno\\ArduinoSTL\\src\\del_opv.cpp",
+        "directory": "C:\\Users\\TJakobiec\\Documents\\PlatformIO\\Projects\\AdwancedClock01",
+        "file": ".pio\\libdeps\\uno\\ArduinoSTL\\src\\del_opv.cpp",
+        "output": ".pio\\build\\uno\\libb32\\ArduinoSTL\\del_opv.cpp.o"
+    },
+    {
+        "command": "C:\\Users\\TJakobiec\\.platformio\\packages\\toolchain-atmelavr\\bin\\avr-g++.exe -o .pio\\build\\uno\\libb32\\ArduinoSTL\\del_opvnt.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60115 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -I.pio\\libdeps\\uno\\ArduinoSTL\\src -IC:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\cores\\arduino -IC:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\variants\\standard .pio\\libdeps\\uno\\ArduinoSTL\\src\\del_opvnt.cpp",
+        "directory": "C:\\Users\\TJakobiec\\Documents\\PlatformIO\\Projects\\AdwancedClock01",
+        "file": ".pio\\libdeps\\uno\\ArduinoSTL\\src\\del_opvnt.cpp",
+        "output": ".pio\\build\\uno\\libb32\\ArduinoSTL\\del_opvnt.cpp.o"
+    },
+    {
+        "command": "C:\\Users\\TJakobiec\\.platformio\\packages\\toolchain-atmelavr\\bin\\avr-g++.exe -o .pio\\build\\uno\\libb32\\ArduinoSTL\\del_opvs.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60115 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -I.pio\\libdeps\\uno\\ArduinoSTL\\src -IC:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\cores\\arduino -IC:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\variants\\standard .pio\\libdeps\\uno\\ArduinoSTL\\src\\del_opvs.cpp",
+        "directory": "C:\\Users\\TJakobiec\\Documents\\PlatformIO\\Projects\\AdwancedClock01",
+        "file": ".pio\\libdeps\\uno\\ArduinoSTL\\src\\del_opvs.cpp",
+        "output": ".pio\\build\\uno\\libb32\\ArduinoSTL\\del_opvs.cpp.o"
+    },
+    {
+        "command": "C:\\Users\\TJakobiec\\.platformio\\packages\\toolchain-atmelavr\\bin\\avr-g++.exe -o .pio\\build\\uno\\libb32\\ArduinoSTL\\deque.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60115 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -I.pio\\libdeps\\uno\\ArduinoSTL\\src -IC:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\cores\\arduino -IC:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\variants\\standard .pio\\libdeps\\uno\\ArduinoSTL\\src\\deque.cpp",
+        "directory": "C:\\Users\\TJakobiec\\Documents\\PlatformIO\\Projects\\AdwancedClock01",
+        "file": ".pio\\libdeps\\uno\\ArduinoSTL\\src\\deque.cpp",
+        "output": ".pio\\build\\uno\\libb32\\ArduinoSTL\\deque.cpp.o"
+    },
+    {
+        "command": "C:\\Users\\TJakobiec\\.platformio\\packages\\toolchain-atmelavr\\bin\\avr-g++.exe -o .pio\\build\\uno\\libb32\\ArduinoSTL\\eh_alloc.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60115 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -I.pio\\libdeps\\uno\\ArduinoSTL\\src -IC:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\cores\\arduino -IC:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\variants\\standard .pio\\libdeps\\uno\\ArduinoSTL\\src\\eh_alloc.cpp",
+        "directory": "C:\\Users\\TJakobiec\\Documents\\PlatformIO\\Projects\\AdwancedClock01",
+        "file": ".pio\\libdeps\\uno\\ArduinoSTL\\src\\eh_alloc.cpp",
+        "output": ".pio\\build\\uno\\libb32\\ArduinoSTL\\eh_alloc.cpp.o"
+    },
+    {
+        "command": "C:\\Users\\TJakobiec\\.platformio\\packages\\toolchain-atmelavr\\bin\\avr-g++.exe -o .pio\\build\\uno\\libb32\\ArduinoSTL\\eh_globals.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60115 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -I.pio\\libdeps\\uno\\ArduinoSTL\\src -IC:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\cores\\arduino -IC:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\variants\\standard .pio\\libdeps\\uno\\ArduinoSTL\\src\\eh_globals.cpp",
+        "directory": "C:\\Users\\TJakobiec\\Documents\\PlatformIO\\Projects\\AdwancedClock01",
+        "file": ".pio\\libdeps\\uno\\ArduinoSTL\\src\\eh_globals.cpp",
+        "output": ".pio\\build\\uno\\libb32\\ArduinoSTL\\eh_globals.cpp.o"
+    },
+    {
+        "command": "C:\\Users\\TJakobiec\\.platformio\\packages\\toolchain-atmelavr\\bin\\avr-g++.exe -o .pio\\build\\uno\\libb32\\ArduinoSTL\\exception.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60115 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -I.pio\\libdeps\\uno\\ArduinoSTL\\src -IC:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\cores\\arduino -IC:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\variants\\standard .pio\\libdeps\\uno\\ArduinoSTL\\src\\exception.cpp",
+        "directory": "C:\\Users\\TJakobiec\\Documents\\PlatformIO\\Projects\\AdwancedClock01",
+        "file": ".pio\\libdeps\\uno\\ArduinoSTL\\src\\exception.cpp",
+        "output": ".pio\\build\\uno\\libb32\\ArduinoSTL\\exception.cpp.o"
+    },
+    {
+        "command": "C:\\Users\\TJakobiec\\.platformio\\packages\\toolchain-atmelavr\\bin\\avr-g++.exe -o .pio\\build\\uno\\libb32\\ArduinoSTL\\func_exception.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60115 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -I.pio\\libdeps\\uno\\ArduinoSTL\\src -IC:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\cores\\arduino -IC:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\variants\\standard .pio\\libdeps\\uno\\ArduinoSTL\\src\\func_exception.cpp",
+        "directory": "C:\\Users\\TJakobiec\\Documents\\PlatformIO\\Projects\\AdwancedClock01",
+        "file": ".pio\\libdeps\\uno\\ArduinoSTL\\src\\func_exception.cpp",
+        "output": ".pio\\build\\uno\\libb32\\ArduinoSTL\\func_exception.cpp.o"
+    },
+    {
+        "command": "C:\\Users\\TJakobiec\\.platformio\\packages\\toolchain-atmelavr\\bin\\avr-g++.exe -o .pio\\build\\uno\\libb32\\ArduinoSTL\\iomanip.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60115 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -I.pio\\libdeps\\uno\\ArduinoSTL\\src -IC:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\cores\\arduino -IC:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\variants\\standard .pio\\libdeps\\uno\\ArduinoSTL\\src\\iomanip.cpp",
+        "directory": "C:\\Users\\TJakobiec\\Documents\\PlatformIO\\Projects\\AdwancedClock01",
+        "file": ".pio\\libdeps\\uno\\ArduinoSTL\\src\\iomanip.cpp",
+        "output": ".pio\\build\\uno\\libb32\\ArduinoSTL\\iomanip.cpp.o"
+    },
+    {
+        "command": "C:\\Users\\TJakobiec\\.platformio\\packages\\toolchain-atmelavr\\bin\\avr-g++.exe -o .pio\\build\\uno\\libb32\\ArduinoSTL\\ios.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60115 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -I.pio\\libdeps\\uno\\ArduinoSTL\\src -IC:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\cores\\arduino -IC:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\variants\\standard .pio\\libdeps\\uno\\ArduinoSTL\\src\\ios.cpp",
+        "directory": "C:\\Users\\TJakobiec\\Documents\\PlatformIO\\Projects\\AdwancedClock01",
+        "file": ".pio\\libdeps\\uno\\ArduinoSTL\\src\\ios.cpp",
+        "output": ".pio\\build\\uno\\libb32\\ArduinoSTL\\ios.cpp.o"
+    },
+    {
+        "command": "C:\\Users\\TJakobiec\\.platformio\\packages\\toolchain-atmelavr\\bin\\avr-g++.exe -o .pio\\build\\uno\\libb32\\ArduinoSTL\\iostream.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60115 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -I.pio\\libdeps\\uno\\ArduinoSTL\\src -IC:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\cores\\arduino -IC:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\variants\\standard .pio\\libdeps\\uno\\ArduinoSTL\\src\\iostream.cpp",
+        "directory": "C:\\Users\\TJakobiec\\Documents\\PlatformIO\\Projects\\AdwancedClock01",
+        "file": ".pio\\libdeps\\uno\\ArduinoSTL\\src\\iostream.cpp",
+        "output": ".pio\\build\\uno\\libb32\\ArduinoSTL\\iostream.cpp.o"
+    },
+    {
+        "command": "C:\\Users\\TJakobiec\\.platformio\\packages\\toolchain-atmelavr\\bin\\avr-g++.exe -o .pio\\build\\uno\\libb32\\ArduinoSTL\\istream.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60115 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -I.pio\\libdeps\\uno\\ArduinoSTL\\src -IC:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\cores\\arduino -IC:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\variants\\standard .pio\\libdeps\\uno\\ArduinoSTL\\src\\istream.cpp",
+        "directory": "C:\\Users\\TJakobiec\\Documents\\PlatformIO\\Projects\\AdwancedClock01",
+        "file": ".pio\\libdeps\\uno\\ArduinoSTL\\src\\istream.cpp",
+        "output": ".pio\\build\\uno\\libb32\\ArduinoSTL\\istream.cpp.o"
+    },
+    {
+        "command": "C:\\Users\\TJakobiec\\.platformio\\packages\\toolchain-atmelavr\\bin\\avr-g++.exe -o .pio\\build\\uno\\libb32\\ArduinoSTL\\iterator.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60115 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -I.pio\\libdeps\\uno\\ArduinoSTL\\src -IC:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\cores\\arduino -IC:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\variants\\standard .pio\\libdeps\\uno\\ArduinoSTL\\src\\iterator.cpp",
+        "directory": "C:\\Users\\TJakobiec\\Documents\\PlatformIO\\Projects\\AdwancedClock01",
+        "file": ".pio\\libdeps\\uno\\ArduinoSTL\\src\\iterator.cpp",
+        "output": ".pio\\build\\uno\\libb32\\ArduinoSTL\\iterator.cpp.o"
+    },
+    {
+        "command": "C:\\Users\\TJakobiec\\.platformio\\packages\\toolchain-atmelavr\\bin\\avr-g++.exe -o .pio\\build\\uno\\libb32\\ArduinoSTL\\limits.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60115 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -I.pio\\libdeps\\uno\\ArduinoSTL\\src -IC:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\cores\\arduino -IC:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\variants\\standard .pio\\libdeps\\uno\\ArduinoSTL\\src\\limits.cpp",
+        "directory": "C:\\Users\\TJakobiec\\Documents\\PlatformIO\\Projects\\AdwancedClock01",
+        "file": ".pio\\libdeps\\uno\\ArduinoSTL\\src\\limits.cpp",
+        "output": ".pio\\build\\uno\\libb32\\ArduinoSTL\\limits.cpp.o"
+    },
+    {
+        "command": "C:\\Users\\TJakobiec\\.platformio\\packages\\toolchain-atmelavr\\bin\\avr-g++.exe -o .pio\\build\\uno\\libb32\\ArduinoSTL\\list.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60115 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -I.pio\\libdeps\\uno\\ArduinoSTL\\src -IC:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\cores\\arduino -IC:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\variants\\standard .pio\\libdeps\\uno\\ArduinoSTL\\src\\list.cpp",
+        "directory": "C:\\Users\\TJakobiec\\Documents\\PlatformIO\\Projects\\AdwancedClock01",
+        "file": ".pio\\libdeps\\uno\\ArduinoSTL\\src\\list.cpp",
+        "output": ".pio\\build\\uno\\libb32\\ArduinoSTL\\list.cpp.o"
+    },
+    {
+        "command": "C:\\Users\\TJakobiec\\.platformio\\packages\\toolchain-atmelavr\\bin\\avr-g++.exe -o .pio\\build\\uno\\libb32\\ArduinoSTL\\locale.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60115 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -I.pio\\libdeps\\uno\\ArduinoSTL\\src -IC:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\cores\\arduino -IC:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\variants\\standard .pio\\libdeps\\uno\\ArduinoSTL\\src\\locale.cpp",
+        "directory": "C:\\Users\\TJakobiec\\Documents\\PlatformIO\\Projects\\AdwancedClock01",
+        "file": ".pio\\libdeps\\uno\\ArduinoSTL\\src\\locale.cpp",
+        "output": ".pio\\build\\uno\\libb32\\ArduinoSTL\\locale.cpp.o"
+    },
+    {
+        "command": "C:\\Users\\TJakobiec\\.platformio\\packages\\toolchain-atmelavr\\bin\\avr-g++.exe -o .pio\\build\\uno\\libb32\\ArduinoSTL\\map.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60115 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -I.pio\\libdeps\\uno\\ArduinoSTL\\src -IC:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\cores\\arduino -IC:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\variants\\standard .pio\\libdeps\\uno\\ArduinoSTL\\src\\map.cpp",
+        "directory": "C:\\Users\\TJakobiec\\Documents\\PlatformIO\\Projects\\AdwancedClock01",
+        "file": ".pio\\libdeps\\uno\\ArduinoSTL\\src\\map.cpp",
+        "output": ".pio\\build\\uno\\libb32\\ArduinoSTL\\map.cpp.o"
+    },
+    {
+        "command": "C:\\Users\\TJakobiec\\.platformio\\packages\\toolchain-atmelavr\\bin\\avr-g++.exe -o .pio\\build\\uno\\libb32\\ArduinoSTL\\new_handler.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60115 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -I.pio\\libdeps\\uno\\ArduinoSTL\\src -IC:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\cores\\arduino -IC:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\variants\\standard .pio\\libdeps\\uno\\ArduinoSTL\\src\\new_handler.cpp",
+        "directory": "C:\\Users\\TJakobiec\\Documents\\PlatformIO\\Projects\\AdwancedClock01",
+        "file": ".pio\\libdeps\\uno\\ArduinoSTL\\src\\new_handler.cpp",
+        "output": ".pio\\build\\uno\\libb32\\ArduinoSTL\\new_handler.cpp.o"
+    },
+    {
+        "command": "C:\\Users\\TJakobiec\\.platformio\\packages\\toolchain-atmelavr\\bin\\avr-g++.exe -o .pio\\build\\uno\\libb32\\ArduinoSTL\\new_op.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60115 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -I.pio\\libdeps\\uno\\ArduinoSTL\\src -IC:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\cores\\arduino -IC:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\variants\\standard .pio\\libdeps\\uno\\ArduinoSTL\\src\\new_op.cpp",
+        "directory": "C:\\Users\\TJakobiec\\Documents\\PlatformIO\\Projects\\AdwancedClock01",
+        "file": ".pio\\libdeps\\uno\\ArduinoSTL\\src\\new_op.cpp",
+        "output": ".pio\\build\\uno\\libb32\\ArduinoSTL\\new_op.cpp.o"
+    },
+    {
+        "command": "C:\\Users\\TJakobiec\\.platformio\\packages\\toolchain-atmelavr\\bin\\avr-g++.exe -o .pio\\build\\uno\\libb32\\ArduinoSTL\\new_opnt.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60115 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -I.pio\\libdeps\\uno\\ArduinoSTL\\src -IC:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\cores\\arduino -IC:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\variants\\standard .pio\\libdeps\\uno\\ArduinoSTL\\src\\new_opnt.cpp",
+        "directory": "C:\\Users\\TJakobiec\\Documents\\PlatformIO\\Projects\\AdwancedClock01",
+        "file": ".pio\\libdeps\\uno\\ArduinoSTL\\src\\new_opnt.cpp",
+        "output": ".pio\\build\\uno\\libb32\\ArduinoSTL\\new_opnt.cpp.o"
+    },
+    {
+        "command": "C:\\Users\\TJakobiec\\.platformio\\packages\\toolchain-atmelavr\\bin\\avr-g++.exe -o .pio\\build\\uno\\libb32\\ArduinoSTL\\new_opv.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60115 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -I.pio\\libdeps\\uno\\ArduinoSTL\\src -IC:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\cores\\arduino -IC:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\variants\\standard .pio\\libdeps\\uno\\ArduinoSTL\\src\\new_opv.cpp",
+        "directory": "C:\\Users\\TJakobiec\\Documents\\PlatformIO\\Projects\\AdwancedClock01",
+        "file": ".pio\\libdeps\\uno\\ArduinoSTL\\src\\new_opv.cpp",
+        "output": ".pio\\build\\uno\\libb32\\ArduinoSTL\\new_opv.cpp.o"
+    },
+    {
+        "command": "C:\\Users\\TJakobiec\\.platformio\\packages\\toolchain-atmelavr\\bin\\avr-g++.exe -o .pio\\build\\uno\\libb32\\ArduinoSTL\\new_opvnt.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60115 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -I.pio\\libdeps\\uno\\ArduinoSTL\\src -IC:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\cores\\arduino -IC:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\variants\\standard .pio\\libdeps\\uno\\ArduinoSTL\\src\\new_opvnt.cpp",
+        "directory": "C:\\Users\\TJakobiec\\Documents\\PlatformIO\\Projects\\AdwancedClock01",
+        "file": ".pio\\libdeps\\uno\\ArduinoSTL\\src\\new_opvnt.cpp",
+        "output": ".pio\\build\\uno\\libb32\\ArduinoSTL\\new_opvnt.cpp.o"
+    },
+    {
+        "command": "C:\\Users\\TJakobiec\\.platformio\\packages\\toolchain-atmelavr\\bin\\avr-g++.exe -o .pio\\build\\uno\\libb32\\ArduinoSTL\\numeric.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60115 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -I.pio\\libdeps\\uno\\ArduinoSTL\\src -IC:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\cores\\arduino -IC:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\variants\\standard .pio\\libdeps\\uno\\ArduinoSTL\\src\\numeric.cpp",
+        "directory": "C:\\Users\\TJakobiec\\Documents\\PlatformIO\\Projects\\AdwancedClock01",
+        "file": ".pio\\libdeps\\uno\\ArduinoSTL\\src\\numeric.cpp",
+        "output": ".pio\\build\\uno\\libb32\\ArduinoSTL\\numeric.cpp.o"
+    },
+    {
+        "command": "C:\\Users\\TJakobiec\\.platformio\\packages\\toolchain-atmelavr\\bin\\avr-g++.exe -o .pio\\build\\uno\\libb32\\ArduinoSTL\\ostream.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60115 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -I.pio\\libdeps\\uno\\ArduinoSTL\\src -IC:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\cores\\arduino -IC:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\variants\\standard .pio\\libdeps\\uno\\ArduinoSTL\\src\\ostream.cpp",
+        "directory": "C:\\Users\\TJakobiec\\Documents\\PlatformIO\\Projects\\AdwancedClock01",
+        "file": ".pio\\libdeps\\uno\\ArduinoSTL\\src\\ostream.cpp",
+        "output": ".pio\\build\\uno\\libb32\\ArduinoSTL\\ostream.cpp.o"
+    },
+    {
+        "command": "C:\\Users\\TJakobiec\\.platformio\\packages\\toolchain-atmelavr\\bin\\avr-g++.exe -o .pio\\build\\uno\\libb32\\ArduinoSTL\\ostream_helpers.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60115 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -I.pio\\libdeps\\uno\\ArduinoSTL\\src -IC:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\cores\\arduino -IC:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\variants\\standard .pio\\libdeps\\uno\\ArduinoSTL\\src\\ostream_helpers.cpp",
+        "directory": "C:\\Users\\TJakobiec\\Documents\\PlatformIO\\Projects\\AdwancedClock01",
+        "file": ".pio\\libdeps\\uno\\ArduinoSTL\\src\\ostream_helpers.cpp",
+        "output": ".pio\\build\\uno\\libb32\\ArduinoSTL\\ostream_helpers.cpp.o"
+    },
+    {
+        "command": "C:\\Users\\TJakobiec\\.platformio\\packages\\toolchain-atmelavr\\bin\\avr-g++.exe -o .pio\\build\\uno\\libb32\\ArduinoSTL\\queue.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60115 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -I.pio\\libdeps\\uno\\ArduinoSTL\\src -IC:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\cores\\arduino -IC:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\variants\\standard .pio\\libdeps\\uno\\ArduinoSTL\\src\\queue.cpp",
+        "directory": "C:\\Users\\TJakobiec\\Documents\\PlatformIO\\Projects\\AdwancedClock01",
+        "file": ".pio\\libdeps\\uno\\ArduinoSTL\\src\\queue.cpp",
+        "output": ".pio\\build\\uno\\libb32\\ArduinoSTL\\queue.cpp.o"
+    },
+    {
+        "command": "C:\\Users\\TJakobiec\\.platformio\\packages\\toolchain-atmelavr\\bin\\avr-g++.exe -o .pio\\build\\uno\\libb32\\ArduinoSTL\\set.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60115 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -I.pio\\libdeps\\uno\\ArduinoSTL\\src -IC:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\cores\\arduino -IC:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\variants\\standard .pio\\libdeps\\uno\\ArduinoSTL\\src\\set.cpp",
+        "directory": "C:\\Users\\TJakobiec\\Documents\\PlatformIO\\Projects\\AdwancedClock01",
+        "file": ".pio\\libdeps\\uno\\ArduinoSTL\\src\\set.cpp",
+        "output": ".pio\\build\\uno\\libb32\\ArduinoSTL\\set.cpp.o"
+    },
+    {
+        "command": "C:\\Users\\TJakobiec\\.platformio\\packages\\toolchain-atmelavr\\bin\\avr-g++.exe -o .pio\\build\\uno\\libb32\\ArduinoSTL\\sstream.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60115 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -I.pio\\libdeps\\uno\\ArduinoSTL\\src -IC:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\cores\\arduino -IC:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\variants\\standard .pio\\libdeps\\uno\\ArduinoSTL\\src\\sstream.cpp",
+        "directory": "C:\\Users\\TJakobiec\\Documents\\PlatformIO\\Projects\\AdwancedClock01",
+        "file": ".pio\\libdeps\\uno\\ArduinoSTL\\src\\sstream.cpp",
+        "output": ".pio\\build\\uno\\libb32\\ArduinoSTL\\sstream.cpp.o"
+    },
+    {
+        "command": "C:\\Users\\TJakobiec\\.platformio\\packages\\toolchain-atmelavr\\bin\\avr-g++.exe -o .pio\\build\\uno\\libb32\\ArduinoSTL\\stack.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60115 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -I.pio\\libdeps\\uno\\ArduinoSTL\\src -IC:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\cores\\arduino -IC:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\variants\\standard .pio\\libdeps\\uno\\ArduinoSTL\\src\\stack.cpp",
+        "directory": "C:\\Users\\TJakobiec\\Documents\\PlatformIO\\Projects\\AdwancedClock01",
+        "file": ".pio\\libdeps\\uno\\ArduinoSTL\\src\\stack.cpp",
+        "output": ".pio\\build\\uno\\libb32\\ArduinoSTL\\stack.cpp.o"
+    },
+    {
+        "command": "C:\\Users\\TJakobiec\\.platformio\\packages\\toolchain-atmelavr\\bin\\avr-g++.exe -o .pio\\build\\uno\\libb32\\ArduinoSTL\\stdexcept.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60115 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -I.pio\\libdeps\\uno\\ArduinoSTL\\src -IC:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\cores\\arduino -IC:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\variants\\standard .pio\\libdeps\\uno\\ArduinoSTL\\src\\stdexcept.cpp",
+        "directory": "C:\\Users\\TJakobiec\\Documents\\PlatformIO\\Projects\\AdwancedClock01",
+        "file": ".pio\\libdeps\\uno\\ArduinoSTL\\src\\stdexcept.cpp",
+        "output": ".pio\\build\\uno\\libb32\\ArduinoSTL\\stdexcept.cpp.o"
+    },
+    {
+        "command": "C:\\Users\\TJakobiec\\.platformio\\packages\\toolchain-atmelavr\\bin\\avr-g++.exe -o .pio\\build\\uno\\libb32\\ArduinoSTL\\streambuf.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60115 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -I.pio\\libdeps\\uno\\ArduinoSTL\\src -IC:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\cores\\arduino -IC:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\variants\\standard .pio\\libdeps\\uno\\ArduinoSTL\\src\\streambuf.cpp",
+        "directory": "C:\\Users\\TJakobiec\\Documents\\PlatformIO\\Projects\\AdwancedClock01",
+        "file": ".pio\\libdeps\\uno\\ArduinoSTL\\src\\streambuf.cpp",
+        "output": ".pio\\build\\uno\\libb32\\ArduinoSTL\\streambuf.cpp.o"
+    },
+    {
+        "command": "C:\\Users\\TJakobiec\\.platformio\\packages\\toolchain-atmelavr\\bin\\avr-g++.exe -o .pio\\build\\uno\\libb32\\ArduinoSTL\\string.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60115 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -I.pio\\libdeps\\uno\\ArduinoSTL\\src -IC:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\cores\\arduino -IC:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\variants\\standard .pio\\libdeps\\uno\\ArduinoSTL\\src\\string.cpp",
+        "directory": "C:\\Users\\TJakobiec\\Documents\\PlatformIO\\Projects\\AdwancedClock01",
+        "file": ".pio\\libdeps\\uno\\ArduinoSTL\\src\\string.cpp",
+        "output": ".pio\\build\\uno\\libb32\\ArduinoSTL\\string.cpp.o"
+    },
+    {
+        "command": "C:\\Users\\TJakobiec\\.platformio\\packages\\toolchain-atmelavr\\bin\\avr-g++.exe -o .pio\\build\\uno\\libb32\\ArduinoSTL\\support.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60115 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -I.pio\\libdeps\\uno\\ArduinoSTL\\src -IC:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\cores\\arduino -IC:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\variants\\standard .pio\\libdeps\\uno\\ArduinoSTL\\src\\support.cpp",
+        "directory": "C:\\Users\\TJakobiec\\Documents\\PlatformIO\\Projects\\AdwancedClock01",
+        "file": ".pio\\libdeps\\uno\\ArduinoSTL\\src\\support.cpp",
+        "output": ".pio\\build\\uno\\libb32\\ArduinoSTL\\support.cpp.o"
+    },
+    {
+        "command": "C:\\Users\\TJakobiec\\.platformio\\packages\\toolchain-atmelavr\\bin\\avr-g++.exe -o .pio\\build\\uno\\libb32\\ArduinoSTL\\typeinfo.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60115 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -I.pio\\libdeps\\uno\\ArduinoSTL\\src -IC:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\cores\\arduino -IC:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\variants\\standard .pio\\libdeps\\uno\\ArduinoSTL\\src\\typeinfo.cpp",
+        "directory": "C:\\Users\\TJakobiec\\Documents\\PlatformIO\\Projects\\AdwancedClock01",
+        "file": ".pio\\libdeps\\uno\\ArduinoSTL\\src\\typeinfo.cpp",
+        "output": ".pio\\build\\uno\\libb32\\ArduinoSTL\\typeinfo.cpp.o"
+    },
+    {
+        "command": "C:\\Users\\TJakobiec\\.platformio\\packages\\toolchain-atmelavr\\bin\\avr-g++.exe -o .pio\\build\\uno\\libb32\\ArduinoSTL\\utility.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60115 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -I.pio\\libdeps\\uno\\ArduinoSTL\\src -IC:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\cores\\arduino -IC:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\variants\\standard .pio\\libdeps\\uno\\ArduinoSTL\\src\\utility.cpp",
+        "directory": "C:\\Users\\TJakobiec\\Documents\\PlatformIO\\Projects\\AdwancedClock01",
+        "file": ".pio\\libdeps\\uno\\ArduinoSTL\\src\\utility.cpp",
+        "output": ".pio\\build\\uno\\libb32\\ArduinoSTL\\utility.cpp.o"
+    },
+    {
+        "command": "C:\\Users\\TJakobiec\\.platformio\\packages\\toolchain-atmelavr\\bin\\avr-g++.exe -o .pio\\build\\uno\\libb32\\ArduinoSTL\\valarray.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60115 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -I.pio\\libdeps\\uno\\ArduinoSTL\\src -IC:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\cores\\arduino -IC:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\variants\\standard .pio\\libdeps\\uno\\ArduinoSTL\\src\\valarray.cpp",
+        "directory": "C:\\Users\\TJakobiec\\Documents\\PlatformIO\\Projects\\AdwancedClock01",
+        "file": ".pio\\libdeps\\uno\\ArduinoSTL\\src\\valarray.cpp",
+        "output": ".pio\\build\\uno\\libb32\\ArduinoSTL\\valarray.cpp.o"
+    },
+    {
+        "command": "C:\\Users\\TJakobiec\\.platformio\\packages\\toolchain-atmelavr\\bin\\avr-g++.exe -o .pio\\build\\uno\\libb32\\ArduinoSTL\\vector.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60115 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -I.pio\\libdeps\\uno\\ArduinoSTL\\src -IC:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\cores\\arduino -IC:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\variants\\standard .pio\\libdeps\\uno\\ArduinoSTL\\src\\vector.cpp",
+        "directory": "C:\\Users\\TJakobiec\\Documents\\PlatformIO\\Projects\\AdwancedClock01",
+        "file": ".pio\\libdeps\\uno\\ArduinoSTL\\src\\vector.cpp",
+        "output": ".pio\\build\\uno\\libb32\\ArduinoSTL\\vector.cpp.o"
+    },
+    {
+        "command": "C:\\Users\\TJakobiec\\.platformio\\packages\\toolchain-atmelavr\\bin\\avr-g++.exe -o .pio\\build\\uno\\lib5f7\\Wire\\Wire.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60115 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -IC:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\libraries\\Wire\\src -IC:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\cores\\arduino -IC:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\variants\\standard C:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\libraries\\Wire\\src\\Wire.cpp",
+        "directory": "C:\\Users\\TJakobiec\\Documents\\PlatformIO\\Projects\\AdwancedClock01",
+        "file": "C:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\libraries\\Wire\\src\\Wire.cpp",
+        "output": ".pio\\build\\uno\\lib5f7\\Wire\\Wire.cpp.o"
+    },
+    {
+        "command": "C:\\Users\\TJakobiec\\.platformio\\packages\\toolchain-atmelavr\\bin\\avr-gcc.exe -o .pio\\build\\uno\\lib5f7\\Wire\\utility\\twi.c.o -c -std=gnu11 -fno-fat-lto-objects -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60115 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -IC:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\libraries\\Wire\\src -IC:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\cores\\arduino -IC:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\variants\\standard C:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\libraries\\Wire\\src\\utility\\twi.c",
+        "directory": "C:\\Users\\TJakobiec\\Documents\\PlatformIO\\Projects\\AdwancedClock01",
+        "file": "C:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\libraries\\Wire\\src\\utility\\twi.c",
+        "output": ".pio\\build\\uno\\lib5f7\\Wire\\utility\\twi.c.o"
+    },
+    {
+        "command": "C:\\Users\\TJakobiec\\.platformio\\packages\\toolchain-atmelavr\\bin\\avr-g++.exe -o .pio\\build\\uno\\lib5f4\\PCF8574\\PCF8574.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60115 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -I.pio\\libdeps\\uno\\PCF8574 -IC:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\libraries\\Wire\\src -IC:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\cores\\arduino -IC:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\variants\\standard .pio\\libdeps\\uno\\PCF8574\\PCF8574.cpp",
+        "directory": "C:\\Users\\TJakobiec\\Documents\\PlatformIO\\Projects\\AdwancedClock01",
+        "file": ".pio\\libdeps\\uno\\PCF8574\\PCF8574.cpp",
+        "output": ".pio\\build\\uno\\lib5f4\\PCF8574\\PCF8574.cpp.o"
+    },
+    {
+        "command": "C:\\Users\\TJakobiec\\.platformio\\packages\\toolchain-atmelavr\\bin\\avr-g++.exe -o .pio\\build\\uno\\src\\Controller\\KeyboardController.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60115 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -Iinclude -Isrc -I.pio\\libdeps\\uno\\PCF8574 -IC:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\libraries\\Wire\\src -I.pio\\libdeps\\uno\\ArduinoSTL\\src -I.pio\\libdeps\\uno\\RTC\\src -I.pio\\libdeps\\uno\\LiquidCrystal\\src -I.pio\\libdeps\\uno\\ArduinoThread -IC:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\cores\\arduino -IC:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\variants\\standard src\\Controller\\KeyboardController.cpp",
+        "directory": "C:\\Users\\TJakobiec\\Documents\\PlatformIO\\Projects\\AdwancedClock01",
+        "file": "src\\Controller\\KeyboardController.cpp",
+        "output": ".pio\\build\\uno\\src\\Controller\\KeyboardController.cpp.o"
+    },
+    {
+        "command": "C:\\Users\\TJakobiec\\.platformio\\packages\\toolchain-atmelavr\\bin\\avr-g++.exe -o .pio\\build\\uno\\src\\Controller\\ModuleController.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60115 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -Iinclude -Isrc -I.pio\\libdeps\\uno\\PCF8574 -IC:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\libraries\\Wire\\src -I.pio\\libdeps\\uno\\ArduinoSTL\\src -I.pio\\libdeps\\uno\\RTC\\src -I.pio\\libdeps\\uno\\LiquidCrystal\\src -I.pio\\libdeps\\uno\\ArduinoThread -IC:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\cores\\arduino -IC:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\variants\\standard src\\Controller\\ModuleController.cpp",
+        "directory": "C:\\Users\\TJakobiec\\Documents\\PlatformIO\\Projects\\AdwancedClock01",
+        "file": "src\\Controller\\ModuleController.cpp",
+        "output": ".pio\\build\\uno\\src\\Controller\\ModuleController.cpp.o"
+    },
+    {
+        "command": "C:\\Users\\TJakobiec\\.platformio\\packages\\toolchain-atmelavr\\bin\\avr-g++.exe -o .pio\\build\\uno\\src\\Controller\\States\\StateAlarmSettings.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60115 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -Iinclude -Isrc -I.pio\\libdeps\\uno\\PCF8574 -IC:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\libraries\\Wire\\src -I.pio\\libdeps\\uno\\ArduinoSTL\\src -I.pio\\libdeps\\uno\\RTC\\src -I.pio\\libdeps\\uno\\LiquidCrystal\\src -I.pio\\libdeps\\uno\\ArduinoThread -IC:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\cores\\arduino -IC:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\variants\\standard src\\Controller\\States\\StateAlarmSettings.cpp",
+        "directory": "C:\\Users\\TJakobiec\\Documents\\PlatformIO\\Projects\\AdwancedClock01",
+        "file": "src\\Controller\\States\\StateAlarmSettings.cpp",
+        "output": ".pio\\build\\uno\\src\\Controller\\States\\StateAlarmSettings.cpp.o"
+    },
+    {
+        "command": "C:\\Users\\TJakobiec\\.platformio\\packages\\toolchain-atmelavr\\bin\\avr-g++.exe -o .pio\\build\\uno\\src\\Controller\\States\\StateAlarmSettingsConfirmation.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60115 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -Iinclude -Isrc -I.pio\\libdeps\\uno\\PCF8574 -IC:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\libraries\\Wire\\src -I.pio\\libdeps\\uno\\ArduinoSTL\\src -I.pio\\libdeps\\uno\\RTC\\src -I.pio\\libdeps\\uno\\LiquidCrystal\\src -I.pio\\libdeps\\uno\\ArduinoThread -IC:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\cores\\arduino -IC:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\variants\\standard src\\Controller\\States\\StateAlarmSettingsConfirmation.cpp",
+        "directory": "C:\\Users\\TJakobiec\\Documents\\PlatformIO\\Projects\\AdwancedClock01",
+        "file": "src\\Controller\\States\\StateAlarmSettingsConfirmation.cpp",
+        "output": ".pio\\build\\uno\\src\\Controller\\States\\StateAlarmSettingsConfirmation.cpp.o"
+    },
+    {
+        "command": "C:\\Users\\TJakobiec\\.platformio\\packages\\toolchain-atmelavr\\bin\\avr-g++.exe -o .pio\\build\\uno\\src\\Controller\\States\\StateBase.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60115 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -Iinclude -Isrc -I.pio\\libdeps\\uno\\PCF8574 -IC:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\libraries\\Wire\\src -I.pio\\libdeps\\uno\\ArduinoSTL\\src -I.pio\\libdeps\\uno\\RTC\\src -I.pio\\libdeps\\uno\\LiquidCrystal\\src -I.pio\\libdeps\\uno\\ArduinoThread -IC:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\cores\\arduino -IC:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\variants\\standard src\\Controller\\States\\StateBase.cpp",
+        "directory": "C:\\Users\\TJakobiec\\Documents\\PlatformIO\\Projects\\AdwancedClock01",
+        "file": "src\\Controller\\States\\StateBase.cpp",
+        "output": ".pio\\build\\uno\\src\\Controller\\States\\StateBase.cpp.o"
+    },
+    {
+        "command": "C:\\Users\\TJakobiec\\.platformio\\packages\\toolchain-atmelavr\\bin\\avr-g++.exe -o .pio\\build\\uno\\src\\Controller\\States\\StateDisplayAlarmsStatus.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60115 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -Iinclude -Isrc -I.pio\\libdeps\\uno\\PCF8574 -IC:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\libraries\\Wire\\src -I.pio\\libdeps\\uno\\ArduinoSTL\\src -I.pio\\libdeps\\uno\\RTC\\src -I.pio\\libdeps\\uno\\LiquidCrystal\\src -I.pio\\libdeps\\uno\\ArduinoThread -IC:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\cores\\arduino -IC:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\variants\\standard src\\Controller\\States\\StateDisplayAlarmsStatus.cpp",
+        "directory": "C:\\Users\\TJakobiec\\Documents\\PlatformIO\\Projects\\AdwancedClock01",
+        "file": "src\\Controller\\States\\StateDisplayAlarmsStatus.cpp",
+        "output": ".pio\\build\\uno\\src\\Controller\\States\\StateDisplayAlarmsStatus.cpp.o"
+    },
+    {
+        "command": "C:\\Users\\TJakobiec\\.platformio\\packages\\toolchain-atmelavr\\bin\\avr-g++.exe -o .pio\\build\\uno\\src\\Controller\\States\\StateDisplayingMenuSetAlarms.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60115 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -Iinclude -Isrc -I.pio\\libdeps\\uno\\PCF8574 -IC:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\libraries\\Wire\\src -I.pio\\libdeps\\uno\\ArduinoSTL\\src -I.pio\\libdeps\\uno\\RTC\\src -I.pio\\libdeps\\uno\\LiquidCrystal\\src -I.pio\\libdeps\\uno\\ArduinoThread -IC:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\cores\\arduino -IC:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\variants\\standard src\\Controller\\States\\StateDisplayingMenuSetAlarms.cpp",
+        "directory": "C:\\Users\\TJakobiec\\Documents\\PlatformIO\\Projects\\AdwancedClock01",
+        "file": "src\\Controller\\States\\StateDisplayingMenuSetAlarms.cpp",
+        "output": ".pio\\build\\uno\\src\\Controller\\States\\StateDisplayingMenuSetAlarms.cpp.o"
+    },
+    {
+        "command": "C:\\Users\\TJakobiec\\.platformio\\packages\\toolchain-atmelavr\\bin\\avr-g++.exe -o .pio\\build\\uno\\src\\Controller\\States\\StateDisplayingMenuSetDate.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60115 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -Iinclude -Isrc -I.pio\\libdeps\\uno\\PCF8574 -IC:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\libraries\\Wire\\src -I.pio\\libdeps\\uno\\ArduinoSTL\\src -I.pio\\libdeps\\uno\\RTC\\src -I.pio\\libdeps\\uno\\LiquidCrystal\\src -I.pio\\libdeps\\uno\\ArduinoThread -IC:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\cores\\arduino -IC:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\variants\\standard src\\Controller\\States\\StateDisplayingMenuSetDate.cpp",
+        "directory": "C:\\Users\\TJakobiec\\Documents\\PlatformIO\\Projects\\AdwancedClock01",
+        "file": "src\\Controller\\States\\StateDisplayingMenuSetDate.cpp",
+        "output": ".pio\\build\\uno\\src\\Controller\\States\\StateDisplayingMenuSetDate.cpp.o"
+    },
+    {
+        "command": "C:\\Users\\TJakobiec\\.platformio\\packages\\toolchain-atmelavr\\bin\\avr-g++.exe -o .pio\\build\\uno\\src\\Controller\\States\\StateDisplayingMenuSetExit.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60115 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -Iinclude -Isrc -I.pio\\libdeps\\uno\\PCF8574 -IC:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\libraries\\Wire\\src -I.pio\\libdeps\\uno\\ArduinoSTL\\src -I.pio\\libdeps\\uno\\RTC\\src -I.pio\\libdeps\\uno\\LiquidCrystal\\src -I.pio\\libdeps\\uno\\ArduinoThread -IC:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\cores\\arduino -IC:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\variants\\standard src\\Controller\\States\\StateDisplayingMenuSetExit.cpp",
+        "directory": "C:\\Users\\TJakobiec\\Documents\\PlatformIO\\Projects\\AdwancedClock01",
+        "file": "src\\Controller\\States\\StateDisplayingMenuSetExit.cpp",
+        "output": ".pio\\build\\uno\\src\\Controller\\States\\StateDisplayingMenuSetExit.cpp.o"
+    },
+    {
+        "command": "C:\\Users\\TJakobiec\\.platformio\\packages\\toolchain-atmelavr\\bin\\avr-g++.exe -o .pio\\build\\uno\\src\\Controller\\States\\StateDisplayingMenuSetTime.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60115 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -Iinclude -Isrc -I.pio\\libdeps\\uno\\PCF8574 -IC:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\libraries\\Wire\\src -I.pio\\libdeps\\uno\\ArduinoSTL\\src -I.pio\\libdeps\\uno\\RTC\\src -I.pio\\libdeps\\uno\\LiquidCrystal\\src -I.pio\\libdeps\\uno\\ArduinoThread -IC:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\cores\\arduino -IC:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\variants\\standard src\\Controller\\States\\StateDisplayingMenuSetTime.cpp",
+        "directory": "C:\\Users\\TJakobiec\\Documents\\PlatformIO\\Projects\\AdwancedClock01",
+        "file": "src\\Controller\\States\\StateDisplayingMenuSetTime.cpp",
+        "output": ".pio\\build\\uno\\src\\Controller\\States\\StateDisplayingMenuSetTime.cpp.o"
+    },
+    {
+        "command": "C:\\Users\\TJakobiec\\.platformio\\packages\\toolchain-atmelavr\\bin\\avr-g++.exe -o .pio\\build\\uno\\src\\Controller\\States\\StateDisplayingTime.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60115 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -Iinclude -Isrc -I.pio\\libdeps\\uno\\PCF8574 -IC:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\libraries\\Wire\\src -I.pio\\libdeps\\uno\\ArduinoSTL\\src -I.pio\\libdeps\\uno\\RTC\\src -I.pio\\libdeps\\uno\\LiquidCrystal\\src -I.pio\\libdeps\\uno\\ArduinoThread -IC:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\cores\\arduino -IC:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\variants\\standard src\\Controller\\States\\StateDisplayingTime.cpp",
+        "directory": "C:\\Users\\TJakobiec\\Documents\\PlatformIO\\Projects\\AdwancedClock01",
+        "file": "src\\Controller\\States\\StateDisplayingTime.cpp",
+        "output": ".pio\\build\\uno\\src\\Controller\\States\\StateDisplayingTime.cpp.o"
+    },
+    {
+        "command": "C:\\Users\\TJakobiec\\.platformio\\packages\\toolchain-atmelavr\\bin\\avr-g++.exe -o .pio\\build\\uno\\src\\Controller\\States\\StateNewDateConfirmation.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60115 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -Iinclude -Isrc -I.pio\\libdeps\\uno\\PCF8574 -IC:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\libraries\\Wire\\src -I.pio\\libdeps\\uno\\ArduinoSTL\\src -I.pio\\libdeps\\uno\\RTC\\src -I.pio\\libdeps\\uno\\LiquidCrystal\\src -I.pio\\libdeps\\uno\\ArduinoThread -IC:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\cores\\arduino -IC:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\variants\\standard src\\Controller\\States\\StateNewDateConfirmation.cpp",
+        "directory": "C:\\Users\\TJakobiec\\Documents\\PlatformIO\\Projects\\AdwancedClock01",
+        "file": "src\\Controller\\States\\StateNewDateConfirmation.cpp",
+        "output": ".pio\\build\\uno\\src\\Controller\\States\\StateNewDateConfirmation.cpp.o"
+    },
+    {
+        "command": "C:\\Users\\TJakobiec\\.platformio\\packages\\toolchain-atmelavr\\bin\\avr-g++.exe -o .pio\\build\\uno\\src\\Controller\\States\\StateNewDateSetup.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60115 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -Iinclude -Isrc -I.pio\\libdeps\\uno\\PCF8574 -IC:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\libraries\\Wire\\src -I.pio\\libdeps\\uno\\ArduinoSTL\\src -I.pio\\libdeps\\uno\\RTC\\src -I.pio\\libdeps\\uno\\LiquidCrystal\\src -I.pio\\libdeps\\uno\\ArduinoThread -IC:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\cores\\arduino -IC:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\variants\\standard src\\Controller\\States\\StateNewDateSetup.cpp",
+        "directory": "C:\\Users\\TJakobiec\\Documents\\PlatformIO\\Projects\\AdwancedClock01",
+        "file": "src\\Controller\\States\\StateNewDateSetup.cpp",
+        "output": ".pio\\build\\uno\\src\\Controller\\States\\StateNewDateSetup.cpp.o"
+    },
+    {
+        "command": "C:\\Users\\TJakobiec\\.platformio\\packages\\toolchain-atmelavr\\bin\\avr-g++.exe -o .pio\\build\\uno\\src\\Controller\\States\\StateNewTimeConfirmation.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60115 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -Iinclude -Isrc -I.pio\\libdeps\\uno\\PCF8574 -IC:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\libraries\\Wire\\src -I.pio\\libdeps\\uno\\ArduinoSTL\\src -I.pio\\libdeps\\uno\\RTC\\src -I.pio\\libdeps\\uno\\LiquidCrystal\\src -I.pio\\libdeps\\uno\\ArduinoThread -IC:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\cores\\arduino -IC:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\variants\\standard src\\Controller\\States\\StateNewTimeConfirmation.cpp",
+        "directory": "C:\\Users\\TJakobiec\\Documents\\PlatformIO\\Projects\\AdwancedClock01",
+        "file": "src\\Controller\\States\\StateNewTimeConfirmation.cpp",
+        "output": ".pio\\build\\uno\\src\\Controller\\States\\StateNewTimeConfirmation.cpp.o"
+    },
+    {
+        "command": "C:\\Users\\TJakobiec\\.platformio\\packages\\toolchain-atmelavr\\bin\\avr-g++.exe -o .pio\\build\\uno\\src\\Controller\\States\\StateNewTimeSetup.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60115 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -Iinclude -Isrc -I.pio\\libdeps\\uno\\PCF8574 -IC:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\libraries\\Wire\\src -I.pio\\libdeps\\uno\\ArduinoSTL\\src -I.pio\\libdeps\\uno\\RTC\\src -I.pio\\libdeps\\uno\\LiquidCrystal\\src -I.pio\\libdeps\\uno\\ArduinoThread -IC:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\cores\\arduino -IC:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\variants\\standard src\\Controller\\States\\StateNewTimeSetup.cpp",
+        "directory": "C:\\Users\\TJakobiec\\Documents\\PlatformIO\\Projects\\AdwancedClock01",
+        "file": "src\\Controller\\States\\StateNewTimeSetup.cpp",
+        "output": ".pio\\build\\uno\\src\\Controller\\States\\StateNewTimeSetup.cpp.o"
+    },
+    {
+        "command": "C:\\Users\\TJakobiec\\.platformio\\packages\\toolchain-atmelavr\\bin\\avr-g++.exe -o .pio\\build\\uno\\src\\Model\\AlarmLineSettingsStorage.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60115 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -Iinclude -Isrc -I.pio\\libdeps\\uno\\PCF8574 -IC:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\libraries\\Wire\\src -I.pio\\libdeps\\uno\\ArduinoSTL\\src -I.pio\\libdeps\\uno\\RTC\\src -I.pio\\libdeps\\uno\\LiquidCrystal\\src -I.pio\\libdeps\\uno\\ArduinoThread -IC:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\cores\\arduino -IC:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\variants\\standard src\\Model\\AlarmLineSettingsStorage.cpp",
+        "directory": "C:\\Users\\TJakobiec\\Documents\\PlatformIO\\Projects\\AdwancedClock01",
+        "file": "src\\Model\\AlarmLineSettingsStorage.cpp",
+        "output": ".pio\\build\\uno\\src\\Model\\AlarmLineSettingsStorage.cpp.o"
+    },
+    {
+        "command": "C:\\Users\\TJakobiec\\.platformio\\packages\\toolchain-atmelavr\\bin\\avr-g++.exe -o .pio\\build\\uno\\src\\Model\\DateTime.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60115 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -Iinclude -Isrc -I.pio\\libdeps\\uno\\PCF8574 -IC:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\libraries\\Wire\\src -I.pio\\libdeps\\uno\\ArduinoSTL\\src -I.pio\\libdeps\\uno\\RTC\\src -I.pio\\libdeps\\uno\\LiquidCrystal\\src -I.pio\\libdeps\\uno\\ArduinoThread -IC:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\cores\\arduino -IC:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\variants\\standard src\\Model\\DateTime.cpp",
+        "directory": "C:\\Users\\TJakobiec\\Documents\\PlatformIO\\Projects\\AdwancedClock01",
+        "file": "src\\Model\\DateTime.cpp",
+        "output": ".pio\\build\\uno\\src\\Model\\DateTime.cpp.o"
+    },
+    {
+        "command": "C:\\Users\\TJakobiec\\.platformio\\packages\\toolchain-atmelavr\\bin\\avr-g++.exe -o .pio\\build\\uno\\src\\Model\\ModuleModel.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60115 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -Iinclude -Isrc -I.pio\\libdeps\\uno\\PCF8574 -IC:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\libraries\\Wire\\src -I.pio\\libdeps\\uno\\ArduinoSTL\\src -I.pio\\libdeps\\uno\\RTC\\src -I.pio\\libdeps\\uno\\LiquidCrystal\\src -I.pio\\libdeps\\uno\\ArduinoThread -IC:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\cores\\arduino -IC:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\variants\\standard src\\Model\\ModuleModel.cpp",
+        "directory": "C:\\Users\\TJakobiec\\Documents\\PlatformIO\\Projects\\AdwancedClock01",
+        "file": "src\\Model\\ModuleModel.cpp",
+        "output": ".pio\\build\\uno\\src\\Model\\ModuleModel.cpp.o"
+    },
+    {
+        "command": "C:\\Users\\TJakobiec\\.platformio\\packages\\toolchain-atmelavr\\bin\\avr-g++.exe -o .pio\\build\\uno\\src\\ModuleApplication.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60115 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -Iinclude -Isrc -I.pio\\libdeps\\uno\\PCF8574 -IC:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\libraries\\Wire\\src -I.pio\\libdeps\\uno\\ArduinoSTL\\src -I.pio\\libdeps\\uno\\RTC\\src -I.pio\\libdeps\\uno\\LiquidCrystal\\src -I.pio\\libdeps\\uno\\ArduinoThread -IC:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\cores\\arduino -IC:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\variants\\standard src\\ModuleApplication.cpp",
+        "directory": "C:\\Users\\TJakobiec\\Documents\\PlatformIO\\Projects\\AdwancedClock01",
+        "file": "src\\ModuleApplication.cpp",
+        "output": ".pio\\build\\uno\\src\\ModuleApplication.cpp.o"
+    },
+    {
+        "command": "C:\\Users\\TJakobiec\\.platformio\\packages\\toolchain-atmelavr\\bin\\avr-g++.exe -o .pio\\build\\uno\\src\\ModuleApplicationBuilder.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60115 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -Iinclude -Isrc -I.pio\\libdeps\\uno\\PCF8574 -IC:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\libraries\\Wire\\src -I.pio\\libdeps\\uno\\ArduinoSTL\\src -I.pio\\libdeps\\uno\\RTC\\src -I.pio\\libdeps\\uno\\LiquidCrystal\\src -I.pio\\libdeps\\uno\\ArduinoThread -IC:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\cores\\arduino -IC:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\variants\\standard src\\ModuleApplicationBuilder.cpp",
+        "directory": "C:\\Users\\TJakobiec\\Documents\\PlatformIO\\Projects\\AdwancedClock01",
+        "file": "src\\ModuleApplicationBuilder.cpp",
+        "output": ".pio\\build\\uno\\src\\ModuleApplicationBuilder.cpp.o"
+    },
+    {
+        "command": "C:\\Users\\TJakobiec\\.platformio\\packages\\toolchain-atmelavr\\bin\\avr-g++.exe -o .pio\\build\\uno\\src\\Views\\VIewAlarmsStatus.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60115 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -Iinclude -Isrc -I.pio\\libdeps\\uno\\PCF8574 -IC:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\libraries\\Wire\\src -I.pio\\libdeps\\uno\\ArduinoSTL\\src -I.pio\\libdeps\\uno\\RTC\\src -I.pio\\libdeps\\uno\\LiquidCrystal\\src -I.pio\\libdeps\\uno\\ArduinoThread -IC:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\cores\\arduino -IC:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\variants\\standard src\\Views\\VIewAlarmsStatus.cpp",
+        "directory": "C:\\Users\\TJakobiec\\Documents\\PlatformIO\\Projects\\AdwancedClock01",
+        "file": "src\\Views\\VIewAlarmsStatus.cpp",
+        "output": ".pio\\build\\uno\\src\\Views\\VIewAlarmsStatus.cpp.o"
+    },
+    {
+        "command": "C:\\Users\\TJakobiec\\.platformio\\packages\\toolchain-atmelavr\\bin\\avr-g++.exe -o .pio\\build\\uno\\src\\Views\\VIewDateSetup.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60115 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -Iinclude -Isrc -I.pio\\libdeps\\uno\\PCF8574 -IC:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\libraries\\Wire\\src -I.pio\\libdeps\\uno\\ArduinoSTL\\src -I.pio\\libdeps\\uno\\RTC\\src -I.pio\\libdeps\\uno\\LiquidCrystal\\src -I.pio\\libdeps\\uno\\ArduinoThread -IC:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\cores\\arduino -IC:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\variants\\standard src\\Views\\VIewDateSetup.cpp",
+        "directory": "C:\\Users\\TJakobiec\\Documents\\PlatformIO\\Projects\\AdwancedClock01",
+        "file": "src\\Views\\VIewDateSetup.cpp",
+        "output": ".pio\\build\\uno\\src\\Views\\VIewDateSetup.cpp.o"
+    },
+    {
+        "command": "C:\\Users\\TJakobiec\\.platformio\\packages\\toolchain-atmelavr\\bin\\avr-g++.exe -o .pio\\build\\uno\\src\\Views\\ViewAlarmSettings.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60115 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -Iinclude -Isrc -I.pio\\libdeps\\uno\\PCF8574 -IC:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\libraries\\Wire\\src -I.pio\\libdeps\\uno\\ArduinoSTL\\src -I.pio\\libdeps\\uno\\RTC\\src -I.pio\\libdeps\\uno\\LiquidCrystal\\src -I.pio\\libdeps\\uno\\ArduinoThread -IC:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\cores\\arduino -IC:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\variants\\standard src\\Views\\ViewAlarmSettings.cpp",
+        "directory": "C:\\Users\\TJakobiec\\Documents\\PlatformIO\\Projects\\AdwancedClock01",
+        "file": "src\\Views\\ViewAlarmSettings.cpp",
+        "output": ".pio\\build\\uno\\src\\Views\\ViewAlarmSettings.cpp.o"
+    },
+    {
+        "command": "C:\\Users\\TJakobiec\\.platformio\\packages\\toolchain-atmelavr\\bin\\avr-g++.exe -o .pio\\build\\uno\\src\\Views\\ViewBase.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60115 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -Iinclude -Isrc -I.pio\\libdeps\\uno\\PCF8574 -IC:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\libraries\\Wire\\src -I.pio\\libdeps\\uno\\ArduinoSTL\\src -I.pio\\libdeps\\uno\\RTC\\src -I.pio\\libdeps\\uno\\LiquidCrystal\\src -I.pio\\libdeps\\uno\\ArduinoThread -IC:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\cores\\arduino -IC:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\variants\\standard src\\Views\\ViewBase.cpp",
+        "directory": "C:\\Users\\TJakobiec\\Documents\\PlatformIO\\Projects\\AdwancedClock01",
+        "file": "src\\Views\\ViewBase.cpp",
+        "output": ".pio\\build\\uno\\src\\Views\\ViewBase.cpp.o"
+    },
+    {
+        "command": "C:\\Users\\TJakobiec\\.platformio\\packages\\toolchain-atmelavr\\bin\\avr-g++.exe -o .pio\\build\\uno\\src\\Views\\ViewConfirmationQuestion.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60115 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -Iinclude -Isrc -I.pio\\libdeps\\uno\\PCF8574 -IC:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\libraries\\Wire\\src -I.pio\\libdeps\\uno\\ArduinoSTL\\src -I.pio\\libdeps\\uno\\RTC\\src -I.pio\\libdeps\\uno\\LiquidCrystal\\src -I.pio\\libdeps\\uno\\ArduinoThread -IC:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\cores\\arduino -IC:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\variants\\standard src\\Views\\ViewConfirmationQuestion.cpp",
+        "directory": "C:\\Users\\TJakobiec\\Documents\\PlatformIO\\Projects\\AdwancedClock01",
+        "file": "src\\Views\\ViewConfirmationQuestion.cpp",
+        "output": ".pio\\build\\uno\\src\\Views\\ViewConfirmationQuestion.cpp.o"
+    },
+    {
+        "command": "C:\\Users\\TJakobiec\\.platformio\\packages\\toolchain-atmelavr\\bin\\avr-g++.exe -o .pio\\build\\uno\\src\\Views\\ViewMenu.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60115 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -Iinclude -Isrc -I.pio\\libdeps\\uno\\PCF8574 -IC:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\libraries\\Wire\\src -I.pio\\libdeps\\uno\\ArduinoSTL\\src -I.pio\\libdeps\\uno\\RTC\\src -I.pio\\libdeps\\uno\\LiquidCrystal\\src -I.pio\\libdeps\\uno\\ArduinoThread -IC:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\cores\\arduino -IC:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\variants\\standard src\\Views\\ViewMenu.cpp",
+        "directory": "C:\\Users\\TJakobiec\\Documents\\PlatformIO\\Projects\\AdwancedClock01",
+        "file": "src\\Views\\ViewMenu.cpp",
+        "output": ".pio\\build\\uno\\src\\Views\\ViewMenu.cpp.o"
+    },
+    {
+        "command": "C:\\Users\\TJakobiec\\.platformio\\packages\\toolchain-atmelavr\\bin\\avr-g++.exe -o .pio\\build\\uno\\src\\Views\\ViewTime.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60115 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -Iinclude -Isrc -I.pio\\libdeps\\uno\\PCF8574 -IC:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\libraries\\Wire\\src -I.pio\\libdeps\\uno\\ArduinoSTL\\src -I.pio\\libdeps\\uno\\RTC\\src -I.pio\\libdeps\\uno\\LiquidCrystal\\src -I.pio\\libdeps\\uno\\ArduinoThread -IC:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\cores\\arduino -IC:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\variants\\standard src\\Views\\ViewTime.cpp",
+        "directory": "C:\\Users\\TJakobiec\\Documents\\PlatformIO\\Projects\\AdwancedClock01",
+        "file": "src\\Views\\ViewTime.cpp",
+        "output": ".pio\\build\\uno\\src\\Views\\ViewTime.cpp.o"
+    },
+    {
+        "command": "C:\\Users\\TJakobiec\\.platformio\\packages\\toolchain-atmelavr\\bin\\avr-g++.exe -o .pio\\build\\uno\\src\\Views\\ViewTimeSetup.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60115 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -Iinclude -Isrc -I.pio\\libdeps\\uno\\PCF8574 -IC:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\libraries\\Wire\\src -I.pio\\libdeps\\uno\\ArduinoSTL\\src -I.pio\\libdeps\\uno\\RTC\\src -I.pio\\libdeps\\uno\\LiquidCrystal\\src -I.pio\\libdeps\\uno\\ArduinoThread -IC:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\cores\\arduino -IC:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\variants\\standard src\\Views\\ViewTimeSetup.cpp",
+        "directory": "C:\\Users\\TJakobiec\\Documents\\PlatformIO\\Projects\\AdwancedClock01",
+        "file": "src\\Views\\ViewTimeSetup.cpp",
+        "output": ".pio\\build\\uno\\src\\Views\\ViewTimeSetup.cpp.o"
+    },
+    {
+        "command": "C:\\Users\\TJakobiec\\.platformio\\packages\\toolchain-atmelavr\\bin\\avr-g++.exe -o .pio\\build\\uno\\src\\main.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -DPLATFORMIO=60115 -DARDUINO_AVR_UNO -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -Iinclude -Isrc -I.pio\\libdeps\\uno\\PCF8574 -IC:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\libraries\\Wire\\src -I.pio\\libdeps\\uno\\ArduinoSTL\\src -I.pio\\libdeps\\uno\\RTC\\src -I.pio\\libdeps\\uno\\LiquidCrystal\\src -I.pio\\libdeps\\uno\\ArduinoThread -IC:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\cores\\arduino -IC:\\Users\\TJakobiec\\.platformio\\packages\\framework-arduino-avr\\variants\\standard src\\main.cpp",
+        "directory": "C:\\Users\\TJakobiec\\Documents\\PlatformIO\\Projects\\AdwancedClock01",
+        "file": "src\\main.cpp",
+        "output": ".pio\\build\\uno\\src\\main.cpp.o"
+    }
+]

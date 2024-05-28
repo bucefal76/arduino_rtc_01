@@ -4,7 +4,9 @@
 #include "ModuleConfig.hpp"
 #include "Model/AlarmLineFlagTime.hpp"
 
-struct TimeInvariant : protected AlarmLineFlagTime
+// TODO
+
+struct TimeInvariant : public AlarmLineFlagTime
 {
 public:
     TimeInvariant()

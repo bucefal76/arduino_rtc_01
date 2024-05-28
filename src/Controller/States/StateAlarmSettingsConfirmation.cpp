@@ -42,17 +42,19 @@ void StateAlarmSettingsConfirmation::exit()
 
 bool StateAlarmSettingsConfirmation::applySettings()
 {
+    /*
     for (uint8_t alarmCycleIt = 0; alarmCycleIt < ALARMS_NO_OF_CYCLES_PER_LINE; alarmCycleIt++)
     {
-        if (false == m_pModel->setAlarmLineOnTime(m_AlarmLineId, alarmCycleIt, m_OnTime[alarmCycleIt]))
+        if (false == m_pModel->setAlarmLineOnTime(m_AlarmLineId, alarmCycleIt, m_OnTime[m_AlarmLineId][alarmCycleIt]))
         {
             return false;
         }
-        if (false == m_pModel->setAlarmLineOffTime(m_AlarmLineId, alarmCycleIt, m_OffTime[alarmCycleIt]))
+        if (false == m_pModel->setAlarmLineOffTime(m_AlarmLineId, alarmCycleIt, m_OffTime[m_AlarmLineId][alarmCycleIt]))
         {
             return false;
         }
     }
+    */
 
     return true;
 }

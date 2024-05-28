@@ -22,6 +22,22 @@ public:
     virtual bool setAlarmLineOnTime(const uint8_t alarmLineId, const uint8_t cycle, const TimeInvariant &onTime) = 0;
 
     virtual bool setAlarmLineOffTime(const uint8_t alarmLineId, const uint8_t cycle, const TimeInvariant &offTime) = 0;
+
+    virtual void incrementOnHours(const uint8_t alarmLineId, const uint8_t cycle) = 0;
+
+    virtual void decrementOnHours(const uint8_t alarmLineId, const uint8_t cycle) = 0;
+
+    virtual void incrementOnMinutes(const uint8_t alarmLineId, const uint8_t cycle) = 0;
+
+    virtual void decrementOnMinutes(const uint8_t alarmLineId, const uint8_t cycle) = 0;
+
+    virtual void incrementOffHours(const uint8_t alarmLineId, const uint8_t cycle) = 0;
+
+    virtual void decrementOffHours(const uint8_t alarmLineId, const uint8_t cycle) = 0;
+
+    virtual void incrementOffMinutes(const uint8_t alarmLineId, const uint8_t cycle) = 0;
+
+    virtual void decrementOffMinutes(const uint8_t alarmLineId, const uint8_t cycle) = 0;
 };
 
 #endif

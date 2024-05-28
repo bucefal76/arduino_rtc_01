@@ -26,11 +26,7 @@ private:
 protected:
     StateAlarmSettings();
     /// @brief  Id of the currently edited alarm line.
-    static uint8_t m_AlarmLineId;    
-    /// @brief Table with On times for susequential ON/OFF cycles.
-    TimeInvariant m_OnTime[ALARMS_NO_OF_CYCLES_PER_LINE];
-    /// @brief Table with OFF times for susequential ON/OFF cycles.
-    TimeInvariant m_OffTime[ALARMS_NO_OF_CYCLES_PER_LINE];
+    static uint8_t m_AlarmLineId;
 };
 
 #endif

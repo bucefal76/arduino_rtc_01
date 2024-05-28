@@ -1,5 +1,7 @@
 #include "Model/AlarmLineSettingsStorage.hpp"
 
+#include <Arduino.h>
+
 AlarmLineSettingsStorage::AlarmLineSettingsStorage()
 {
     /// temp:
@@ -38,7 +40,7 @@ bool AlarmLineSettingsStorage::saveToEEPROM(const uint8_t alarmLineId)
     return true;
 }
 
-AlarmLineFlagTime AlarmLineSettingsStorage::getOnTimeForCycle(const uint8_t cycle)
+TimeInvariant AlarmLineSettingsStorage::getOnTimeForCycle(const uint8_t cycle)
 {
     if (cycle < ALARMS_NO_OF_CYCLES_PER_LINE)
     {
@@ -46,11 +48,11 @@ AlarmLineFlagTime AlarmLineSettingsStorage::getOnTimeForCycle(const uint8_t cycl
     }
     else
     {
-        return AlarmLineFlagTime();
+        return TimeInvariant();
     }
 }
 
-AlarmLineFlagTime AlarmLineSettingsStorage::getOffTimeForCycle(const uint8_t cycle)
+TimeInvariant AlarmLineSettingsStorage::getOffTimeForCycle(const uint8_t cycle)
 {
     if (cycle < ALARMS_NO_OF_CYCLES_PER_LINE)
     {
@@ -58,20 +60,60 @@ AlarmLineFlagTime AlarmLineSettingsStorage::getOffTimeForCycle(const uint8_t cyc
     }
     else
     {
-        return AlarmLineFlagTime();
+        return TimeInvariant();
     }
 }
 
-bool AlarmLineSettingsStorage::setOnTimeForCycle(const AlarmLineFlagTime onTile, const uint8_t cycle)
+bool AlarmLineSettingsStorage::setOnTimeForCycle(const TimeInvariant onTime, const uint8_t cycle)
 {
-    m_OnTimes[cycle] = onTile;
+    m_OnTimes[cycle] = onTime;
 
     return true;
 }
 
-bool AlarmLineSettingsStorage::setOffTimeForCycle(const AlarmLineFlagTime offTile, const uint8_t cycle)
+bool AlarmLineSettingsStorage::setOffTimeForCycle(const TimeInvariant offTime, const uint8_t cycle)
 {
-    m_OffTimes[cycle] = offTile;
+    m_OffTimes[cycle] = offTime;
 
     return true;
+}
+
+void AlarmLineSettingsStorage::incrementOnHours(const uint8_t cycle)
+{
+    m_OnTimes[cycle].incrementHours();
+}
+
+void AlarmLineSettingsStorage::decrementOnHours(const uint8_t cycle)
+{
+    m_OnTimes[cycle].decrementHours();
+}
+
+void AlarmLineSettingsStorage::incrementOnMinutes(const uint8_t cycle)
+{
+    m_OnTimes[cycle].incrementMinutes();
+}
+
+void AlarmLineSettingsStorage::decrementOnMinutes(const uint8_t cycle)
+{
+    m_OnTimes[cycle].decrementMinutes();
+}
+
+void AlarmLineSettingsStorage::incrementOffHours(const uint8_t cycle)
+{
+    m_OffTimes[cycle].incrementHours();
+}
+
+void AlarmLineSettingsStorage::decrementOffHours(const uint8_t cycle)
+{
+    m_OffTimes[cycle].decrementHours();
+}
+
+void AlarmLineSettingsStorage::incrementOffMinutes(const uint8_t cycle)
+{
+    m_OffTimes[cycle].incrementMinutes();
+}
+
+void AlarmLineSettingsStorage::decrementOffMinutes(const uint8_t cycle)
+{
+    m_OffTimes[cycle].decrementMinutes();
 }

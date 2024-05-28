@@ -4,6 +4,8 @@
 #include "ViewExtendedIf.hpp"
 #include "Views/ViewAlarmSettings.hpp"
 #include "ModuleConfig.hpp"
+#include "ModuleModelIf.hpp"
+#include "ModuleModelStateIf.hpp"
 
 StateAlarmSettings StateAlarmSettings::m_Instance;
 uint8_t StateAlarmSettings::m_AlarmLineId = 0U;
@@ -88,63 +90,65 @@ void StateAlarmSettings::processButton(const KeyboardControllerIf::ButtonCode bu
     {
         if (ViewAlarmSettingsIf::SETUP_ON_HOURS == viewState)
         {
-            m_OnTime[m_CycleId].decrementHours();
+            m_pModel->incrementOnHours(m_AlarmLineId, m_CycleId);
         }
         else if (ViewAlarmSettingsIf::SETUP_ON_MINUTES == viewState)
         {
-            m_OnTime[m_CycleId].decrementMinutes();
+            m_pModel->decrementOnMinutes(m_AlarmLineId, m_CycleId);
         }
         else if (ViewAlarmSettingsIf::SETUP_OFF_HOURS == viewState)
         {
-            m_OffTime[m_CycleId].decrementHours();
+            m_pModel->decrementOffHours(m_AlarmLineId, m_CycleId);
         }
         else if (ViewAlarmSettingsIf::SETUP_OFF_MINUTES == viewState)
         {
-            m_OffTime[m_CycleId].decrementMinutes();
+            m_pModel->decrementOffMinutes(m_AlarmLineId, m_CycleId);
         }
     }
     else if (KeyboardControllerIf::ButtonCode::BUTTON_CODE_UP == button)
     {
         if (ViewAlarmSettingsIf::SETUP_ON_HOURS == viewState)
         {
-            m_OnTime[m_CycleId].incrementHours();
+            m_pModel->incrementOnHours(m_AlarmLineId, m_CycleId);
         }
         else if (ViewAlarmSettingsIf::SETUP_ON_MINUTES == viewState)
         {
-            m_OnTime[m_CycleId].incrementMinutes();
+            m_pModel->incrementOnMinutes(m_AlarmLineId, m_CycleId);
         }
         else if (ViewAlarmSettingsIf::SETUP_OFF_HOURS == viewState)
         {
-            m_OffTime[m_CycleId].incrementHours();
+            m_pModel->incrementOffHours(m_AlarmLineId, m_CycleId);
         }
         else if (ViewAlarmSettingsIf::SETUP_OFF_MINUTES == viewState)
         {
-            m_OffTime[m_CycleId].incrementMinutes();
+            m_pModel->incrementOffMinutes(m_AlarmLineId, m_CycleId);
         }
     }
 
     pViewAlarmSettings->setAlarmCycleToDisplay(m_CycleId + 1);
 
-    pViewAlarmSettings->setOnTimeToDisplay(m_OnTime[m_CycleId].getHours(), m_OnTime[m_CycleId].getMinutes());
-    pViewAlarmSettings->setOffTimeToDisplay(m_OffTime[m_CycleId].getHours(), m_OffTime[m_CycleId].getMinutes());
+    pViewAlarmSettings->setOnTimeToDisplay(m_pModelState->getAlarmLineOnTime(m_AlarmLineId, m_CycleId).m_Hours,
+                                           m_pModelState->getAlarmLineOnTime(m_AlarmLineId, m_CycleId).m_Minutes);
+    pViewAlarmSettings->setOffTimeToDisplay(m_pModelState->getAlarmLineOffTime(m_AlarmLineId, m_CycleId).m_Hours,
+                                            m_pModelState->getAlarmLineOffTime(m_AlarmLineId, m_CycleId).m_Minutes);
 }
 
 void StateAlarmSettings::enter()
 {
+    m_AlarmLineId = 0;
+
+    // TODO read model back from eeprom!
+
     ViewExtendedIf *pExtendedView = getExtendedView(VIEW_ID_LINE_SETTINGS_VIEW);
     ViewAlarmSettingsIf *pViewAlarmSettings = static_cast<ViewAlarmSettingsIf *>(pExtendedView);
 
     pViewAlarmSettings->setAlarmIdToDisplay(m_AlarmLineId + 1);
     pViewAlarmSettings->setAlarmCycleToDisplay(m_CycleId + 1);
 
-    for (uint8_t i = 0; i < ALARMS_NO_OF_CYCLES_PER_LINE; i++)
-    {
-        m_OnTime[i].consume(m_pModelState->getAlarmLineOnTime(m_AlarmLineId, i));
-        m_OffTime[i].consume(m_pModelState->getAlarmLineOffTime(m_AlarmLineId, i));
-    }
-
-    pViewAlarmSettings->setOnTimeToDisplay(m_OnTime[m_CycleId].getHours(), m_OnTime[m_CycleId].getMinutes());
-    pViewAlarmSettings->setOffTimeToDisplay(m_OffTime[m_CycleId].getHours(), m_OffTime[m_CycleId].getMinutes());
+    pViewAlarmSettings->setOnTimeToDisplay(m_pModelState->getAlarmLineOnTime(m_AlarmLineId, m_CycleId).m_Hours,
+                                           m_pModelState->getAlarmLineOnTime(m_AlarmLineId, m_CycleId).m_Minutes);
+    pViewAlarmSettings->setOffTimeToDisplay(m_pModelState->getAlarmLineOffTime(m_AlarmLineId, m_CycleId).m_Hours,
+                                            m_pModelState->getAlarmLineOffTime(m_AlarmLineId, m_CycleId).m_Minutes);
 
     getView(VIEW_ID_LINE_SETTINGS_VIEW)->enable();
 }
