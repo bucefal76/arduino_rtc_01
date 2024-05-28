@@ -21,6 +21,8 @@ private:
     virtual void enter();
     virtual void exit();
 
+    bool applySettings();
+
     static StateAlarmSettingsConfirmation m_Instance;
 };
 

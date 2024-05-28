@@ -6,7 +6,7 @@
 #include "ModuleConfig.hpp"
 
 StateAlarmSettings StateAlarmSettings::m_Instance;
-uint8_t StateAlarmSettings::m_CurrentLineId = 0U;
+uint8_t StateAlarmSettings::m_AlarmLineId = 0U;
 
 StateBase *StateAlarmSettings::getInstance()
 {
@@ -14,13 +14,13 @@ StateBase *StateAlarmSettings::getInstance()
 }
 
 StateAlarmSettings::StateAlarmSettings()
-    : m_CurrentCycleId(0U)
+    : m_CycleId(0U)
 {
 }
 
 void StateAlarmSettings::setCurrentLineId(const uint8_t currentLineId)
 {
-    m_CurrentLineId = currentLineId;
+    m_AlarmLineId = currentLineId;
 }
 
 void StateAlarmSettings::processButton(const KeyboardControllerIf::ButtonCode button)
@@ -46,13 +46,13 @@ void StateAlarmSettings::processButton(const KeyboardControllerIf::ButtonCode bu
         }
         else if (ViewAlarmSettingsIf::SETUP_OFF_MINUTES == viewState)
         {
-            if (ALARMS_NO_OF_CYCLES_PER_LINE == (m_CurrentCycleId + 1))
+            if (ALARMS_NO_OF_CYCLES_PER_LINE == (m_CycleId + 1))
             {
                 transitToState(StateAlarmSettingsConfirmation::getInstance());
             }
             else
             {
-                m_CurrentCycleId++;
+                m_CycleId++;
                 pViewAlarmSettings->setState(ViewAlarmSettingsIf::SETUP_ON_HOURS);
             }
         }
@@ -61,13 +61,13 @@ void StateAlarmSettings::processButton(const KeyboardControllerIf::ButtonCode bu
     {
         if (ViewAlarmSettingsIf::SETUP_ON_HOURS == viewState)
         {
-            if (0 == m_CurrentCycleId)
+            if (0 == m_CycleId)
             {
                 transitToState(StateAlarmSettingsConfirmation::getInstance());
             }
             else
             {
-                m_CurrentCycleId--;
+                m_CycleId--;
                 pViewAlarmSettings->setState(ViewAlarmSettingsIf::SETUP_OFF_MINUTES);
             }
         }
@@ -88,45 +88,45 @@ void StateAlarmSettings::processButton(const KeyboardControllerIf::ButtonCode bu
     {
         if (ViewAlarmSettingsIf::SETUP_ON_HOURS == viewState)
         {
-            m_OnTime[m_CurrentCycleId].decrementHours();
+            m_OnTime[m_CycleId].decrementHours();
         }
         else if (ViewAlarmSettingsIf::SETUP_ON_MINUTES == viewState)
         {
-            m_OnTime[m_CurrentCycleId].decrementMinutes();
+            m_OnTime[m_CycleId].decrementMinutes();
         }
         else if (ViewAlarmSettingsIf::SETUP_OFF_HOURS == viewState)
         {
-            m_OffTime[m_CurrentCycleId].decrementHours();
+            m_OffTime[m_CycleId].decrementHours();
         }
         else if (ViewAlarmSettingsIf::SETUP_OFF_MINUTES == viewState)
         {
-            m_OffTime[m_CurrentCycleId].decrementMinutes();
+            m_OffTime[m_CycleId].decrementMinutes();
         }
     }
     else if (KeyboardControllerIf::ButtonCode::BUTTON_CODE_UP == button)
     {
         if (ViewAlarmSettingsIf::SETUP_ON_HOURS == viewState)
         {
-            m_OnTime[m_CurrentCycleId].incrementHours();
+            m_OnTime[m_CycleId].incrementHours();
         }
         else if (ViewAlarmSettingsIf::SETUP_ON_MINUTES == viewState)
         {
-            m_OnTime[m_CurrentCycleId].incrementMinutes();
+            m_OnTime[m_CycleId].incrementMinutes();
         }
         else if (ViewAlarmSettingsIf::SETUP_OFF_HOURS == viewState)
         {
-            m_OffTime[m_CurrentCycleId].incrementHours();
+            m_OffTime[m_CycleId].incrementHours();
         }
         else if (ViewAlarmSettingsIf::SETUP_OFF_MINUTES == viewState)
         {
-            m_OffTime[m_CurrentCycleId].incrementMinutes();
+            m_OffTime[m_CycleId].incrementMinutes();
         }
     }
 
-    pViewAlarmSettings->setAlarmCycleToDisplay(m_CurrentCycleId + 1);
+    pViewAlarmSettings->setAlarmCycleToDisplay(m_CycleId + 1);
 
-    pViewAlarmSettings->setOnTimeToDisplay(m_OnTime[m_CurrentCycleId].getHours(), m_OnTime[m_CurrentCycleId].getMinutes());
-    pViewAlarmSettings->setOffTimeToDisplay(m_OffTime[m_CurrentCycleId].getHours(), m_OffTime[m_CurrentCycleId].getMinutes());
+    pViewAlarmSettings->setOnTimeToDisplay(m_OnTime[m_CycleId].getHours(), m_OnTime[m_CycleId].getMinutes());
+    pViewAlarmSettings->setOffTimeToDisplay(m_OffTime[m_CycleId].getHours(), m_OffTime[m_CycleId].getMinutes());
 }
 
 void StateAlarmSettings::enter()
@@ -134,16 +134,17 @@ void StateAlarmSettings::enter()
     ViewExtendedIf *pExtendedView = getExtendedView(VIEW_ID_LINE_SETTINGS_VIEW);
     ViewAlarmSettingsIf *pViewAlarmSettings = static_cast<ViewAlarmSettingsIf *>(pExtendedView);
 
-    pViewAlarmSettings->setAlarmIdToDisplay(m_CurrentLineId + 1);
-    pViewAlarmSettings->setAlarmCycleToDisplay(m_CurrentCycleId + 1);
+    pViewAlarmSettings->setAlarmIdToDisplay(m_AlarmLineId + 1);
+    pViewAlarmSettings->setAlarmCycleToDisplay(m_CycleId + 1);
 
     for (uint8_t i = 0; i < ALARMS_NO_OF_CYCLES_PER_LINE; i++)
     {
-        m_OnTime[i].consume(m_pModelState->getAlarmLineOnTime(m_CurrentLineId,i));
+        m_OnTime[i].consume(m_pModelState->getAlarmLineOnTime(m_AlarmLineId, i));
+        m_OffTime[i].consume(m_pModelState->getAlarmLineOffTime(m_AlarmLineId, i));
     }
 
-    pViewAlarmSettings->setOnTimeToDisplay(m_OnTime[m_CurrentCycleId].getHours(), m_OnTime[m_CurrentCycleId].getMinutes());
-    pViewAlarmSettings->setOffTimeToDisplay(m_OffTime[m_CurrentCycleId].getHours(), m_OffTime[m_CurrentCycleId].getMinutes());
+    pViewAlarmSettings->setOnTimeToDisplay(m_OnTime[m_CycleId].getHours(), m_OnTime[m_CycleId].getMinutes());
+    pViewAlarmSettings->setOffTimeToDisplay(m_OffTime[m_CycleId].getHours(), m_OffTime[m_CycleId].getMinutes());
 
     getView(VIEW_ID_LINE_SETTINGS_VIEW)->enable();
 }

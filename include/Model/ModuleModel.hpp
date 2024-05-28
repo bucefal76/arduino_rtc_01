@@ -30,10 +30,14 @@ public:
     virtual bool isAlarmLineArmed(const uint8_t alarmId);
     /// @brief See ModuleModelStateIf.
     virtual AlarmLineFlagTime getAlarmLineOnTime(const uint8_t alarmLine, const uint8_t cycle);
+    /// @brief See ModuleModelStateIf.
+    virtual AlarmLineFlagTime getAlarmLineOffTime(const uint8_t alarmLine, const uint8_t cycle);
     /// @brief See ModuleModelIf.
     virtual void setDateTime(const DateTime &dateTime);
     /// @brief See ModuleModelIf.
-    virtual bool addAlarmLineCycle(const uint8_t alarmLineId, TimeInvariant &onTime, const TimeInvariant &offTime);
+    virtual bool setAlarmLineOnTime(const uint8_t alarmLineId, const uint8_t cycle, const TimeInvariant &onTime);
+    /// @brief See ModuleModelIf.
+    virtual bool setAlarmLineOffTime(const uint8_t alarmLineId, const uint8_t cycle, const TimeInvariant &offTime);
 
 private:
     ModuleModel();

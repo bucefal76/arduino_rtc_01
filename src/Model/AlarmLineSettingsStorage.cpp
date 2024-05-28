@@ -28,7 +28,12 @@ AlarmLineSettingsStorage::AlarmLineSettingsStorage()
     m_OffTimes[3].m_Minutes = 13U;
 }
 
-bool AlarmLineSettingsStorage::readFromEeprom()
+bool AlarmLineSettingsStorage::readFromEEPROM(const uint8_t alarmLineId)
+{
+    return true;
+}
+
+bool AlarmLineSettingsStorage::saveToEEPROM(const uint8_t alarmLineId)
 {
     return true;
 }
@@ -55,4 +60,18 @@ AlarmLineFlagTime AlarmLineSettingsStorage::getOffTimeForCycle(const uint8_t cyc
     {
         return AlarmLineFlagTime();
     }
+}
+
+bool AlarmLineSettingsStorage::setOnTimeForCycle(const AlarmLineFlagTime onTile, const uint8_t cycle)
+{
+    m_OnTimes[cycle] = onTile;
+
+    return true;
+}
+
+bool AlarmLineSettingsStorage::setOffTimeForCycle(const AlarmLineFlagTime offTile, const uint8_t cycle)
+{
+    m_OffTimes[cycle] = offTile;
+
+    return true;
 }

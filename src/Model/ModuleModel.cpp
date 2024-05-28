@@ -127,17 +127,33 @@ AlarmLineFlagTime ModuleModel::getAlarmLineOnTime(const uint8_t alarmLine, const
     }
 }
 
-bool ModuleModel::addAlarmLineCycle(const uint8_t alarmLineId, TimeInvariant &onTime, const TimeInvariant &offTime)
+AlarmLineFlagTime ModuleModel::getAlarmLineOffTime(const uint8_t alarmLine, const uint8_t cycle)
 {
-    return true;
+    if (alarmLine < ALARMS_NO_OF_LINES)
+    {
+        return m_AlarmLinesSettings[alarmLine].getOffTimeForCycle(cycle);
+    }
+    else
+    {
+        return AlarmLineFlagTime();
+    }
+}
+
+bool ModuleModel::setAlarmLineOnTime(const uint8_t alarmLineId, const uint8_t cycle, const TimeInvariant &onTime)
+{
+    return m_AlarmLinesSettings[alarmLineId].setOnTimeForCycle(onTime.getAlarmLineFlagTime(), cycle);
+}
+
+bool ModuleModel::setAlarmLineOffTime(const uint8_t alarmLineId, const uint8_t cycle, const TimeInvariant &offTime)
+{
+    return m_AlarmLinesSettings[alarmLineId].setOffTimeForCycle(offTime.getAlarmLineFlagTime(), cycle);
 }
 
 void ModuleModel::initAlarmSettingsStorage()
 {
-    // Load settings from the eeprom
-    for (uint8_t i = 0; i < ALARMS_NO_OF_LINES; i++)
+    for (uint8_t alarmLineIt = 0; alarmLineIt < ALARMS_NO_OF_LINES; alarmLineIt++)
     {
-        m_AlarmLinesSettings[i].readFromEeprom();
+        m_AlarmLinesSettings[alarmLineIt].readFromEEPROM(alarmLineIt);
     }
 }
 

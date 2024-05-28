@@ -17,6 +17,11 @@ public:
     {
     }
 
+    AlarmLineFlagTime getAlarmLineFlagTime() const
+    {
+        return AlarmLineFlagTime(m_Hours,m_Minutes);
+    }
+
     uint8_t getHours()
     {
         return m_Hours;

@@ -2,6 +2,7 @@
 #include "Controller/States/StateDisplayingTime.hpp"
 #include "ViewIf.hpp"
 #include "ModuleConfig.hpp"
+#include "ModuleModelIf.hpp"
 
 StateAlarmSettingsConfirmation StateAlarmSettingsConfirmation::m_Instance;
 
@@ -18,7 +19,10 @@ void StateAlarmSettingsConfirmation::processButton(const KeyboardControllerIf::B
 {
     if (KeyboardControllerIf::ButtonCode::BUTTON_CODE_NEXT == button)
     {
-        // transitToState(StateDisplayingTime::getInstance());
+        if (applySettings())
+        {
+            transitToState(StateDisplayingTime::getInstance());
+        }
     }
     else if (KeyboardControllerIf::ButtonCode::BUTTON_CODE_BACK == button)
     {
@@ -34,4 +38,21 @@ void StateAlarmSettingsConfirmation::enter()
 void StateAlarmSettingsConfirmation::exit()
 {
     getView(VIEW_ID_CONFIRMATION_VIEW)->disable();
+}
+
+bool StateAlarmSettingsConfirmation::applySettings()
+{
+    for (uint8_t alarmCycleIt = 0; alarmCycleIt < ALARMS_NO_OF_CYCLES_PER_LINE; alarmCycleIt++)
+    {
+        if (false == m_pModel->setAlarmLineOnTime(m_AlarmLineId, alarmCycleIt, m_OnTime[alarmCycleIt]))
+        {
+            return false;
+        }
+        if (false == m_pModel->setAlarmLineOffTime(m_AlarmLineId, alarmCycleIt, m_OffTime[alarmCycleIt]))
+        {
+            return false;
+        }
+    }
+
+    return true;
 }

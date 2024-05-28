@@ -19,7 +19,9 @@ public:
     /// @brief Set a new date and time on the RCT.
     virtual void setDateTime(const DateTime &dateTime) = 0;
 
-    virtual bool addAlarmLineCycle(const uint8_t alarmLineId, TimeInvariant &onTime, const TimeInvariant &offTime) = 0;
+    virtual bool setAlarmLineOnTime(const uint8_t alarmLineId, const uint8_t cycle, const TimeInvariant &onTime) = 0;
+
+    virtual bool setAlarmLineOffTime(const uint8_t alarmLineId, const uint8_t cycle, const TimeInvariant &offTime) = 0;
 };
 
 #endif
