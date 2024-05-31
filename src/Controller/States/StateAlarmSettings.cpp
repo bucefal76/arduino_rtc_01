@@ -90,7 +90,7 @@ void StateAlarmSettings::processButton(const KeyboardControllerIf::ButtonCode bu
     {
         if (ViewAlarmSettingsIf::SETUP_ON_HOURS == viewState)
         {
-            m_pModel->incrementOnHours(m_AlarmLineId, m_CycleId);
+            m_pModel->decrementOnHours(m_AlarmLineId, m_CycleId);
         }
         else if (ViewAlarmSettingsIf::SETUP_ON_MINUTES == viewState)
         {
@@ -135,7 +135,7 @@ void StateAlarmSettings::processButton(const KeyboardControllerIf::ButtonCode bu
 
 void StateAlarmSettings::enter()
 {
-    m_AlarmLineId = 0;
+    m_CycleId = 0;
 
     // TODO read model back from eeprom!
 

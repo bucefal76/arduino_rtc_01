@@ -28,6 +28,7 @@ public:
 private:
     void update();
     static void onRunCallback();
+    bool isAlarmCycleActive() const;
 
     uint8_t m_AlarmLineId;
     uint8_t m_CycleId;
