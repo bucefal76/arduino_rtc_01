@@ -6,7 +6,7 @@
 
 // TODO
 
-struct TimeInvariant : public AlarmLineFlagTime
+struct TimeInvariant : protected AlarmLineFlagTime
 {
 public:
     TimeInvariant()

@@ -119,7 +119,7 @@ AlarmLineFlagTime ModuleModel::getAlarmLineOnTime(const uint8_t alarmLine, const
 {
     if (alarmLine < ALARMS_NO_OF_LINES)
     {
-        return m_AlarmLinesSettings[alarmLine].getOnTimeForCycle(cycle);
+        return m_AlarmLinesSettings[alarmLine].getOnTimeForCycle(cycle).getAlarmLineFlagTime();
     }
     else
     {
@@ -131,7 +131,7 @@ AlarmLineFlagTime ModuleModel::getAlarmLineOffTime(const uint8_t alarmLine, cons
 {
     if (alarmLine < ALARMS_NO_OF_LINES)
     {
-        return m_AlarmLinesSettings[alarmLine].getOffTimeForCycle(cycle);
+        return m_AlarmLinesSettings[alarmLine].getOffTimeForCycle(cycle).getAlarmLineFlagTime();
     }
     else
     {
