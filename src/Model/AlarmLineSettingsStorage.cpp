@@ -1,34 +1,64 @@
 #include "Model/AlarmLineSettingsStorage.hpp"
 
 #include <Arduino.h>
+#include <EEPROM.h>
+
+#include "Model/AlarmLineFlagTime.hpp"
+#include "ModuleConfig.hpp"
+
+#define EEPROM_BASE_ADDRESS 0x0001U
+#define EEPROM_ALARM_LINE_SIZE (2 * (sizeof(AlarmLineFlagTime) * ALARMS_NO_OF_CYCLES_PER_LINE))
 
 AlarmLineSettingsStorage::AlarmLineSettingsStorage()
 {
-    /// temp:
-    m_OnTimes[0].consume(AlarmLineFlagTime(1U, 1U));
-
-    m_OnTimes[1].consume(AlarmLineFlagTime(6U, 6U));
-
-    m_OnTimes[2].consume(AlarmLineFlagTime(12U, 12U));
-
-    m_OnTimes[3].consume(AlarmLineFlagTime(18U, 18U));
-
-    m_OffTimes[0].consume(AlarmLineFlagTime(2U, 2U));
-
-    m_OffTimes[1].consume(AlarmLineFlagTime(7U, 7U));
-
-    m_OffTimes[2].consume(AlarmLineFlagTime(13U, 13U));
-
-    m_OffTimes[3].consume(AlarmLineFlagTime(19U, 19U));
+    ///
 }
 
 bool AlarmLineSettingsStorage::readFromEEPROM(const uint8_t alarmLineId)
 {
+    uint16_t address = EEPROM_BASE_ADDRESS + (alarmLineId * EEPROM_ALARM_LINE_SIZE);
+
+    for (uint8_t it = 0; it < ALARMS_NO_OF_CYCLES_PER_LINE; it++)
+    {
+        const uint8_t hours = EEPROM.read(address);
+        address++;
+        const uint8_t minutes = EEPROM.read(address);
+        address++;
+        m_OnTimes[it].consume(AlarmLineFlagTime(hours, minutes));
+    }
+
+    for (uint8_t it = 0; it < ALARMS_NO_OF_CYCLES_PER_LINE; it++)
+    {
+        const uint8_t hours = EEPROM.read(address);
+        address++;
+        const uint8_t minutes = EEPROM.read(address);
+        address++;
+        m_OffTimes[it].consume(AlarmLineFlagTime(hours, minutes));
+    }
+
     return true;
 }
 
 bool AlarmLineSettingsStorage::saveToEEPROM(const uint8_t alarmLineId)
 {
+    uint16_t address = EEPROM_BASE_ADDRESS + (alarmLineId * EEPROM_ALARM_LINE_SIZE);
+
+    for (uint8_t it = 0; it < ALARMS_NO_OF_CYCLES_PER_LINE; it++)
+    {
+        EEPROM.update(address, m_OnTimes[it].getHours());
+        address++;
+        EEPROM.update(address, m_OnTimes[it].getMinutes());
+        address++;
+    }
+
+    for (uint8_t it = 0; it < ALARMS_NO_OF_CYCLES_PER_LINE; it++)
+    {
+        EEPROM.update(address, m_OffTimes[it].getHours());
+        address++;
+        EEPROM.update(address, m_OffTimes[it].getMinutes());
+        address++;
+    }
+
     return true;
 }
 

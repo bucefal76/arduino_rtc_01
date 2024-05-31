@@ -197,6 +197,20 @@ void ModuleModel::decrementOffMinutes(const uint8_t alarmLineId, const uint8_t c
     m_AlarmLinesSettings[alarmLineId].decrementOffMinutes(cycle);
 }
 
+bool ModuleModel::saveAlarmLinesSettingsToEEPROM()
+{
+
+    for (uint8_t it = 0; it < ALARMS_NO_OF_LINES; it++)
+    {
+        if (false == m_AlarmLinesSettings[it].saveToEEPROM(it))
+        {
+            return false;
+        }
+    }
+
+    return true;
+}
+
 #ifdef USE_SERIAL
 void ModuleModel::printDateTime(const RtcDateTime &dt)
 {

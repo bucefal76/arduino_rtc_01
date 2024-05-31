@@ -38,22 +38,24 @@ public:
     virtual bool setAlarmLineOnTime(const uint8_t alarmLineId, const uint8_t cycle, const TimeInvariant &onTime);
     /// @brief See ModuleModelIf.
     virtual bool setAlarmLineOffTime(const uint8_t alarmLineId, const uint8_t cycle, const TimeInvariant &offTime);
-
+    /// @brief See ModuleModelIf.
     virtual void incrementOnHours(const uint8_t alarmLineId, const uint8_t cycle);
-
+    /// @brief See ModuleModelIf.
     virtual void decrementOnHours(const uint8_t alarmLineId, const uint8_t cycle);
-
+    /// @brief See ModuleModelIf.
     virtual void incrementOnMinutes(const uint8_t alarmLineId, const uint8_t cycle);
-
+    /// @brief See ModuleModelIf.
     virtual void decrementOnMinutes(const uint8_t alarmLineId, const uint8_t cycle);
-
+    /// @brief See ModuleModelIf.
     virtual void incrementOffHours(const uint8_t alarmLineId, const uint8_t cycle);
-
+    /// @brief See ModuleModelIf.
     virtual void decrementOffHours(const uint8_t alarmLineId, const uint8_t cycle);
-
+    /// @brief See ModuleModelIf.
     virtual void incrementOffMinutes(const uint8_t alarmLineId, const uint8_t cycle);
-
+    /// @brief See ModuleModelIf.
     virtual void decrementOffMinutes(const uint8_t alarmLineId, const uint8_t cycle);
+    /// @brief See ModuleModelIf.
+    virtual bool saveAlarmLinesSettingsToEEPROM();
 
 private:
     ModuleModel();

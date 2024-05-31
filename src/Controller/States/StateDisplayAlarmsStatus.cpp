@@ -5,7 +5,7 @@
 #include "ViewIf.hpp"
 #include "ViewAlarmsStatusIf.hpp"
 
-#define ALARM_ID_MAX_VALUE ALARMS_NO_OF_LINES
+#define ALARM_ID_MAX_VALUE (ALARMS_NO_OF_LINES - 1)
 #define ALARM_ID_MIN_VALUE 0U
 
 StateDisplayAlarmsStatus StateDisplayAlarmsStatus::m_Instance;
@@ -43,12 +43,12 @@ void StateDisplayAlarmsStatus::processButton(const KeyboardControllerIf::ButtonC
         }
 
         ViewAlarmsStatusIf *pAlarmStatusView = getViewAlarmsStatus();
-        pAlarmStatusView->setAlarmIdToDisplay(m_AlarmLineId+1);
+        pAlarmStatusView->setAlarmIdToDisplay(m_AlarmLineId + 1);
     }
     else if (KeyboardControllerIf::ButtonCode::BUTTON_CODE_UP == button)
     {
         m_AlarmLineId++;
-        if (m_AlarmLineId > ALARM_ID_MAX_VALUE)
+        if (m_AlarmLineId >= ALARM_ID_MAX_VALUE)
         {
             m_AlarmLineId = ALARM_ID_MIN_VALUE;
         }
