@@ -100,7 +100,7 @@ void ViewDateSetup::update()
             m_pLcd->setCursor(YEAR_EDIT_COL - 1, DATE_EDIT_ROW);
             m_pLcd->write(byte(VIEWS_SPECIAL_CHARACTER_MODIFICATION_INDEX));
 
-            m_pLcd->setCursor(VIEWS_SPECIAL_CHARACTER_BACK_COLUMN_POSITION, DATE_EDIT_ROW);
+            m_pLcd->setCursor(VIEWS_SPECIAL_CHARACTER_BACK_COL_POSITION, DATE_EDIT_ROW);
             m_pLcd->write(byte(VIEWS_SPECIAL_CHARACTER_BACK_INDEX));
 
             m_pLcd->setCursor(MONTH_EDIT_COL + 2, DATE_EDIT_ROW);

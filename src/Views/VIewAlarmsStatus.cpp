@@ -6,9 +6,9 @@ static const char *ALARMS_CAPTION = "LINE:\0";
 static const char *ALARMS_COUNTER_CAPTION = "/8\0";
 
 #define ALARMS_CAPTION_COL 2
-#define ALARM_ID_CHANGE_CHAR_COL ALARMS_CAPTION_COL + 7
-#define ALARM_ID_DIGIT_COL ALARMS_CAPTION_COL + 8
-#define ALARM_STATUS_COL ALARMS_CAPTION_COL + 12
+#define ALARM_ID_CHANGE_CHAR_COL ALARMS_CAPTION_COL + 6
+#define ALARM_ID_DIGIT_COL ALARMS_CAPTION_COL + 7
+#define ALARM_STATUS_COL ALARMS_CAPTION_COL + 11
 
 #define ALARMS_CAPTIONS_ROW 1
 
@@ -62,7 +62,7 @@ void ViewAlarmsStatus::update()
 {
     if (nullptr != m_pLcd)
     {
-        m_pLcd->setCursor(VIEWS_SPECIAL_CHARACTER_BACK_COLUMN_POSITION, ALARMS_CAPTIONS_ROW);
+        m_pLcd->setCursor(VIEWS_SPECIAL_CHARACTER_BACK_COL_POSITION, ALARMS_CAPTIONS_ROW);
         m_pLcd->write(byte(VIEWS_SPECIAL_CHARACTER_BACK_INDEX));
 
         m_pLcd->setCursor(ALARMS_CAPTION_COL, ALARMS_CAPTIONS_ROW);
@@ -79,8 +79,6 @@ void ViewAlarmsStatus::update()
         m_pLcd->write(ALARMS_COUNTER_CAPTION);
 
         m_pLcd->setCursor(ALARM_STATUS_COL, ALARMS_CAPTIONS_ROW);
-        m_pLcd->write(byte(VIEWS_SPECIAL_CHARACTER_NEXT_INDEX));
-
         if (m_pModel->isAlarmLineArmed(m_AlarmLineId))
         {
             m_pLcd->write(byte(VIEWS_SPECIAL_CHARACTER_ALARM_ENABLED_INDEX));
@@ -89,6 +87,9 @@ void ViewAlarmsStatus::update()
         {
             m_pLcd->write(byte(VIEWS_SPECIAL_CHARACTER_ALARM_DISABLED_INDEX));
         }
+
+        m_pLcd->setCursor(VIEWS_SPECIAL_CHARACTER_NEXT_COL_POSITION, ALARMS_CAPTIONS_ROW);
+        m_pLcd->write(byte(VIEWS_SPECIAL_CHARACTER_NEXT_INDEX));
 
         m_pLcd->setCursor(ALARM_ID_DIGIT_COL, ALARMS_CAPTIONS_ROW);
     }

@@ -64,9 +64,9 @@ void ViewMenu::update()
 {
     if (nullptr != m_pLcd)
     {
-        m_pLcd->setCursor(VIEWS_SPECIAL_CHARACTER_BACK_COLUMN_POSITION, 1U);
+        m_pLcd->setCursor(VIEWS_SPECIAL_CHARACTER_BACK_COL_POSITION, 1U);
         m_pLcd->write(byte(VIEWS_SPECIAL_CHARACTER_BACK_INDEX));
-        m_pLcd->setCursor(VIEWS_SPECIAL_CHARACTER_NEXT_COLUMN_POSITION, 1U);
+        m_pLcd->setCursor(VIEWS_SPECIAL_CHARACTER_NEXT_COL_POSITION, 1U);
         m_pLcd->write(byte(VIEWS_SPECIAL_CHARACTER_NEXT_INDEX));
 
         m_pLcd->setCursor(m_TitlePos, MENU_TITLE_ROW);

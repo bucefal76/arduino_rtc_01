@@ -116,7 +116,7 @@ void ViewAlarmSettings::update()
         m_pLcd->print(m_CycleId);
 
         // <
-        m_pLcd->setCursor(VIEWS_SPECIAL_CHARACTER_BACK_COLUMN_POSITION, LINE_EDIT_ROW);
+        m_pLcd->setCursor(VIEWS_SPECIAL_CHARACTER_BACK_COL_POSITION, LINE_EDIT_ROW);
         m_pLcd->write(byte(VIEWS_SPECIAL_CHARACTER_BACK_INDEX));
 
         if (isAlarmCycleActive())
@@ -160,7 +160,7 @@ void ViewAlarmSettings::update()
         }
 
         //  >
-        m_pLcd->setCursor(VIEWS_SPECIAL_CHARACTER_NEXT_COLUMN_POSITION, LINE_EDIT_ROW);
+        m_pLcd->setCursor(VIEWS_SPECIAL_CHARACTER_NEXT_COL_POSITION, LINE_EDIT_ROW);
         m_pLcd->write(byte(VIEWS_SPECIAL_CHARACTER_NEXT_INDEX));
 
         // /\ \/
