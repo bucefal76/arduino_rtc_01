@@ -24,12 +24,12 @@ public:
         return AlarmLineFlagTime(m_Hours,m_Minutes);
     }
 
-    uint8_t getHours()
+    uint8_t getHours() const
     {
         return m_Hours;
     }
 
-    uint8_t getMinutes()
+    uint8_t getMinutes() const
     {
         return m_Minutes;
     }

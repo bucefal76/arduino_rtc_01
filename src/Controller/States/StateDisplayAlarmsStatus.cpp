@@ -43,23 +43,26 @@ void StateDisplayAlarmsStatus::processButton(const KeyboardControllerIf::ButtonC
         }
 
         ViewAlarmsStatusIf *pAlarmStatusView = getViewAlarmsStatus();
-        pAlarmStatusView->setAlarmIdToDisplay(m_AlarmLineId + 1);
+        pAlarmStatusView->setAlarmIdToDisplay(m_AlarmLineId);
     }
     else if (KeyboardControllerIf::ButtonCode::BUTTON_CODE_UP == button)
     {
         m_AlarmLineId++;
-        if (m_AlarmLineId >= ALARM_ID_MAX_VALUE)
+        if (m_AlarmLineId > ALARM_ID_MAX_VALUE)
         {
             m_AlarmLineId = ALARM_ID_MIN_VALUE;
         }
 
         ViewAlarmsStatusIf *pAlarmStatusView = getViewAlarmsStatus();
-        pAlarmStatusView->setAlarmIdToDisplay(m_AlarmLineId + 1);
+        pAlarmStatusView->setAlarmIdToDisplay(m_AlarmLineId);
     }
 }
 
 void StateDisplayAlarmsStatus::enter()
 {
+    ViewAlarmsStatusIf *pAlarmStatusView = getViewAlarmsStatus();
+    pAlarmStatusView->setAlarmIdToDisplay(m_AlarmLineId);
+
     getView(VIEW_ID_LINES_STATUS_VIEW)->enable();
 }
 

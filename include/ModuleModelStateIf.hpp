@@ -20,8 +20,8 @@ public:
     virtual bool isDateTimeValid() const = 0;
     /// @brief Returns DateTime structure
     virtual DateTime getDateTime() const = 0;
-    /// @brief Returns true if alarm selected by alarmId is armed to be active witch some cycle.
-    virtual bool isAlarmLineArmed(const uint8_t alarmId) = 0;
+    /// @brief Returns true if alarm selected by alarmLineId is armed to be active witch some cycle.
+    virtual bool isAlarmLineArmed(const uint8_t alarmLineId) = 0;
     /// @brief Return value of alarm On time for selected alarm line and selected cycle.
     virtual AlarmLineFlagTime getAlarmLineOnTime(const uint8_t alarmLine, const uint8_t cycle) = 0;
     /// @brief Return value of alarm Off time for selected alarm line and selected cycle.

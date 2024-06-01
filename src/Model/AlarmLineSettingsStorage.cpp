@@ -61,8 +61,7 @@ bool AlarmLineSettingsStorage::saveToEEPROM(const uint8_t alarmLineId)
 
     return true;
 }
-
-TimeInvariant AlarmLineSettingsStorage::getOnTimeForCycle(const uint8_t cycle)
+TimeInvariant AlarmLineSettingsStorage::getOnTimeForCycle(const uint8_t cycle) const
 {
     if (cycle < ALARMS_NO_OF_CYCLES_PER_LINE)
     {
@@ -74,7 +73,7 @@ TimeInvariant AlarmLineSettingsStorage::getOnTimeForCycle(const uint8_t cycle)
     }
 }
 
-TimeInvariant AlarmLineSettingsStorage::getOffTimeForCycle(const uint8_t cycle)
+TimeInvariant AlarmLineSettingsStorage::getOffTimeForCycle(const uint8_t cycle) const
 {
     if (cycle < ALARMS_NO_OF_CYCLES_PER_LINE)
     {
@@ -138,4 +137,20 @@ void AlarmLineSettingsStorage::incrementOffMinutes(const uint8_t cycle)
 void AlarmLineSettingsStorage::decrementOffMinutes(const uint8_t cycle)
 {
     m_OffTimes[cycle].decrementMinutes();
+}
+
+bool AlarmLineSettingsStorage::isAlarmLineArmed() const
+{
+    for (uint8_t it = 0; it < ALARMS_NO_OF_CYCLES_PER_LINE; it++)
+    {
+        const bool onTimeIsNotZero = (0U == m_OnTimes[it].getHours()) && (0U == m_OnTimes[it].getMinutes()) ? false : true;
+        const bool offTimeIsNotZero = (0U == m_OffTimes[it].getHours()) && (0U == m_OffTimes[it].getMinutes()) ? false : true;
+
+        if (onTimeIsNotZero || offTimeIsNotZero)
+        {
+            return true;
+        }
+    }
+
+    return false;
 }

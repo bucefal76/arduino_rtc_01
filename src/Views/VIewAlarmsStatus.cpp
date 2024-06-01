@@ -12,6 +12,9 @@ static const char *ALARMS_COUNTER_CAPTION = "/8\0";
 
 #define ALARMS_CAPTIONS_ROW 1
 
+// We do not want to expose to user that in C++ tables are indexed staring with 0.
+#define ALARMS_LINE_ID_NUMBER_OFFSET 1
+
 ViewAlarmsStatus *ViewAlarmsStatus::m_pInstance = nullptr;
 
 ViewAlarmsStatus *ViewAlarmsStatus::getInstance()
@@ -69,7 +72,7 @@ void ViewAlarmsStatus::update()
         m_pLcd->write(byte(VIEWS_SPECIAL_CHARACTER_MODIFICATION_INDEX));
 
         char alarmIdString[2];
-        snprintf_P(alarmIdString, countof(alarmIdString), PSTR("%01u"), m_AlarmLineId);
+        snprintf_P(alarmIdString, countof(alarmIdString), PSTR("%01u"), m_AlarmLineId + ALARMS_LINE_ID_NUMBER_OFFSET);
 
         m_pLcd->setCursor(ALARM_ID_DIGIT_COL, ALARMS_CAPTIONS_ROW);
         m_pLcd->write(alarmIdString);

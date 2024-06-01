@@ -103,16 +103,9 @@ void ModuleModel::setDateTime(const DateTime &dateTime)
     m_Rtc.SetDateTime(rctDateTime);
 }
 
-bool ModuleModel::isAlarmLineArmed(const uint8_t alarmId)
+bool ModuleModel::isAlarmLineArmed(const uint8_t alarmLineId)
 {
-    if (alarmId == 1)
-    {
-        return true;
-    }
-    else
-    {
-        return false;
-    }
+    return m_AlarmLinesSettings[alarmLineId].isAlarmLineArmed();
 }
 
 AlarmLineFlagTime ModuleModel::getAlarmLineOnTime(const uint8_t alarmLine, const uint8_t cycle)
@@ -199,7 +192,6 @@ void ModuleModel::decrementOffMinutes(const uint8_t alarmLineId, const uint8_t c
 
 bool ModuleModel::saveAlarmLinesSettingsToEEPROM()
 {
-
     for (uint8_t it = 0; it < ALARMS_NO_OF_LINES; it++)
     {
         if (false == m_AlarmLinesSettings[it].saveToEEPROM(it))
