@@ -32,7 +32,10 @@ class ModuleModelStateIf;
 class StateBase
 {
 public:
+    /// @brief  Method called on the state object any time when keyboard button is press
     virtual void processButton(const KeyboardControllerIf::ButtonCode button);
+    /// @brief  Method called on the state object any tim when Controller object updates the control loop.
+    virtual void update();
     /// @brief  State machine needs to have an access to the views objects, the special one.
     static void addExtendedView(const uint8_t viewId, ViewExtendedIf *pExtendedView);
     /// @brief State machine needs to have an access to the views objects, the typical one.

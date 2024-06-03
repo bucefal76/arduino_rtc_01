@@ -103,7 +103,7 @@ void ModuleModel::setDateTime(const DateTime &dateTime)
     m_Rtc.SetDateTime(rctDateTime);
 }
 
-bool ModuleModel::isAlarmLineArmed(const uint8_t alarmLineId)
+bool ModuleModel::isAlarmLineArmed(const uint8_t alarmLineId) const
 {
     return m_AlarmLinesSettings[alarmLineId].isAlarmLineArmed();
 }

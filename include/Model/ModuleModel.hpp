@@ -27,7 +27,7 @@ public:
     /// @brief See ModuleModelStateIf.
     virtual DateTime getDateTime() const;
     /// @brief See ModuleModelStateIf.
-    virtual bool isAlarmLineArmed(const uint8_t alarmLineId);
+    virtual bool isAlarmLineArmed(const uint8_t alarmLineId) const;
     /// @brief See ModuleModelStateIf.
     virtual AlarmLineFlagTime getAlarmLineOnTime(const uint8_t alarmLine, const uint8_t cycle);
     /// @brief See ModuleModelStateIf.

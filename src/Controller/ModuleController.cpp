@@ -70,6 +70,12 @@ void ModuleController::update()
             StateBase::getCurrentState()->processButton(button);
         }
     }
+
+    /*
+        Then also current state of the State machine is kick to update its own logic, if needed.
+    */
+
+    StateBase::getCurrentState()->update();
 }
 
 void ModuleController::onRunCallback()

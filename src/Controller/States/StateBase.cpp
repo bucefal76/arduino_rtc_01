@@ -15,6 +15,10 @@ void StateBase::processButton(const KeyboardControllerIf::ButtonCode button)
 {
 }
 
+void StateBase::update()
+{
+}
+
 void StateBase::addView(ViewIf *pView)
 {
     RUNTIME_PTR_CHECK(pView);
