@@ -38,13 +38,15 @@
 #define RST_CE 8
 
 /* Views configuration section */
-#define VIEW_ID_CONFIRMATION_VIEW 1
-#define VIEW_ID_DATE_SETUP_VIEW 2
-#define VIEW_ID_MENU_VIEW 3
-#define VIEW_ID_TIME_SETUP_VIEW 4
-#define VIEW_ID_TIME_VIEW 5
-#define VIEW_ID_LINES_STATUS_VIEW 6
-#define VIEW_ID_LINE_SETTINGS_VIEW 7
+#define VIEW_ID_CONFIRMATION_VIEW 0
+#define VIEW_ID_DATE_SETUP_VIEW 1
+#define VIEW_ID_MENU_VIEW 2
+#define VIEW_ID_TIME_SETUP_VIEW 3
+#define VIEW_ID_TIME_VIEW 4
+#define VIEW_ID_LINES_STATUS_VIEW 5
+#define VIEW_ID_LINE_SETTINGS_VIEW 6
+
+#define MAX_VIEWS_COUNT 7
 
 /* Alarms configuration, do not exceed, may not work then*/
 
