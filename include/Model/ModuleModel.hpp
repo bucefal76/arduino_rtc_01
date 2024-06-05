@@ -3,17 +3,19 @@
 
 #include <Arduino.h>
 
+#include "AlarmLineSettingsStorage.hpp"
 #include "ModuleConfig.hpp"
 #include "ModuleModelIf.hpp"
 #include "ModuleModelStateIf.hpp"
 #include "DateTime.hpp"
 #include "RtcDS1302.h"
 #include "RtcDateTime.h"
-#include "AlarmLineSettingsStorage.hpp"
 
 /*
     This class decouples the client code from dependency to the currently used RTC driver implementation.
 */
+
+class PCF8574;
 
 class ModuleModel : public ModuleModelStateIf, public ModuleModelIf
 {
@@ -57,6 +59,8 @@ public:
     /// @brief See ModuleModelIf.
     virtual bool saveAlarmLinesSettingsToEEPROM();
 
+    virtual void setIoLineControlWord(const uint8_t controlWord);
+
 private:
     ModuleModel();
 
@@ -72,6 +76,7 @@ private:
     static ThreeWire m_Wire;
     static RtcDS1302<ThreeWire> m_Rtc;
     static ModuleModel *m_Instance;
+    static PCF8574 *m_Pfc;
 };
 
 #endif

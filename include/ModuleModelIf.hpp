@@ -49,6 +49,8 @@ public:
     /// @brief Save current settings of the alarm lines ON and OFF cycles to the EEPROM.
     /// @return True if save succeeded.
     virtual bool saveAlarmLinesSettingsToEEPROM() = 0;
+
+    virtual void setIoLineControlWord(const uint8_t controlWord) = 0;
 };
 
 #endif

@@ -46,12 +46,14 @@
 #define VIEW_ID_LINES_STATUS_VIEW 6
 #define VIEW_ID_LINE_SETTINGS_VIEW 7
 
-/* Alarms configuration */
-#define ALARMS_NO_OF_LINES 8
+/* Alarms configuration, do not exceed, may not work then*/
+
+/// Start with small values, for example 1 and 1 then increase
+/// till device stop work - usually there is no display at power up.
+/// When device fails, decrease ALARMS_NO_OF_LINES or ALARMS_NO_OF_CYCLES_PER_LINE
+/// until device works again.
+#define ALARMS_NO_OF_LINES 4
 #define ALARMS_NO_OF_CYCLES_PER_LINE 5
-#if ALARMS_NO_OF_CYCLES_PER_LINE > 5
-#error Cant support more than 5 cycle per line
-#endif
 
 /* Helpers */
 #define HOURS_MAX_VALUE 23U
