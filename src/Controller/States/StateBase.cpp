@@ -6,8 +6,8 @@
 #include "ModuleModelStateIf.hpp"
 
 StateBase *StateBase::m_pCurrentState = nullptr;
-std::map<uint8_t, ViewIf *> StateBase::m_Views;
-std::map<uint8_t, ViewExtendedIf *> StateBase::m_ExtendedViews;
+std::map<uint32_t, ViewIf *> StateBase::m_Views;
+std::map<uint32_t, ViewExtendedIf *> StateBase::m_ExtendedViews;
 ModuleModelIf *StateBase::m_pModel = nullptr;
 ModuleModelStateIf *StateBase::m_pModelState = nullptr;
 
