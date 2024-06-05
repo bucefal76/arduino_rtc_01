@@ -1,6 +1,7 @@
 #include "Controller/States/StateDisplayingTime.hpp"
 #include "Controller/States/StateDisplayingMenuSetTime.hpp"
 #include "Model/DateTime.hpp"
+#include "ModuleModelIf.hpp"
 #include "ModuleModelStateIf.hpp"
 #include "ModuleConfig.hpp"
 #include "ViewIf.hpp"
@@ -52,6 +53,9 @@ void StateDisplayingTime::update()
             }
         }
     }
+
+    m_pModel->setIoLineControlWord(controlWord);
+    
 }
 
 void StateDisplayingTime::enter()

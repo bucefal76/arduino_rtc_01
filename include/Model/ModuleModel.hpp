@@ -8,14 +8,13 @@
 #include "ModuleModelIf.hpp"
 #include "ModuleModelStateIf.hpp"
 #include "DateTime.hpp"
+#include "PCF8574.h"
 #include "RtcDS1302.h"
 #include "RtcDateTime.h"
 
 /*
     This class decouples the client code from dependency to the currently used RTC driver implementation.
 */
-
-class PCF8574;
 
 class ModuleModel : public ModuleModelStateIf, public ModuleModelIf
 {
@@ -76,7 +75,7 @@ private:
     static ThreeWire m_Wire;
     static RtcDS1302<ThreeWire> m_Rtc;
     static ModuleModel *m_Instance;
-    static PCF8574 *m_Pfc;
+    static PCF8574 m_Pfc;
 };
 
 #endif

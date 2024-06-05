@@ -18,9 +18,9 @@ public:
 protected:
     StateNewDateSetup();
 
-    static uint16_t m_Year;
-    static uint8_t m_Month;
-    static uint8_t m_Day;
+    uint16_t m_Year;
+    uint8_t m_Month;
+    uint8_t m_Day;
 
 private:
     virtual void enter();
@@ -28,7 +28,7 @@ private:
 
     ViewDateSetupIf *getMyExtendedView() const;
 
-    void updateViewData() const;
+    void updateViewData();
     uint8_t getNumberOfDays(const uint8_t month, const uint16_t year) const;
 
     static StateNewDateSetup m_Instance;

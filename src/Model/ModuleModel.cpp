@@ -1,10 +1,9 @@
 #include "Model/ModuleModel.hpp"
 #include "ModuleConfig.hpp"
-#include "PCF8574.h"
 
 ThreeWire ModuleModel::m_Wire(DAT_IO, CLK, RST_CE);
 RtcDS1302<ThreeWire> ModuleModel::m_Rtc(m_Wire);
-PCF8574 *ModuleModel::m_Pfc = nullptr;
+PCF8574 ModuleModel::m_Pfc(0x20);
 ModuleModel *ModuleModel::m_Instance = nullptr;
 
 ModuleModel *ModuleModel::getInstance()
@@ -84,25 +83,20 @@ ModuleModel::ModuleModel()
 
     initAlarmSettingsStorage();
 
-    m_Pfc = new PCF8574(0x20);
+    m_Pfc.begin();
 
-    /*
-        m_Pfc.begin();
-
-        if (m_Pfc.isConnected())
-        {
-    #ifdef USE_SERIAL
-            Serial.println(F("Pin expander is connected!"));
-    #endif
-        }
-        else
-        {
-    #ifdef USE_SERIAL
-            Serial.println(F("Pin expander is NOT connected!"));
-    #endif
-        }
-
-        */
+    if (m_Pfc.isConnected())
+    {
+#ifdef USE_SERIAL
+        Serial.println(F("Pin expander is connected!"));
+#endif
+    }
+    else
+    {
+#ifdef USE_SERIAL
+        Serial.println(F("Pin expander is NOT connected!"));
+#endif
+    }
 }
 
 bool ModuleModel::isDateTimeValid() const
@@ -226,7 +220,7 @@ bool ModuleModel::saveAlarmLinesSettingsToEEPROM()
 
 void ModuleModel::setIoLineControlWord(const uint8_t controlWord)
 {
-    // m_Pfc.write8(controlWord);
+    m_Pfc.write8(controlWord);
 }
 
 #ifdef USE_SERIAL
