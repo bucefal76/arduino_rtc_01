@@ -6,6 +6,10 @@
 #include "ViewAlarmsSettingsIf.hpp"
 #include "Views/ViewBase.hpp"
 
+/*
+    This view alow to edit ON/OFF times for selected IO line.
+*/
+
 class ViewAlarmSettings : public ViewAlarmSettingsIf, public ViewBase, public Thread
 {
 public:

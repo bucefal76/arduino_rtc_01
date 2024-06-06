@@ -137,11 +137,10 @@ void StateAlarmSettings::enter()
 {
     m_CycleId = 0;
 
-    // TODO read model back from eeprom!
-
     ViewExtendedIf *pExtendedView = getExtendedView(VIEW_ID_LINE_SETTINGS_VIEW);
     ViewAlarmSettingsIf *pViewAlarmSettings = static_cast<ViewAlarmSettingsIf *>(pExtendedView);
 
+    // Cycles and alarm lines are iterated starting with 0 but we will display to user, first as 1.
     pViewAlarmSettings->setAlarmIdToDisplay(m_AlarmLineId + 1);
     pViewAlarmSettings->setAlarmCycleToDisplay(m_CycleId + 1);
 

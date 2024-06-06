@@ -3,39 +3,8 @@
 
 ThreeWire ModuleModel::m_Wire(DAT_IO, CLK, RST_CE);
 RtcDS1302<ThreeWire> ModuleModel::m_Rtc(m_Wire);
-PCF8574 ModuleModel::m_Pfc(0x20);
+PCF8574 ModuleModel::m_Pfc(PFC_I2C_ADDRESS);
 ModuleModel *ModuleModel::m_Instance = nullptr;
-
-extern unsigned int __data_start;
-extern unsigned int __data_end;
-extern unsigned int __bss_start;
-extern unsigned int __bss_end;
-extern void *__brkval;
-
-int data_size()
-{
-    return (int)&__data_end - (int)&__data_start;
-}
-
-int bss_size()
-{
-    return (int)&__bss_end - (int)&__bss_start;
-}
-
-int free_memory()
-{
-    int free_memory;
-    if ((int)__brkval == 0)
-    {
-        free_memory = ((int)&free_memory) - ((int)&__bss_end);
-    }
-    else
-    {
-        Serial.println(F("__brkval != 0"));
-        free_memory = ((int)&free_memory) - ((int)__brkval);
-    }
-    return free_memory;
-}
 
 ModuleModel *ModuleModel::getInstance()
 {
@@ -118,6 +87,8 @@ ModuleModel::ModuleModel()
 
     if (m_Pfc.isConnected())
     {
+        m_Pfc.write8(0U);
+
 #ifdef USE_SERIAL
         Serial.println(F("Pin expander is connected!"));
 #endif
@@ -128,13 +99,6 @@ ModuleModel::ModuleModel()
         Serial.println(F("Pin expander is NOT connected!"));
 #endif
     }
-
-    Serial.print("Data: ");
-    Serial.println(data_size());
-    Serial.print("BSS: ");
-    Serial.println(bss_size());
-    Serial.print("Free memory: ");
-    Serial.println(free_memory());
 }
 
 bool ModuleModel::isDateTimeValid() const
@@ -254,6 +218,11 @@ bool ModuleModel::saveAlarmLinesSettingsToEEPROM()
     }
 
     return true;
+}
+
+uint8_t ModuleModel::getIoLineControlWord() const
+{
+    return m_Pfc.read8();
 }
 
 void ModuleModel::setIoLineControlWord(const uint8_t controlWord)

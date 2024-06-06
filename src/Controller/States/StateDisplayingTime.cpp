@@ -27,7 +27,7 @@ void StateDisplayingTime::processButton(const KeyboardControllerIf::ButtonCode b
 
 void StateDisplayingTime::update()
 {
-    uint8_t controlWord = 0U;
+    uint8_t controlWord = m_pModel->getIoLineControlWord();
 
     const DateTime currentTime = m_pModelState->getDateTime();
 
@@ -55,7 +55,6 @@ void StateDisplayingTime::update()
     }
 
     m_pModel->setIoLineControlWord(controlWord);
-    
 }
 
 void StateDisplayingTime::enter()

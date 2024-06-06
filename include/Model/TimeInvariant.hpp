@@ -4,7 +4,10 @@
 #include "ModuleConfig.hpp"
 #include "Model/AlarmLineFlagTime.hpp"
 
-// TODO
+/*
+    The structure provides Time invariant. For sure, we do not want to set the time to 25:66 :).
+    That's why we need TimeInvariant.
+*/
 
 struct TimeInvariant : protected AlarmLineFlagTime
 {
@@ -21,7 +24,7 @@ public:
 
     AlarmLineFlagTime getAlarmLineFlagTime() const
     {
-        return AlarmLineFlagTime(m_Hours,m_Minutes);
+        return AlarmLineFlagTime(m_Hours, m_Minutes);
     }
 
     uint8_t getHours() const

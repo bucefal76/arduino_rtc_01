@@ -57,7 +57,9 @@ public:
     virtual void decrementOffMinutes(const uint8_t alarmLineId, const uint8_t cycle);
     /// @brief See ModuleModelIf.
     virtual bool saveAlarmLinesSettingsToEEPROM();
-
+    /// @brief See ModuleModelIf.
+    virtual uint8_t getIoLineControlWord() const;
+    /// @brief See ModuleModelIf.
     virtual void setIoLineControlWord(const uint8_t controlWord);
 
 private:

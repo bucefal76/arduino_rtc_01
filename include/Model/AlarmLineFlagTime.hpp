@@ -1,6 +1,11 @@
 #ifndef ALARM_LINE_FLAG_TIME_HPP
 #define ALARM_LINE_FLAG_TIME_HPP
 
+/*
+    The old mechanical timers have "flags" that connect with clock handles that close or open electric circuits.
+    This struct is a flag to set high or low the IO output.
+*/
+
 struct AlarmLineFlagTime
 {
     AlarmLineFlagTime()

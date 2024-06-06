@@ -49,7 +49,10 @@ public:
     /// @brief Save current settings of the alarm lines ON and OFF cycles to the EEPROM.
     /// @return True if save succeeded.
     virtual bool saveAlarmLinesSettingsToEEPROM() = 0;
-
+    /// @brief Get 8 bit value that represents IO lines state.
+    virtual uint8_t getIoLineControlWord() const = 0;
+    /// @brief Set 8 bit value that control the IO lines state.
+    /// @param controlWord New value of the IO lines.
     virtual void setIoLineControlWord(const uint8_t controlWord) = 0;
 };
 

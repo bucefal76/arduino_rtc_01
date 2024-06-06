@@ -4,6 +4,12 @@
 #include "ModuleApplicationIf.hpp"
 #include <vector>
 
+/*
+    The class represents the clock application.
+    Push the pointer to the thread you want to run.
+    Then periodically call runThreads().
+*/
+
 class ModuleApplication : public ModuleApplicationIf
 {
 public:

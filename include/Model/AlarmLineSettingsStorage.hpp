@@ -7,6 +7,11 @@
 #include "TimeInvariant.hpp"
 #include "ModuleConfig.hpp"
 
+/*
+    Alarm line settings (ON/OFF times) are saved and restored to and from the Atmega EEPROM.
+    This class provides the necessary save/restore functionality.
+*/
+
 class AlarmLineSettingsStorage
 {
 public:
