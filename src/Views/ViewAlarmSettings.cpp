@@ -116,12 +116,20 @@ void ViewAlarmSettings::update()
         m_pLcd->print(m_CycleId);
 
         // <
-        m_pLcd->setCursor(VIEWS_SPECIAL_CHARACTER_BACK_COLUMN_POSITION, LINE_EDIT_ROW);
+        m_pLcd->setCursor(VIEWS_SPECIAL_CHARACTER_BACK_COL_POSITION, LINE_EDIT_ROW);
         m_pLcd->write(byte(VIEWS_SPECIAL_CHARACTER_BACK_INDEX));
 
-        // _|
-        m_pLcd->setCursor(LINE_ALARM_ON_CHARACTER_POS, LINE_EDIT_ROW);
-        m_pLcd->write(byte(VIEWS_SPECIAL_CHARACTER_ALARM_ON_INDEX));
+        if (isAlarmCycleActive())
+        {
+            // _|
+            m_pLcd->setCursor(LINE_ALARM_ON_CHARACTER_POS, LINE_EDIT_ROW);
+            m_pLcd->write(byte(VIEWS_SPECIAL_CHARACTER_ALARM_ON_INDEX));
+        }
+        else
+        {
+            m_pLcd->setCursor(LINE_ALARM_ON_CHARACTER_POS, LINE_EDIT_ROW);
+            m_pLcd->write(byte(VIEWS_SPECIAL_CHARACTER_ALARM_DISABLED_INDEX));
+        }
 
         char timeString[6];
         snprintf_P(timeString,
@@ -139,12 +147,20 @@ void ViewAlarmSettings::update()
                    m_pOffTimeMinutes);
         m_pLcd->write(timeString);
 
-        //  |_
-        m_pLcd->setCursor(LINE_ALARM_OFF_CHARACTER_POS, LINE_EDIT_ROW);
-        m_pLcd->write(byte(VIEWS_SPECIAL_CHARACTER_ALARM_OFF_INDEX));
+        if (isAlarmCycleActive())
+        {
+            //  |_
+            m_pLcd->setCursor(LINE_ALARM_OFF_CHARACTER_POS, LINE_EDIT_ROW);
+            m_pLcd->write(byte(VIEWS_SPECIAL_CHARACTER_ALARM_OFF_INDEX));
+        }
+        else
+        {
+            m_pLcd->setCursor(LINE_ALARM_OFF_CHARACTER_POS, LINE_EDIT_ROW);
+            m_pLcd->write(byte(VIEWS_SPECIAL_CHARACTER_ALARM_DISABLED_INDEX));
+        }
 
         //  >
-        m_pLcd->setCursor(VIEWS_SPECIAL_CHARACTER_NEXT_COLUMN_POSITION, LINE_EDIT_ROW);
+        m_pLcd->setCursor(VIEWS_SPECIAL_CHARACTER_NEXT_COL_POSITION, LINE_EDIT_ROW);
         m_pLcd->write(byte(VIEWS_SPECIAL_CHARACTER_NEXT_INDEX));
 
         // /\ \/
@@ -194,4 +210,14 @@ void ViewAlarmSettings::update()
 void ViewAlarmSettings::onRunCallback()
 {
     ViewAlarmSettings::getInstance()->update();
+}
+
+bool ViewAlarmSettings::isAlarmCycleActive() const
+{
+    if ((0U == m_pOnTimeHours) && (0U == m_pOnTimeMinutes) && (0U == m_pOffTimeHours) && (0U == m_pOffTimeMinutes))
+    {
+        return false;
+    }
+
+    return true;
 }

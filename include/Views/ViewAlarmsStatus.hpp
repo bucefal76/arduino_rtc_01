@@ -6,6 +6,10 @@
 #include "Views/ViewBase.hpp"
 #include "ViewAlarmsStatusIf.hpp"
 
+/*
+    This view shows statuses of the alarm lines.
+*/
+
 class ViewAlarmsStatus : public ViewBase, public Thread, public ViewAlarmsStatusIf
 {
 public:

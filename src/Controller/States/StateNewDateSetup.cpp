@@ -14,16 +14,15 @@
 
 StateNewDateSetup StateNewDateSetup::m_Instance;
 
-uint16_t StateNewDateSetup::m_Year = 2024U;
-uint8_t StateNewDateSetup::m_Month = 1U;
-uint8_t StateNewDateSetup::m_Day = 1U;
-
 StateBase *StateNewDateSetup::getInstance()
 {
     return &m_Instance;
 }
 
 StateNewDateSetup::StateNewDateSetup()
+    : m_Year(2024U),
+      m_Month(01U),
+      m_Day(01U)
 {
 }
 
@@ -154,7 +153,7 @@ void StateNewDateSetup::exit()
     getView(VIEW_ID_DATE_SETUP_VIEW)->disable();
 }
 
-void StateNewDateSetup::updateViewData() const
+void StateNewDateSetup::updateViewData()
 {
     ViewDateSetupIf *pViewDateSetup = getMyExtendedView();
 

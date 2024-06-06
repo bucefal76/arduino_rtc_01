@@ -95,9 +95,9 @@ void ViewTimeSetup::update()
             m_pLcd->setCursor(TIME_EDIT_MINUTES_COL_1 + 1U, TIME_EDIT_ROW);
             m_pLcd->write(byte(VIEWS_SPECIAL_CHARACTER_NEXT_INDEX));
 
-            m_pLcd->setCursor(VIEWS_SPECIAL_CHARACTER_BACK_COLUMN_POSITION, TIME_EDIT_ROW);
+            m_pLcd->setCursor(VIEWS_SPECIAL_CHARACTER_BACK_COL_POSITION, TIME_EDIT_ROW);
             m_pLcd->write(byte(VIEWS_SPECIAL_CHARACTER_BACK_INDEX));
-            m_pLcd->setCursor(VIEWS_SPECIAL_CHARACTER_NEXT_COLUMN_POSITION, TIME_EDIT_ROW);
+            m_pLcd->setCursor(VIEWS_SPECIAL_CHARACTER_NEXT_COL_POSITION, TIME_EDIT_ROW);
             m_pLcd->write(" ");
 
             m_pLcd->setCursor(TIME_EDIT_HOUR_COL_1, TIME_EDIT_ROW);
@@ -110,9 +110,9 @@ void ViewTimeSetup::update()
             m_pLcd->setCursor(TIME_EDIT_HOUR_COL_0 - 1U, TIME_EDIT_ROW);
             m_pLcd->write(byte(VIEWS_SPECIAL_CHARACTER_BACK_INDEX));
 
-            m_pLcd->setCursor(VIEWS_SPECIAL_CHARACTER_NEXT_COLUMN_POSITION, TIME_EDIT_ROW);
+            m_pLcd->setCursor(VIEWS_SPECIAL_CHARACTER_NEXT_COL_POSITION, TIME_EDIT_ROW);
             m_pLcd->write(byte(VIEWS_SPECIAL_CHARACTER_NEXT_INDEX));
-            m_pLcd->setCursor(VIEWS_SPECIAL_CHARACTER_BACK_COLUMN_POSITION, TIME_EDIT_ROW);
+            m_pLcd->setCursor(VIEWS_SPECIAL_CHARACTER_BACK_COL_POSITION, TIME_EDIT_ROW);
             m_pLcd->write(" ");
 
             m_pLcd->setCursor(TIME_EDIT_MINUTES_COL_1, TIME_EDIT_ROW);

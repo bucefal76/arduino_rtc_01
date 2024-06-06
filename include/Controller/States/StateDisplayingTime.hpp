@@ -13,6 +13,8 @@ class StateDisplayingTime : public StateBase
 public:
     virtual void processButton(const KeyboardControllerIf::ButtonCode button);
 
+    virtual void update();
+
     static StateBase *getInstance();
 
 private:

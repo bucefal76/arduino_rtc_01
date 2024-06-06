@@ -1,9 +1,9 @@
 #include "Model/ModuleModel.hpp"
-#include "RtcDS1302.h"
 #include "ModuleConfig.hpp"
 
 ThreeWire ModuleModel::m_Wire(DAT_IO, CLK, RST_CE);
 RtcDS1302<ThreeWire> ModuleModel::m_Rtc(m_Wire);
+PCF8574 ModuleModel::m_Pfc(PFC_I2C_ADDRESS);
 ModuleModel *ModuleModel::m_Instance = nullptr;
 
 ModuleModel *ModuleModel::getInstance()
@@ -80,6 +80,25 @@ ModuleModel::ModuleModel()
         Serial.println(F("RTC is the same as compile time! (not expected but all is fine)"));
 #endif
     }
+
+    initAlarmSettingsStorage();
+
+    m_Pfc.begin();
+
+    if (m_Pfc.isConnected())
+    {
+        m_Pfc.write8(0U);
+
+#ifdef USE_SERIAL
+        Serial.println(F("Pin expander is connected!"));
+#endif
+    }
+    else
+    {
+#ifdef USE_SERIAL
+        Serial.println(F("Pin expander is NOT connected!"));
+#endif
+    }
 }
 
 bool ModuleModel::isDateTimeValid() const
@@ -101,16 +120,114 @@ void ModuleModel::setDateTime(const DateTime &dateTime)
     m_Rtc.SetDateTime(rctDateTime);
 }
 
-bool ModuleModel::isAlarmActive(const uint8_t alarmId)
+bool ModuleModel::isAlarmLineArmed(const uint8_t alarmLineId) const
 {
-    if (alarmId == 1)
+    return m_AlarmLinesSettings[alarmLineId].isAlarmLineArmed();
+}
+
+AlarmLineFlagTime ModuleModel::getAlarmLineOnTime(const uint8_t alarmLine, const uint8_t cycle)
+{
+    if (alarmLine < ALARMS_NO_OF_LINES)
     {
-        return true;
+        return m_AlarmLinesSettings[alarmLine].getOnTimeForCycle(cycle).getAlarmLineFlagTime();
     }
     else
     {
-        return false;
+        return AlarmLineFlagTime();
     }
+}
+
+AlarmLineFlagTime ModuleModel::getAlarmLineOffTime(const uint8_t alarmLine, const uint8_t cycle)
+{
+    if (alarmLine < ALARMS_NO_OF_LINES)
+    {
+        return m_AlarmLinesSettings[alarmLine].getOffTimeForCycle(cycle).getAlarmLineFlagTime();
+    }
+    else
+    {
+        return AlarmLineFlagTime();
+    }
+}
+
+bool ModuleModel::setAlarmLineOnTime(const uint8_t alarmLineId, const uint8_t cycle, const TimeInvariant &onTime)
+{
+    return m_AlarmLinesSettings[alarmLineId].setOnTimeForCycle(onTime, cycle);
+}
+
+bool ModuleModel::setAlarmLineOffTime(const uint8_t alarmLineId, const uint8_t cycle, const TimeInvariant &offTime)
+{
+    return m_AlarmLinesSettings[alarmLineId].setOffTimeForCycle(offTime, cycle);
+}
+
+void ModuleModel::initAlarmSettingsStorage()
+{
+    for (uint8_t alarmLineIt = 0; alarmLineIt < ALARMS_NO_OF_LINES; alarmLineIt++)
+    {
+        m_AlarmLinesSettings[alarmLineIt].readFromEEPROM(alarmLineIt);
+    }
+}
+
+void ModuleModel::incrementOnHours(const uint8_t alarmLineId, const uint8_t cycle)
+{
+    m_AlarmLinesSettings[alarmLineId].incrementOnHours(cycle);
+}
+
+void ModuleModel::decrementOnHours(const uint8_t alarmLineId, const uint8_t cycle)
+{
+    m_AlarmLinesSettings[alarmLineId].decrementOnHours(cycle);
+}
+
+void ModuleModel::incrementOnMinutes(const uint8_t alarmLineId, const uint8_t cycle)
+{
+    m_AlarmLinesSettings[alarmLineId].incrementOnMinutes(cycle);
+}
+
+void ModuleModel::decrementOnMinutes(const uint8_t alarmLineId, const uint8_t cycle)
+{
+    m_AlarmLinesSettings[alarmLineId].decrementOnMinutes(cycle);
+}
+
+void ModuleModel::incrementOffHours(const uint8_t alarmLineId, const uint8_t cycle)
+{
+    m_AlarmLinesSettings[alarmLineId].incrementOffHours(cycle);
+}
+
+void ModuleModel::decrementOffHours(const uint8_t alarmLineId, const uint8_t cycle)
+{
+    m_AlarmLinesSettings[alarmLineId].decrementOffHours(cycle);
+}
+
+void ModuleModel::incrementOffMinutes(const uint8_t alarmLineId, const uint8_t cycle)
+{
+    m_AlarmLinesSettings[alarmLineId].incrementOffMinutes(cycle);
+}
+
+void ModuleModel::decrementOffMinutes(const uint8_t alarmLineId, const uint8_t cycle)
+{
+    m_AlarmLinesSettings[alarmLineId].decrementOffMinutes(cycle);
+}
+
+bool ModuleModel::saveAlarmLinesSettingsToEEPROM()
+{
+    for (uint8_t it = 0; it < ALARMS_NO_OF_LINES; it++)
+    {
+        if (false == m_AlarmLinesSettings[it].saveToEEPROM(it))
+        {
+            return false;
+        }
+    }
+
+    return true;
+}
+
+uint8_t ModuleModel::getIoLineControlWord() const
+{
+    return m_Pfc.read8();
+}
+
+void ModuleModel::setIoLineControlWord(const uint8_t controlWord)
+{
+    m_Pfc.write8(controlWord);
 }
 
 #ifdef USE_SERIAL

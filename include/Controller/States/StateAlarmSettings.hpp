@@ -2,7 +2,7 @@
 #define STATE_ALARM_SETTINGS_HPP
 
 #include "StateBase.hpp"
-#include "Controller/TimeInvariant.hpp"
+#include "Model/TimeInvariant.hpp"
 
 class StateAlarmSettings : public StateBase
 {
@@ -20,17 +20,13 @@ private:
 
     /// @brief Instance of this class.
     static StateAlarmSettings m_Instance;
-    /// @brief  Id of the currently edited line.
-    static uint8_t m_CurrentLineId;
     /// @brief  Id of the currently edited cycle for selected control line.
-    uint8_t m_CurrentCycleId;
+    uint8_t m_CycleId;
 
 protected:
     StateAlarmSettings();
-    /// @brief Table with On times for susequential ON/OFF cycles.
-    TimeInvariant m_OnTime[ALARMS_NO_OF_CYCLES_PER_LINE];
-    /// @brief Table with OFF times for susequential ON/OFF cycles.
-    TimeInvariant m_OffTime[ALARMS_NO_OF_CYCLES_PER_LINE];
+    /// @brief  Id of the currently edited alarm line.
+    static uint8_t m_AlarmLineId;
 };
 
 #endif

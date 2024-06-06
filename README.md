@@ -1,13 +1,12 @@
-
 # Introduction
 
-This is a Real Time Clock with the use of Arduino UNO, RTC DS1302, PCF8574 and 16x2 LCD.
+This is a Real Time Clock that uses Arduino UNO, RTC DS1302, PCF8574, and 16x2 LCD.
 - Displays time and date - DONE.
 - Allows to set up time manually with the keyboard - DONE.
 - Allows to set up the date manually with the keyboard - DONE.
-- Allows to set up the ON/OFF alarms on IO controll lines. - NOT READY YET.
+- Allows to set up the ON/OFF alarms on IO control lines. - DONE.
 
-In this case 8 control IO lines are provided by the i2C to IO PCF8574 extender.
+In this case, 8 control IO lines are provided by the i2C to IO PCF8574 extender.
 
 ## Goal
 
@@ -20,13 +19,14 @@ The objective is to create code that can be extended without modification to acc
 
 The benefits of this architecture are:
 - It is very easy to extend the clock with new features without modification of the existing functionality(existing files).
-- Single files with View or State implementation are very short and very simple to understand.
+- Single files with View or State implementation are concise and easy to understand.
 - If you have seen one State/View then you know how to create another one to extend functionality.
 
 ## Downsides
 
-- The existence of multuple small objects with VTABLES requires some extra amount of data memory.
+- The existence of multiple small objects with VTABLES requires some extra amount of data memory.
 - Late binding (virtual method calls) is slow. but this is not a fast application.
+- Some strange problems and instability after exceeding RAM allocation by 55% were caused by an unknown nature.
 
 # Architecture
 
@@ -36,6 +36,7 @@ A simplified diagram presents the main components of the software architecture.
 - Controller - controls the software behavior. The details of the software behavior are defined by the State Machine (component States). ModuleControler captures the input from the KeyboardControler and then passes it to the State Machine.
 - States of the State Machine give requests to the Views component. In the Views component, there are multiple - Views adapted for selected states of State Machine (for example, view to set new time).
 - Finally, the Model component encapsulates the hardware Real real-time clock (RTC) details. The Views use Model to get the date and time, while Controler can alter the Model (RTC) setting.
+
 
 ![PlantUML model](https://www.plantuml.com/plantuml/png/TPC_JyCm4CNtV8fJfp9O_653g2hG1I4wq0fcarnBX6D7ZgE2GhyxxiMrczZD45bvltlsktFcZU7Qj9N8Qfv_yot2GrsBCkUcL1Aw3En3hr8Qr1kU8xoNk7lUZ3w-gg8LQDyeh9QHUdHyKj9e9GHgw7fbMFk2lv-Awo9mri9pkQfg9L4QjqUWOYIs2f1RX6DDLeORR2R06-YNBk-eOhp78s-G-3CwQKjlCg1yBTp_iKBj93lYTu0_1cNHU7wVXTeu5x2sPkdMkU91LfeCHQKLTESRJ412VJFvOdLzUtMJqDPV6l6ZrEXjJytehCChaiQe8xEma-rAsw1dmtTcAR-derAn3tUrdp2jeFD3IOxr0CKIrIvzZISfbliTOjLFc8ZnWFVzCUnvJqTA_DHPkbYnFkoam_fyBAt29MpHBBZ1TLdXz2BhcTWwTQ6SHwA6pToFuuYvZTTMuXy0)
 
@@ -52,15 +53,17 @@ See the ModuleConfig.hpp file.
 
 # To do
 
-- Save and restore alarm/line controll settings in the EEPROM.
-- Task that will use stored in EEPROM data to trigger the otput on the controll lines.
-- Improve documentation.
-- ???
+- More testing.
+- Days of the week.
+- Cleaning EEPROM settings when the battery is bad.
+- Initialization of the IO lines to ON/OFF by the user.
 
 # Resources
 
-RAM:   [=====     ]  50.4% (used 1032 bytes from 2048 bytes)
+RAM:   [======    ]  64.8% (used 1328 bytes from 2048 bytes)
 
-Flash: [=======   ]  71.3% (used 23008 bytes from 32256 bytes)
+Flash: [========  ]  81.8% (used 26394 bytes from 32256 bytes)
 
-
+Experiencing strange problems with RAM no matter what kind of allocation is made.
+Perhaps my Arduino clone board uses a broken chip but I see the same problem with 2 boards.
+In case of a problem reduce ALARMS_NO_OF_LINES and ALARMS_NO_OF_CYCLES_PER_LINE in ModuleCOnfig.hpp.

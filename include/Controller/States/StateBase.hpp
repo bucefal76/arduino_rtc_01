@@ -3,7 +3,7 @@
 
 #include "KeyboardControllerIf.hpp"
 #include <RtcDS1302.h>
-#include <map>
+#include "ModuleConfig.hpp"
 
 class ViewIf;
 class ViewExtendedIf;
@@ -32,7 +32,10 @@ class ModuleModelStateIf;
 class StateBase
 {
 public:
+    /// @brief  Method called on the state object any time when keyboard button is press
     virtual void processButton(const KeyboardControllerIf::ButtonCode button);
+    /// @brief  Method called on the state object any tim when Controller object updates the control loop.
+    virtual void update();
     /// @brief  State machine needs to have an access to the views objects, the special one.
     static void addExtendedView(const uint8_t viewId, ViewExtendedIf *pExtendedView);
     /// @brief State machine needs to have an access to the views objects, the typical one.
@@ -61,9 +64,9 @@ protected:
     /// Returns pointer to the extended view bny given ID, see ModuleConfig.hpp for views ID.
     ViewExtendedIf *getExtendedView(const uint8_t viewId) const;
     /// @brief Map with pointers to the standard views.
-    static std::map<uint8_t, ViewIf *> m_Views;
+    static ViewIf *m_Views[MAX_VIEWS_COUNT];
     /// @brief Map with pointers to the extended views.
-    static std::map<uint8_t, ViewExtendedIf *> m_ExtendedViews;
+    static ViewExtendedIf *m_ExtendedViews[MAX_VIEWS_COUNT];
     /// @brief Pointer to the model of the RTC. Interface to do changes.
     static ModuleModelIf *m_pModel;
     /// @brief Pointer to the model of the RTC. Interface to get state only.

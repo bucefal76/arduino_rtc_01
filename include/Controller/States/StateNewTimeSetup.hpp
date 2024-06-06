@@ -4,7 +4,7 @@
 #include <Arduino.h>
 
 #include "StateBase.hpp"
-#include "Controller/TimeInvariant.hpp"
+#include "Model/TimeInvariant.hpp"
 
 /*
     This state controls the device behavior when it allows the to set operator a new time.
