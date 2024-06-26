@@ -43,7 +43,7 @@ public:
     void decrementOffHours(const uint8_t cycle);
     void incrementOffMinutes(const uint8_t cycle);
     void decrementOffMinutes(const uint8_t cycle);
-
+    /// @brief  Returns true if alarm line is armed
     bool isAlarmLineArmed() const;
 
 private:

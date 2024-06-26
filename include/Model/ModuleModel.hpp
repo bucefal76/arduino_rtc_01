@@ -28,11 +28,11 @@ public:
     /// @brief See ModuleModelStateIf.
     virtual DateTime getDateTime() const;
     /// @brief See ModuleModelStateIf.
-    virtual bool isAlarmLineArmed(const uint8_t alarmLineId) const;
+    virtual bool isAlarmLineArmed(const uint8_t alarmLineId);
     /// @brief See ModuleModelStateIf.
-    virtual AlarmLineFlagTime getAlarmLineOnTime(const uint8_t alarmLine, const uint8_t cycle);
+    virtual AlarmLineFlagTime getAlarmLineOnTime(const uint8_t alarmLineId, const uint8_t cycle);
     /// @brief See ModuleModelStateIf.
-    virtual AlarmLineFlagTime getAlarmLineOffTime(const uint8_t alarmLine, const uint8_t cycle);
+    virtual AlarmLineFlagTime getAlarmLineOffTime(const uint8_t alarmLineId, const uint8_t cycle);
     /// @brief See ModuleModelIf.
     virtual void setDateTime(const DateTime &dateTime);
     /// @brief See ModuleModelIf.
@@ -62,12 +62,14 @@ public:
     /// @brief See ModuleModelIf.
     virtual void setIoLineControlWord(const uint8_t controlWord);
 
+    virtual void loadAlarmLineSettingsStorage(const uint8_t alarmLine);
+
 private:
     ModuleModel();
-
-    void initAlarmSettingsStorage();
-    /// @brief Table with the alarm lines settings objects.
-    AlarmLineSettingsStorage m_AlarmLinesSettings[ALARMS_NO_OF_LINES];
+    /// @brief The alarm lines settings objects.
+    AlarmLineSettingsStorage m_AlarmLineSettings;
+    ///
+    uint8_t m_CurrentlyLoadedAlarmLine;
 
 #ifdef USE_SERIAL
     void
