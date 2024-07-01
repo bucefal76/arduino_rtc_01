@@ -17,6 +17,7 @@ ModuleModel *ModuleModel::getInstance()
 }
 
 ModuleModel::ModuleModel()
+    : m_CurrentlyLoadedAlarmLine(0U)
 {
     /*
       Part of the code was found over the Internet with examples of how to use the RtcDS1302 library.
@@ -81,8 +82,6 @@ ModuleModel::ModuleModel()
 #endif
     }
 
-    initAlarmSettingsStorage();
-
     m_Pfc.begin();
 
     if (m_Pfc.isConnected())
@@ -99,6 +98,8 @@ ModuleModel::ModuleModel()
         Serial.println(F("Pin expander is NOT connected!"));
 #endif
     }
+
+    loadAlarmLineSettingsStorage(m_CurrentlyLoadedAlarmLine);
 }
 
 bool ModuleModel::isDateTimeValid() const
@@ -120,16 +121,30 @@ void ModuleModel::setDateTime(const DateTime &dateTime)
     m_Rtc.SetDateTime(rctDateTime);
 }
 
-bool ModuleModel::isAlarmLineArmed(const uint8_t alarmLineId) const
+bool ModuleModel::isAlarmLineArmed(const uint8_t alarmLineId)
 {
-    return m_AlarmLinesSettings[alarmLineId].isAlarmLineArmed();
+    if (alarmLineId != m_CurrentlyLoadedAlarmLine)
+    {
+        m_CurrentlyLoadedAlarmLine = alarmLineId;
+
+        loadAlarmLineSettingsStorage(m_CurrentlyLoadedAlarmLine);
+    }
+
+    return m_AlarmLineSettings.isAlarmLineArmed();
 }
 
-AlarmLineFlagTime ModuleModel::getAlarmLineOnTime(const uint8_t alarmLine, const uint8_t cycle)
+AlarmLineFlagTime ModuleModel::getAlarmLineOnTime(const uint8_t alarmLineId, const uint8_t cycle)
 {
-    if (alarmLine < ALARMS_NO_OF_LINES)
+    if (alarmLineId < ALARMS_NO_OF_LINES)
     {
-        return m_AlarmLinesSettings[alarmLine].getOnTimeForCycle(cycle).getAlarmLineFlagTime();
+        if (alarmLineId != m_CurrentlyLoadedAlarmLine)
+        {
+            m_CurrentlyLoadedAlarmLine = alarmLineId;
+
+            loadAlarmLineSettingsStorage(m_CurrentlyLoadedAlarmLine);
+        }
+
+        return m_AlarmLineSettings.getOnTimeForCycle(cycle).getAlarmLineFlagTime();
     }
     else
     {
@@ -137,11 +152,18 @@ AlarmLineFlagTime ModuleModel::getAlarmLineOnTime(const uint8_t alarmLine, const
     }
 }
 
-AlarmLineFlagTime ModuleModel::getAlarmLineOffTime(const uint8_t alarmLine, const uint8_t cycle)
+AlarmLineFlagTime ModuleModel::getAlarmLineOffTime(const uint8_t alarmLineId, const uint8_t cycle)
 {
-    if (alarmLine < ALARMS_NO_OF_LINES)
+    if (alarmLineId < ALARMS_NO_OF_LINES)
     {
-        return m_AlarmLinesSettings[alarmLine].getOffTimeForCycle(cycle).getAlarmLineFlagTime();
+        if (alarmLineId != m_CurrentlyLoadedAlarmLine)
+        {
+            m_CurrentlyLoadedAlarmLine = alarmLineId;
+
+            loadAlarmLineSettingsStorage(m_CurrentlyLoadedAlarmLine);
+        }
+
+        return m_AlarmLineSettings.getOffTimeForCycle(cycle).getAlarmLineFlagTime();
     }
     else
     {
@@ -151,73 +173,132 @@ AlarmLineFlagTime ModuleModel::getAlarmLineOffTime(const uint8_t alarmLine, cons
 
 bool ModuleModel::setAlarmLineOnTime(const uint8_t alarmLineId, const uint8_t cycle, const TimeInvariant &onTime)
 {
-    return m_AlarmLinesSettings[alarmLineId].setOnTimeForCycle(onTime, cycle);
+    if (alarmLineId != m_CurrentlyLoadedAlarmLine)
+    {
+        m_CurrentlyLoadedAlarmLine = alarmLineId;
+
+        loadAlarmLineSettingsStorage(m_CurrentlyLoadedAlarmLine);
+    }
+
+    return m_AlarmLineSettings.setOnTimeForCycle(onTime, cycle);
 }
 
 bool ModuleModel::setAlarmLineOffTime(const uint8_t alarmLineId, const uint8_t cycle, const TimeInvariant &offTime)
 {
-    return m_AlarmLinesSettings[alarmLineId].setOffTimeForCycle(offTime, cycle);
+    if (alarmLineId != m_CurrentlyLoadedAlarmLine)
+    {
+        m_CurrentlyLoadedAlarmLine = alarmLineId;
+
+        loadAlarmLineSettingsStorage(m_CurrentlyLoadedAlarmLine);
+    }
+
+    return m_AlarmLineSettings.setOffTimeForCycle(offTime, cycle);
 }
 
-void ModuleModel::initAlarmSettingsStorage()
+void ModuleModel::loadAlarmLineSettingsStorage(const uint8_t alarmLine)
 {
-    for (uint8_t alarmLineIt = 0; alarmLineIt < ALARMS_NO_OF_LINES; alarmLineIt++)
-    {
-        m_AlarmLinesSettings[alarmLineIt].readFromEEPROM(alarmLineIt);
-    }
+    m_AlarmLineSettings.readFromEEPROM(alarmLine);
 }
 
 void ModuleModel::incrementOnHours(const uint8_t alarmLineId, const uint8_t cycle)
 {
-    m_AlarmLinesSettings[alarmLineId].incrementOnHours(cycle);
+    if (alarmLineId != m_CurrentlyLoadedAlarmLine)
+    {
+        m_CurrentlyLoadedAlarmLine = alarmLineId;
+
+        loadAlarmLineSettingsStorage(m_CurrentlyLoadedAlarmLine);
+    }
+
+    m_AlarmLineSettings.incrementOnHours(cycle);
 }
 
 void ModuleModel::decrementOnHours(const uint8_t alarmLineId, const uint8_t cycle)
 {
-    m_AlarmLinesSettings[alarmLineId].decrementOnHours(cycle);
+    if (alarmLineId != m_CurrentlyLoadedAlarmLine)
+    {
+        m_CurrentlyLoadedAlarmLine = alarmLineId;
+
+        loadAlarmLineSettingsStorage(m_CurrentlyLoadedAlarmLine);
+    }
+
+    m_AlarmLineSettings.decrementOnHours(cycle);
 }
 
 void ModuleModel::incrementOnMinutes(const uint8_t alarmLineId, const uint8_t cycle)
 {
-    m_AlarmLinesSettings[alarmLineId].incrementOnMinutes(cycle);
+    if (alarmLineId != m_CurrentlyLoadedAlarmLine)
+    {
+        m_CurrentlyLoadedAlarmLine = alarmLineId;
+
+        loadAlarmLineSettingsStorage(m_CurrentlyLoadedAlarmLine);
+    }
+
+    m_AlarmLineSettings.incrementOnMinutes(cycle);
 }
 
 void ModuleModel::decrementOnMinutes(const uint8_t alarmLineId, const uint8_t cycle)
 {
-    m_AlarmLinesSettings[alarmLineId].decrementOnMinutes(cycle);
+    if (alarmLineId != m_CurrentlyLoadedAlarmLine)
+    {
+        m_CurrentlyLoadedAlarmLine = alarmLineId;
+
+        loadAlarmLineSettingsStorage(m_CurrentlyLoadedAlarmLine);
+    }
+
+    m_AlarmLineSettings.decrementOnMinutes(cycle);
 }
 
 void ModuleModel::incrementOffHours(const uint8_t alarmLineId, const uint8_t cycle)
 {
-    m_AlarmLinesSettings[alarmLineId].incrementOffHours(cycle);
+    if (alarmLineId != m_CurrentlyLoadedAlarmLine)
+    {
+        m_CurrentlyLoadedAlarmLine = alarmLineId;
+
+        loadAlarmLineSettingsStorage(m_CurrentlyLoadedAlarmLine);
+    }
+
+    m_AlarmLineSettings.incrementOffHours(cycle);
 }
 
 void ModuleModel::decrementOffHours(const uint8_t alarmLineId, const uint8_t cycle)
 {
-    m_AlarmLinesSettings[alarmLineId].decrementOffHours(cycle);
+    if (alarmLineId != m_CurrentlyLoadedAlarmLine)
+    {
+        m_CurrentlyLoadedAlarmLine = alarmLineId;
+
+        loadAlarmLineSettingsStorage(m_CurrentlyLoadedAlarmLine);
+    }
+
+    m_AlarmLineSettings.decrementOffHours(cycle);
 }
 
 void ModuleModel::incrementOffMinutes(const uint8_t alarmLineId, const uint8_t cycle)
 {
-    m_AlarmLinesSettings[alarmLineId].incrementOffMinutes(cycle);
+    if (alarmLineId != m_CurrentlyLoadedAlarmLine)
+    {
+        m_CurrentlyLoadedAlarmLine = alarmLineId;
+
+        loadAlarmLineSettingsStorage(m_CurrentlyLoadedAlarmLine);
+    }
+
+    m_AlarmLineSettings.incrementOffMinutes(cycle);
 }
 
 void ModuleModel::decrementOffMinutes(const uint8_t alarmLineId, const uint8_t cycle)
 {
-    m_AlarmLinesSettings[alarmLineId].decrementOffMinutes(cycle);
+    if (alarmLineId != m_CurrentlyLoadedAlarmLine)
+    {
+        m_CurrentlyLoadedAlarmLine = alarmLineId;
+
+        loadAlarmLineSettingsStorage(m_CurrentlyLoadedAlarmLine);
+    }
+
+    m_AlarmLineSettings.decrementOffMinutes(cycle);
 }
 
 bool ModuleModel::saveAlarmLinesSettingsToEEPROM()
 {
-    for (uint8_t it = 0; it < ALARMS_NO_OF_LINES; it++)
-    {
-        if (false == m_AlarmLinesSettings[it].saveToEEPROM(it))
-        {
-            return false;
-        }
-    }
-
-    return true;
+    return m_AlarmLineSettings.saveToEEPROM(m_CurrentlyLoadedAlarmLine);
 }
 
 uint8_t ModuleModel::getIoLineControlWord() const

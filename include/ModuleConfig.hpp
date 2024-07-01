@@ -57,7 +57,7 @@
 /// till device stop work - usually there is no display at power up.
 /// When device fails, decrease ALARMS_NO_OF_LINES or ALARMS_NO_OF_CYCLES_PER_LINE
 /// until device works again.
-#define ALARMS_NO_OF_LINES 6
+#define ALARMS_NO_OF_LINES 8
 #define ALARMS_NO_OF_CYCLES_PER_LINE 5
 
 /* Helpers */

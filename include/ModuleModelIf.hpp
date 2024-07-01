@@ -54,6 +54,8 @@ public:
     /// @brief Set 8 bit value that control the IO lines state.
     /// @param controlWord New value of the IO lines.
     virtual void setIoLineControlWord(const uint8_t controlWord) = 0;
+
+    virtual void loadAlarmLineSettingsStorage(const uint8_t alarmLine) = 0;
 };
 
 #endif
