@@ -45,7 +45,6 @@ A simplified diagram presents the main components of the software architecture.
 - LiquidCrystal.h
 - RtcDS1302.h (https://github.com/Makuna/Rtc/blob/master/src/RtcDS1302.h)
 - ThreeWire.h (https://github.com/Makuna/Rtc/blob/master/src/RtcDS1302.h)
-- vector and map by ArduinoSTL (https://github.com/mike-matera/ArduinoSTL?utm_source=platformio&utm_medium=piohome)
 
 ## Wiring
 
@@ -53,17 +52,14 @@ See the ModuleConfig.hpp file.
 
 # To do
 
-- More testing.
-- Days of the week.
-- Cleaning EEPROM settings when the battery is bad.
+- More testing including a UT.
+- Watchdog support.
+- Suport for Days of the week.
+- Cleaning EEPROM settings when the battery is bad or at the user requst.
 - Initialization of the IO lines to ON/OFF by the user.
 
 # Resources
 
-RAM:   [======    ]  64.8% (used 1328 bytes from 2048 bytes)
+RAM:   [=======   ]  65.0% (used 1332 bytes from 2048 bytes)
 
-Flash: [========  ]  81.8% (used 26394 bytes from 32256 bytes)
-
-Experiencing strange problems with RAM no matter what kind of allocation is made.
-Perhaps my Arduino clone board uses a broken chip but I see the same problem with 2 boards.
-In case of a problem reduce ALARMS_NO_OF_LINES and ALARMS_NO_OF_CYCLES_PER_LINE in ModuleCOnfig.hpp.
+Flash: [========  ]  82.2% (used 26526 bytes from 32256 bytes)
