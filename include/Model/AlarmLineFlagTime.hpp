@@ -6,6 +6,8 @@
     This struct is a flag to set high or low the IO output.
 */
 
+#include <Arduino.h>
+
 struct AlarmLineFlagTime
 {
     AlarmLineFlagTime()

@@ -1,8 +1,6 @@
 #ifndef ALARM_LINE_SETTINGS_STORAGE_HPP
 #define ALARM_LINE_SETTINGS_STORAGE_HPP
 
-#include <vector>
-
 #include "AlarmLineFlagTime.hpp"
 #include "TimeInvariant.hpp"
 #include "ModuleConfig.hpp"
